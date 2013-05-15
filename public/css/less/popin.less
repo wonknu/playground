@@ -1,0 +1,223 @@
+#overlay{
+  height:100%;
+  width:100%;
+  position:absolute;
+  background:url('../images/common/overlay.png') repeat 0 0 transparent;
+  z-index:998;
+  display:none;
+}
+
+#wrap-popin{
+  display:none;
+  background:@white;
+  width:600px;
+  height:50%;
+  position:fixed;
+  left:50%;
+  top:10%;
+  margin-left:-325px;
+  padding:25px;
+  -moz-border-radius:15px;
+  -webkit-border-radius:15px;
+  -o-border-radius:15px;
+  border-radius:15px;
+  z-index:999;
+  #close{
+    height:24px;
+    width:24px;
+    background:url('../images/common/popin-close.png') no-repeat center center transparent;
+    cursor:pointer;
+    position:absolute;
+    right:-8px;
+    top:-8px;
+  }
+  #popin{
+    height:100%;
+    h1{
+      color:@greendark;
+      font:20px @helvelight;
+      margin:0 0 15px;
+    }
+    h2{
+      color:@greenlight;
+      font:bold 12px @arial;
+      margin:15px 0;
+    }
+    h3{
+      font-weight:bold;
+      color:@greydark;
+      margin-bottom:0;
+      font:bold 12px @arial;
+    }
+    h4{
+      font:normal 14px @arial;
+      color:@greydark;
+      margin-bottom:10px;
+      text-decoration:underline;
+    }
+    ol{
+      list-style: decimal outside none;
+      margin: 25px 0 25px 25px;
+      li{
+        margin-bottom: 10px;
+        padding-left: 10px;
+        color:@greydark;
+      }
+    }
+    ul{
+      list-style:none;
+      margin: 25px 0 25px 8px;
+      li{
+        color:@greydark;
+        background:url("../images/common/chip.png") no-repeat left 5px;
+        padding-left: 25px;
+        margin-bottom: 10px;
+      }
+    }
+    strong{
+      font-weight:bold;
+    }
+    em{
+      font-style:italic
+    }
+    sup{
+      vertical-align:super;
+    }
+    a{
+      color:@greendark;
+      text-decoration:underline;
+      &:hover{
+        color:@greenlight;
+      }
+    }
+    p{
+      color:@greydark;
+      margin:0 0 15px;
+      font-size:12px;
+    }
+    q:before{
+      content:url("../images/common/quote-before.png");
+      position:absolute;
+      left:0;
+      top:10px;
+    }
+    q:after{
+      content:url("../images/common/quote-after.png");
+      position:absolute;
+      right:0;
+      bottom:10px;
+    }
+    q{
+      display:block;
+      position:relative;
+      padding:10px 40px;
+      text-align:justify;
+    }
+  }
+}
+
+
+/* jscrollpane */
+.scroll-pane{
+   width: 100%;
+   height:100%;
+   overflow: auto;
+}
+.jspContainer{
+  overflow: hidden;
+  position: relative;
+}
+
+.jspPane{
+  position: absolute;
+}
+
+.jspVerticalBar{
+  position: absolute;
+  top: 0;
+  right: 0;
+  width: 12px;
+  height: 100%;
+  background:#F4F4F4;
+}
+
+.jspHorizontalBar{
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  width: 100%;
+  height: 10px;
+  display:none;
+}
+
+.jspVerticalBar *,
+.jspHorizontalBar *{
+  margin: 0;
+  padding: 0;
+}
+
+.jspCap{
+  display: none;
+}
+
+.jspHorizontalBar .jspCap{
+  float: left;
+}
+
+.jspTrack{
+  position: relative;
+  width:13px;
+}
+
+.jspDrag{
+  background: #444444;
+  position: relative;
+  top: 0;
+  right: 0;
+  cursor: pointer;
+  width:12px;
+  
+}
+
+.jspHorizontalBar .jspTrack,
+.jspHorizontalBar .jspDrag{
+  float: left;
+  height: 100%;
+}
+
+.jspArrow{
+  background: #50506d;
+  text-indent: -20000px;
+  display: block;
+  cursor: pointer;
+}
+
+.jspArrow.jspDisabled{
+  cursor: default;
+  background: #80808d;
+}
+
+.jspVerticalBar .jspArrow{
+  height: 16px;
+}
+
+.jspHorizontalBar .jspArrow{
+  width: 16px;
+  float: left;
+  height: 100%;
+}
+
+.jspVerticalBar .jspArrow:focus{
+  outline: none;
+}
+
+.jspCorner{
+  background: #eeeef4;
+  float: left;
+  height: 100%;
+}
+
+/* Yuk! CSS Hack for IE6 3 pixel bug :( */
+* html .jspCorner{
+  margin: 0 -3px 0 0;
+}

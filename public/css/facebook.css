@@ -1,0 +1,35 @@
+#containerpage {
+  -moz-box-shadow: 0px 0px 15px 0px #ddd;
+  -webkit-box-shadow: 0px 0px 15px 0px #ddd;
+  -o-box-shadow: 0px 0px 15px 0px #ddd;
+  box-shadow: 0px 0px 15px 0px #ddd;
+  width: 660px;
+  margin: 0 auto;
+  padding: 40px 20px 50px;
+  background: #fff;
+}
+#containerpage.facebook .block-game .social-share {
+  display: none;
+}
+#containerpage.facebook #new-user {
+  padding: 0 0 20px;
+}
+#containerpage.facebook #new-user .span8 {
+  width: 100%;
+}
+#containerpage.facebook #lost-pass {
+  padding: 0 0 50px;
+}
+#containerpage.facebook #lost-pass .container-content {
+  width: 100%;
+}
+#containerpage.facebook #lost-pass .container-content #container-form {
+  padding: 5% 2%;
+  width: 96%;
+}
+#containerpage.facebook #lost-pass .container-content #container-form form input[type="text"] {
+  width: 250px;
+}
+#wrap-popin {
+  margin-left: -325px;
+}

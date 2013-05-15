@@ -1,0 +1,183 @@
+// HOMEPAGE
+// -------------------------
+#containerpage{
+  background:#fff;
+  -moz-box-shadow: 0px 0px 3px 0px #9d9d9d;
+  -webkit-box-shadow: 0px 0px 3px 0px #9d9d9d;
+  -o-box-shadow: 0px 0px 3px 0px #9d9d9d;
+  box-shadow: 0px 0px 3px 0px #9d9d9d;
+  padding:40px 20px 50px;
+  position:relative;
+  z-index:3;
+  
+  #top-promo{
+    position:relative;
+    margin-bottom:25px;
+    .carousel{
+      .carousel-inner{
+        min-height:480px;
+        .item{
+          .span12{
+            float:none;
+          }
+        }
+      }
+    }
+    .stamp{
+      position:absolute;
+      top:70%;
+      width:20%;
+      right:0;
+      img{
+        width:auto!important;
+      }
+    }
+    .img-content{
+      position:relative;
+      img{
+        margin:0;
+        padding:0;
+        width:100%;
+        -moz-border-radius-topleft: 10px;
+        -moz-border-radius-topright: 10px;
+        -webkit-border-top-right-radius: 10px;
+        -webkit-border-top-left-radius: 10px;
+        border-top-left-radius:10px;
+        border-top-right-radius:10px;
+      }
+      .dark-overlay{
+        position:absolute;
+        bottom:0;
+        left:0;
+        width:94%;
+        padding:2% 3%;
+        background:url("../images/common/dark-overlay.png") repeat center center transparent;
+      }
+      .title-promo{
+        font:45px @helvelight;
+        color:@white;
+        width:74%;
+        display:inline-block;
+        vertical-align:middle;
+        a{
+          color:@white;
+          &:hover{
+            color:@greenlight;
+            text-decoration:none;
+          }
+        }
+      }
+      .button-wrap{
+        display:inline-block;
+        vertical-align:middle;
+        width:25%;
+        text-align:right;
+      }
+      .btn{
+        height:55px;
+        display:inline-block;
+        vertical-align:middle;
+        a{
+          font:30px/55px @nexabold;
+          color:@white;
+          text-shadow:0px 1px 1px #DC2E11;
+          display:block;
+          margin:0 10px 0 30px;
+          &:hover{
+            text-decoration:none;
+          }
+        }
+      }
+    } // END .img-content
+    .promo-infos{
+      background:#e6e6e6;
+      -moz-border-radius-bottomleft: 5px;
+      -moz-border-radius-bottomright: 5px;
+      -webkit-border-bottom-right-radius: 5px;
+      -webkit-border-bottom-left-radius: 5px;
+      border-bottom-left-radius:5px;
+      border-bottom-right-radius:5px;
+      height:35px;
+      padding:0 3%;
+      div{
+        display:inline-block;
+        vertical-align:top;
+        &.quiz{
+          background:url("../images/common/icon-quiz.png") no-repeat left center;
+          padding:0 0 0 35px;
+          font:bold 13px/36px @arial;
+        }
+        &.instantwin{
+          background:url("../images/common/icon-instantwin.png") no-repeat left center;
+          padding:0 0 0 35px;
+          font:bold 13px/36px @arial;
+        }
+        &.lottery{
+          background:url("../images/common/dice.png") no-repeat left center;
+          padding:0 0 0 35px;
+          font:bold 13px/36px @arial;
+        }
+        &.postvote{
+          background:url("../images/common/icon-bulles.png") no-repeat left center;
+          padding:0 0 0 35px;
+          font:bold 13px/36px @arial;
+        }
+        &.logo-partner{
+          vertical-align:bottom;
+          height: 33px;
+          img{
+            max-height:33px;
+            display: block;
+            vertical-align: bottom;
+          }
+          span{
+            margin-top:3px;
+            margin-right:5px;
+            font:bold 13px/36px @arial;
+          }
+        }
+        &.social-share{
+          float:right;
+          margin: 6px 0 0;
+          a{
+            width:25px;
+            height:23px;
+            display:inline-block;
+            &.dark-fb{
+              background:url("../images/common/icon-facebook-black.png") no-repeat center center;
+              &:hover{
+                background:url("../images/common/icon-facebook-over.png") no-repeat center center;
+              }
+            }
+            &.dark-tw{
+              background:url("../images/common/icon-twitter-black.png") no-repeat center center;
+              &:hover{
+                background:url("../images/common/icon-twitter-over.png") no-repeat center center;
+              }
+            }
+            &.dark-gl{
+              background:url("../images/common/icon-googleplus-black.png") no-repeat center center;
+              &:hover{
+                background:url("../images/common/icon-googleplus-over.png") no-repeat center center;
+              }
+            }
+          }
+        }
+      }
+    }
+    .shadow-toppromo{
+      background:url("../images/content/top-promo/shadow-bg.png") no-repeat center bottom;
+      background-size:100% auto;
+      box-shadow: none;
+      height: 15px;
+      width: 100%;
+    }
+  } // END #top-promo
+  
+  .content-inner{
+    .block-game{
+      margin-bottom:30px;
+    }
+  } // END .content-inner
+  
+} // END #homepage

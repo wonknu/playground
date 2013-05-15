@@ -1,0 +1,32 @@
+<div id="footer" class="row-fluid">
+	<div class="logo span3"><a href="<?php echo $this->url('home') ?>"><img src="<?php echo $this->basePath('images/common/logo.png')?>" width="117" height="116" border="0" /></a></div>
+	<div class="social-share">
+		<div class="title">Rejoignez-nous!</div>
+		<ul>
+			<li><a href="http://www.facebook.com/adfabagency" class="fb" target="_blank"></a></li>
+			<li><a href="#" class="tw" target="_blank"></a></li>
+			<li><a href="#" class="gl" target="_blank"></a></li>
+			<li><a href="#" class="pt" target="_blank"></a></li>
+		</ul>
+	</div>
+	<ul class="bottomnav span3">
+		<li class="nav-item"><a href="<?php echo $this->url('home') ?>">Accueil</a></li>
+		<li class="nav-item"><a href="<?php echo $this->url('jeuxconcours') ?>">Tous les jeux concours</a></li>
+		<li class="nav-item"><a href="<?php echo $this->url('winner') ?>">Les gagnants</a></li>
+		<li class="nav-item"><a href="<?php echo $this->url('cms', array('id' => 'comment-ca-marche')); ?>">Comment ça marche ?</a></li>
+		<li class="nav-item"><a href="<?php if($this->zfcUserIdentity()): echo $this->url('badges'); else : echo $this->url('zfcuser/register') . ($this->redirect ? '?redirect='.$this->redirect : ''); endif; ?>">Mon compte</a></li>
+		<li class="nav-item"><a href="<?php echo $this->url('contact') ?>">Contactez-nous</a></li>
+		<li class="nav-item"><a href="<?php echo $this->url('faq') ?>">FAQ</a></li>
+	</ul>
+	<ul class="jeuxnav span3">
+		<li class="title">Les jeux concours,<br />à gagner :</li>
+		<?php $categories = $this->adfabPrizeCategory(); ?>
+        <?php foreach($categories as $category): ?>
+            <li class="jeu-item"><a href="<?php echo $this->url('prizecategories') . $category->getIdentifier(); ?>"><?php echo $category->getTitle() ?></a></li>
+        <?php endforeach ?>
+	</ul>
+	<div class="fb-box span3">
+		<div class="fb-like-box" data-href="http://www.facebook.com/adfabagency" data-width="287" data-height="185" data-show-faces="true" data-stream="false" data-border-color="#ffffff" data-header="false"></div>
+	</div>
+	<div class="actu"><a href="http://playground.adfab.fr" target="_blank">&lt; Retrouvez toute l'actualité</a></div>
+</div>

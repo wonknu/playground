@@ -1,0 +1,962 @@
+// Responsive Tablet
+// Format portrait
+// -------------------------
+@media screen and (max-width: 800px) {
+  // DEFAULT
+  // -----------------------
+  // ADSERVING
+  #ad-left,
+  #ad-right,
+  #ad-top,
+  #ad-mega-banner,
+  #ad-sidebar{
+    display:none;
+  }
+  body{
+    background:#f4f4f4 url("../images/common/bg-body.jpg") repeat;
+  } // END ADSERVING
+  
+  // BLOCK-GAME
+  .block-game{
+    .game-price-content{
+      .logo-star{
+        width:17%;
+        float:left;
+      }
+      .txt{
+        width:80%;
+        float:left;
+      }
+    }
+    .dark-overlay{
+      padding: 3% 3% 2%;
+    }
+    &.start,
+    &.over{
+      h2{
+        width:70%;
+        float:left;
+      }
+    }
+    .btn{
+      height: 40px;
+      padding: 0 10px 0 20px;
+      a{
+        line-height:40px;
+      }
+    }
+    .stamp{
+      img{
+        width:90%;
+        float: right;
+      }
+    }
+  } // END .block-game
+  
+  // PAGINATION
+  .pagination{
+    background:@white;
+    padding-bottom:40px;
+    border:none;
+    width: 85%;
+    margin:0 auto;
+    ul{
+      &.paginate-nb{
+        display:none;
+      }
+      &.paginate-first{
+        float:left;
+        width:150px;
+        li{
+          text-indent: 0;
+          background:url("../images/common/button-green-dark.jpg") repeat-x center center;
+          -moz-border-radius: 4px;
+          -webkit-border-radius: 4px;
+          -o-border-radius: 4px;
+          border-radius: 4px;
+          &:hover{
+            background:#1e874a;
+          }
+          a{
+            width: auto;
+            height:25px;
+            font:bold 12px/25px @arial;
+            color:@white;
+            text-transform:uppercase;
+            &:hover{
+              text-decoration:none;
+            }
+            &.prev{
+              background:url("../images/common/arrow-white-left-small.png") no-repeat left center;
+              margin: 0 0 0 8px;
+              padding: 0 30px;
+              &:hover{
+                background:url("../images/common/arrow-white-left-small.png") no-repeat left center;
+              }
+            }
+            &.inactive{
+              display:none;
+            }
+            &.first{
+              display:none;
+            }
+          }
+        }
+      }
+      &.paginate-last{
+        float:right;
+        width:150px;
+        li{
+          text-indent: 0;
+          background:url("../images/common/button-green-dark.jpg") repeat-x center center;
+          -moz-border-radius: 4px;
+          -webkit-border-radius: 4px;
+          -o-border-radius: 4px;
+          border-radius: 4px;
+          &:hover{
+            background:#1e874a;
+          }
+          a{
+            width: auto;
+            height:25px;
+            font:bold 12px/25px @arial;
+            color:@white;
+            text-transform:uppercase;
+            &:hover{
+              text-decoration:none;
+            }
+            &.next{
+              background:url("../images/common/arrow-white-right-small.png") no-repeat right center;
+              margin: 0 8px 0 0;
+              padding: 0 30px;
+              &:hover{
+                background:url("../images/common/arrow-white-right-small.png") no-repeat right center;
+              }
+            }
+            &.inactive{
+              display:none;
+            }
+            &.last{
+              display:none;
+            }
+          }
+        }
+      }
+    }
+  } // END .pagination
+  
+  // BREADCRUMB
+  .breadcrumb{
+    display:none;
+    width:85%;
+    margin:0 auto 20px;
+  }
+  
+  .page-error{
+    background:@white;
+    margin: 0 auto;
+    padding: 50px 5% 80px;
+    width: 90%;
+    .img-404{
+      display: block;
+      float: none;
+      margin: 0 auto;
+      text-align: center;
+      width: 100%;
+    }
+    h1{
+      margin-top:15px;
+    }
+  }
+  
+  // HEADER
+  // -----------------------
+  #header{
+    .bartop{
+      .topnav{
+        display:none;
+      }
+    }
+    .barnav{
+      #menu{
+        background:url("../images/header/icon-menu.jpg") no-repeat center center;
+        float:right;
+        width:33px;
+        margin-right:20px;
+        display:inline-block;
+        height:40px;
+        cursor:pointer;
+      }
+      .mainnav{
+        background: url("../images/header/bg-slide-menu.png") no-repeat scroll center bottom;
+        display: none;
+        height: auto;
+        max-width: 165px;
+        padding:7px 0 15px;
+        position: absolute;
+        right: 0;
+        top: 40px;
+        width: 100%;
+        overflow:hidden;
+        li{
+          display:block;
+          float:none;
+          text-align: left;
+          margin:0;
+          padding:5px 15px;
+          position:relative;
+          &.games,
+          &.winners{
+            left:0;
+            width:100%;
+          }
+          a{
+            color:@white;
+            &:hover{
+              text-decoration:none;
+            }
+          }
+          &:hover{
+            background:url('../images/common/overlay-white.png') repeat 0 0;
+          }
+        }
+      }
+      #not-logged{
+        float:right;
+        .connexion{
+          background:none;
+          .link-connect{
+            background: url("../images/header/icon-connexion.jpg") no-repeat scroll center center;
+            display: block;
+            height: 40px;
+            margin: 0 15px 0 0;
+            padding: 0;
+            text-indent: -9999em;
+            width: 30px;
+            font-size: 0;
+            float:right;
+            overflow:auto;
+          }
+        }
+      }
+      #logged{
+        float:right;
+        margin-right:15px;
+        .connexion{
+          width:auto !important;
+        }
+      }
+    }
+  } // END #header
+  
+  // FOOTER
+  // -----------------------
+  #footer{
+    overflow: auto;
+    .span3{
+      float:left;
+      width:27.7%;
+      margin-right:25px;
+      &.jeuxnav{
+        float:right;
+        margin-left:0;
+      }
+    }
+    .fb-box{
+      display:none;
+    }
+  } // END #footer
+  
+  // HOMEPAGE
+  // -----------------------
+  #containerpage{
+    background:none;
+    padding:0;
+    #top-promo{
+      background:@white;
+      margin:0 auto;
+      .span12{
+        padding:40px 20px 25px;
+      }
+      .img-content{
+        .title-promo{
+          bottom: 8px;
+          font-size: 35px;
+          line-height:35px;
+          left: 3%;
+          width: 65%;
+        }
+        .button-wrap{
+          width:34%;
+        }
+        .btn {
+          bottom: 20px;
+          height: 45px;
+          a {
+            line-height:45px;
+            margin: 0 5px 0 20px;
+          }
+        }
+      }
+      .carousel-control{
+        left:35px;
+        &.right{
+          left:auto;
+          right:35px;
+        }
+      }
+    } // END #top-promo
+    .content-inner{
+      float:none !important;
+      width:100%;
+      margin: 0 auto;
+      background:@white;
+      -moz-box-shadow: 0px 0px 3px 0px #9d9d9d;
+      -webkit-box-shadow: 0px 0px 3px 0px #9d9d9d;
+      -o-box-shadow: 0px 0px 3px 0px #9d9d9d;
+      box-shadow: 0px 0px 3px 0px #9d9d9d;
+      .block-game{
+        width:85%;
+        margin:0 auto 50px;
+      }
+    }
+  } // END #homepage
+  
+  // PAGE Col LEFT
+  // -----------------------
+  #containerpage{
+    .col-left{
+      .content-inner{
+        -moz-border-radius-topleft: 15px;
+        -moz-border-radius-topright: 15px;
+        -webkit-border-top-right-radius: 15px;
+        -webkit-border-top-left-radius: 15px;
+        border-top-left-radius:15px;
+        border-top-right-radius:15px;
+      }
+    }
+  }
+  
+  // PAGE Gagnants
+  // -----------------------
+  #containerpage{
+    .content-inner{
+      #winners{
+        &.list{
+          padding-top:50px;
+        }
+        &.page{
+          padding-top:50px;
+          h1{
+            width:85%;
+            margin:0 auto;
+          }
+          .content-winner{
+            padding:0;
+            margin:0 auto;
+            width:85%;
+          }
+          .date-social-bottom{
+            width:85%;
+          }
+          .navigation{
+            width:85%;
+            margin:0 auto 25px;
+            .span4{
+              width:33%;
+              float:right;
+              .btn{
+                float:right;
+              }
+              &.offset3{
+                margin-left:26%;
+              }
+            }
+          }
+        }
+      }
+    }
+  }
+  
+  // GAME PAGE
+  // -----------------------
+  #jeux-concours{
+    padding-bottom:5px;
+    h1{
+      margin: 0 auto 30px;
+      width: 85%;
+    }
+    .block-game{
+      margin-bottom:30px !important;
+    }
+    &.thematique{
+      padding-top:35px;
+      h1{
+        font-size: 35px;
+        line-height: 35px;
+      }
+    }
+  }
+  
+  // GAME PAGE
+  // -----------------------
+  #containerpage{
+    .content-inner{
+      .game-instantwin,
+      .game-quiz,
+      .game-lottery,
+      .game-postvote,
+      .game-photo{ // Commun à tous les jeux
+        padding: 40px 0 10px;
+        h1{
+          font-size: 35px;
+          line-height: 38px;
+          margin: 0 auto 15px;
+          width: 85%;
+        }
+        .block-game{
+          margin:0 auto 30px;
+        }
+        .backgrey{
+          width:78% !important;
+          margin: 0 auto;
+          padding: 5% 4% 3%;
+          h1{
+            width:100%;
+            margin:0 0 10px;
+          }
+          &.lose{
+            padding: 2%;
+            width: 80% !important;
+          }
+        }
+        #reglement{
+          margin: 5px auto 15px;
+          width: 85%;
+        }
+        #share-instantwin{
+          margin: 20px auto 40px;
+          width: 85%;
+        }
+        &.recirculation{
+          .offer{
+            margin: 0 auto 30px;
+            width: 85%;
+          }
+          .other-games{
+            margin: 0 auto 30px;
+            padding-bottom:0;
+            width: 85%;
+            .block-game{
+              width: 100%;
+            }
+          }
+          .feed-news{
+            margin: 0 auto 30px;
+            width: 85%;
+          }
+        }
+      }
+      .game-instantwin{ // Instant-gagnant
+        #play-instantwin{
+          margin-bottom:20px;
+          .instructions{
+            margin: 5px auto 15px;
+            width: 85%;
+          }
+        }
+        #result-instantwin{
+          .backgrey{
+            margin: 0 auto 20px;
+            padding: 2%;
+            width: 81% !important;
+          }
+        }
+      }
+      .game-postvote{ // Post & vote
+        #content-article{
+          .center{
+            .btn{
+              a{
+                font-size:18px;
+              }
+            }
+          }
+        }
+        .buttons{
+          margin: 0 auto 30px;
+          width:85%;
+          .span4 {
+            width:40%;
+          }
+        }
+        &.preview{
+          form{
+            #content-article{
+              .message{
+                width:100%;
+                margin-left:0;
+              }
+              .btn{
+                margin-right:0;
+              }
+            }
+          }
+          #heading{
+            margin: 0 auto;
+            width:85%;
+          }
+          #parrainer{
+            padding-bottom:25px;
+          }
+        }
+        &.recirculation{
+          .buttons{
+            margin:0 auto;
+            div{
+              &.span4{
+                width:34%;
+              }
+            }
+          }
+        }
+        &.list{
+          padding-top: 40px;
+          h1{
+            color: @greydark;
+            font-size: 35px;
+            line-height: 38px;
+            margin: 0 auto 15px;
+            width: 85%;
+          }
+          .buttons{
+            margin: 0 auto 10px;
+            width: 85%;
+            .span4{
+              width: 40%;
+            }
+          }
+          .sep{
+            margin: 0 auto;
+            width: 85%;
+          }
+          .search-bar{
+            margin: 0 auto;
+            width: 85%;
+          }
+          .consultation-list-wrap{
+            margin: 0 auto;
+            width: 85%;
+            .posts{
+              .text{
+                width: auto;
+              }
+            }
+          }
+        }
+      }
+      
+      .game-lottery-result{ // Tirage au sort
+        padding: 40px 0 10px;
+        h1{
+          font-size: 35px;
+          line-height: 38px;
+          margin: 0 auto 15px;
+          width: 85%;
+        }
+        .backgrey{
+          width:80% !important;
+          margin: 0 auto;
+          padding: 2%;
+        }
+        #heading{
+          margin:20px auto 0;
+          width: 85%;
+        }
+        #parrainer{
+          margin:0 auto 30px;
+          width: 85%;
+        }
+      }
+      .game-quiz{ // Quizz
+        #content-article{
+          .center{
+            .previous,
+            .next{
+              max-width: 41%;
+            }
+          }
+        }
+        &.result{
+          .backgrey{
+            padding:0 2% 2%;
+          }
+          .corrections{
+            margin: 20px auto 30px;
+            width: 85%;
+          }
+          #heading{
+            margin: 0 auto;
+            width: 85%;
+          }
+          #parrainer{
+            margin: 0 auto 30px;
+            width: 85%;
+          }
+        }
+      }
+    }
+  }
+  #games-page{
+    background:none;
+    padding:0;
+    .content-inner{
+      float:none !important;
+      width:100%;
+      margin: 0 auto;
+      padding:45px 0 20px;
+      background:@white;
+      -moz-box-shadow: 0px 0px 3px 0px #9d9d9d;
+      -webkit-box-shadow: 0px 0px 3px 0px #9d9d9d;
+      -o-box-shadow: 0px 0px 3px 0px #9d9d9d;
+      box-shadow: 0px 0px 3px 0px #9d9d9d;
+      h1{
+        margin:0 auto 10px;
+        font-size:36px;
+        line-height: 34px;
+        width:85%;
+      }
+      .block-game{
+        width:85%;
+        margin:0 auto 50px;
+      }
+      #btn-allgames-over{
+        margin:0 7.5%;
+        padding:4px 6px;
+      }
+    }
+  } // END #games-page
+  
+  // PAGE HOW DOES IT WORK
+  // -------------------------
+  #how-does-it-work{
+    .breadcrumb{
+      width:100%;
+    }
+    .content-inner{
+      float: none;
+      margin: 0 auto;
+      width: 100%;
+    }
+  } // END #how-does-it-work
+  
+  // PAGE FAQ
+  // -------------------------
+  #faq{
+    .breadcrumb{
+      width:100%;
+    }
+    .content-inner{
+      float: none;
+      margin: 0 auto;
+      width: 100%;
+    }
+  } // END #faq
+  
+  // PAGE NEWSLETTER
+  // -------------------------
+  #newsletter{
+    .breadcrumb{
+      width:100%;
+    }
+    .content-inner{
+      float: none;
+      margin: 0 auto;
+      width: 100%;
+    }
+  } // END #newsletter
+  
+  // PAGE CREATE ACCOUNT
+  // -------------------------
+  #new-user{
+    .span8{
+      width:90% !important;
+    }
+  }
+  
+  // PAGE LOST PASS
+  // -------------------------
+  #lost-pass{
+    .container-content{
+      #container-form{
+        .forgot-email{
+          width:70%;
+        }
+        .btn{
+          width:20%;
+        }
+        label{
+          &.error:after{
+            right:0;
+          }
+        }
+        .valid-form:after{
+          right:-2px;
+        }
+      }
+    }
+  }
+  
+  // PAGES USER
+  // -------------------------
+  .col-left{
+    #account-badge,
+    #user-activity,
+    #account-modify,
+    #sponsor-friends,
+    #how-does-it-work,
+    #faq{
+      margin: 0 auto;
+      padding: 20px 0;
+      width: 85%;
+    }
+    #user-activity{
+      padding-bottom:30px;
+      .filter{
+        margin-left: 0;
+        width: 59%;
+      }
+    }
+    #account-modify{
+      .backgrey{
+        padding-bottom:2%;
+      }
+      #update-adresse{
+        #avatarfile{
+          div.uploader{
+            width:91%;
+            span.filename{
+              width:59%;
+            }
+          }
+        }
+        .orange-points{
+          width: 65px;
+        }
+      }
+    }
+  }
+  
+  //POPIN
+  // -------------------------
+   //POPIN
+  #wrap-popin{
+    left:8%;
+    margin-left:auto;
+    margin-right:auto;
+  }
+  //END POPIN
+  
+  // SIDEBAR
+  // -----------------------
+  .sidebar{
+    max-width:100%;
+    float:none !important;
+    margin:20px auto 0 !important;
+    width:100% !important;
+    .sd-block{
+      float:left;
+      display: inline-block;
+      vertical-align:top;
+      margin: 0 2% 25px;
+      padding:0;
+      width:29%;
+      border:none;
+      img{
+        display: block;
+        margin: 0 auto;
+        position: relative;
+        z-index: 1;
+      }
+      .bg-sdblock{
+        padding:50px 5% 15px;
+        background:@white;
+        -moz-border-radius: 15px;
+        -webkit-border-radius: 15px;
+        -o-border-radius: 15px;
+        border-radius: 15px;
+        margin-top:-42px;
+        -moz-box-shadow: 0px 0px 3px 0px #9d9d9d;
+        -webkit-box-shadow: 0px 0px 3px 0px #9d9d9d;
+        -o-box-shadow: 0px 0px 3px 0px #9d9d9d;
+        box-shadow: 0px 0px 3px 0px #9d9d9d;
+        min-height: 240px;
+      }
+    }
+    .fb-box,
+    .ranking,
+    .activities,
+    .news-feed,
+    .ad{
+      display:none;
+    }
+    .tonnes-cadeaux{
+      .bg-sdblock{
+        width:auto;
+      }
+    }
+    .newsletter{
+      position:relative;
+      img{
+        display:block;
+      }
+      .green{
+        text-align:center;
+      }
+      input[type=email]{
+        width: 92%;
+      }
+      input[type=submit]{
+        float: right;
+        margin-top: 5px;
+      }
+    }
+    .how-works{
+      position:relative;
+      img{
+        display:block;
+      }
+      .green{
+        text-align:center;
+      }
+    }
+    .win-points{
+      border:none;
+      position: relative;
+      img{
+        display:block;
+      }
+    }
+    &#sidebar-homepage-connecte{
+      .newsletter{
+        background:@white;
+        padding: 50px 10px 15px;
+        width:25%;
+      }
+    }
+    #sidebar-user{
+      width:100%;
+      margin-bottom:30px;
+      margin-top:20px;
+      .orange-dot-bottom{
+        display:inline-block;
+        vertical-align:top;
+        float:left;
+        margin: 0 2% 10px;
+        border:none;
+        background:@white;
+        padding: 15px 2%;
+        width: 42%;
+        -moz-border-radius: 15px;
+        -webkit-border-radius: 15px;
+        -o-border-radius: 15px;
+        border-radius: 15px;
+        &#user{
+          height: 108px;
+          img{
+            height:auto;
+          }
+        }
+        &#point{
+          img{
+            height:auto;
+          }
+          #more-points{
+            text-align:left;
+          }
+        }
+        &#gerer{
+          ul{
+            margin-left: 25px;
+          }
+        }
+        &#howto{
+          height: 130px;
+          ul{
+            margin-left: 25px;
+          }
+        }
+        li{
+          padding-left:0;
+        }
+      }
+      #deco{
+        display:none;
+      }
+    }
+    &.mobile{
+      display:none;
+    }
+  } // END .sidebar
+  
+  // PAGE COL LEFT
+  // -----------------------
+  .sidebar-left{
+    background:none !important;
+    padding-bottom: 10px;
+    min-height:auto !important;
+  }
+  
+} // END @media screen and (max-width: 800px)
+
+// Responsive Tablet small
+// -------------------------
+@media screen and (max-width: 680px) {
+  // DEFAULT
+  // -----------------------
+  // BLOCK-GAME
+  .block-game{
+    .game-infos{
+      div{
+        &.social-share{
+          display:none;
+        }
+      }
+    }
+  } // END .block-game
+  
+  // HOMEPAGE
+  // -----------------------
+  #containerpage{
+    #top-promo{
+      .promo-infos{
+         div{
+          &.social-share{
+            display:none;
+          }
+        }
+      }
+      .img-content{
+        .title-promo{
+          padding: 8px 4%;
+        }
+      }
+    }
+  }
+  
+  #wrap-popin{
+    width:86%;
+    left:auto;
+    margin-left:auto;
+    margin-right:auto;
+  }
+  
+  // SIDEBAR
+  // -----------------------
+  .sidebar{
+    .sd-block{
+      margin:42px 2% 25px;
+    }
+  }
+  
+} // END @media screen and (max-width: 680px)

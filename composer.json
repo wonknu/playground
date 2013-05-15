@@ -1,0 +1,39 @@
+{
+	"name" : "adfab/playground",
+	"description" : "Playground Game Framework",
+	"keywords" : [
+		"framework",
+		"zf2",
+		"playground",
+		"game"
+	],
+	"homepage" : "http://www.adfab.fr/",
+	"authors" : [
+		{
+			"name" : "Greg Besson",
+			"email" : "gregory.besson@adfab.fr",
+			"homepage" : "http://www.adfab.fr"
+		}
+	],
+	"license" : [
+		"BSD-3-Clause"
+	],
+	"require" : {
+		"php" : ">=5.3.3",
+		"zendframework/zendframework" : "2.*",
+		"adfab/core" : "dev-master",
+		"adfab/cms" : "dev-master",
+		"adfab/faq" : "dev-master",
+		"adfab/facebook" : "dev-master",
+        "adfab/partnership" : "dev-master",
+        "adfab/game" : "dev-master",
+        "adfab/reward" : "dev-master",
+        "adfab/user" : "dev-master",
+		"zendframework/zend-developer-tools" : "dev-master",
+		"doctrine/data-fixtures" : "dev-master",
+		"jhuet/zdt-logger-module" : "0.*",
+		"hybridauth/hybridauth" : "dev-master",
+		"bjyoungblood/bjy-authorize" : "1.1.*",
+		"zf-commons/zfc-user" : "0.*"
+	}
+}
