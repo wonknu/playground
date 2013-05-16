@@ -3,7 +3,7 @@
         "This file locks the dependencies of your project to a known state",
         "Read more about it at http://getcomposer.org/doc/01-basic-usage.md#composer-lock-the-lock-file"
     ],
-    "hash": "f90f20b578a372ee2089ed4b393f896b",
+    "hash": "279e39ae2ec0974bd5c888d775397090",
     "packages": [
         {
             "name": "adfab/cms",
@@ -402,12 +402,12 @@
             "source": {
                 "type": "git",
                 "url": "https://github.com/gregorybesson/AdfabUser.git",
-                "reference": "638237725e78a4043f3ef21e09f6cba53d2e3200"
+                "reference": "934cf5f9377d83efcdd12dc0aab450466bae63c8"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/gregorybesson/AdfabUser/zipball/638237725e78a4043f3ef21e09f6cba53d2e3200",
-                "reference": "638237725e78a4043f3ef21e09f6cba53d2e3200",
+                "url": "https://api.github.com/repos/gregorybesson/AdfabUser/zipball/934cf5f9377d83efcdd12dc0aab450466bae63c8",
+                "reference": "934cf5f9377d83efcdd12dc0aab450466bae63c8",
                 "shasum": ""
             },
             "require": {
@@ -449,7 +449,7 @@
                 "user",
                 "zf2"
             ],
-            "time": "2013-05-14 17:00:46"
+            "time": "2013-05-15 10:19:06"
         },
         {
             "name": "bjyoungblood/bjy-authorize",
@@ -1120,12 +1120,12 @@
             "source": {
                 "type": "git",
                 "url": "https://github.com/zendframework/ZendDeveloperTools.git",
-                "reference": "3994622761f496b666a143156b4d21f19205aa66"
+                "reference": "e9a1f301b1b2fca8993f72eee711861efb96a4be"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/zendframework/ZendDeveloperTools/zipball/3994622761f496b666a143156b4d21f19205aa66",
-                "reference": "3994622761f496b666a143156b4d21f19205aa66",
+                "url": "https://api.github.com/repos/zendframework/ZendDeveloperTools/zipball/e9a1f301b1b2fca8993f72eee711861efb96a4be",
+                "reference": "e9a1f301b1b2fca8993f72eee711861efb96a4be",
                 "shasum": ""
             },
             "require": {
@@ -1171,20 +1171,20 @@
                 "module",
                 "zf2"
             ],
-            "time": "2013-04-14 14:43:51"
+            "time": "2013-05-15 20:29:33"
         },
         {
             "name": "zendframework/zendframework",
-            "version": "2.1.5",
+            "version": "2.2.0",
             "source": {
                 "type": "git",
                 "url": "https://github.com/zendframework/zf2.git",
-                "reference": "release-2.1.5"
+                "reference": "release-2.2.0"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/zendframework/zf2/zipball/release-2.1.5",
-                "reference": "release-2.1.5",
+                "url": "https://api.github.com/repos/zendframework/zf2/zipball/release-2.2.0",
+                "reference": "release-2.2.0",
                 "shasum": ""
             },
             "require": {
@@ -1243,16 +1243,17 @@
                 "zendframework/zend-xmlrpc": "self.version"
             },
             "require-dev": {
-                "doctrine/common": ">=2.1",
+                "doctrine/annotations": ">=1.0",
                 "ircmaxell/random-lib": "dev-master",
                 "ircmaxell/security-lib": "dev-master",
+                "ocramius/proxy-manager": "0.3.*",
                 "phpunit/phpunit": "3.7.*"
             },
             "suggest": {
-                "doctrine/common": "Doctrine\\Common >=2.1 for annotation features",
-                "ext-intl": "ext/intl for i18n features",
+                "doctrine/annotations": "Doctrine Annotations >=1.0 for annotation features",
+                "ext-intl": "ext/intl for i18n features (included in default builds of PHP)",
                 "ircmaxell/random-lib": "Fallback random byte generator for Zend\\Math\\Rand if OpenSSL/Mcrypt extensions are unavailable",
-                "pecl-weakref": "Implementation of weak references for Zend\\Stdlib\\CallbackHandler",
+                "ocramius/proxy-manager": "ProxyManager to handle lazy initialization of services",
                 "zendframework/zendpdf": "ZendPdf for creating PDF representations of barcodes",
                 "zendframework/zendservice-recaptcha": "ZendService\\ReCaptcha for rendering ReCaptchas in Zend\\Captcha and/or Zend\\Form"
             },
@@ -1262,8 +1263,8 @@
             "type": "library",
             "extra": {
                 "branch-alias": {
-                    "dev-master": "2.1-dev",
-                    "dev-develop": "2.2-dev"
+                    "dev-master": "2.2-dev",
+                    "dev-develop": "2.3-dev"
                 }
             },
             "autoload": {
@@ -1282,7 +1283,7 @@
                 "framework",
                 "zf2"
             ],
-            "time": "2013-04-17 15:15:58"
+            "time": "2013-05-15 10:27:32"
         },
         {
             "name": "zf-commons/zfc-admin",

@@ -34,6 +34,5 @@
 		"jhuet/zdt-logger-module" : "0.*",
 		"hybridauth/hybridauth" : "dev-master",
 		"bjyoungblood/bjy-authorize" : "1.1.*",
-		"zf-commons/zfc-user" : "0.*"
 	}
 }

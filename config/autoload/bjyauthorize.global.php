@@ -73,7 +73,7 @@ return array(
 
 
                 // Admin area
-                array('controller' => 'ZfcAdmin\Controller\AdminController',  'roles' => array('admin','commercial')),
+                array('controller' => 'ZfcAdmin\Controller\AdminController',  'roles' => array('admin')),
             	array('controller' => 'adfabuseradmin',                       'roles' => array('admin')),
             	array('controller' => 'adfabgameadmin',                       'roles' => array('admin')),
                 array('controller' => 'adfabgame_admin_lottery',              'roles' => array('admin')),
@@ -86,7 +86,7 @@ return array(
                 array('controller' => 'adfabpartnership_admin',               'roles' => array('admin')),
             	array('controller' => 'AdfabCore\Controller\System',          'roles' => array('admin')),
                 array('controller' => 'AdfabCore\Controller\Formgen',         'roles' => array('admin')),
-            	array('controller' => 'AdfabCore\Controller\Dashboard',       'roles' => array('admin','commercial')),
+            	array('controller' => 'AdfabCore\Controller\Dashboard',       'roles' => array('admin')),
             	array('controller' => 'adfabrewardadmin',                     'roles' => array('admin')),
                 array('controller' => 'adfabcmsadmindynablock',               'roles' => array('admin')),
             	array('controller' => 'adfabcmsadminblock',                   'roles' => array('admin')),
