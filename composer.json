@@ -33,6 +33,6 @@
 		"doctrine/data-fixtures" : "dev-master",
 		"jhuet/zdt-logger-module" : "0.*",
 		"hybridauth/hybridauth" : "dev-master",
-		"bjyoungblood/bjy-authorize" : "1.1.*",
+		"bjyoungblood/bjy-authorize" : "1.1.*"
 	}
 }
