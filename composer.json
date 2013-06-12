@@ -31,6 +31,7 @@
         "adfab/user" : "dev-master",
 		"zendframework/zend-developer-tools" : "dev-master",
 		"doctrine/data-fixtures" : "dev-master",
+		"hounddog/doctrine-data-fixture-module" : "dev-master",
 		"jhuet/zdt-logger-module" : "0.*",
 		"hybridauth/hybridauth" : "dev-master",
 		"bjyoungblood/bjy-authorize" : "1.1.*"

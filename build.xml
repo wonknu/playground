@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
-<project name="METAGAME" default="build">
+<project name="PLAYGROUND" default="build">
 	<target name="build" depends="prepare,phpcs-ci,phpmd-ci,phpcpd,lint,docblox" />
 
 	<target name="build-parallel" depends="prepare,tools-parallel" />
