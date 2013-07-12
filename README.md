@@ -1,4 +1,4 @@
 playground
 ==========
 
-Playground : The brand new game plateform!
+Playground : The brand new game plateform !
