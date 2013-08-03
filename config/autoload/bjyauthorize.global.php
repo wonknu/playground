@@ -69,8 +69,9 @@ return array(
                 array('controller' => 'facebook',                             'roles' => array('guest', 'user')),
                 array('controller' => 'adfabcore_console',                    'roles' => array('guest', 'user')),
                 array('controller' => 'adfabfaq',                             'roles' => array('guest', 'user')),
-                    
-
+            	array('controller' => 'adfabflow',                            'roles' => array('guest', 'user')),
+            	array('controller' => 'adfabflowrestauthent',                 'roles' => array('guest', 'user')),
+            		
 
                 // Admin area
                 array('controller' => 'ZfcAdmin\Controller\AdminController',  'roles' => array('admin')),
@@ -81,6 +82,7 @@ return array(
                 array('controller' => 'adfabgame_admin_quiz',                 'roles' => array('admin')),
                 array('controller' => 'adfabgame_admin_postvote',             'roles' => array('admin')),
                 array('controller' => 'adfabgame_admin_prizecategory',        'roles' => array('admin')),
+            	array('controller' => 'adfabgame_admin_treasurehunt',         'roles' => array('admin')),
                 array('controller' => 'adfabfaq_admin',                       'roles' => array('admin')),
                 array('controller' => 'adfabfacebook_admin_app',              'roles' => array('admin')),
                 array('controller' => 'adfabpartnership_admin',               'roles' => array('admin')),
