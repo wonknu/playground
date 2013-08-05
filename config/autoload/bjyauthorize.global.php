@@ -71,6 +71,8 @@ return array(
                 array('controller' => 'adfabfaq',                             'roles' => array('guest', 'user')),
             	array('controller' => 'adfabflow',                            'roles' => array('guest', 'user')),
             	array('controller' => 'adfabflowrestauthent',                 'roles' => array('guest', 'user')),
+            	array('controller' => 'adfabflowrestsend',               	  'roles' => array('guest', 'user')),
+            	array('controller' => 'adfabgame_easyxdm',                 	  'roles' => array('guest', 'user')),
             		
 
                 // Admin area
