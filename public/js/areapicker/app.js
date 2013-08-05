@@ -21,6 +21,12 @@ var AreaPicker = {
         {
             e.preventDefault();
             
+            var curUrl = $('#iframe-url').val().replace(/http:\/\//, '');
+            if(curUrl.substring(curUrl.length - 1, curUrl.length) == '/') {
+                curUrl = curUrl.substring(0, curUrl.length - 1);
+            }
+            AreaPicker.result.url = '/' + curUrl.replace(/\//g, '\\/') + '/';
+            
             switch(AreaPicker.step) {
                 case 0 :
                     AreaPicker.nextStep();
@@ -76,8 +82,8 @@ var AreaPicker = {
             e.preventDefault();
             
             switch(AreaPicker.step) {
-	            case 2 :	            	
-	                AreaPicker.prevStep();
+                case 2 :                    
+                    AreaPicker.prevStep();
                     $('#popin-wrapper').hide();
                     var local = {
                             // fallback swf
@@ -125,8 +131,8 @@ var AreaPicker = {
     
     showResult: function ()
     {
-        parent.document.getElementById("area").value = JSON.stringify(AreaPicker.result);
-        
+	    parent.document.getElementById("area").value = JSON.stringify(AreaPicker.result);
+	    
         AreaPicker.exdm.getUrl(
             {},
             function (rpcdata)
@@ -138,17 +144,18 @@ var AreaPicker = {
 
                 AreaPicker.result.url = rpcdata;
                 
-            	$('#prev-step').hide();
-            	$('#next-step').hide();
+                $('#prev-step').hide();
+                $('#next-step').hide();
                 $('#tip1').hide();
                 $('#tip2').hide();
                 $('#tip3').show();
                 
                 //$('#tip3').html(resultHtml);
                 $('#tip3').html('<h1>Merci</h1>');
-            	if(typeof AreaConfig.urlToSendResult === "string") {
-            		AreaPicker.sendResult();
-            	};
+
+                if(typeof AreaConfig.urlToSendResult === "string") {
+                    AreaPicker.sendResult();
+                }
             }
         );
     },
@@ -157,43 +164,43 @@ var AreaPicker = {
     {
         'use strict';
         
-		var activexmodes=["Msxml2.XMLHTTP", "Microsoft.XMLHTTP"] //activeX versions to check for in IE
-		
-		if (window.ActiveXObject){ //Test for support for ActiveXObject in IE first (as XMLHttpRequest in IE7 is broken)
-			for (var i=0; i<activexmodes.length; i++) {
-				try {
-					return new ActiveXObject(activexmodes[i])
-				} catch (e) {
-					//suppress error
-				}
-			}
-		}else if (window.XMLHttpRequest) { // if Mozilla, Safari etc
-			return new XMLHttpRequest()
-		}else {
-			return false
-		}
-	},
-	
-	sendResult: function ()
-	{
+        var activexmodes=["Msxml2.XMLHTTP", "Microsoft.XMLHTTP"] //activeX versions to check for in IE
+        
+        if (window.ActiveXObject){ //Test for support for ActiveXObject in IE first (as XMLHttpRequest in IE7 is broken)
+            for (var i=0; i<activexmodes.length; i++) {
+                try {
+                    return new ActiveXObject(activexmodes[i])
+                } catch (e) {
+                    //suppress error
+                }
+            }
+        }else if (window.XMLHttpRequest) { // if Mozilla, Safari etc
+            return new XMLHttpRequest()
+        }else {
+            return false
+        }
+    },
+    
+    sendResult: function ()
+    {
         'use strict';
         
-		var mypostrequest = new AreaPicker.ajaxRequest();
-		
-		mypostrequest.onreadystatechange = function ()
-		{
-			if (mypostrequest.readyState === 4) {
-				if (mypostrequest.status === 200 || window.location.href.indexOf("http") === -1) {
-					document.getElementById("result").innerHTML = mypostrequest.responseText;
-				}else {
-					console.log("An error has occured making the request");
-				}
-			}
-		}
-		mypostrequest.open("POST", AreaConfig.urlToSendResult, true);
-		mypostrequest.setRequestHeader("Content-type", "application/x-www-form-urlencoded");
-		mypostrequest.send(JSON.stringify(AreaPicker.result));
-	},
+        var mypostrequest = new AreaPicker.ajaxRequest();
+        
+        mypostrequest.onreadystatechange = function ()
+        {
+            if (mypostrequest.readyState === 4) {
+                if (mypostrequest.status === 200 || window.location.href.indexOf("http") === -1) {
+                    document.getElementById("result").innerHTML = mypostrequest.responseText;
+                }else {
+                    console.log("An error has occured making the request");
+                }
+            }
+        }
+        mypostrequest.open("POST", AreaConfig.urlToSendResult, true);
+        mypostrequest.setRequestHeader("Content-type", "application/x-www-form-urlencoded");
+        mypostrequest.send(JSON.stringify(AreaPicker.result));
+    },
     
     showElement: function ()
     {
@@ -206,7 +213,6 @@ var AreaPicker = {
         $('#tip3').hide();
 
         $('.result-content').html('');
-    	//AreaPicker.result.area = null;
         
         $('iframe', '#iframe-wrapper').hide();
         $('#popin-wrapper').show();
@@ -261,8 +267,6 @@ var AreaPicker = {
                     })
                     .addClass('centered')
                     .append(img);
-                
-                console.log(area)
 
                 AreaPicker.result.area.width = area.width;
                 AreaPicker.result.area.height = area.height;
@@ -276,7 +280,9 @@ var AreaPicker = {
     bindTextSelect: function ()
     {
         'use strict';
-        
+
+        AreaPicker.result.area.x = null;
+        AreaPicker.result.area.y = null;
         AreaPicker.result.area.width = null;
         AreaPicker.result.area.height = null;
         
@@ -315,7 +321,6 @@ var AreaPicker = {
             
             function (rpcdata)
             {
-                
             }
         );
     },
@@ -348,7 +353,6 @@ var AreaPicker = {
         'use strict';
         
         AreaPicker.step++;
-        console.log('prev-' + AreaPicker.step);
     },
     
     prevStep: function ()
@@ -356,7 +360,6 @@ var AreaPicker = {
         'use strict';
         
         AreaPicker.step = ((AreaPicker.step-1) > 0) ? (AreaPicker.step-1) : AreaPicker.step;
-        console.log('prev-' + AreaPicker.step);
     },
     
     getEvents: function (e)
@@ -366,6 +369,7 @@ var AreaPicker = {
         AreaPicker.selected = JSON.parse(e);
         AreaPicker.result.area.y = AreaPicker.selected.clientY;
         AreaPicker.result.area.x = AreaPicker.selected.clientX;
+        AreaPicker.result.area.xpath = AreaPicker.selected.xpath;
         return;
     }
 };
