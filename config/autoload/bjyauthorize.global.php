@@ -29,6 +29,7 @@ return array(
                 'faq' => array(),
                 'facebook' => array(),
                 'application' => array(),
+            	'flow' => array(),
             ),
         ),
 
@@ -45,6 +46,7 @@ return array(
                     array(array('admin'), 'facebook', 		array('list','add','edit','delete')),
                     array(array('admin'), 'core',     		array('edit')),
                     array(array('admin'), 'application',    array('list')),
+                	array(array('admin'), 'flow',   		array('list','add','edit','delete')),
                 ),
             ),
         ),
@@ -97,7 +99,11 @@ return array(
             	array('controller' => 'adfabcmsadminpage',                    'roles' => array('admin')),
             	array('controller' => 'elfinder',                             'roles' => array('admin')),
             	array('controller' => 'DoctrineORMModule\Yuml\YumlController','roles' => array('admin')),
-            	array('controller' => 'applicationadmin'					 ,'roles' => array('admin')),            	
+            	array('controller' => 'applicationadmin',					  'roles' => array('admin')),
+            	array('controller' => 'adfabflowadminaction',				  'roles' => array('admin')),
+            	array('controller' => 'adfabflowadminobject',				  'roles' => array('admin')),
+            	array('controller' => 'adfabflowadminstory',				  'roles' => array('admin')),
+            	array('controller' => 'adfabflowadmindomain',				  'roles' => array('admin')),	
             ),
 
             /*'BjyAuthorize\Guard\Route' => array(
