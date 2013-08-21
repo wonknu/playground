@@ -7,6 +7,7 @@ return array(
     	'DoctrineDataFixtureModule',
 		'ZendDeveloperTools',
         'Jhu\ZdtLoggerModule',
+    	'AsseticBundle',
 		'ZfcBase',
         'ZfcUser',
     	'BjyAuthorize',
