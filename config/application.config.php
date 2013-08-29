@@ -4,8 +4,10 @@ return array(
         'Application',
     	'DoctrineModule',
     	'DoctrineORMModule',
-		//'ZendDeveloperTools',
-        //'Jhu\ZdtLoggerModule',
+    	'DoctrineDataFixtureModule',
+		'ZendDeveloperTools',
+        'Jhu\ZdtLoggerModule',
+    	'AsseticBundle',
 		'ZfcBase',
         'ZfcUser',
     	'BjyAuthorize',
@@ -17,14 +19,15 @@ return array(
 		'AdfabReward',
     	'AdfabGame',
         'AdfabPartnership',
-        'AdfabFacebook'
+        'AdfabFacebook',
+    	'AdfabFlow'
     ),
     'module_listener_options' => array(
         'config_glob_paths'    => array(
             'config/autoload/{,*.}{global,local}.php',
         ),
         'module_paths' => array(
-            './module',
+        	'./module',
             './vendor',
         ),
     ),

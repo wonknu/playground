@@ -1,13 +1,14 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
-<project name="METAGAME" default="build">
-	<target name="build" depends="prepare,phpcs-ci,phpmd-ci,phpcpd,lint,docblox" />
+<project name="PLAYGROUND" default="build">
+	<target name="build" depends="prepare,composer,phpcs-ci,phpmd-ci,phpcpd,lint,docblox" />
 
 	<target name="build-parallel" depends="prepare,tools-parallel" />
 
 	<target name="tools-parallel" description="Run tools in parallel">
 		<parallel threadCount="1">
 			<sequential>
+			<antcall target="composer" />
 			<antcall target="phpmd-ci" />
 			</sequential>
 			<antcall target="phpcpd" />
@@ -32,6 +33,12 @@
 		<mkdir dir="${basedir}/build/pdepend" />
 	</target>
 	
+	<target name="composer" description="Installing dependencies">
+    	<exec executable="composer" failonerror="true">
+      		<arg value="update" />
+    	</exec>
+    	</target>
+	
 		<!--target name="phpmd"
 		description="Perform project mess detection using PHPMD and print human readable output. Intended for usage on the command line before committing.">
 		<exec executable="phpmd">
@@ -55,6 +62,7 @@
 	<target name="phpcs-ci"
 		description="Find coding standard violations using PHP_CodeSniffer creating a log file for the continuous integration server">
 		<exec executable="phpcs" output="/dev/null">
+			<arg value="--extensions=php" />
 			<arg value="--report=checkstyle" />
 			<arg value="--report-file=${basedir}/build/logs/checkstyle.xml" />
 			<arg value="--standard=PSR2" />

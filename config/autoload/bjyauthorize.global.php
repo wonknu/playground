@@ -29,6 +29,7 @@ return array(
                 'faq' => array(),
                 'facebook' => array(),
                 'application' => array(),
+            	'flow' => array(),
             ),
         ),
 
@@ -45,6 +46,7 @@ return array(
                     array(array('admin'), 'facebook', 		array('list','add','edit','delete')),
                     array(array('admin'), 'core',     		array('edit')),
                     array(array('admin'), 'application',    array('list')),
+                	array(array('admin'), 'flow',   		array('list','add','edit','delete')),
                 ),
             ),
         ),
@@ -69,8 +71,11 @@ return array(
                 array('controller' => 'facebook',                             'roles' => array('guest', 'user')),
                 array('controller' => 'adfabcore_console',                    'roles' => array('guest', 'user')),
                 array('controller' => 'adfabfaq',                             'roles' => array('guest', 'user')),
-                    
-
+            	array('controller' => 'adfabflow',                            'roles' => array('guest', 'user')),
+            	array('controller' => 'adfabflowrestauthent',                 'roles' => array('guest', 'user')),
+            	array('controller' => 'adfabflowrestsend',               	  'roles' => array('guest', 'user')),
+            	array('controller' => 'adfabgame_easyxdm',                 	  'roles' => array('guest', 'user')),
+            		
 
                 // Admin area
                 array('controller' => 'ZfcAdmin\Controller\AdminController',  'roles' => array('admin')),
@@ -81,6 +86,7 @@ return array(
                 array('controller' => 'adfabgame_admin_quiz',                 'roles' => array('admin')),
                 array('controller' => 'adfabgame_admin_postvote',             'roles' => array('admin')),
                 array('controller' => 'adfabgame_admin_prizecategory',        'roles' => array('admin')),
+            	array('controller' => 'adfabgame_admin_treasurehunt',         'roles' => array('admin')),
                 array('controller' => 'adfabfaq_admin',                       'roles' => array('admin')),
                 array('controller' => 'adfabfacebook_admin_app',              'roles' => array('admin')),
                 array('controller' => 'adfabpartnership_admin',               'roles' => array('admin')),
@@ -93,7 +99,11 @@ return array(
             	array('controller' => 'adfabcmsadminpage',                    'roles' => array('admin')),
             	array('controller' => 'elfinder',                             'roles' => array('admin')),
             	array('controller' => 'DoctrineORMModule\Yuml\YumlController','roles' => array('admin')),
-            	array('controller' => 'applicationadmin'					 ,'roles' => array('admin')),            	
+            	array('controller' => 'applicationadmin',					  'roles' => array('admin')),
+            	array('controller' => 'adfabflowadminaction',				  'roles' => array('admin')),
+            	array('controller' => 'adfabflowadminobject',				  'roles' => array('admin')),
+            	array('controller' => 'adfabflowadminstory',				  'roles' => array('admin')),
+            	array('controller' => 'adfabflowadmindomain',				  'roles' => array('admin')),	
             ),
 
             /*'BjyAuthorize\Guard\Route' => array(

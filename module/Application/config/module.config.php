@@ -340,10 +340,10 @@ return array(
         'not_found_template'       => 'error/404',
         'exception_template'       => 'error/index',
         'template_map' => array(
-            'layout/layout'              		=> __DIR__ . '/../view/layout/1column.phtml',
-            'layout/homepage-2columns-right'    => __DIR__ . '/../view/layout/homepage-2columns-right.phtml',
-            'layout/2columns-right'      		=> __DIR__ . '/../view/layout/2columns-right.phtml',
-            'application/index/index'    		=> __DIR__ . '/../view/application/index/index.phtml',
+            //'layout/layout'              		=> __DIR__ . '/../view/layout/1column.phtml',
+            //'layout/homepage-2columns-right'    => __DIR__ . '/../view/layout/homepage-2columns-right.phtml',
+            //'layout/2columns-right'      		=> __DIR__ . '/../view/layout/2columns-right.phtml',
+            //'application/index/index'    		=> __DIR__ . '/../view/application/index/index.phtml',
             'application/index/activity' 		=> __DIR__ . '/../view/application/user/activity.phtml',
             'application/index/badges'   		=> __DIR__ . '/../view/application/user/badges.phtml',
             'application/index/sponsorfriends'  => __DIR__ . '/../view/application/user/sponsorfriends.phtml',
@@ -352,7 +352,8 @@ return array(
             'error/index'                		=> __DIR__ . '/../view/error/index.phtml',
         ),
         'template_path_stack' => array(
-            __DIR__ . '/../view',
+            __DIR__ . '/../view/admin',
+            __DIR__ . '/../view/frontend',
         ),
     ),
     'navigation' => array(
