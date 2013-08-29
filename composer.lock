@@ -3,7 +3,7 @@
         "This file locks the dependencies of your project to a known state",
         "Read more about it at http://getcomposer.org/doc/01-basic-usage.md#composer-lock-the-lock-file"
     ],
-    "hash": "279e39ae2ec0974bd5c888d775397090",
+    "hash": "fcf0d90f7e0103b7168d8e2bc0d8b3a1",
     "packages": [
         {
             "name": "adfab/cms",
@@ -237,12 +237,12 @@
             "source": {
                 "type": "git",
                 "url": "https://github.com/gregorybesson/AdfabGame.git",
-                "reference": "efbca695ddf34d2b6e50422106c3071005a35e37"
+                "reference": "5373eb76755bf90773a498b170ed5ee7b0e550e1"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/gregorybesson/AdfabGame/zipball/efbca695ddf34d2b6e50422106c3071005a35e37",
-                "reference": "efbca695ddf34d2b6e50422106c3071005a35e37",
+                "url": "https://api.github.com/repos/gregorybesson/AdfabGame/zipball/5373eb76755bf90773a498b170ed5ee7b0e550e1",
+                "reference": "5373eb76755bf90773a498b170ed5ee7b0e550e1",
                 "shasum": ""
             },
             "require": {
@@ -284,7 +284,7 @@
                 "playground",
                 "zf2"
             ],
-            "time": "2013-05-12 13:10:02"
+            "time": "2013-05-17 15:10:17"
         },
         {
             "name": "adfab/partnership",
@@ -694,16 +694,16 @@
         },
         {
             "name": "doctrine/doctrine-module",
-            "version": "0.7.1",
+            "version": "0.7.2",
             "source": {
                 "type": "git",
-                "url": "git://github.com/doctrine/DoctrineModule.git",
-                "reference": "0.7.1"
+                "url": "https://github.com/doctrine/DoctrineModule.git",
+                "reference": "0.7.2"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://github.com/doctrine/DoctrineModule/archive/0.7.1.zip",
-                "reference": "0.7.1",
+                "url": "https://api.github.com/repos/doctrine/DoctrineModule/zipball/0.7.2",
+                "reference": "0.7.2",
                 "shasum": ""
             },
             "require": {
@@ -774,7 +774,7 @@
                 "module",
                 "zf2"
             ],
-            "time": "2013-01-14 14:25:26"
+            "time": "2013-05-16 18:27:30"
         },
         {
             "name": "doctrine/doctrine-orm-module",
@@ -1120,12 +1120,12 @@
             "source": {
                 "type": "git",
                 "url": "https://github.com/zendframework/ZendDeveloperTools.git",
-                "reference": "e9a1f301b1b2fca8993f72eee711861efb96a4be"
+                "reference": "9e2cf51ffbd3778f07be4a245e6b7a84a6a18a1c"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/zendframework/ZendDeveloperTools/zipball/e9a1f301b1b2fca8993f72eee711861efb96a4be",
-                "reference": "e9a1f301b1b2fca8993f72eee711861efb96a4be",
+                "url": "https://api.github.com/repos/zendframework/ZendDeveloperTools/zipball/9e2cf51ffbd3778f07be4a245e6b7a84a6a18a1c",
+                "reference": "9e2cf51ffbd3778f07be4a245e6b7a84a6a18a1c",
                 "shasum": ""
             },
             "require": {
@@ -1171,7 +1171,7 @@
                 "module",
                 "zf2"
             ],
-            "time": "2013-05-15 20:29:33"
+            "time": "2013-05-19 14:33:45"
         },
         {
             "name": "zendframework/zendframework",
