@@ -20,7 +20,7 @@ return array(
     	'AdfabGame',
         'AdfabPartnership',
         'AdfabFacebook',
-    	'AdfabFlow'
+    	'AdfabFlow' 
     ),
     'module_listener_options' => array(
         'config_glob_paths'    => array(
