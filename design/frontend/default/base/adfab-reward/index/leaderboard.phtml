@@ -21,9 +21,9 @@
 							<img src="<?php echo $this->basePath($this->zfcUserIdentity()->getAvatar()) ?>" width="32" height="32" border="0" alt="<?php echo $this->zfcUserIdentity()->getFirstname(); ?> <?php echo $this->zfcUserIdentity()->getLastname(); ?>" />
 						<?php else:?>
 							<?php if($this->zfcUserIdentity()->getTitle() && $this->zfcUserIdentity()->getTitle() == 'M'): ?>
-					        	<img src="<?php echo $this->basePath('images/user/no-avatar-small-h.png'); ?>" alt="<?php echo $this->zfcUserIdentity()->getFirstname(); ?> <?php echo $this->zfcUserIdentity()->getLastname(); ?>" width="32" height="32" border="0" />
+					        	<img src="<?php echo $this->frontendAssetPath('images/user/no-avatar-small-h.png'); ?>" alt="<?php echo $this->zfcUserIdentity()->getFirstname(); ?> <?php echo $this->zfcUserIdentity()->getLastname(); ?>" width="32" height="32" border="0" />
 					   		<?php else: ?>
-					        	<img src="<?php echo $this->basePath('images/user/no-avatar-small-f.png'); ?>" alt="<?php echo $this->zfcUserIdentity()->getFirstname(); ?> <?php echo $this->zfcUserIdentity()->getLastname(); ?>" width="32" height="32" border="0" />
+					        	<img src="<?php echo $this->frontendAssetPath('images/user/no-avatar-small-f.png'); ?>" alt="<?php echo $this->zfcUserIdentity()->getFirstname(); ?> <?php echo $this->zfcUserIdentity()->getLastname(); ?>" width="32" height="32" border="0" />
 					   		<?php endif; ?>
 					    <?php endif;?>
 					</div>
@@ -97,9 +97,9 @@
 							<?php if($entry['avatar']): ?>
 								<img src="<?php echo $this->basePath($entry['avatar'])?>" width="35" height="35" border="0" alt="<?php echo $entry['firstname']; ?> <?php echo $entry['lastname']; ?>" />
 							<?php elseif($entry['title'] && $entry['title'] == 'M') : ?>
-								<img src="<?php echo $this->basePath('images/user/no-avatar-small-h.png'); ?>" alt="<?php echo $entry['firstname']; ?> <?php echo $entry['lastname']; ?>" width="35" height="35" border="0" />
+								<img src="<?php echo $this->frontendAssetPath('images/user/no-avatar-small-h.png'); ?>" alt="<?php echo $entry['firstname']; ?> <?php echo $entry['lastname']; ?>" width="35" height="35" border="0" />
 							<?php else : ?>
-								<img src="<?php echo $this->basePath('images/user/no-avatar-small-f.png'); ?>" alt="<?php echo $entry['firstname']; ?> <?php echo $entry['lastname']; ?>" width="35" height="35" border="0" />
+								<img src="<?php echo $this->frontendAssetPath('images/user/no-avatar-small-f.png'); ?>" alt="<?php echo $entry['firstname']; ?> <?php echo $entry['lastname']; ?>" width="35" height="35" border="0" />
 							<?php endif; ?>
 							<p><?php if($entry['username']) : echo substr($entry['username'], 0, 15); else : echo substr($entry['firstname'].' '.substr($entry['lastname'], 0, 1), 0, 15).'.'; endif; ?></p>
 						</div>
@@ -140,9 +140,9 @@
 							<?php if($entry['avatar']): ?>
 								<img src="<?php echo $this->basePath($entry['avatar'])?>" width="35" height="35" border="0" alt="<?php echo $entry['firstname']; ?> <?php echo $entry['lastname']; ?>" />
 							<?php elseif($entry['title'] && $entry['title'] == 'M') : ?>
-								<img src="<?php echo $this->basePath('images/user/no-avatar-small-h.png'); ?>" alt="<?php echo $entry['firstname']; ?> <?php echo $entry['lastname']; ?>" width="35" height="35" border="0" />
+								<img src="<?php echo $this->frontendAssetPath('images/user/no-avatar-small-h.png'); ?>" alt="<?php echo $entry['firstname']; ?> <?php echo $entry['lastname']; ?>" width="35" height="35" border="0" />
 							<?php else : ?>
-								<img src="<?php echo $this->basePath('images/user/no-avatar-small-f.png'); ?>" alt="<?php echo $entry['firstname']; ?> <?php echo $entry['lastname']; ?>" width="35" height="35" border="0" />
+								<img src="<?php echo $this->frontendAssetPath('images/user/no-avatar-small-f.png'); ?>" alt="<?php echo $entry['firstname']; ?> <?php echo $entry['lastname']; ?>" width="35" height="35" border="0" />
 							<?php endif; ?>
 						</div>
 						<p class="span6">

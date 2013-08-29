@@ -22,7 +22,7 @@
 
 <!-- HEADER -->
 <div id="header" class="row-fluid">
-	<div class="logo"><a href="<?php echo $this->url('home') ?>"><img src="<?php echo $this->basePath('images/common/logo.png')?>" border="0" width="117" height="116" alt="logo" /></a></div>
+	<div class="logo"><a href="<?php echo $this->url('home') ?>"><img src="<?php echo $this->frontendAssetPath('images/common/logo.png')?>" border="0" width="117" height="116" alt="logo" /></a></div>
 	<div class="bartop row-fluid">
 		 <?php if(($this->adfabBlock('links')) != ''):?>
 			<?php echo $this->adfabBlock('links'); ?>
@@ -52,9 +52,9 @@
 		        			        <img src="<?php echo $this->basePath($this->zfcUserIdentity()->getAvatar()) ?>" width="28" height="28" alt="<?php echo $this->zfcUserIdentity()->getFirstname(); ?> <?php echo $this->zfcUserIdentity()->getLastname(); ?>" />
 		        			    <?php else:?>
 		        			    		<?php if($this->zfcUserIdentity()->getTitle() && $this->zfcUserIdentity()->getTitle() == 'M'): ?>
-		        			        		<img src="<?php echo $this->basePath('images/user/no-avatar-small-h.png'); ?>" alt="no avatar" width="28" height="28" />
+		        			        		<img src="<?php echo $this->frontendAssetPath('images/user/no-avatar-small-h.png'); ?>" alt="no avatar" width="28" height="28" />
 		        			    		<?php else: ?>
-		        			    			<img src="<?php echo $this->basePath('images/user/no-avatar-small-f.png'); ?>" alt="no avatar" width="28" height="28" />
+		        			    			<img src="<?php echo $this->frontendAssetPath('images/user/no-avatar-small-f.png'); ?>" alt="no avatar" width="28" height="28" />
 		        			    		<?php endif; ?>
 		        			    <?php endif;?>
 	        			   </a>
@@ -63,7 +63,7 @@
     					    </span>
     					</li>
     					<li class="user-info">
-    						<span id="user-account"><img src="<?php echo $this->basePath('images/common/arrow-white-bottom.png') ?>" alt="arrow white bottom" /></span>
+    						<span id="user-account"><img src="<?php echo $this->frontendAssetPath('images/common/arrow-white-bottom.png') ?>" alt="arrow white bottom" /></span>
     					</li>
     					<li class="user-info badges">
     						<a href="<?php echo $this->url('badges') ?>"><span id="user-badge">Vos badges <span id="count-badge"><?php echo count($badges);?></span></span></a>
@@ -83,12 +83,12 @@
             					    }
             					    ?>
     							    <div class="slot-badge">
-    									<img src="<?php echo $this->basePath('images/badges/'. strtolower($badgeColor) . $badge['category'] . '.png')?>" alt="badge <?php echo $badge['label'];?>" width="33" height="34" />
+    									<img src="<?php echo $this->frontendAssetPath('images/badges/'. strtolower($badgeColor) . $badge['category'] . '.png')?>" alt="badge <?php echo $badge['label'];?>" width="33" height="34" />
     								</div>
     							<?php $i++;endforeach;?>
     							<?php if($i==0): ?>
     								<div class="slot-badge">
-    									<img src="<?php echo $this-> basePath('images/badges/default.png')?>" alt="badge default" width="33" height="34" />
+    									<img src="<?php echo $this-> frontendAssetPath('images/badges/default.png')?>" alt="badge default" width="33" height="34" />
     								</div>
 	    								<?php for($i;$i<=2;$i++):?>
 	    									<div class="slot-badge"></div>
@@ -106,7 +106,7 @@
     					</li>
     					<li class="user-info points">
     						<a href="<?php echo $this->url('badges') ?>#title-point">
-	    						<img src="<?php echo $this->basePath('images/header/icon-cup.png') ?>" alt="icon cup" width="10" heihgt="13" /><span id="user-point"><?php echo number_format($this->userScore(), 0, ',', ' ');?> points </span>
+	    						<img src="<?php echo $this->frontendAssetPath('images/header/icon-cup.png') ?>" alt="icon cup" width="10" heihgt="13" /><span id="user-point"><?php echo number_format($this->userScore(), 0, ',', ' ');?> points </span>
 	    					</a>
 	    				</li>
 
@@ -116,22 +116,22 @@
     					<div class="row-fluid">
     						<ul id="user-menu">
     							<li id="first-item">
-    								<img src="<?php echo $this->basePath('images/header/icon-money.png'); ?>" alt="icon money" /><a href="<?php echo $this->url('badges');?>">Mes badges et mes points</a>
+    								<img src="<?php echo $this->frontendAssetPath('images/header/icon-money.png'); ?>" alt="icon money" /><a href="<?php echo $this->url('badges');?>">Mes badges et mes points</a>
     							</li>
     							<li>
-    								<img src="<?php echo $this->basePath('images/header/icon-calendar.png') ?>" alt="icon calendar" /><a href="<?php echo $this->url('activity');?>">Mon activité</a>
+    								<img src="<?php echo $this->frontendAssetPath('images/header/icon-calendar.png') ?>" alt="icon calendar" /><a href="<?php echo $this->url('activity');?>">Mon activité</a>
     							</li>
     							<li>
-    								<img src="<?php echo $this->basePath('images/header/icon-cog.png') ?>" alt="icon cog" /><a href="<?php echo $this->url('zfcuser/profile');?>">Modifier mes informations</a>
+    								<img src="<?php echo $this->frontendAssetPath('images/header/icon-cog.png') ?>" alt="icon cog" /><a href="<?php echo $this->url('zfcuser/profile');?>">Modifier mes informations</a>
     							</li>
     							<li>
-    								<img class="icon-news" src="<?php echo $this->basePath('images/header/icon-news.png') ?>" alt="icon news" /><a href="<?php echo $this->url('zfcuser/newsletter');?>">Gérer mes newletters</a>
+    								<img class="icon-news" src="<?php echo $this->frontendAssetPath('images/header/icon-news.png') ?>" alt="icon news" /><a href="<?php echo $this->url('zfcuser/newsletter');?>">Gérer mes newletters</a>
     							</li>
     							<li>
-    								<img src="<?php echo $this->basePath('images/header/icon-users.png') ?>" alt="icon users" /><a href="<?php echo $this->url('sponsorfriends'); ?>">Parrainer mes amis</a>
+    								<img src="<?php echo $this->frontendAssetPath('images/header/icon-users.png') ?>" alt="icon users" /><a href="<?php echo $this->url('sponsorfriends'); ?>">Parrainer mes amis</a>
     							</li>
     							<li id="last-item">
-    								<img src="<?php echo $this->basePath('images/header/icon-unlocked.png') ?>" alt="icon unlocked" /><a href="<?php echo $this->url('zfcuser/logout') ?>">Déconnexion</a>
+    								<img src="<?php echo $this->frontendAssetPath('images/header/icon-unlocked.png') ?>" alt="icon unlocked" /><a href="<?php echo $this->url('zfcuser/logout') ?>">Déconnexion</a>
     							</li>
     						</ul>
     					</div>

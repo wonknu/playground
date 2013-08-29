@@ -9,9 +9,8 @@
     <?php else:?>
         <?php $this->partial()->setObjectKey('page')?>
         <?php echo $this->partial('adfab-cms/frontend/page/partial/page.phtml', $item) ?>
-        
+
         <?php //echo '<h1>'. $item->getTitle() .'</h1>'?>
     <?php endif;?>
 <?php endforeach;?>
-coucoucoucoucouc
 <?php echo $this->paginationControl($this->items, 'Sliding', 'application/index/partial/pagination.phtml', array('url' => 'home/pagination')); ?>

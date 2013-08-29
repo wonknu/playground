@@ -52,9 +52,9 @@
 		        			        <img src="<?php echo $this->basePath($this->zfcUserIdentity()->getAvatar()) ?>" width="28" height="28" alt="<?php echo $this->zfcUserIdentity()->getFirstname(); ?> <?php echo $this->zfcUserIdentity()->getLastname(); ?>" />
 		        			    <?php else:?>
 		        			    		<?php if($this->zfcUserIdentity()->getTitle() && $this->zfcUserIdentity()->getTitle() == 'M'): ?>
-		        			        		<img src="<?php echo $this->basePath('images/user/no-avatar-small-h.png'); ?>" alt="no avatar" width="28" height="28" />
+		        			        		<img src="<?php echo $this->frontendAssetPath('images/user/no-avatar-small-h.png'); ?>" alt="no avatar" width="28" height="28" />
 		        			    		<?php else: ?>
-		        			    			<img src="<?php echo $this->basePath('images/user/no-avatar-small-f.png'); ?>" alt="no avatar" width="28" height="28" />
+		        			    			<img src="<?php echo $this->frontendAssetPath('images/user/no-avatar-small-f.png'); ?>" alt="no avatar" width="28" height="28" />
 		        			    		<?php endif; ?>
 		        			    <?php endif;?>
 	        			   </a>
@@ -125,7 +125,7 @@
     								<img src="<?php echo $this->basePath('images/header/icon-cog.png') ?>" alt="icon cog" /><a href="<?php echo $this->url('zfcuser/profile');?>">Modifier mes informations</a>
     							</li>
     							<li>
-    								<img class="icon-news" src="<?php echo $this->basePath('images/header/icon-news.png') ?>" alt="icon news" /><a href="<?php echo $this->url('zfcuser/newsletter');?>">Gérer mes newletters</a>
+    								<img class="icon-news" src="<?php echo $this->frontendAssetPath('images/header/icon-news.png') ?>" alt="icon news" /><a href="<?php echo $this->url('zfcuser/newsletter');?>">Gérer mes newletters</a>
     							</li>
     							<li>
     								<img src="<?php echo $this->basePath('images/header/icon-users.png') ?>" alt="icon users" /><a href="<?php echo $this->url('sponsorfriends'); ?>">Parrainer mes amis</a>
