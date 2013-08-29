@@ -16,7 +16,7 @@ $form->prepare();
         <?php $this->QgCKEditor(
             'question',
                 array(
-                	'BasePath' => $this->basePath('js/lib/ckeditor'),
+                	'BasePath' => $this->adminAssetPath('js/lib/ckeditor'),
                 	'Width' => "50%",
                     'Height' => "100",
                     //'filebrowserBrowseUrl' => '/elfinder', // eg. 'includes/elFinder/elfinder.html'
@@ -34,7 +34,7 @@ $form->prepare();
         <?php $this->QgCKEditor(
             'answer',
                 array(
-                	'BasePath' => $this->basePath('js/lib/ckeditor'),
+                	'BasePath' => $this->adminAssetPath('js/lib/ckeditor'),
                 	'Width' => "50%",
                     'Height' => "100",
                     //'filebrowserBrowseUrl' => '/elfinder', // eg. 'includes/elFinder/elfinder.html'

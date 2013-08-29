@@ -186,13 +186,13 @@ $form->prepare();
         <?php $this->QgCKEditor(
             'columnBlock1',
                 array(
-                	'BasePath' => $this->basePath('js/lib/ckeditor'),
+                	'BasePath' => $this->adminAssetPath('js/lib/ckeditor'),
                 	'Width' => "50%",
                     'Height' => "100",
                     'filebrowserBrowseUrl' => '/elfinder', // eg. 'includes/elFinder/elfinder.html'
                     'uiColor' => '#9AB8F3',
                     //'Color' => "#000",
-                    'stylesSet' => 'custom_styles:/js/ckeditor-styles.js',
+                    'stylesSet' => 'custom_styles:/zfcadmin/js/ckeditor-styles.js',
                     'Toolbar'=> array(
                          array('Source','Maximize'),
                          array('Templates','Styles','Format'),
@@ -210,7 +210,7 @@ $form->prepare();
         <?php $this->QgCKEditor(
             'columnBlock2',
                 array(
-                	'BasePath' => $this->basePath('js/lib/ckeditor'),
+                	'BasePath' => $this->adminAssetPath('js/lib/ckeditor'),
                 	'Width' => "50%",
                     'Height' => "100",
                     'filebrowserBrowseUrl' => '/elfinder', // eg. 'includes/elFinder/elfinder.html'
@@ -233,7 +233,7 @@ $form->prepare();
         <?php $this->QgCKEditor(
             'columnBlock3',
                 array(
-                	'BasePath' => $this->basePath('js/lib/ckeditor'),
+                	'BasePath' => $this->adminAssetPath('js/lib/ckeditor'),
                 	'Width' => "50%",
                     'Height' => "100",
                     'filebrowserBrowseUrl' => '/elfinder', // eg. 'includes/elFinder/elfinder.html'
@@ -257,10 +257,10 @@ $form->prepare();
 	<ul class="liste-buttons">
 		<li class="btn-admin"><a href="#" onclick="add_prize()"><?php echo $this->translate('Ajouter un lot'); ?></a></li>
 	</ul>
-			
+
     <div id="prize_entry" class="control-group">
         <?php //echo $this->formCollection($form->get('prizes'));?>
-        
+
         <?php foreach($form->get('prizes') as $element):?>
         <fieldset>
         	<div class="label-input">
@@ -303,7 +303,7 @@ $form->prepare();
     <?php $this->QgCKEditor(
         'welcomeBlock',
             array(
-            	'BasePath' => $this->basePath('js/lib/ckeditor'),
+            	'BasePath' => $this->adminAssetPath('js/lib/ckeditor'),
             	'Width' => "100%",
                 'Height' => "340",
                 'filebrowserBrowseUrl' => '/elfinder', // eg. 'includes/elFinder/elfinder.html'
@@ -334,7 +334,7 @@ $form->prepare();
     <?php $this->QgCKEditor(
         'termsBlock',
             array(
-            	'BasePath' => $this->basePath('js/lib/ckeditor'),
+            	'BasePath' => $this->adminAssetPath('js/lib/ckeditor'),
             	'Width' => "100%",
                 'Height' => "340",
                 'filebrowserBrowseUrl' => '/elfinder', // eg. 'includes/elFinder/elfinder.html'
@@ -355,11 +355,11 @@ $form->prepare();
     </div>
 </div>
 <script>
-	
+
     var template = $('#prize_entry > fieldset > span');
     var datatemplate = $('#prize_entry > fieldset > span').data('template');
     template.data('template', '<fieldset id="prizes__index__">'+datatemplate+'</fieldset>');
-    
+
     function add_prize() {
         var currentCount = $('#prize_entry textarea').length;
         var template = $('#prize_entry > span').data('template');

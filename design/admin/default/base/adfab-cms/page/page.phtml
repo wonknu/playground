@@ -57,7 +57,7 @@ $form->prepare();
 		            <?php $this->QgCKEditor(
 		                'block_heading',
 		                    array(
-		                    	'BasePath' => $this->basePath('js/lib/ckeditor'),
+		                    	'BasePath' => $this->adminAssetPath('js/lib/ckeditor'),
 		                    	'Width' => "40%",
 		                        'Height' => "100",
 		                        'filebrowserBrowseUrl' => '/elfinder', // eg. 'includes/elFinder/elfinder.html'
@@ -108,7 +108,7 @@ $form->prepare();
             <?php $this->QgCKEditor(
                 'block_content',
                     array(
-                    	'BasePath' => $this->basePath('js/lib/ckeditor'),
+                    	'BasePath' => $this->adminAssetPath('js/lib/ckeditor'),
                     	'Width' => "100%",
                         'Height' => "340",
                         'filebrowserBrowseUrl' => '/elfinder', // eg. 'includes/elFinder/elfinder.html'
