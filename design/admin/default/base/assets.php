@@ -2,16 +2,16 @@
 return array(
 	'assetic_configuration' => array(
 		'modules' => array(
-			'grgtest' => array(
+			'default_base' => array(
 				'root_path' => array(
 					__DIR__ . '/../../../../design/admin/default/base/assets',
 				),
 				'collections' => array(
-					'modern_admin_css' => array(
+					/*'modern_admin_css' => array(
 						'assets' => array(
 							'grg.css' => 'css/grg.css',
 						),
-					),
+					),*/
 					'admin_images' => array(
 						'assets' => array(
 							'images/**/*.jpg',
@@ -26,7 +26,7 @@ return array(
 			),
 			'admin' => array(
 				'collections' => array(
-					'admin_css' => array(
+					/*'admin_css' => array(
 						'assets' => array(
 							'grg.css' => 'css/grg.css',
 							'ie.css' => '',
@@ -36,7 +36,7 @@ return array(
 						'assets' => array(
 							'admin.js' => ''
 						),
-					),
+					),*/
 				),
 			),
 		),

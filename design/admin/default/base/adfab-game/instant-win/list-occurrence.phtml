@@ -24,11 +24,11 @@ if (isset($fm[0]))
 
         	<?php if($this->filter == 'ASC'): ?>
         	    <a href="<?php echo $this->url('zfcadmin/adfabgame/instantwin-occurrence-list', array('gameId' => $this->gameId, 'filter' => 'DESC')); ?>">
-        	    	<img src="/images/admin/arrow-down.png" alt="" />
+        	    	<img src="<?php echo $this->adminAssetPath('images/admin/arrow-down.png'); ?>" alt="" />
         	    </a>
 			<?php else : ?>
 				<a href="<?php echo $this->url('zfcadmin/adfabgame/instantwin-occurrence-list', array('gameId' => $this->gameId, 'filter' => 'ASC')); ?>">
-					<img src="/images/admin/arrow-up.png" alt="" />
+					<img src="<?php echo $this->adminAssetPath('images/admin/arrow-up.png'); ?>" alt="" />
 				</a>
         	<?php endif; ?>
 
