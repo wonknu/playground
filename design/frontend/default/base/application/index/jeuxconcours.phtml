@@ -7,7 +7,7 @@
     </div>
 
     <?php $this->partialLoop()->setObjectKey('game')?>
-    <?php echo $this->partialLoop('adfab-game/frontend/partial/game.phtml', $this->games) ?>
+    <?php echo $this->partialLoop('adfab-game/partial/game.phtml', $this->games) ?>
    
 </div><!-- END JEUX CONCOURS -->
 <?php echo $this->paginationControl($this->games, 'Sliding', 'application/index/partial/pagination.phtml', array('url' => 'jeuxconcours/pagination')); ?>

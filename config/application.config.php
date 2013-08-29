@@ -7,6 +7,7 @@ return array(
     	'DoctrineDataFixtureModule',
 		'ZendDeveloperTools',
         'Jhu\ZdtLoggerModule',
+    	'AsseticBundle', 
 		'ZfcBase',
         'ZfcUser',
     	'BjyAuthorize',
@@ -26,7 +27,7 @@ return array(
             'config/autoload/{,*.}{global,local}.php',
         ),
         'module_paths' => array(
-            './module',
+        	'./module',
             './vendor',
         ),
     ),

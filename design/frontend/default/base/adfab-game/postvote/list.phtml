@@ -63,7 +63,7 @@
         </form>
     </div>
 
-	<?php echo $this->paginationControl($this->posts, 'Sliding', 'adfab-game/frontend/postvote/pagination_list.phtml', array('id' => $this->game->getIdentifier(), 'filter' => $this->filter)); ?>
+	<?php echo $this->paginationControl($this->posts, 'Sliding', 'adfab-game/postvote/pagination_list.phtml', array('id' => $this->game->getIdentifier(), 'filter' => $this->filter)); ?>
 	
 	<?php $form = $this->form;?>
 	<?php $form->prepare();?>
@@ -96,7 +96,7 @@
 								<p><?php if(isset($post['data'][7])): echo substr(nl2br($post['data'][7]), 0, 200); endif;?>...</p>
 							</div>
 							
-							<?php //echo $this->partial('adfab-game/frontend/postvote/templates/' . $this->game->getTemplate(), array('data'=> $post['data'])) ?>
+							<?php //echo $this->partial('adfab-game/postvote/templates/' . $this->game->getTemplate(), array('data'=> $post['data'])) ?>
 							
 						<?php elseif($this->game->getTemplate() == 'recipe'): ?>
 							
@@ -163,6 +163,6 @@
 	 </div>
 
 
-	<?php echo $this->paginationControl($this->posts, 'Sliding', 'adfab-game/frontend/postvote/pagination_list.phtml', array('id' => $this->game->getIdentifier(), 'filter' => $this->filter)); ?>
+	<?php echo $this->paginationControl($this->posts, 'Sliding', 'adfab-game/postvote/pagination_list.phtml', array('id' => $this->game->getIdentifier(), 'filter' => $this->filter)); ?>
 
 </div>

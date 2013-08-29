@@ -5,7 +5,7 @@
 <?php foreach($this->items as $item):?>
     <?php if(! $item instanceof AdfabCms\Entity\Page):?>
         <?php $this->partial()->setObjectKey('game')?>
-        <?php echo $this->partial('adfab-game/frontend/partial/game.phtml', $item) ?>
+        <?php echo $this->partial('adfab-game/partial/game.phtml', $item) ?>
     <?php else:?>
         <?php $this->partial()->setObjectKey('page')?>
         <?php echo $this->partial('adfab-cms/frontend/page/partial/page.phtml', $item) ?>
