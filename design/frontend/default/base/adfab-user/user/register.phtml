@@ -6,7 +6,7 @@
 			<p class="h2"><?php echo $this->translate('login or register'); ?></p>
 
 			<!-- login -->
-			<div id="login-part" class="backgrey row-fluid" data-redirect="<?php  if($this->redirect) : echo $this->redirect; else : $this->url('home'); endif; ?>">
+			<div id="login-part" class="backgrey row-fluid" data-redirect="<?php  if($this->redirect) : echo $this->redirect; else : $this->url('frontend'); endif; ?>">
 				<div class="row-fluid hand-arrow-double">
 					<div class="block-left span7">
 						<p class="green"><?php echo $this->translate('Already an account ?')?></p>
@@ -14,7 +14,7 @@
 					<div class="block-right span5">
 					<?php if(!$this->zfcUserIdentity()): ?>
 					    <?php echo $this->adfabUserLoginWidget(array(
-			    		        'redirect' => ($this->redirect) ? $this->redirect : $this->url('home'),
+			    		        'redirect' => ($this->redirect) ? $this->redirect : $this->url('frontend'),
 			    		        'enableRegistration' => false,
 			    		        'template' => 'adfab-user/register/login.phtml'
 				    		)); ?>

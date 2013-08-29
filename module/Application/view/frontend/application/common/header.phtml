@@ -1,6 +1,6 @@
 <?php $badges =  $this->userBadges();?>
 
-<?php $baseUrl = $this->url('home', array(), array('force_canonical' => true)); ?>
+<?php $baseUrl = $this->url('frontend', array(), array('force_canonical' => true)); ?>
 
 <div id="fb-root">
 </div>
@@ -22,7 +22,7 @@
 
 <!-- HEADER -->
 <div id="header" class="row-fluid">
-	<div class="logo"><a href="<?php echo $this->url('home') ?>"><img src="<?php echo $this->basePath('images/common/logo.png')?>" border="0" width="117" height="116" alt="logo" /></a></div>
+	<div class="logo"><a href="<?php echo $this->url('frontend') ?>"><img src="<?php echo $this->basePath('images/common/logo.png')?>" border="0" width="117" height="116" alt="logo" /></a></div>
 	<div class="bartop row-fluid">
 		 <?php if(($this->adfabBlock('links')) != ''):?>
 			<?php echo $this->adfabBlock('links'); ?>
@@ -34,13 +34,13 @@
 		</div>
 	</div>
     <?php if(!$this->zfcUserIdentity()): ?>
-        <?php echo $this->adfabUserLoginWidget(array('redirect' => $this->url('home'),'enableRegistration' => true)); ?>
+        <?php echo $this->adfabUserLoginWidget(array('redirect' => $this->url('frontend'),'enableRegistration' => true)); ?>
     <?php else: ?>
 	<div class="barnav row-fluid">
 		<div id="menu"></div>
 		<ul class="mainnav span7">
 			<li class="nav-item games"><a href="<?php echo $this->url('jeuxconcours') ?>"<?php if($this->pageGames != ''): echo ' class="'.$this->pageGames.'"'; endif; ?>>Jeux concours</a></li>
-			<li class="nav-item winners"><a href="<?php echo $this->url('winner') ?>"<?php if($this->pageWinners != ''): echo ' class="'.$this->pageWinners.'"'; endif; ?>>Les gagnants</a></li>
+			<li class="nav-item winners"><a href="<?php echo $this->url('frontend/winner') ?>"<?php if($this->pageWinners != ''): echo ' class="'.$this->pageWinners.'"'; endif; ?>>Les gagnants</a></li>
 			<!-- <li class="nav-item shop"><a href="#">Boutique</a></li> -->
 		</ul>
             <div id="logged">

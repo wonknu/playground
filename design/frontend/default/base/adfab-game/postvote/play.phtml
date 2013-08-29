@@ -94,7 +94,7 @@ $form->setAttribute('action', $this->url('postvote/play', array('id' => $this->g
 		                	
 
 		                <?php elseif ($element instanceof Zend\Form\Element\File): ?>
-		                    <div class="photo-file" data-url="<?php echo $this->url('postvote/play/ajaxupload', array('id' => $this->game->getIdentifier()))?>" data-canonical="<?php echo $this->url('home', array(), array('force_canonical' => true)) ?>">
+		                    <div class="photo-file" data-url="<?php echo $this->url('postvote/play/ajaxupload', array('id' => $this->game->getIdentifier()))?>" data-canonical="<?php echo $this->url('frontend', array(), array('force_canonical' => true)) ?>">
 		                    	
 		    					<label class="span4">
 		    						<b><?php echo ($element->getLabel()) ? $this->formLabel($element) . ' ' . $requiredContent :''; ?></b><br/>

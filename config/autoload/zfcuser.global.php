@@ -28,13 +28,13 @@ $settings = array(
 
     'use_redirect_parameter_if_present' => true,
     'user_login_widget_view_template'   => 'adfab-user/header/login.phtml',
-    'login_redirect_route'              => 'home',
-    'logout_redirect_route'             => 'home',
+    'login_redirect_route'              => 'frontend',
+    'logout_redirect_route'             => 'frontend',
     'password_cost'                     => 14,
     'enable_user_state'                 => true,
     'default_user_state'                => null,
     'allowed_login_states'              => array( 1 , 2 ),
-    
+
     /**
      * End of ZfcUser configuration
      */

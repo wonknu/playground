@@ -293,10 +293,10 @@ class IndexController extends AbstractActionController
         }
 
         $secretKey = strtoupper(substr(sha1($user->getId().'####'.time()),0,15));
-        $socialLinkUrl = $this->url()->fromRoute('home', array(), array('force_canonical' => true)).'?key='.$secretKey;
+        $socialLinkUrl = $this->url()->fromRoute('frontend', array(), array('force_canonical' => true)).'?key='.$secretKey;
         // With core shortener helper
         $socialLinkUrl = $this->shortenUrl()->shortenUrl($socialLinkUrl);
-        $fbShareImage = $this->url()->fromRoute('home', array(), array('force_canonical' => true)) . 'images/common/logo.png';
+        $fbShareImage = $this->url()->fromRoute('frontend', array(), array('force_canonical' => true)) . 'images/common/logo.png';
 
         $bitlyclient = $this->getOptions()->getBitlyUrl();
         $bitlyuser = $this->getOptions()->getBitlyUsername();

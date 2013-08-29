@@ -1,7 +1,7 @@
 <?php $achievements    = $this->activityWidget();?>
 <?php $leaderboard     = $this->leaderboardWidget();?>
 <?php $leaderboardWeek = $this->leaderboardWidget('','week');?>
-<?php $baseUrl         = $this->url('home', array(), array('force_canonical' => true)); ?>
+<?php $baseUrl         = $this->url('frontend', array(), array('force_canonical' => true)); ?>
 
 <div id="sidebar-homepage" class="sidebar span4">
 
@@ -107,7 +107,7 @@
 	    		<li class="game-play"><a href="<?php echo $this->url('jeuxconcours'); ?>">Participez aux jeux concours</a> pour gagner des cadeaux</li>
 	    		<li class="gain-points">Cumulez des points et obtenez des badges.</li>
 	    	</ul>
-	    	<div class="link">&gt; <a href="<?php echo $this->url('cms', array('id' => 'comment-ca-marche')); ?>" class="green">Voir comment gagner plus de points !</a></div>
+	    	<div class="link">&gt; <a href="<?php echo $this->url('frontend/cms', array('id' => 'comment-ca-marche')); ?>" class="green">Voir comment gagner plus de points !</a></div>
 	   </div>
     </div><!-- END BLOCK HOW IT WORKS -->
 

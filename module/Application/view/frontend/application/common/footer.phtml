@@ -1,5 +1,5 @@
 <div id="footer" class="row-fluid">
-	<div class="logo span3"><a href="<?php echo $this->url('home') ?>"><img src="<?php echo $this->basePath('images/common/logo.png')?>" width="117" height="116" border="0" /></a></div>
+	<div class="logo span3"><a href="<?php echo $this->url('frontend') ?>"><img src="<?php echo $this->basePath('images/common/logo.png')?>" width="117" height="116" border="0" /></a></div>
 	<div class="social-share">
 		<div class="title">Rejoignez-nous!</div>
 		<ul>
@@ -10,10 +10,10 @@
 		</ul>
 	</div>
 	<ul class="bottomnav span3">
-		<li class="nav-item"><a href="<?php echo $this->url('home') ?>">Accueil</a></li>
+		<li class="nav-item"><a href="<?php echo $this->url('frontend') ?>">Accueil</a></li>
 		<li class="nav-item"><a href="<?php echo $this->url('jeuxconcours') ?>">Tous les jeux concours</a></li>
-		<li class="nav-item"><a href="<?php echo $this->url('winner') ?>">Les gagnants</a></li>
-		<li class="nav-item"><a href="<?php echo $this->url('cms', array('id' => 'comment-ca-marche')); ?>">Comment ça marche ?</a></li>
+		<li class="nav-item"><a href="<?php echo $this->url('frontend/winner') ?>">Les gagnants</a></li>
+		<li class="nav-item"><a href="<?php echo $this->url('frontend/cms', array('id' => 'comment-ca-marche')); ?>">Comment ça marche ?</a></li>
 		<li class="nav-item"><a href="<?php if($this->zfcUserIdentity()): echo $this->url('badges'); else : echo $this->url('zfcuser/register') . ($this->redirect ? '?redirect='.$this->redirect : ''); endif; ?>">Mon compte</a></li>
 		<li class="nav-item"><a href="<?php echo $this->url('contact') ?>">Contactez-nous</a></li>
 		<li class="nav-item"><a href="<?php echo $this->url('faq') ?>">FAQ</a></li>

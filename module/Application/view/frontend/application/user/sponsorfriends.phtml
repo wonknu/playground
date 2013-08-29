@@ -7,7 +7,7 @@
 <!-- SPONSOR (parrainer amis) (user page) -->
 <div id="sponsor-friends" class="row-fluid">
 
-	<div id="datas-result" data-url="<?php echo $this->url('home', array(), array('force_canonical' => true)); ?>" data-secretkey="<?php echo $this->secretKey; ?>" data-fbmsg="<?php echo $fbShareMsg; ?>" data-twmsg="<?php echo $twShareMsg; ?>" data-fbrequest="<?php echo $fbRequestMsg; ?>" data-sociallink="<?php echo $this->socialLinkUrl; ?>" data-route="<?php echo $this->url('sponsorfriends'); ?>"></div>
+	<div id="datas-result" data-url="<?php echo $this->url('frontend', array(), array('force_canonical' => true)); ?>" data-secretkey="<?php echo $this->secretKey; ?>" data-fbmsg="<?php echo $fbShareMsg; ?>" data-twmsg="<?php echo $twShareMsg; ?>" data-fbrequest="<?php echo $fbRequestMsg; ?>" data-sociallink="<?php echo $this->socialLinkUrl; ?>" data-route="<?php echo $this->url('sponsorfriends'); ?>"></div>
 
 	<!-- content -->
 	<div id="badges-resume">
@@ -28,7 +28,7 @@
 					<ul id="round-social" class="f-right">
 						<li><a id="fb-share" href="javascript:void(0)" target="_blank"><img src="<?php echo $this->basePath('images/common/round-facebook.png') ?>" alt="Facebook" width="79" height="83" border="0" /></a></li>
 						<li><a href="https://twitter.com/intent/tweet?text=<?php echo urlencode('Venez jouer aux jeux de Playground'); ?>&url=<?php echo urlencode($this->socialLinkUrl); ?>" data-txt="<?php echo urlencode('Venez jouer aux jeux de Playground'); ?>"><img src="<?php echo $this->basePath('images/common/round-twitter.png') ?>" alt="Twitter" wodth="78" height="83" border="0" /></a></li>
-						<!--<li><a href="https://plus.google.com/share?url=<?php echo $this->url('home', array(), array('force_canonical' => true)); ?>" target="_blank"><img src="<?php echo $this->basePath('images/common/round-google.png') ?>" alt="Google +" width="79" height="83" border="0" /></a></li>-->
+						<!--<li><a href="https://plus.google.com/share?url=<?php echo $this->url('frontend', array(), array('force_canonical' => true)); ?>" target="_blank"><img src="<?php echo $this->basePath('images/common/round-google.png') ?>" alt="Google +" width="79" height="83" border="0" /></a></li>-->
 						<li><a id='google-plus' href="https://plus.google.com/share?url=<?php echo urlencode($this->socialLinkUrl); ?>"><img src="<?php echo $this->basePath('images/common/round-google.png'); ?>" alt="Share on Google+"/></a></li>
 					</ul>
 				</div>

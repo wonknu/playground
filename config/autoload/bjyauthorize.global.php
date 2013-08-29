@@ -75,7 +75,7 @@ return array(
             	array('controller' => 'adfabflowrestauthent',                 'roles' => array('guest', 'user')),
             	array('controller' => 'adfabflowrestsend',               	  'roles' => array('guest', 'user')),
             	array('controller' => 'adfabgame_easyxdm',                 	  'roles' => array('guest', 'user')),
-            		
+
 
                 // Admin area
                 array('controller' => 'ZfcAdmin\Controller\AdminController',  'roles' => array('admin')),
@@ -103,7 +103,7 @@ return array(
             	array('controller' => 'adfabflowadminaction',				  'roles' => array('admin')),
             	array('controller' => 'adfabflowadminobject',				  'roles' => array('admin')),
             	array('controller' => 'adfabflowadminstory',				  'roles' => array('admin')),
-            	array('controller' => 'adfabflowadmindomain',				  'roles' => array('admin')),	
+            	array('controller' => 'adfabflowadmindomain',				  'roles' => array('admin')),
             ),
 
             /*'BjyAuthorize\Guard\Route' => array(
@@ -112,7 +112,7 @@ return array(
                 array('route' => 'zfcuser/login', 'roles' => array('guest','user')),
                 array('route' => 'zfcuser/register', 'roles' => array('guest','user')),
                 // Below is the default index action used by the [ZendSkeletonApplication](https://github.com/zendframework/ZendSkeletonApplication)
-                array('route' => 'home', 'roles' => array('guest', 'user')),
+                array('route' => 'frontend', 'roles' => array('guest', 'user')),
                 array('route' => 'zfcadmin', 'roles' => array('admin')),
             ),*/
         ),
