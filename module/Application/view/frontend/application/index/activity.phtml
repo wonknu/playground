@@ -45,18 +45,18 @@
 	            $duration = $interval->y . ' ans';
 	        }
 	        ?>
-		    <?php if(in_array($event->getActionId(), array(1,2,3,5,6,7,8,9,10,11))):?>
+		    <?php if(in_array($event->getAction()->getId(), array(1,2,3,5,6,7,8,9,10,11))):?>
 			    <p>Vous avez rempli vos coordonnées « <b><?php echo $event->getLabel()?></b> »</p>
-			<?php elseif(in_array($event->getActionId(), array(4))):?>
+			<?php elseif(in_array($event->getAction()->getId(), array(4))):?>
 				<p>Vous avez renseigné votre <b><?php echo $event->getLabel()?></b></p>
-			<?php elseif(in_array($event->getActionId(), array(12))):?>
+			<?php elseif(in_array($event->getAction()->getId(), array(12))):?>
 			    <p>Vous avez participé au concours « <b><?php echo $event->getLabel()?></b> »</p>
-			<?php elseif(in_array($event->getActionId(), array(20))):?>
+			<?php elseif(in_array($event->getAction()->getId(), array(20))):?>
 			    <p>Vous avez parrainé <a href="mailto:<?php echo $event->getLabel()?>" target="_blank"><?php echo $event->getLabel()?></a></p>
-			<?php elseif(in_array($event->getActionId(), array(100, 101, 102))):?>
-			    <?php $badge = "";if($event->getActionId() == 100) $badge = "en Bronze";?>
-			    <?php if($event->getActionId() == 101) $badge = "en Argent"; ?>
-			    <?php if($event->getActionId() == 102) $badge = "en Or"; ?>
+			<?php elseif(in_array($event->getAction()->getId(), array(100, 101, 102))):?>
+			    <?php $badge = "";if($event->getAction()->getId() == 100) $badge = "en Bronze";?>
+			    <?php if($event->getAction()->getId() == 101) $badge = "en Argent"; ?>
+			    <?php if($event->getAction()->getId() == 102) $badge = "en Or"; ?>
 			    <p>Vous avez remporté le badge « <b><?php echo stripslashes($event->getLabel())?></b> » <?php echo $badge;?></p>
 			<?php endif;?>
 			<p class="date">Il y a <?php echo $duration;?></p>

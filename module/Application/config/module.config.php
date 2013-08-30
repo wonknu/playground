@@ -196,37 +196,6 @@ return array(
                     ),
                 ),
             ),
-
-            // The following is a route to simplify getting started creating
-            // new controllers and actions without needing to create a new
-            // module. Simply drop new controllers in, and you can access them
-            // using the path /application/:controller/:action
-            'application' => array(
-                'type'    => 'Literal',
-                'options' => array(
-                    'route'    => '/application',
-                    'defaults' => array(
-                        '__NAMESPACE__' => 'Application\Controller',
-                        'controller'    => 'Index',
-                        'action'        => 'index',
-                    ),
-                ),
-                'may_terminate' => true,
-                'child_routes' => array(
-                    'default' => array(
-                        'type'    => 'Segment',
-                        'options' => array(
-                            'route'    => '/[:controller[/:action]]',
-                            'constraints' => array(
-                                'controller' => '[a-zA-Z][a-zA-Z0-9_-]*',
-                                'action'     => '[a-zA-Z][a-zA-Z0-9_-]*',
-                            ),
-                            'defaults' => array(
-                            ),
-                        ),
-                    ),
-                ),
-            ),
         ),
     ),
 
@@ -244,12 +213,6 @@ return array(
                             'default_layout' => 'layout/homepage-2columns-right',
                             'children_views' => array(
                                 'col_right'  => 'application/common/column_right.phtml',
-                            ),
-                        ),
-                        'commentcamarche' => array(
-                            'default_layout' => 'layout/2columns-left',
-                            'children_views' => array(
-                                'col_left'  => 'adfab-user/layout/col-user.phtml',
                             ),
                         ),
                         'jeuxconcours' => array(
@@ -333,9 +296,9 @@ return array(
             //'layout/homepage-2columns-right'    => __DIR__ . '/../view/layout/homepage-2columns-right.phtml',
             //'layout/2columns-right'      		=> __DIR__ . '/../view/layout/2columns-right.phtml',
             //'application/index/index'    		=> __DIR__ . '/../view/application/index/index.phtml',
-            'application/index/activity' 		=> __DIR__ . '/../view/application/user/activity.phtml',
-            'application/index/badges'   		=> __DIR__ . '/../view/application/user/badges.phtml',
-            'application/index/sponsorfriends'  => __DIR__ . '/../view/application/user/sponsorfriends.phtml',
+            //'application/index/activity' 		=> __DIR__ . '/../view/application/user/activity.phtml',
+            //'application/index/badges'   		=> __DIR__ . '/../view/application/user/badges.phtml',
+            //'application/index/sponsorfriends'  => __DIR__ . '/../view/application/user/sponsorfriends.phtml',
             'application/statistics/index'  	=> __DIR__ . '/../view/application/admin/statistics/index.phtml',
             'error/404'                  		=> __DIR__ . '/../view/error/404.phtml',
             'error/index'                		=> __DIR__ . '/../view/error/index.phtml',
