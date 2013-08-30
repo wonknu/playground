@@ -31,7 +31,7 @@
 	<!-- BLOCK TONNES CADEAUX -->
 	<?php if(!$this->zfcUserIdentity()): ?>
 	    <div class="tonnes-cadeaux sd-block">
-	    	<img src="<?php echo $this->basePath('images/common/icon-gifts.png')?>" width="84" height="82" border="0" alt="gifts" />
+	    	<img src="<?php echo $this->frontendAssetPath('images/common/icon-gifts.png')?>" width="84" height="82" border="0" alt="gifts" />
 	    	<div class="bg-sdblock">
 				<p class="green">Gagnez des tonnes de cadeaux !</p>
 		    	<div class="txt">Inscrivez-vous sur Playground et participez aux jeux concours de nos partenaires pour gagner pleins de cadeaux.</div>
@@ -70,7 +70,7 @@
     <!-- BLOCK WIN POINTS -->
     <?php if($this->zfcUserIdentity()): ?>
 		<div class="sd-block win-points">
-			<img src="<?php echo $this->basePath('images/common/icon-cup-home.png')?>" width="81" height="80" border="0" alt="cup" />
+			<img src="<?php echo $this->frontendAssetPath('images/common/icon-cup-home.png')?>" width="81" height="80" border="0" alt="cup" />
 			<div class="bg-sdblock">
 				<p class="green">Gagnez plus de points !</p>
 				<ul class="links-list">
@@ -81,13 +81,13 @@
 						</a>
 					</li>
 					<li class="parrain">
-						<a href="<?php echo $this->url('sponsorfriends'); ?>">
+						<a href="<?php echo $this->url('frontend/sponsorfriends'); ?>">
 							<div class="libelle">Parrainez vos amis</div>
 							<div class="points">100 points par amis parrainé</div>
 						</a>
 					</li>
 					<li class="partage">
-						<a href="<?php echo $this->url('sponsorfriends'); ?>">
+						<a href="<?php echo $this->url('frontend/sponsorfriends'); ?>">
 							<div class="libelle">Partagez sur les réseaux sociaux</div>
 							<div class="points">50 points</div>
 						</a>
@@ -104,7 +104,7 @@
 			<p class="green">Comment ça marche ?</p>
 	    	<ul class="links-list">
 	    		<li class="connect"><a href="<?php echo $this->url('zfcuser/register') . ($this->redirect ? '?redirect='.$this->redirect : '') ?>">Inscrivez-vous</a> ou <a href="<?php echo $this->url('zfcuser/register') . ($this->redirect ? '?redirect='.$this->redirect : '') ?>">connectez-vous</a> à votre compte</li>
-	    		<li class="game-play"><a href="<?php echo $this->url('jeuxconcours'); ?>">Participez aux jeux concours</a> pour gagner des cadeaux</li>
+	    		<li class="game-play"><a href="<?php echo $this->url('frontend/jeuxconcours'); ?>">Participez aux jeux concours</a> pour gagner des cadeaux</li>
 	    		<li class="gain-points">Cumulez des points et obtenez des badges.</li>
 	    	</ul>
 	    	<div class="link">&gt; <a href="<?php echo $this->url('frontend/cms', array('id' => 'comment-ca-marche')); ?>" class="green">Voir comment gagner plus de points !</a></div>
@@ -113,7 +113,7 @@
 
     <!-- BLOCK CLASSEMENT -->
     <div class="sd-block ranking">
-    	<p class="green"><a href="<?php echo $this->url('reward/leaderboard', array('period'=>'general')); ?>" class="green">Classement</a></p>
+    	<p class="green"><a href="<?php echo $this->url('frontend/reward/leaderboard', array('period'=>'general')); ?>" class="green">Classement</a></p>
     	<div class="filter-bar">
     		<div class="filter week"><a href="#" class="active">Cette semaine</a></div>
     		<div class="filter general"><a href="#">Général</a></div>
@@ -214,7 +214,7 @@
 				</li>
 			<?php endif; ?>
     	</ul>
-    	<div class="link">&gt; <a href="<?php echo $this->url('reward/leaderboard', array('period'=>'general')) ?>" class="green"> Voir le classement général</a></div>
+    	<div class="link">&gt; <a href="<?php echo $this->url('frontend/reward/leaderboard', array('period'=>'general')) ?>" class="green"> Voir le classement général</a></div>
     </div>
 
     <!-- BLOC ACTIVITES RECENTES -->

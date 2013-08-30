@@ -48,30 +48,30 @@
 	<div id="sort-leaderboard" class="row-fluid orange-dot-double">
 		<div class="span3">
 			<div class="btn btn-inverse<?php if($this->period == 'week'):?> active<?php endif;?>">
-				<a href="<?php echo $this->url('reward/leaderboard', array('period'=>'week')); ?>">Cette semaine</a>
+				<a href="<?php echo $this->url('frontend/reward/leaderboard', array('period'=>'week')); ?>">Cette semaine</a>
 			</div>
 		</div>
 		<div class="span2">
 			<div class="btn btn-inverse<?php if($this->period == 'general'):?> active<?php endif;?>">
-				<a href="<?php echo $this->url('reward/leaderboard', array('period'=>'general')); ?>">Général</a>
+				<a href="<?php echo $this->url('frontend/reward/leaderboard', array('period'=>'general')); ?>">Général</a>
 			</div>
 		</div>
 		<div class="span3">
 			<select name="filter-leaderboard" id="filter-leaderboard">
 				<option value="">Sélectionner</option>
-				<option value="<?php echo $this->url('reward/leaderboard',array('period' => $this->period, 'filter' => 'game')) ?>" <?php echo ($this->filter == 'game')? 'selected' : '';?>>Participations</option>
-				<option value="<?php echo $this->url('reward/leaderboard',array('period' => $this->period, 'filter' => 'sponsorship')) ?>" <?php echo ($this->filter == 'sponsorship')? 'selected' : '';?>>Parrainages</option>
-				<option value="<?php echo $this->url('reward/leaderboard',array('period' => $this->period, 'filter' => 'social')) ?>" <?php echo ($this->filter == 'social')? 'selected' : '';?>>Partages</option>
+				<option value="<?php echo $this->url('frontend/reward/leaderboard',array('period' => $this->period, 'filter' => 'game')) ?>" <?php echo ($this->filter == 'game')? 'selected' : '';?>>Participations</option>
+				<option value="<?php echo $this->url('frontend/reward/leaderboard',array('period' => $this->period, 'filter' => 'sponsorship')) ?>" <?php echo ($this->filter == 'sponsorship')? 'selected' : '';?>>Parrainages</option>
+				<option value="<?php echo $this->url('frontend/reward/leaderboard',array('period' => $this->period, 'filter' => 'social')) ?>" <?php echo ($this->filter == 'social')? 'selected' : '';?>>Partages</option>
 			</select>
 		</div>
 		<div class="span4 search-leaderboard">
-			<form action="<?php echo $this->url('reward/leaderboard', array('period'=>'general', 'filter' => $this->filter)); ?>" method="GET" class="row-fluid">
+			<form action="<?php echo $this->url('frontend/reward/leaderboard', array('period'=>'general', 'filter' => $this->filter)); ?>" method="GET" class="row-fluid">
 			<div class="span10">
 				<input type="text" name="name" id="" placeholder="Rechercher" value="<?php echo $this->search?>"/>
 			</div>
 			<div class="span2">
 				<input type="submit" class="btn btn-success" value="rechercher" />
-				<img class="btn-glass" src="<?php echo $this->basePath('images/common/btn-glass.png')?>" alt="" width="16" height="17"/>
+				<img class="btn-glass" src="<?php echo $this->frontendAssetPath('images/common/btn-glass.png')?>" alt="" width="16" height="17"/>
 			</div>
 			</form>
 		</div>
@@ -109,9 +109,9 @@
 							   <?php $badge = $achievement['badge'];?>
 								<li>
 								    <?php if($badge):?>
-									     <img src="<?php echo $this->basePath('images/badges/'. strtolower($badge->getLevelLabel()) . '-' . strtolower($key) .'.png')?>" alt="<?php echo $achievement['eventsDone'] ?>" height="35" width="35" />
+									     <img src="<?php echo $this->frontendAssetPath('images/badges/'. strtolower($badge->getLevelLabel()) . '-' . strtolower($key) .'.png')?>" alt="<?php echo $achievement['eventsDone'] ?>" height="35" width="35" />
 									<?php else:?>
-		                                <img src="<?php echo $this->basePath('images/badges/default.png')?>" alt="<?php echo $achievement['eventsDone'] ?>" height="35" width="35" />
+		                                <img src="<?php echo $this->frontendAssetPath('images/badges/default.png')?>" alt="<?php echo $achievement['eventsDone'] ?>" height="35" width="35" />
 									<?php endif;?>
 									<p><?php if($achievement['eventsDoneCount'] != 0) : echo $achievement['eventsDoneCount']; endif; ?></p>
 								</li>
@@ -168,4 +168,4 @@
 
 </div>
 
-<?php echo $this->paginationControl($this->leaderboard, 'Sliding', 'adfab-reward/index/pagination.phtml', array('url' => 'reward/leaderboard', 'period'=> $this->period, 'filter' => $this->filter)); ?>
+<?php echo $this->paginationControl($this->leaderboard, 'Sliding', 'adfab-reward/index/pagination.phtml', array('url' => 'frontend/reward/leaderboard', 'period'=> $this->period, 'filter' => $this->filter)); ?>

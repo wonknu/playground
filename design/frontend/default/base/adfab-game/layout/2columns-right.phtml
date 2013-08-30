@@ -7,12 +7,14 @@ $children = $this->viewModel()
     ->getChildren();
 
 $ourView  = $children[0];
+
 ?>
+
 <html xmlns="http://www.w3.org/1999/xhtml" 
       xmlns:og="http://opengraphprotocol.org/schema/" lang="fr">
     <head>
         <?php //echo $this->partial('adfab-game/partial/meta.phtml', array('headParams' => $this->headParams)) ?>
-        <?php //echo $this->head();?>
+        <?php echo $this->head();?>
     </head>
     <body>
     	<div id="container">
@@ -20,7 +22,7 @@ $ourView  = $children[0];
 			<div id="content" class="row-fluid">
 				
             	<!-- HEADER WRAPPER -->
-	            <?php //echo $this->header(array('adserving' => $this->adserving, 'currentPage' => $this->currentPage));?>
+	            <?php echo $this->header(array('adserving' => $this->adserving, 'currentPage' => $this->currentPage));?>
 	            <!-- END HEADER WRAPPER -->
 	                
 	            <!-- CONTENT PAGE -->
@@ -67,7 +69,7 @@ $ourView  = $children[0];
 	            </div><!-- END CONTENT PAGE -->
 	            
                 <!-- FOOTER WRAPPER -->
-                <?php //echo $this->footer();?>
+                <?php echo $this->footer();?>
                 <!-- END FOOTER WRAPPER -->
                 
             </div> <!-- END CONTENT -->

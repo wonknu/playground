@@ -106,11 +106,11 @@ $form->setAttribute('action', $this->url('postvote/play', array('id' => $this->g
 		                               <img class="preview" src="<?php echo $this->basePath($element->getValue());?>"/>
 		                               <ul class="picto">
 		                                	<!--<li class="star">
-		                                		<img src="<?php echo $this->basePath('images/common/star.png');?>" alt="" height="35" width="37" />
+		                                		<img src="<?php echo $this->frontendAssetPath('images/common/star.png');?>" alt="" height="35" width="37" />
 		                                	</li>-->
 		                                	<li class="trash" data-delete="<?php echo $this->url('postvote/play/ajaxdelete', array('id' => $this->game->getIdentifier()))?>" data-name="<?php echo $element->getName() ?>">
 		                                		
-		                                		<a href="#"><img src="<?php echo $this->basePath('images/common/trash.png');?>" alt="Supprimer" height="35" width="37" /></a>
+		                                		<a href="#"><img src="<?php echo $this->frontendAssetPath('images/common/trash.png');?>" alt="Supprimer" height="35" width="37" /></a>
 		                                	</li>
 		                                </ul>
 		                            <?php endif;?>

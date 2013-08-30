@@ -39,7 +39,7 @@
 	<div class="barnav row-fluid">
 		<div id="menu"></div>
 		<ul class="mainnav span7">
-			<li class="nav-item games"><a href="<?php echo $this->url('jeuxconcours') ?>"<?php if($this->pageGames != ''): echo ' class="'.$this->pageGames.'"'; endif; ?>>Jeux concours</a></li>
+			<li class="nav-item games"><a href="<?php echo $this->url('frontend/jeuxconcours') ?>"<?php if($this->pageGames != ''): echo ' class="'.$this->pageGames.'"'; endif; ?>>Jeux concours</a></li>
 			<li class="nav-item winners"><a href="<?php echo $this->url('frontend/winner') ?>"<?php if($this->pageWinners != ''): echo ' class="'.$this->pageWinners.'"'; endif; ?>>Les gagnants</a></li>
 			<!-- <li class="nav-item shop"><a href="#">Boutique</a></li> -->
 		</ul>
@@ -66,7 +66,7 @@
     						<span id="user-account"><img src="<?php echo $this->frontendAssetPath('images/common/arrow-white-bottom.png') ?>" alt="arrow white bottom" /></span>
     					</li>
     					<li class="user-info badges">
-    						<a href="<?php echo $this->url('badges') ?>"><span id="user-badge">Vos badges <span id="count-badge"><?php echo count($badges);?></span></span></a>
+    						<a href="<?php echo $this->url('frontend/badges') ?>"><span id="user-badge">Vos badges <span id="count-badge"><?php echo count($badges);?></span></span></a>
     						<!-- menu slide badge -->
     						<div id="slide-badge">
     							<div id="container-badge">
@@ -100,12 +100,12 @@
 	    								<?php endfor;?>
     								<?php endif; ?>
     							</div>
-    							<p><a href="<?php echo $this->url('badges') ?>">Tous les badges</a></p>
+    							<p><a href="<?php echo $this->url('frontend/badges') ?>">Tous les badges</a></p>
     						</div>
     						<!-- // -->
     					</li>
     					<li class="user-info points">
-    						<a href="<?php echo $this->url('badges') ?>#title-point">
+    						<a href="<?php echo $this->url('frontend/badges') ?>#title-point">
 	    						<img src="<?php echo $this->frontendAssetPath('images/header/icon-cup.png') ?>" alt="icon cup" width="10" heihgt="13" /><span id="user-point"><?php echo number_format($this->userScore(), 0, ',', ' ');?> points </span>
 	    					</a>
 	    				</li>
@@ -116,10 +116,10 @@
     					<div class="row-fluid">
     						<ul id="user-menu">
     							<li id="first-item">
-    								<img src="<?php echo $this->frontendAssetPath('images/header/icon-money.png'); ?>" alt="icon money" /><a href="<?php echo $this->url('badges');?>">Mes badges et mes points</a>
+    								<img src="<?php echo $this->frontendAssetPath('images/header/icon-money.png'); ?>" alt="icon money" /><a href="<?php echo $this->url('frontend/badges');?>">Mes badges et mes points</a>
     							</li>
     							<li>
-    								<img src="<?php echo $this->frontendAssetPath('images/header/icon-calendar.png') ?>" alt="icon calendar" /><a href="<?php echo $this->url('activity');?>">Mon activité</a>
+    								<img src="<?php echo $this->frontendAssetPath('images/header/icon-calendar.png') ?>" alt="icon calendar" /><a href="<?php echo $this->url('frontend/activity');?>">Mon activité</a>
     							</li>
     							<li>
     								<img src="<?php echo $this->frontendAssetPath('images/header/icon-cog.png') ?>" alt="icon cog" /><a href="<?php echo $this->url('zfcuser/profile');?>">Modifier mes informations</a>
@@ -128,7 +128,7 @@
     								<img class="icon-news" src="<?php echo $this->frontendAssetPath('images/header/icon-news.png') ?>" alt="icon news" /><a href="<?php echo $this->url('zfcuser/newsletter');?>">Gérer mes newletters</a>
     							</li>
     							<li>
-    								<img src="<?php echo $this->frontendAssetPath('images/header/icon-users.png') ?>" alt="icon users" /><a href="<?php echo $this->url('sponsorfriends'); ?>">Parrainer mes amis</a>
+    								<img src="<?php echo $this->frontendAssetPath('images/header/icon-users.png') ?>" alt="icon users" /><a href="<?php echo $this->url('frontend/sponsorfriends'); ?>">Parrainer mes amis</a>
     							</li>
     							<li id="last-item">
     								<img src="<?php echo $this->frontendAssetPath('images/header/icon-unlocked.png') ?>" alt="icon unlocked" /><a href="<?php echo $this->url('zfcuser/logout') ?>">Déconnexion</a>

@@ -31,141 +31,130 @@ return array(
                             ),
                         ),
                     ),
-                ),
-            ),
-            'commentcamarche' => array(
-                'type'    => 'Literal',
-                'options' => array(
-                    'route'    => '/comment-ca-marche',
-                    'defaults' => array(
-                        '__NAMESPACE__' => 'Application\Controller',
-                        'controller'    => 'Index',
-                        'action'        => 'commentcamarche',
+                    'jeuxconcours' => array(
+                    	'type'    => 'Zend\Mvc\Router\Http\Literal',
+                    	'options' => array(
+               				'route'    => 'jeux-concours',
+                    		'defaults' => array(
+                   				'controller'    => 'Application\Controller\Index',
+                    			'action'        => 'jeuxconcours',
+                    		),
+                    	),
+                   		'may_terminate' => true,
+                   		'child_routes' => array(
+                    		'pagination' => array(
+                   				'type'    => 'Segment',
+                    			'options' => array(
+                   					'route'    => '[/:p]',
+                    				'defaults' => array(
+                   						'controller' => 'Application\Controller\Index',
+                    					'action'     => 'jeuxconcours',
+                    				),
+               					),
+               				),
+                  		),
                     ),
-                ),
-            ),
-            'jeuxconcours' => array(
-                'type'    => 'Zend\Mvc\Router\Http\Literal',
-                'options' => array(
-                    'route'    => '/jeux-concours',
-                    'defaults' => array(
-                        'controller'    => 'Application\Controller\Index',
-                        'action'        => 'jeuxconcours',
+                    'activity' => array(
+                    	'type' => 'Segment',
+                    	'options' => array(
+               				'route' => 'mon-compte/mon-activite[/:filter]',
+              				'constraints' => array(
+                   				'filter' => '[a-zA-Z][a-zA-Z0-9_-]*',
+                    		),
+                    		'defaults' => array(
+                   				'controller' => 'Application\Controller\Index',
+          						'action'     => 'activity',
+               				),
+                    	),
+                    	'may_terminate' => true,
+                   		'child_routes' => array(
+                    		'pagination' => array(
+                  				'type'    => 'Segment',
+          						'options' => array(
+                    				'route'    => '[/:p]',
+                   					'defaults' => array(
+                    					'controller' => 'Application\Controller\Index',
+                    					'action'     => 'activity',
+      								),
+                 				),
+                    		),
+                   		),
                     ),
-                ),
-                'may_terminate' => true,
-                'child_routes' => array(
-                    'pagination' => array(
-                        'type'    => 'Segment',
-                        'options' => array(
-                            'route'    => '[/:p]',
-                            'defaults' => array(
-                                'controller' => 'Application\Controller\Index',
-                                'action'     => 'jeuxconcours',
-                            ),
-                        ),
+                    'badges' => array(
+                    	'type' => 'Literal',
+                    	'options' => array(
+                  			'route' => 'mon-compte/mes-badges',
+                    		'defaults' => array(
+                    			'controller' => 'Application\Controller\Index',
+                    			'action'     => 'badges',
+             				),
+                  		),
                     ),
-                ),
-            ),
-            'activity' => array(
-                'type' => 'Segment',
-                'options' => array(
-                    'route' => '/mon-compte/mon-activite[/:filter]',
-                    'constraints' => array(
-                        'filter' => '[a-zA-Z][a-zA-Z0-9_-]*',
+                    'sponsorfriends' => array(
+                    	'type' => 'Literal',
+                    	'options' => array(
+                    		'route' => 'mon-compte/sponsor-friends',
+                    		'defaults' => array(
+                    			'controller' => 'Application\Controller\Index',
+                    			'action'     => 'sponsorfriends',
+               				),
+                   		),
+                    	'may_terminate' => true,
+                    	'child_routes' => array(
+                    		'fbshare' => array(
+                  				'type' => 'Literal',
+                    			'options' => array(
+                    				'route' => '/fbshare',
+                    				'defaults' => array(
+                    					'controller' => 'Application\Controller\Index',
+                    					'action'     => 'fbshare',
+       								),
+                    			),
+                    		),
+                    		'tweet' => array(
+                    			'type' => 'Literal',
+                    			'options' => array(
+                    				'route' => '/tweet',
+                    				'defaults' => array(
+                    					'controller' => 'Application\Controller\Index',
+                    					'action'     => 'tweet',
+                    				),
+                  				),
+               				),
+                    		'google' => array(
+                    			'type' => 'Literal',
+                    			'options' => array(
+                    				'route' => '/google',
+                    				'defaults' => array(
+                    					'controller' => 'Application\Controller\Index',
+                    					'action'     => 'google',
+                    				),
+               					),
+                    		),
+                    	),
                     ),
-                    'defaults' => array(
-                        'controller' => 'Application\Controller\Index',
-                        'action'     => 'activity',
-                    ),
-                ),
-                'may_terminate' => true,
-                'child_routes' => array(
-                    'pagination' => array(
-                        'type'    => 'Segment',
-                        'options' => array(
-                            'route'    => '[/:p]',
-                            'defaults' => array(
-                                'controller' => 'Application\Controller\Index',
-                                'action'     => 'activity',
-                            ),
-                        ),
-                    ),
-                ),
-            ),
-            'badges' => array(
-                'type' => 'Literal',
-                'options' => array(
-                    'route' => '/mon-compte/mes-badges',
-                    'defaults' => array(
-                        'controller' => 'Application\Controller\Index',
-                        'action'     => 'badges',
-                    ),
-                ),
-            ),
-            'sponsorfriends' => array(
-                'type' => 'Literal',
-                'options' => array(
-                    'route' => '/mon-compte/sponsor-friends',
-                    'defaults' => array(
-                        'controller' => 'Application\Controller\Index',
-                        'action'     => 'sponsorfriends',
-                    ),
-                ),
-                'may_terminate' => true,
-                'child_routes' => array(
-                    'fbshare' => array(
-                        'type' => 'Literal',
-                        'options' => array(
-                            'route' => '/fbshare',
-                            'defaults' => array(
-                                'controller' => 'Application\Controller\Index',
-                                'action'     => 'fbshare',
-                            ),
-                        ),
-                    ),
-                    'tweet' => array(
-                        'type' => 'Literal',
-                        'options' => array(
-                            'route' => '/tweet',
-                            'defaults' => array(
-                                'controller' => 'Application\Controller\Index',
-                                'action'     => 'tweet',
-                            ),
-                        ),
-                    ),
-                    'google' => array(
-                        'type' => 'Literal',
-                        'options' => array(
-                            'route' => '/google',
-                            'defaults' => array(
-                                'controller' => 'Application\Controller\Index',
-                                'action'     => 'google',
-                            ),
-                        ),
-                    ),
-                ),
-            ),
-            'contact' => array(
-                'type' => 'Literal',
-                'options' => array(
-                    'route' => '/contactez-nous',
-                    'defaults' => array(
-                        'controller' => 'Application\Controller\Index',
-                        'action'     => 'contact',
-                    ),
-                ),
-                'may_terminate' => true,
-                'child_routes' => array(
-                    'contactconfirmation' => array(
-                        'type'    => 'Literal',
-                        'options' => array(
-                            'route'    => '/confirmation',
-                            'defaults' => array(
-                                'controller' => 'Application\Controller\Index',
-                                'action'     => 'contactconfirmation',
-                            ),
-                        ),
+                    'contact' => array(
+                    	'type' => 'Literal',
+                    	'options' => array(
+                    		'route' => 'contactez-nous',
+                    		'defaults' => array(
+                    			'controller' => 'Application\Controller\Index',
+                    			'action'     => 'contact',
+               				),
+                  		),
+                    	'may_terminate' => true,
+                    	'child_routes' => array(
+               				'contactconfirmation' => array(
+                    			'type'    => 'Literal',
+                    			'options' => array(
+                    				'route'    => '/confirmation',
+                    				'defaults' => array(
+                    					'controller' => 'Application\Controller\Index',
+                    					'action'     => 'contactconfirmation',
+                    				),
+                    			),
+                    		),
+                    	),
                     ),
                 ),
             ),

@@ -11,11 +11,11 @@
 	</div>
 	<ul class="bottomnav span3">
 		<li class="nav-item"><a href="<?php echo $this->url('frontend') ?>">Accueil</a></li>
-		<li class="nav-item"><a href="<?php echo $this->url('jeuxconcours') ?>">Tous les jeux concours</a></li>
+		<li class="nav-item"><a href="<?php echo $this->url('frontend/jeuxconcours') ?>">Tous les jeux concours</a></li>
 		<li class="nav-item"><a href="<?php echo $this->url('frontend/winner') ?>">Les gagnants</a></li>
 		<li class="nav-item"><a href="<?php echo $this->url('frontend/cms', array('id' => 'comment-ca-marche')); ?>">Comment ça marche ?</a></li>
-		<li class="nav-item"><a href="<?php if($this->zfcUserIdentity()): echo $this->url('badges'); else : echo $this->url('zfcuser/register') . ($this->redirect ? '?redirect='.$this->redirect : ''); endif; ?>">Mon compte</a></li>
-		<li class="nav-item"><a href="<?php echo $this->url('contact') ?>">Contactez-nous</a></li>
+		<li class="nav-item"><a href="<?php if($this->zfcUserIdentity()): echo $this->url('frontend/badges'); else : echo $this->url('zfcuser/register') . ($this->redirect ? '?redirect='.$this->redirect : ''); endif; ?>">Mon compte</a></li>
+		<li class="nav-item"><a href="<?php echo $this->url('frontend/contact') ?>">Contactez-nous</a></li>
 		<li class="nav-item"><a href="<?php echo $this->url('frontend/faq') ?>">FAQ</a></li>
 	</ul>
 	<ul class="jeuxnav span3">
