@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
 <project name="PLAYGROUND" default="build">
-	<target name="build" depends="prepare,composer,phpcs-ci,phpmd-ci,phpcpd,lint,docblox" />
+	<target name="build" depends="prepare,composer,phpcs-ci,phpmd-ci,phpcpd,lint,docblox,phpunit,coverage-checker" />
 
 	<target name="build-parallel" depends="prepare,tools-parallel" />
 
@@ -15,6 +15,10 @@
 			<antcall target="phpcs-ci" />
 			<antcall target="lint" />
 			<antcall target="docblox" />
+			<sequential>
+			<antcall target="phpunit" />
+			<antcall target="coverage-checker" />
+			</sequential>
 		</parallel>
 	</target>
 
@@ -34,10 +38,10 @@
 	</target>
 	
 	<target name="composer" description="Installing dependencies">
-    	<exec executable="composer" failonerror="true">
+    	     <exec executable="composer" failonerror="true">
       		<arg value="update" />
-    	</exec>
-    	</target>
+    	     </exec>
+        </target>
 	
 		<!--target name="phpmd"
 		description="Perform project mess detection using PHPMD and print human readable output. Intended for usage on the command line before committing.">
@@ -62,7 +66,6 @@
 	<target name="phpcs-ci"
 		description="Find coding standard violations using PHP_CodeSniffer creating a log file for the continuous integration server">
 		<exec executable="phpcs" output="/dev/null">
-			<arg value="--extensions=php" />
 			<arg value="--report=checkstyle" />
 			<arg value="--report-file=${basedir}/build/logs/checkstyle.xml" />
 			<arg value="--standard=PSR2" />
@@ -97,5 +100,17 @@
 			<arg line="--title '${ant.project.name}'" />
 		</exec>
 	</target>
+
+        <target name="phpunit">
+  		<exec dir="${basedir}/vendor/bin" executable="phpunit" failonerror="true" description="Run unit tests with PHPUnit">
+  			<arg line="-c ${basedir}/module/Application" />   
+  		</exec>
+        </target>
+   
+        <target name="coverage-checker" depends="phpunit">
+  		<exec dir="/usr/bin" executable="php" failonerror="true" description="check unit test coverage percentage">
+  			<arg line="${basedir}/build/coverage-checker.php ${basedir}/module/Application/build/clover.xml 0" />   
+  		</exec>
+        </target>
 
 </project>
