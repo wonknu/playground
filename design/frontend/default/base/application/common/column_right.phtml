@@ -11,7 +11,7 @@
 	    	<img src="<?php echo $this->frontendAssetPath('images/common/icon-newsletter.png')?>" width="82" height="81" border="0" alt="newsletter" />
 			<div class="bg-sdblock">
 				<p class="green">Inscrivez-vous à la newsletter et ne ratez aucun jeu !</p>
-			    <form action="<?php echo $this->url('zfcuser/ajax_newsletter');?>" method="POST" id="ajax-newsletter">
+			    <form action="<?php echo $this->url('frontend/zfcuser/ajax_newsletter');?>" method="POST" id="ajax-newsletter">
 			        <input type="hidden" value="1" name="optin" />
 			    	<input class="btn btn-success" type="submit" value="Je m’inscris !"/>
 			    </form>
@@ -36,8 +36,8 @@
 				<p class="green">Gagnez des tonnes de cadeaux !</p>
 		    	<div class="txt">Inscrivez-vous sur Playground et participez aux jeux concours de nos partenaires pour gagner pleins de cadeaux.</div>
 		    	<div class="accroche">Playground est 100% gratuit !</div>
-		    	<div class="btn btn-success"><a href="<?php echo $this->url('zfcuser/register') . ($this->redirect ? '?redirect='.$this->redirect : '') ?>">Je m’inscris !</a></div>
-		    	<div class="btn btn-inverse"><a href="<?php echo $this->url('zfcuser/register') . ($this->redirect ? '?redirect='.$this->redirect : '') ?>">Connexion</a></div>
+		    	<div class="btn btn-success"><a href="<?php echo $this->url('frontend/zfcuser/register') . ($this->redirect ? '?redirect='.$this->redirect : '') ?>">Je m’inscris !</a></div>
+		    	<div class="btn btn-inverse"><a href="<?php echo $this->url('frontend/zfcuser/register') . ($this->redirect ? '?redirect='.$this->redirect : '') ?>">Connexion</a></div>
 		    </div>
 	    </div>
     <?php endif; ?><!-- END BLOCK TONNES CADEAUX -->
@@ -75,7 +75,7 @@
 				<p class="green">Gagnez plus de points !</p>
 				<ul class="links-list">
 					<li class="coordonnees">
-						<a href="<?php echo $this->url('zfcuser/profile');?>">
+						<a href="<?php echo $this->url('frontend/zfcuser/profile');?>">
 							<div class="libelle">Remplissez vos coordonnées</div>
 							<div class="points">50 points</div>
 						</a>
@@ -103,7 +103,7 @@
 		<div class="bg-sdblock">
 			<p class="green">Comment ça marche ?</p>
 	    	<ul class="links-list">
-	    		<li class="connect"><a href="<?php echo $this->url('zfcuser/register') . ($this->redirect ? '?redirect='.$this->redirect : '') ?>">Inscrivez-vous</a> ou <a href="<?php echo $this->url('zfcuser/register') . ($this->redirect ? '?redirect='.$this->redirect : '') ?>">connectez-vous</a> à votre compte</li>
+	    		<li class="connect"><a href="<?php echo $this->url('frontend/zfcuser/register') . ($this->redirect ? '?redirect='.$this->redirect : '') ?>">Inscrivez-vous</a> ou <a href="<?php echo $this->url('frontend/zfcuser/register') . ($this->redirect ? '?redirect='.$this->redirect : '') ?>">connectez-vous</a> à votre compte</li>
 	    		<li class="game-play"><a href="<?php echo $this->url('frontend/jeuxconcours'); ?>">Participez aux jeux concours</a> pour gagner des cadeaux</li>
 	    		<li class="gain-points">Cumulez des points et obtenez des badges.</li>
 	    	</ul>

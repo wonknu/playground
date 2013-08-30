@@ -28,7 +28,7 @@
 								endif;
 	    					?>
 	    				</p>
-	    				<p><a class="greenlink" href="<?php echo $this->url('zfcuser/profile') ?>#avatarfile">Changer votre photo de profil</a></p>
+	    				<p><a class="greenlink" href="<?php echo $this->url('frontend/zfcuser/profile') ?>#avatarfile">Changer votre photo de profil</a></p>
 	    			</div>
 	    		</div>
 
@@ -59,11 +59,11 @@
 	    				</li>
 	    				<li>
 	    					<img src="<?php echo $this->frontendAssetPath('images/user/icon-cog-black.png') ?>" alt="" />
-	    					<a href="<?php echo $this->url('zfcuser/profile') ?>">Modifier mes informations</a>
+	    					<a href="<?php echo $this->url('frontend/zfcuser/profile') ?>">Modifier mes informations</a>
 	    				</li>
 	    				<li>
 	    					<img class="icon-news" src="<?php echo $this->frontendAssetPath('images/header/icon-news.png') ?>" alt="" />
-	    					<a href="<?php echo $this->url('zfcuser/newsletter') ?>">Gérer mes newletters</a>
+	    					<a href="<?php echo $this->url('frontend/zfcuser/newsletter') ?>">Gérer mes newletters</a>
 	    				</li>
 	    				<li>
 	    					<img src="<?php echo $this->frontendAssetPath('images/user/icon-users-black.png') ?>" alt="" />
@@ -98,7 +98,7 @@
 	    			<ul>
 	    				<li>
 	    					<img src="<?php echo $this->frontendAssetPath('images/user/icon-unlocked-black.png') ?>" alt="" />
-	    					<a href="<?php echo $this->url('zfcuser/logout') ?>">Déconnexion</a>
+	    					<a href="<?php echo $this->url('frontend/zfcuser/logout') ?>">Déconnexion</a>
 	    				</li>
 	    			</ul>
 	    		</div>
@@ -131,7 +131,7 @@
 	    			<ul>
 	    				<li>
 	    					<img src="<?php echo $this->frontendAssetPath('images/user/icon-users-black.png') ?>" alt="" />
-	    					<a href="<?php echo $this->url('zfcuser/register') . ($this->redirect ? '?redirect='.$this->redirect : '') ?>">Se connecter / Créer un compte</a>
+	    					<a href="<?php echo $this->url('frontend/zfcuser/register') . ($this->redirect ? '?redirect='.$this->redirect : '') ?>">Se connecter / Créer un compte</a>
 	    				</li>
 	    			</ul>
 	    		</div>
