@@ -79,7 +79,7 @@ return array(
 
 
                 // Admin area
-                array('controller' => 'ZfcAdmin\Controller\AdminController',  'roles' => array('admin')),
+                //array('controller' => 'ZfcAdmin\Controller\AdminController',  'roles' => array('admin')),
             	array('controller' => 'adfabuseradmin',                       'roles' => array('admin')),
             	array('controller' => 'adfabgameadmin',                       'roles' => array('admin')),
                 array('controller' => 'adfabgame_admin_lottery',              'roles' => array('admin')),
@@ -114,7 +114,7 @@ return array(
                 array('route' => 'zfcuser/register', 'roles' => array('guest','user')),
                 // Below is the default index action used by the [ZendSkeletonApplication](https://github.com/zendframework/ZendSkeletonApplication)
                 array('route' => 'frontend', 'roles' => array('guest', 'user')),
-                array('route' => 'zfcadmin', 'roles' => array('admin')),
+                array('route' => 'admin', 'roles' => array('admin')),
             ),*/
         ),
     ),

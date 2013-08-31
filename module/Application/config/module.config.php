@@ -159,7 +159,17 @@ return array(
                 ),
             ),
 
-             'zfcadmin' => array(
+             'admin' => array(
+	             'type' => 'Literal',
+	             'priority' => 1000,
+	             'options' => array(
+	             	'route'    => '/admin',
+	             	'defaults' => array(
+	           			'controller' => 'applicationadmin',
+	           			'action'     => 'index',
+	           		),
+	             ),
+	            'may_terminate' => true,
                 'child_routes' => array(
                     'applicationadmin' => array(
                     'type' => 'Literal',
@@ -206,6 +216,9 @@ return array(
                 'col_right'  => 'common/column-right.phtml',
             ),
             'controllers' => array(
+            	'applicationadmin'   => array(
+            		'default_layout' => 'application/layout/admin/admin',
+            	),
                 'Application\Controller\Index'   => array(
                     'default_layout' => 'layout/1column',
                     'actions' => array(
@@ -299,7 +312,7 @@ return array(
             //'application/index/activity' 		=> __DIR__ . '/../view/application/user/activity.phtml',
             //'application/index/badges'   		=> __DIR__ . '/../view/application/user/badges.phtml',
             //'application/index/sponsorfriends'  => __DIR__ . '/../view/application/user/sponsorfriends.phtml',
-            'application/statistics/index'  	=> __DIR__ . '/../view/application/admin/statistics/index.phtml',
+            //'application/statistics/index'  	=> __DIR__ . '/../view/application/admin/statistics/index.phtml',
             'error/404'                  		=> __DIR__ . '/../view/error/404.phtml',
             'error/index'                		=> __DIR__ . '/../view/error/index.phtml',
         ),
@@ -353,14 +366,13 @@ return array(
                 'action'     => 'prizecategories',
             ),
         ),
-        'admin' => array(
+        /*'admin' => array(
             'applicationadmin' => array(
                 'label' => 'Statistiques',
-                'route' => 'zfcadmin/applicationadmin/statistics',
+                'route' => 'admin/applicationadmin/statistics',
                 'resource' => 'application',
                 'privilege' => 'list',
-
-                ),
-             ),
+            ),
+        ),*/
     ),
 );

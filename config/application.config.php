@@ -1,7 +1,6 @@
 <?php
 return array(
     'modules' => array(
-        'Application',
     	'DoctrineModule',
     	'DoctrineORMModule',
     	'DoctrineDataFixtureModule',
@@ -11,7 +10,7 @@ return array(
 		'ZfcBase',
         'ZfcUser',
     	'BjyAuthorize',
-    	'ZfcAdmin',
+    	//'ZfcAdmin',
     	'AdfabCore',
         'AdfabFaq',
 		'AdfabUser',
@@ -20,7 +19,8 @@ return array(
     	'AdfabGame',
         'AdfabPartnership',
         'AdfabFacebook',
-    	'AdfabFlow' 
+    	'AdfabFlow',
+   		'Application',
     ),
     'module_listener_options' => array(
         'config_glob_paths'    => array(

@@ -38,7 +38,6 @@ class StatisticsController extends AbstractActionController
 
     public function indexAction()
     {
-
         $su 			= $this->getUserService();
         $sg 			= $this->getGameService();
         $sr 			= $this->getRewardService();
@@ -61,7 +60,7 @@ class StatisticsController extends AbstractActionController
 
         $activePage 	= count($this->getPageService()->getActivePages());
 
-        $shareAction 	= count($sr->findBy(array('actionId' => array(13,14,15,16))));
+        $shareAction 	= count($sr->findBy(array('id' => array(13,14,15,16))));
         $sharePerGames 	= $allGames/$shareAction;
 
         $userPerBadges = array();
