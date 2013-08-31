@@ -1,11 +1,4 @@
 <?php
-/**
- * Zend Framework (http://framework.zend.com/)
- *
- * @link      http://github.com/zendframework/ZendSkeletonApplication for the canonical source repository
- * @copyright Copyright (c) 2005-2012 Zend Technologies USA Inc. (http://www.zend.com)
- * @license   http://framework.zend.com/license/new-bsd New BSD License
- */
 
 return array(
     'router' => array(
@@ -160,16 +153,6 @@ return array(
             ),
 
              'admin' => array(
-	             'type' => 'Literal',
-	             'priority' => 1000,
-	             'options' => array(
-	             	'route'    => '/admin',
-	             	'defaults' => array(
-	           			'controller' => 'applicationadmin',
-	           			'action'     => 'index',
-	           		),
-	             ),
-	            'may_terminate' => true,
                 'child_routes' => array(
                     'applicationadmin' => array(
                     'type' => 'Literal',
@@ -217,7 +200,7 @@ return array(
             ),
             'controllers' => array(
             	'applicationadmin'   => array(
-            		'default_layout' => 'application/layout/admin/admin',
+            		'default_layout' => 'layout/admin',
             	),
                 'Application\Controller\Index'   => array(
                     'default_layout' => 'layout/1column',
@@ -276,12 +259,6 @@ return array(
         ),
     ),
 
-    'service_manager' => array(
-        'factories' => array(
-            'translator' => 'Zend\Mvc\Service\TranslatorServiceFactory',
-            'nav' => 'Zend\Navigation\Service\DefaultNavigationFactory',
-        ),
-    ),
     'translator' => array(
         'locale' => 'fr_FR',
         'translation_file_patterns' => array(
@@ -299,23 +276,6 @@ return array(
         ),
     ),
     'view_manager' => array(
-        'display_not_found_reason' => true,
-        'display_exceptions'       => true,
-        'doctype'                  => 'XHTML5',
-        'not_found_template'       => 'error/404',
-        'exception_template'       => 'error/index',
-        'template_map' => array(
-            //'layout/layout'              		=> __DIR__ . '/../view/layout/1column.phtml',
-            //'layout/homepage-2columns-right'    => __DIR__ . '/../view/layout/homepage-2columns-right.phtml',
-            //'layout/2columns-right'      		=> __DIR__ . '/../view/layout/2columns-right.phtml',
-            //'application/index/index'    		=> __DIR__ . '/../view/application/index/index.phtml',
-            //'application/index/activity' 		=> __DIR__ . '/../view/application/user/activity.phtml',
-            //'application/index/badges'   		=> __DIR__ . '/../view/application/user/badges.phtml',
-            //'application/index/sponsorfriends'  => __DIR__ . '/../view/application/user/sponsorfriends.phtml',
-            //'application/statistics/index'  	=> __DIR__ . '/../view/application/admin/statistics/index.phtml',
-            'error/404'                  		=> __DIR__ . '/../view/error/404.phtml',
-            'error/index'                		=> __DIR__ . '/../view/error/index.phtml',
-        ),
         'template_path_stack' => array(
             __DIR__ . '/../view/admin',
             __DIR__ . '/../view/frontend',
