@@ -101,16 +101,25 @@
 		</exec>
 	</target>
 
-        <target name="phpunit">
-  		<exec dir="${basedir}/vendor/bin" executable="phpunit" failonerror="true" description="Run unit tests with PHPUnit">
-  			<arg line="-c ${basedir}/module/Application" />   
-  		</exec>
-        </target>
-   
-        <target name="coverage-checker" depends="phpunit">
-  		<exec dir="/usr/bin" executable="php" failonerror="true" description="check unit test coverage percentage">
-  			<arg line="${basedir}/build/coverage-checker.php ${basedir}/module/Application/build/clover.xml 0" />   
-  		</exec>
-        </target>
+    <target name="phpunit">
+		<exec dir="${basedir}/vendor/bin" executable="phpunit" failonerror="true" description="Run unit tests with PHPUnit">
+			<arg line="-c ${basedir}/module/Application" />
+			<arg line="-c ${basedir}/vendor/adfab/core" />
+			<arg line="-c ${basedir}/vendor/adfab/cms" />  
+			<arg line="-c ${basedir}/vendor/adfab/facebook" />  
+			<arg line="-c ${basedir}/vendor/adfab/faq" />  
+			<arg line="-c ${basedir}/vendor/adfab/flow" />  
+			<arg line="-c ${basedir}/vendor/adfab/game" />  
+			<arg line="-c ${basedir}/vendor/adfab/partnership" />  
+			<arg line="-c ${basedir}/vendor/adfab/reward" />  
+			<arg line="-c ${basedir}/vendor/adfab/user" />     
+		</exec>
+	</target>
+		
+	<target name="coverage-checker" depends="phpunit">
+		<exec dir="/usr/bin" executable="php" failonerror="true" description="check unit test coverage percentage">
+			<arg line="${basedir}/build/coverage-checker.php ${basedir}/module/Application/build/clover.xml 0" />   
+		</exec>
+    </target>
 
 </project>
