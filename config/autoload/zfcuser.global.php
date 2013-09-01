@@ -14,7 +14,7 @@ $settings = array(
     'auth_identity_fields'          => array( 'email' ),
     'login_form_timeout'            => 300,
     'user_form_timeout'             => 300,
-    'login_after_registration'      => false,
+    'login_after_registration'      => true,
     'use_registration_form_captcha' => false,
 
     /*'form_captcha_options' => array(
@@ -32,7 +32,7 @@ $settings = array(
     'logout_redirect_route'             => 'frontend',
     'password_cost'                     => 14,
     'enable_user_state'                 => true,
-    'default_user_state'                => null,
+    'default_user_state'                => 1,
     'allowed_login_states'              => array( 1 , 2 ),
 
     /**

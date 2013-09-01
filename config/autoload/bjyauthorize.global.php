@@ -44,7 +44,7 @@ return array(
                     array(array('admin'), 'cms',      		array('list','add','edit','delete')),
                     array(array('admin'), 'faq',     		array('list','add','edit','delete')),
                     array(array('admin'), 'facebook', 		array('list','add','edit','delete')),
-                    array(array('admin'), 'core',     		array('edit')),
+                    array(array('admin'), 'core',     		array('dashboard', 'edit')),
                     array(array('admin'), 'application',    array('list')),
                 	array(array('admin'), 'flow',   		array('list','add','edit','delete')),
                 ),
@@ -80,6 +80,7 @@ return array(
 
                 // Admin area
                 //array('controller' => 'ZfcAdmin\Controller\AdminController',  'roles' => array('admin')),
+            	array('controller' => 'adfabuseradmin_login',                 'roles' => array('guest', 'user')),
             	array('controller' => 'adfabuseradmin',                       'roles' => array('admin')),
             	array('controller' => 'adfabgameadmin',                       'roles' => array('admin')),
                 array('controller' => 'adfabgame_admin_lottery',              'roles' => array('admin')),

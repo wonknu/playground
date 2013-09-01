@@ -39,7 +39,7 @@ $adfabuser = array(
          *
          * Default: 'Vérification de votre compte'
          */
-        'emailVerification' => true,
+        'emailVerification' => false,
         
         /**
          * Subject line of the email message which is
