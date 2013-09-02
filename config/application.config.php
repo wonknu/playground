@@ -10,7 +10,6 @@ return array(
 		'ZfcBase',
         'ZfcUser',
     	'BjyAuthorize',
-    	//'ZfcAdmin',
     	'AdfabCore',
         'AdfabFaq',
 		'AdfabUser',
@@ -20,6 +19,7 @@ return array(
         'AdfabPartnership',
         'AdfabFacebook',
     	'AdfabFlow',
+    	'PlaygroundStats',
    		'Application',
     ),
     'module_listener_options' => array(

@@ -20,16 +20,17 @@ return array(
 
         'resource_providers' => array(
             'BjyAuthorize\Provider\Resource\Config' => array(
-                'game' => array(),
-                'user' => array(),
-                'core' => array(),
-                'reward' => array(),
-                'partner' => array(),
-                'cms' => array(),
-                'faq' => array(),
-                'facebook' => array(),
-                'application' => array(),
-            	'flow' => array(),
+                'game' 			=> array(),
+                'user' 			=> array(),
+                'core' 			=> array(),
+                'reward' 		=> array(),
+                'partner' 		=> array(),
+                'cms' 			=> array(),
+                'faq' 			=> array(),
+                'facebook' 		=> array(),
+                'application' 	=> array(),
+            	'flow' 			=> array(),
+            	'stats' 		=> array(),
             ),
         ),
 
@@ -47,6 +48,7 @@ return array(
                     array(array('admin'), 'core',     		array('dashboard', 'edit')),
                     array(array('admin'), 'application',    array('list')),
                 	array(array('admin'), 'flow',   		array('list','add','edit','delete')),
+                	array(array('admin'), 'stats',   		array('list')),
                 ),
             ),
         ),
@@ -106,6 +108,7 @@ return array(
             	array('controller' => 'adfabflowadminobject',				  'roles' => array('admin')),
             	array('controller' => 'adfabflowadminstory',				  'roles' => array('admin')),
             	array('controller' => 'adfabflowadmindomain',				  'roles' => array('admin')),
+            	array('controller' => 'adminstats',				  			  'roles' => array('admin')),
             ),
 
             /*'BjyAuthorize\Guard\Route' => array(

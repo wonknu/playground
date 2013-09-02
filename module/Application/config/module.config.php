@@ -4,15 +4,12 @@ return array(
     'router' => array(
         'routes' => array(
             'frontend' => array(
-                'type' => 'Zend\Mvc\Router\Http\Literal',
                 'options' => array(
-                    'route'    => '/',
                     'defaults' => array(
                         'controller' => 'Application\Controller\Index',
                         'action'     => 'index',
                     ),
                 ),
-                'may_terminate' => true,
                 'child_routes' => array(
                     'pagination' => array(
                         'type'    => 'Segment',
@@ -22,6 +19,7 @@ return array(
                                 'controller' => 'Application\Controller\Index',
                                 'action'     => 'index',
                             ),
+                        	'constraints' => ['p' => '[0-9]*'], 
                         ),
                     ),
                     'jeuxconcours' => array(
@@ -43,6 +41,7 @@ return array(
                    						'controller' => 'Application\Controller\Index',
                     					'action'     => 'jeuxconcours',
                     				),
+                    				'constraints' => ['p' => '[0-9]*'],
                					),
                				),
                   		),
@@ -69,6 +68,7 @@ return array(
                     					'controller' => 'Application\Controller\Index',
                     					'action'     => 'activity',
       								),
+          							'constraints' => ['p' => '[0-9]*'],
                  				),
                     		),
                    		),
