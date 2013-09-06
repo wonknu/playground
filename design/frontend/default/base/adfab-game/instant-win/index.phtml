@@ -1,5 +1,5 @@
 <?php $this->plugin('translate')->setTranslatorTextDomain('adfabgame');// Pour le texte ?>
- 
+
 <div class="game-instantwin row-fluid welcome">
 	<h1><?php echo $this->game->getTitle(); ?></h1>
 
@@ -12,7 +12,7 @@
 		<div class="welcome-block<?php if($this->layout()->facebooktemplate): echo ' fb-target'; endif ?>"><?php echo $this->game->getWelcomeBlock(); ?></div>
 		<?php if($game->isStarted()):?>
 		<div class="center">
-			<?php if($game->getTermsOptin):?>
+			<?php if($game->getTermsOptin()):?>
 				J'accepte le règlement
 			<?php endif;?>
 			<div class="btn btn-warning"><a href="<?php echo $this->url('frontend/instantwin/play', array('id' => $this->game->getIdentifier()))?>" class="arrow-right">Participer</a></div>
