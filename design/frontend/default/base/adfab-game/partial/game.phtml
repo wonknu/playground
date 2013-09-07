@@ -13,7 +13,7 @@
 <!-- BLOCK GAME START -->
 <div class="block-game <?php if($this->game->isFinished()):?>over<?php else:?>start<?php endif;?>">
 	<div class="img-content">
-			<a href="<?php echo $this->url('frontend/' . $this->game->getClassType()) . '/' . $this->game->getIdentifier(); ?>">
+			<a href="<?php echo $this->url('frontend/' . $this->game->getClassType(), array('id' =>$this->game->getIdentifier(), 'channel' => $this->channel)); ?>">
 				<img class="rounded" src="<?php echo $this->basePath($this->game->getMainImage()); ?>" border="0" alt="<?php echo $this->game->getTitle()?>" />
 			</a>
 		
@@ -29,15 +29,15 @@
 		
 		<div class="dark-overlay row-fluid">
 			<h2 class="span8">
-					<a href="<?php echo $this->url('frontend/' . $this->game->getClassType()) . '/' . $this->game->getIdentifier(); ?>">
+					<a href="<?php echo $this->url('frontend/' . $this->game->getClassType(), array('id' =>$this->game->getIdentifier(), 'channel' => $this->channel)); ?>">
 						<?php echo $this->game->getTitle()?>
 					</a>
 			</h2>
 			
 			<?php if($this->game->isStarted()):?>
-			    <div class="btn btn-warning arrow-right"><a href="<?php echo $this->url('frontend/' . $this->game->getClassType()) . '/' . $this->game->getIdentifier(); ?>" class="arrow-right">Jouer</a></div>
+			    <div class="btn btn-warning arrow-right"><a href="<?php echo $this->url('frontend/' . $this->game->getClassType(), array('id' =>$this->game->getIdentifier(), 'channel' => $this->channel)); ?>" class="arrow-right">Jouer</a></div>
 			<?php elseif($this->game->isOpen() && !$this->game->isFinished() ):?>
-			    <div class="btn btn-warning arrow-right"><a href="<?php echo $this->url('frontend/' . $game->getClassType()) . '/' . $game->getIdentifier(); ?>" class="arrow-right">Bientôt</a></div>
+			    <div class="btn btn-warning arrow-right"><a href="<?php echo $this->url('frontend/' . $this->game->getClassType(), array('id' =>$this->game->getIdentifier(), 'channel' => $this->channel)); ?>" class="arrow-right">Bientôt</a></div>
 			<?php endif;?>
 		</div>
 	</div>
