@@ -4,7 +4,7 @@
 	<h1><?php echo $this->game->getTitle(); ?></h1>
 
 	<!-- BLOCK GAME START -->
-    <?php echo $this->partial('adfab-game/partial/game-header', array('game'=>$this->game));?>
+    <?php echo $this->partial('adfab-game/partial/game-header', array('game'=>$this->game, 'channel' => $this->channel));?>
     <!-- END BLOCK GAME START -->
 
 	<!-- contenu article -->

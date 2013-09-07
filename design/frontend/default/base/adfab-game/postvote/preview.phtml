@@ -6,7 +6,7 @@
 	<h1><?php echo $this->game->getTitle(); ?></h1>
 	<!-- BLOCK GAME START -->
 	<!--
-    <?php echo $this->partial('adfab-game/partial/game-header', array('game'=>$this->game));?>
+    <?php echo $this->partial('adfab-game/partial/game-header', array('game'=>$this->game, 'channel' => $this->channel));?>
    -->
    <!-- BLOCK GAME START -->
 	<div class="block-game game-play">
@@ -53,8 +53,8 @@
        <div class="span11 message rounded">
            <div class="row-fluid posts">
 				<div class="span12 postvote-preview">
-               		<?php echo $this->partial('adfab-game/postvote/templates/' . $this->game->getTemplate(), array('data'=>$data, 'post'=>$this->post));?>
-					<?php //echo $this->partial('adfab-game/partial/name.phtml', array('post' => $this->post->getUser(), 'game' => $this->game));?>
+               		<?php echo $this->partial('adfab-game/postvote/templates/' . $this->game->getTemplate(), array('data'=>$data, 'post'=>$this->post, 'channel' => $this->channel));?>
+					<?php //echo $this->partial('adfab-game/partial/name.phtml', array('post' => $this->post->getUser(), 'game' => $this->game, 'channel' => $this->channel));?>
 					
 					<div class="row-fluid">
 					    <div class="avatar span5">

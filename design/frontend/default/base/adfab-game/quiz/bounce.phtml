@@ -26,12 +26,14 @@
 				<?php echo $this->translate('Revenez très bientôt'); ?>
 			<?php endif; ?>
 		</h2>
-		<?php $this->partialLoop()->setObjectKey('game')?>
-		<?php echo $this->partialLoop('adfab-game/partial/game.phtml', $availableGames) ?>
+		<?php if($availableGames): ?>
+			<?php $this->partialLoop()->setObjectKey('game')?>
+			<?php echo $this->partialLoop('adfab-game/partial/game.phtml', array('game' => $availableGames, 'channel' => $this->channel)) ?>
+		<?php endif;?>
 	</div>
 	<?php } ?>
 	
 	<!-- RSS FEED -->
-	<?php echo $this->partial('adfab-game/partial/news-feed', array('rssUrl' => $this->rssUrl)); ?>
+	<?php echo $this->partial('adfab-game/partial/news-feed', array('rssUrl' => $this->rssUrl, 'channel' => $this->channel)); ?>
 
 </div>
