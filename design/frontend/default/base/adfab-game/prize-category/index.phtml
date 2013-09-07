@@ -10,7 +10,7 @@
 			echo $this->flashMessages[0];
 		else :
 			$this->partialLoop()->setObjectKey('game');
-    		echo $this->partialLoop('adfab-game/partial/game.phtml', array('game' => $this->games, 'channel' => $this->channel));
+    		echo $this->partialLoop('adfab-game/partial/game.phtml', $this->games);
 		endif;
 		
 	?>

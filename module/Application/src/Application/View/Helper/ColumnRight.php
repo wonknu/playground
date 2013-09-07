@@ -28,7 +28,7 @@ class ColumnRight extends AbstractHelper
         	$channel = $options['channel'];
         } else {
         	$channel = '';
-        }
+        } 
         
         if (array_key_exists('adserving', $options) && is_array($options['adserving'])) {
             $cat1 = $options['adserving']['cat1'];

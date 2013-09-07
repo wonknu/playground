@@ -28,7 +28,7 @@
 		</h2>
 		<?php if($availableGames): ?>
 			<?php $this->partialLoop()->setObjectKey('game')?>
-			<?php echo $this->partialLoop('adfab-game/partial/game.phtml', array('game' => $availableGames, 'channel' => $this->channel)) ?>
+			<?php echo $this->partialLoop('adfab-game/partial/game.phtml', $availableGames) ?>
 		<?php endif;?>
 	</div>
 	<?php } ?>
