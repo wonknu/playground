@@ -10,7 +10,8 @@
             'maxCorrectAnswers'  =>$this->maxCorrectAnswers,
             'ratioCorrectAnswers'=>$this->ratioCorrectAnswers,
 	        'prediction'         =>$this->prediction,
-	        'flashMessages'		 =>$this->flashMessages
+	        'flashMessages'		 =>$this->flashMessages, 
+	    	'channel' => $this->channel
         ));?>
 	<?php else:?>
     	<?php echo $this->partial('adfab-game/quiz/partial/looser', array(
@@ -18,13 +19,15 @@
     	    'userCorrectAnswers' =>$this->userCorrectAnswers,
 	        'maxCorrectAnswers'  =>$this->maxCorrectAnswers,
 	        'ratioCorrectAnswers'=>$this->ratioCorrectAnswers,
-	        'flashMessages'		 =>$this->flashMessages
+	        'flashMessages'		 =>$this->flashMessages, 
+    		'channel' => $this->channel
         ));?>
 	<?php endif;?>
 	
 	<?php if($this->userCorrectAnswers < $this->maxCorrectAnswers && $this->game->getVictoryConditions()>0):?>
         <?php echo $this->partial('adfab-game/quiz/partial/answers', array(
-	        'gameCorrectAnswers' =>$this->gameCorrectAnswers
+	        'gameCorrectAnswers' =>$this->gameCorrectAnswers, 
+        	'channel' => $this->channel
         ));?>
 	<?php endif;?>
 	
@@ -45,6 +48,7 @@
 	            'statusMail'    => $statusMail,
 	            'gameType'		=> 'quiz',
 	            'userTimer'		=> $userTimer,
+				'channel' => $this->channel
 	    )); ?>
 	</div>
 	<!-- END SPONSOR (parrainer) -->

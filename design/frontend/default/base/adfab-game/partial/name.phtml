@@ -14,7 +14,7 @@
     
     <?php if($game->isStarted()):?>
     <div class="span3 offset5">
-    	<?php //echo $this->partial('adfab-game/partial/share.phtml', array( 'color' => 'grey', 'game'=>$this->game, 'url'=>$this->url('frontend/' . $game->getClassType(), array('id' => $this->game->getIdentifier()), array('force_canonical' => true)), 'urlPost' => $this->urlPost));?>
+    	<?php //echo $this->partial('adfab-game/partial/share.phtml', array( 'color' => 'grey', 'game'=>$this->game, 'channel' => $this->channel, 'url'=>$this->url('frontend/' . $game->getClassType(), array('id' => $this->game->getIdentifier()), array('force_canonical' => true)), 'urlPost' => $this->urlPost));?>
     
 	    <?php $fbShareMsg = 'Votez pour mon post sur le Club Playground : '.$this->postTitle; ?>
 		<?php $fbShareImg = ($this->game->getFbShareImage()) ? $this->url('frontend', array('channel' => $this->channel), array('force_canonical' => true)). $this->game->getFbShareImage() : $this->url('frontend', array('channel' => $this->channel), array('force_canonical' => true)) . $this->game->getMainImage(); ?> 

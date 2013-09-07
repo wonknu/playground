@@ -7,5 +7,5 @@
     </div>
 
     <?php $this->partialLoop()->setObjectKey('game')?>
-    <?php echo $this->partialLoop('adfab-game/partial/game.phtml', $this->games) ?>
+    <?php echo $this->partialLoop('adfab-game/partial/game.phtml', array('game' => $this->games, 'channel' => $this->channel)) ?>
 </div><!-- END THEMATIQUES -->

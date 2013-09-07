@@ -42,11 +42,11 @@
 			<?php endif; ?>
 		</h2>
 		<?php $this->partialLoop()->setObjectKey('game')?>
-		<?php echo $this->partialLoop('adfab-game/partial/game.phtml', $availableGames) ?>
+		<?php echo $this->partialLoop('adfab-game/partial/game.phtml', array('game' => $availableGames, 'channel' => $this->channel)) ?>
 	</div>
 	<?php } ?>
 	
 	<!-- RSS FEED -->
-	<?php echo $this->partial('adfab-game/partial/news-feed', array('rssUrl' => $this->rssUrl)); ?>
+	<?php echo $this->partial('adfab-game/partial/news-feed', array('rssUrl' => $this->rssUrl, 'channel' => $this->channel)); ?>
 
 </div>

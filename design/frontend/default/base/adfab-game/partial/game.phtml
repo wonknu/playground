@@ -61,7 +61,7 @@
 		
 		
 		<?php if(!$this->game->isFinished()):?>
-			<?php echo $this->partial('adfab-game/partial/share.phtml', array( 'color' => 'grey', 'game'=>$this->game, 'url'=>$this->url('frontend/' . $game->getClassType(), array('id' => $this->game->getIdentifier()), array('force_canonical' => true))));?>
+			<?php echo $this->partial('adfab-game/partial/share.phtml', array( 'color' => 'grey', 'game'=>$this->game, 'channel' => $this->channel, 'url'=>$this->url('frontend/' . $game->getClassType(), array('id' => $this->game->getIdentifier()), array('force_canonical' => true))));?>
 		<?php endif;?>
 		
 	</div>

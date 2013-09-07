@@ -96,7 +96,7 @@
 								<p><?php if(isset($post['data'][7])): echo substr(nl2br($post['data'][7]), 0, 200); endif;?>...</p>
 							</div>
 							
-							<?php //echo $this->partial('adfab-game/postvote/templates/' . $this->game->getTemplate(), array('data'=> $post['data'])) ?>
+							<?php //echo $this->partial('adfab-game/postvote/templates/' . $this->game->getTemplate(), array('data'=> $post['data'], 'channel' => $this->channel)) ?>
 							
 						<?php elseif($this->game->getTemplate() == 'recipe'): ?>
 							
@@ -128,7 +128,7 @@
 						
 						<p class="readmore postvote">> <a href="<?php echo $this->url('postvote/post', array('id' => $this->game->getIdentifier(), 'channel' => $this->channel, 'post' => $post['id'])) ?>">Lire la suite</a></p>
 						
-						<?php echo $this->partial('adfab-game/partial/name.phtml', array('post'=> $post['user'], 'game' => $game, 'urlPost' => $this->url('postvote/post', array('id' => $this->game->getIdentifier(), 'channel' => $this->channel, 'post' => $post['id']), array('force_canonical' => true)), 'postTitle' => $post['data'][1])) ?>
+						<?php echo $this->partial('adfab-game/partial/name.phtml', array('post'=> $post['user'], 'game' => $game, 'channel' => $this->channel, 'urlPost' => $this->url('postvote/post', array('id' => $this->game->getIdentifier(), 'channel' => $this->channel, 'post' => $post['id']), array('force_canonical' => true)), 'postTitle' => $post['data'][1])) ?>
 						
 						<?php if($game->isStarted()):?>
 							<?php if($this->statusMail && ($post['id'] == $this->reportId )) : ?>
