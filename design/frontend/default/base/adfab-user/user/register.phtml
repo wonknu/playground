@@ -6,7 +6,7 @@
 			<p class="h2"><?php echo $this->translate('login or register'); ?></p>
 
 			<!-- login -->
-			<div id="login-part" class="backgrey row-fluid" data-redirect="<?php  if($this->redirect) : echo $this->redirect; else : $this->url('frontend'); endif; ?>">
+			<div id="login-part" class="backgrey row-fluid" data-redirect="<?php  if($this->redirect) : echo $this->redirect; else : $this->url('frontend', array('channel' => $this->channel)); endif; ?>">
 				<div class="row-fluid hand-arrow-double">
 					<div class="block-left span7">
 						<p class="green"><?php echo $this->translate('Already an account ?')?></p>
@@ -14,7 +14,7 @@
 					<div class="block-right span5">
 					<?php if(!$this->zfcUserIdentity()): ?>
 					    <?php echo $this->adfabUserLoginWidget(array(
-			    		        'redirect' => ($this->redirect) ? $this->redirect : $this->url('frontend'),
+			    		        'redirect' => ($this->redirect) ? $this->redirect : $this->url('frontend', array('channel' => $this->channel)),
 			    		        'enableRegistration' => false,
 			    		        'template' => 'adfab-user/register/login.phtml'
 				    		)); ?>
@@ -43,7 +43,7 @@
 					</div>
 					<div id="fb-connect" class="span7">
 						<p class="fb-connect-label"><?php echo $this->translate('Use Facebook connect')?></p>
-						<p><a href="<?php echo $this->url('frontend/zfcuser/register',array('socialnetwork' => 'facebook')) . ($this->redirect ? '?redirect='.$this->redirect : '');?>"><img src="<?php echo $this->frontendAssetPath('images/common/fb-connect.png') ?>" alt="Facebook Connect" /></a></p>
+						<p><a href="<?php echo $this->url('frontend/zfcuser/register',array('socialnetwork' => 'facebook', 'channel' => $this->channel)) . ($this->redirect ? '?redirect='.$this->redirect : '');?>"><img src="<?php echo $this->frontendAssetPath('images/common/fb-connect.png') ?>" alt="Facebook Connect" /></a></p>
 					</div>
 				</div>
 

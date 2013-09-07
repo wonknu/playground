@@ -37,7 +37,7 @@
 			<?php endif;?>
 		</div>
 
-		<?php echo $this->partial('adfab-game/partial/share.phtml', array( 'color' => 'grey', 'game'=>$this->game,'url'=>$this->url('frontend/' . $game->getClassType(), array('id' => $this->game->getIdentifier()), array('force_canonical' => true))));?>
+		<?php echo $this->partial('adfab-game/partial/share.phtml', array( 'color' => 'grey', 'game'=>$this->game,'url'=>$this->url('frontend/' . $game->getClassType(), array('id' => $this->game->getIdentifier(), 'channel' => $this->channel), array('force_canonical' => true))));?>
 
 	</div>
 </div>

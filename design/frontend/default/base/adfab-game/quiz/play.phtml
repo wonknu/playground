@@ -2,7 +2,7 @@
 <?php
 $form = $this->form;
 $form->prepare();
-$form->setAttribute('action', $this->url('frontend/quiz/play', array('id' => $this->game->getIdentifier())));
+$form->setAttribute('action', $this->url('frontend/quiz/play', array('id' => $this->game->getIdentifier(), 'channel' => $this->channel)));
 ?>
 
 
@@ -101,7 +101,7 @@ $form->setAttribute('action', $this->url('frontend/quiz/play', array('id' => $th
 	    </div>
 		<?php echo $this->form()->closeTag() ?>
 	</div>
-	<p id="reglement"><a href="<?php echo $this->url('frontend/quiz/terms', array('id' => $this->game->getIdentifier()))?>" target="_blank">Règlement</a></p>
+	<p id="reglement"><a href="<?php echo $this->url('frontend/quiz/terms', array('id' => $this->game->getIdentifier(), 'channel' => $this->channel))?>" target="_blank">Règlement</a></p>
 
 </div>
 <!-- END GAME QUIZ - FERME QUESTIONS-->

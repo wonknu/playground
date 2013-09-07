@@ -12,11 +12,11 @@
 				<div class="span5">
 					<select name="filter-activity" id="filter-activity" class="select">
 						<option value="">Selectionnez</option>
-						<option value="<?php echo $this->url('frontend/activity') ?>">Vue d'ensemble</option>
-						<option value="<?php echo $this->url('frontend/activity') ?>/game">Participations</option>
-						<option value="<?php echo $this->url('frontend/activity') ?>/user">Mon compte</option>
-						<option value="<?php echo $this->url('frontend/activity') ?>/social">Invitations et parrainage</option>
-						<option value="<?php echo $this->url('frontend/activity') ?>/badges">Badges</option>
+						<option value="<?php echo $this->url('frontend/activity', array('channel' => $this->channel)) ?>">Vue d'ensemble</option>
+						<option value="<?php echo $this->url('frontend/activity', array('channel' => $this->channel)) ?>/game">Participations</option>
+						<option value="<?php echo $this->url('frontend/activity', array('channel' => $this->channel)) ?>/user">Mon compte</option>
+						<option value="<?php echo $this->url('frontend/activity', array('channel' => $this->channel)) ?>/social">Invitations et parrainage</option>
+						<option value="<?php echo $this->url('frontend/activity', array('channel' => $this->channel)) ?>/badges">Badges</option>
 					</select>
 				</div>
 			</div>
@@ -68,6 +68,6 @@
 	<?php $i++; endforeach;?>
 </div>
 <?php if($i < $this->total): ?>
-	<div id="more-activity" class="row-fluid more"><a href="<?php echo $this->url('frontend/activity'). '/' . $this->filter ;?>" data-count="2" data-total="<?php echo $total; ?>">+ Plus d'actus</a></div>
+	<div id="more-activity" class="row-fluid more"><a href="<?php echo $this->url('frontend/activity', array('channel' => $this->channel)). '/' . $this->filter ;?>" data-count="2" data-total="<?php echo $total; ?>">+ Plus d'actus</a></div>
 <?php endif; ?>
 <!-- END USER ACTIVITY -->

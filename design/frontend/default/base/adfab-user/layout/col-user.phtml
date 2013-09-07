@@ -28,7 +28,7 @@
 								endif;
 	    					?>
 	    				</p>
-	    				<p><a class="greenlink" href="<?php echo $this->url('frontend/zfcuser/profile') ?>#avatarfile">Changer votre photo de profil</a></p>
+	    				<p><a class="greenlink" href="<?php echo $this->url('frontend/zfcuser/profile', array('channel' => $this->channel)) ?>#avatarfile">Changer votre photo de profil</a></p>
 	    			</div>
 	    		</div>
 
@@ -40,10 +40,10 @@
 	    				<p>
 	    					<span id="mypoints">Vous avez<br/><span class="green"><?php echo number_format($rank['points'], 0, ',', ' ' ); ?> points</span></span><br/>
 	    					<span class="small"><?php echo $rank['rank'];?><sup><?php echo ($rank['rank'] == 1)? 'ère':'ème'; ?></sup> position</span><br/>
-	    					&gt; <a class="greenlink" href="<?php echo $this->url('frontend/reward/leaderboard', array('period'=>'general')) ?>">Voir le classement</a>
+	    					&gt; <a class="greenlink" href="<?php echo $this->url('frontend/reward/leaderboard', array('period'=>'general','channel' => $this->channel)) ?>">Voir le classement</a>
 	    				</p>
 	    			</div>
-	    			<p id="more-points"><a href="<?php echo $this->url('frontend/cms', array('id' => 'comment-ca-marche')); ?>">Comment gagner plus de points ?</a></p>
+	    			<p id="more-points"><a href="<?php echo $this->url('frontend/cms', array('id' => 'comment-ca-marche','channel' => $this->channel)); ?>">Comment gagner plus de points ?</a></p>
 	    		</div>
 
 	    		<div id="gerer" class="orange-dot-bottom">
@@ -51,23 +51,23 @@
 	    			<ul>
 	    				<li>
 	    					<img src="<?php echo $this->frontendAssetPath('images/user/icon-money-black.png') ?>" alt="" />
-	    					<a href="<?php echo $this->url('frontend/badges') ?>">Mes badges et mes points</a>
+	    					<a href="<?php echo $this->url('frontend/badges', array('channel' => $this->channel)) ?>">Mes badges et mes points</a>
 	    				</li>
 	    				<li>
 	    					<img src="<?php echo $this->frontendAssetPath('images/user/icon-calendar-black.png') ?>" alt="" />
-	    					<a href="<?php echo $this->url('frontend/activity') ?>">Mon activité</a>
+	    					<a href="<?php echo $this->url('frontend/activity', array('channel' => $this->channel)) ?>">Mon activité</a>
 	    				</li>
 	    				<li>
 	    					<img src="<?php echo $this->frontendAssetPath('images/user/icon-cog-black.png') ?>" alt="" />
-	    					<a href="<?php echo $this->url('frontend/zfcuser/profile') ?>">Modifier mes informations</a>
+	    					<a href="<?php echo $this->url('frontend/zfcuser/profile', array('channel' => $this->channel)) ?>">Modifier mes informations</a>
 	    				</li>
 	    				<li>
 	    					<img class="icon-news" src="<?php echo $this->frontendAssetPath('images/header/icon-news.png') ?>" alt="" />
-	    					<a href="<?php echo $this->url('frontend/zfcuser/newsletter') ?>">Gérer mes newletters</a>
+	    					<a href="<?php echo $this->url('frontend/zfcuser/newsletter', array('channel' => $this->channel)) ?>">Gérer mes newletters</a>
 	    				</li>
 	    				<li>
 	    					<img src="<?php echo $this->frontendAssetPath('images/user/icon-users-black.png') ?>" alt="" />
-	    					<a href="<?php echo $this->url('frontend/sponsorfriends') ?>">Parrainer mes amis</a>
+	    					<a href="<?php echo $this->url('frontend/sponsorfriends', array('channel' => $this->channel)) ?>">Parrainer mes amis</a>
 	    				</li>
 	    			</ul>
 	    		</div>
@@ -77,11 +77,11 @@
 	    			<ul>
 	    				<li>
 	    					<img src="<?php echo $this->frontendAssetPath('images/user/icon-money-black.png') ?>" alt="" />
-	    					<a href="<?php echo $this->url('frontend/cms', array('id' => 'comment-ca-marche')); ?>">Les badges et les points</a>
+	    					<a href="<?php echo $this->url('frontend/cms', array('id' => 'comment-ca-marche', 'channel' => $this->channel)); ?>">Les badges et les points</a>
 	    				</li>
 	    				<li>
 	    					<img src="<?php echo $this->frontendAssetPath('images/user/icon-calendar-black.png') ?>" alt="" />
-	    					<a href="<?php echo $this->url('frontend/faq') ?>">F.A.Q</a>
+	    					<a href="<?php echo $this->url('frontend/faq', array('channel' => $this->channel)) ?>">F.A.Q</a>
 	    				</li>
 	    				<!-- <li>
 	    					<img src="<?php echo $this->frontendAssetPath('images/user/icon-cog-black.png') ?>" alt="" />
@@ -89,7 +89,7 @@
 	    				</li> -->
 	    				<li>
 	    					<img src="<?php echo $this->frontendAssetPath('images/user/icon-contact-black.png') ?>" alt="" />
-	    					<a href="<?php echo $this->url('frontend/contact') ?>">Contactez-nous</a>
+	    					<a href="<?php echo $this->url('frontend/contact', array('channel' => $this->channel)) ?>">Contactez-nous</a>
 	    				</li>
 	    			</ul>
 	    		</div>
@@ -98,7 +98,7 @@
 	    			<ul>
 	    				<li>
 	    					<img src="<?php echo $this->frontendAssetPath('images/user/icon-unlocked-black.png') ?>" alt="" />
-	    					<a href="<?php echo $this->url('frontend/zfcuser/logout') ?>">Déconnexion</a>
+	    					<a href="<?php echo $this->url('frontend/zfcuser/logout', array('channel' => $this->channel)) ?>">Déconnexion</a>
 	    				</li>
 	    			</ul>
 	    		</div>
@@ -110,11 +110,11 @@
 	    			<ul>
 	    				<li>
 	    					<img src="<?php echo $this->frontendAssetPath('images/user/icon-money-black.png') ?>" alt="" />
-	    					<a href="<?php echo $this->url('frontend/cms', array('id' => 'comment-ca-marche')); ?>">Les badges et les points</a>
+	    					<a href="<?php echo $this->url('frontend/cms', array('id' => 'comment-ca-marche', 'channel' => $this->channel)); ?>">Les badges et les points</a>
 	    				</li>
 	    				<li>
 	    					<img src="<?php echo $this->frontendAssetPath('images/user/icon-calendar-black.png') ?>" alt="" />
-	    					<a href="<?php echo $this->url('frontend/faq') ?>">F.A.Q</a>
+	    					<a href="<?php echo $this->url('frontend/faq', array('channel' => $this->channel)) ?>">F.A.Q</a>
 	    				</li>
 	    				<!-- <li>
 	    					<img src="<?php echo $this->frontendAssetPath('images/user/icon-cog-black.png') ?>" alt="" />
@@ -122,7 +122,7 @@
 	    				</li> -->
 	    				<li>
 	    					<img src="<?php echo $this->frontendAssetPath('images/user/icon-contact-black.png') ?>" alt="" />
-	    					<a href="<?php echo $this->url('frontend/contact') ?>">Contactez-nous</a>
+	    					<a href="<?php echo $this->url('frontend/contact', array('channel' => $this->channel)) ?>">Contactez-nous</a>
 	    				</li>
 	    			</ul>
 	    		</div>
@@ -131,7 +131,7 @@
 	    			<ul>
 	    				<li>
 	    					<img src="<?php echo $this->frontendAssetPath('images/user/icon-users-black.png') ?>" alt="" />
-	    					<a href="<?php echo $this->url('frontend/zfcuser/register') . ($this->redirect ? '?redirect='.$this->redirect : '') ?>">Se connecter / Créer un compte</a>
+	    					<a href="<?php echo $this->url('frontend/zfcuser/register', array('channel' => $this->channel)) . ($this->redirect ? '?redirect='.$this->redirect : '') ?>">Se connecter / Créer un compte</a>
 	    				</li>
 	    			</ul>
 	    		</div>

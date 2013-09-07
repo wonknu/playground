@@ -1,5 +1,5 @@
 <div id="footer" class="row-fluid">
-	<div class="logo span3"><a href="<?php echo $this->url('frontend') ?>"><img src="<?php echo $this->frontendAssetPath('images/common/logo.png')?>" width="117" height="116" border="0" /></a></div>
+	<div class="logo span3"><a href="<?php echo $this->url('frontend', array('channel' => $this->channel)) ?>"><img src="<?php echo $this->frontendAssetPath('images/common/logo.png')?>" width="117" height="116" border="0" /></a></div>
 	<div class="social-share">
 		<div class="title">Rejoignez-nous!</div>
 		<ul>
@@ -10,19 +10,19 @@
 		</ul>
 	</div>
 	<ul class="bottomnav span3">
-		<li class="nav-item"><a href="<?php echo $this->url('frontend') ?>">Accueil</a></li>
-		<li class="nav-item"><a href="<?php echo $this->url('frontend/jeuxconcours') ?>">Tous les jeux concours</a></li>
-		<li class="nav-item"><a href="<?php echo $this->url('frontend/winner') ?>">Les gagnants</a></li>
-		<li class="nav-item"><a href="<?php echo $this->url('frontend/cms', array('id' => 'comment-ca-marche')); ?>">Comment ça marche ?</a></li>
-		<li class="nav-item"><a href="<?php if($this->zfcUserIdentity()): echo $this->url('frontend/badges'); else : echo $this->url('frontend/zfcuser/register') . ($this->redirect ? '?redirect='.$this->redirect : ''); endif; ?>">Mon compte</a></li>
-		<li class="nav-item"><a href="<?php echo $this->url('frontend/contact') ?>">Contactez-nous</a></li>
-		<li class="nav-item"><a href="<?php echo $this->url('frontend/faq') ?>">FAQ</a></li>
+		<li class="nav-item"><a href="<?php echo $this->url('frontend', array('channel' => $this->channel)) ?>">Accueil</a></li>
+		<li class="nav-item"><a href="<?php echo $this->url('frontend/jeuxconcours', array('channel' => $this->channel)) ?>">Tous les jeux concours</a></li>
+		<li class="nav-item"><a href="<?php echo $this->url('frontend/winner', array('channel' => $this->channel)) ?>">Les gagnants</a></li>
+		<li class="nav-item"><a href="<?php echo $this->url('frontend/cms', array('id' => 'comment-ca-marche', 'channel' => $this->channel)); ?>">Comment ça marche ?</a></li>
+		<li class="nav-item"><a href="<?php if($this->zfcUserIdentity()): echo $this->url('frontend/badges', array('channel' => $this->channel)); else : echo $this->url('frontend/zfcuser/register', array('channel' => $this->channel)) . ($this->redirect ? '?redirect='.$this->redirect : ''); endif; ?>">Mon compte</a></li>
+		<li class="nav-item"><a href="<?php echo $this->url('frontend/contact', array('channel' => $this->channel)) ?>">Contactez-nous</a></li>
+		<li class="nav-item"><a href="<?php echo $this->url('frontend/faq', array('channel' => $this->channel)) ?>">FAQ</a></li>
 	</ul>
 	<ul class="jeuxnav span3">
 		<li class="title">Les jeux concours,<br />à gagner :</li>
 		<?php $categories = $this->adfabPrizeCategory(); ?>
         <?php foreach($categories as $category): ?>
-            <li class="jeu-item"><a href="<?php echo $this->url('prizecategories') . $category->getIdentifier(); ?>"><?php echo $category->getTitle() ?></a></li>
+            <li class="jeu-item"><a href="<?php echo $this->url('prizecategories', array('channel' => $this->channel)) . $category->getIdentifier(); ?>"><?php echo $category->getTitle() ?></a></li>
         <?php endforeach ?>
 	</ul>
 	<div class="fb-box span3">

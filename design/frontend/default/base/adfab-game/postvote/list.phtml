@@ -29,14 +29,14 @@
 	<!-- BLOCK CONTENT -->
     <div class="row-fluid buttons">
 		<div class="span2">
-			<a href="<?php echo $this->url('postvote', array('id' => $this->game->getIdentifier()))?>"><button class="btn btn-inverse active">Accueil</button></a>
+			<a href="<?php echo $this->url('postvote', array('id' => $this->game->getIdentifier(), 'channel' => $this->channel))?>"><button class="btn btn-inverse active">Accueil</button></a>
 		</div>
 		<div class="span4">
-			<a href="<?php echo $this->url('postvote/list', array('id' => $this->game->getIdentifier(), 'filter' => $this->game->getPostDisplayMode()))?>"><button class="btn btn-inverse">Voir les participations</button></a>
+			<a href="<?php echo $this->url('postvote/list', array('id' => $this->game->getIdentifier(), 'channel' => $this->channel, 'filter' => $this->game->getPostDisplayMode()))?>"><button class="btn btn-inverse">Voir les participations</button></a>
 		</div>
 		<?php if($game->isStarted()):?>
 			<div class="span3">
-				<a href="<?php echo $this->url('postvote/play', array('id' => $this->game->getIdentifier()))?>"><button class="btn btn-warning">Participer</button></a>
+				<a href="<?php echo $this->url('postvote/play', array('id' => $this->game->getIdentifier(), 'channel' => $this->channel))?>"><button class="btn btn-warning">Participer</button></a>
 			</div>
 		<?php endif ?>
 	</div>
@@ -47,12 +47,12 @@
 	<div class="row-fluid search-bar">
         <div class="span3">
             <select name="filter-postvote" id="filter-postvote">
-                <option value="<?php echo $this->url('postvote/list', array('id' => $this->game->getIdentifier(), 'filter' => 'date'))?>"<?php if($this->filter == 'date') : echo ' selected'; endif; ?>>Plus récents</option>
-                <option value="<?php echo $this->url('postvote/list', array('id' => $this->game->getIdentifier(), 'filter' => 'random'))?>"<?php if($this->filter == 'random') : echo ' selected'; endif; ?>>Aléatoire</option>
-                <option value="<?php echo $this->url('postvote/list', array('id' => $this->game->getIdentifier(), 'filter' => 'vote'))?>"<?php if($this->filter == 'vote') : echo ' selected'; endif; ?>>Plus populaires</option>
+                <option value="<?php echo $this->url('postvote/list', array('id' => $this->game->getIdentifier(), 'channel' => $this->channel, 'filter' => 'date'))?>"<?php if($this->filter == 'date') : echo ' selected'; endif; ?>>Plus récents</option>
+                <option value="<?php echo $this->url('postvote/list', array('id' => $this->game->getIdentifier(), 'channel' => $this->channel, 'filter' => 'random'))?>"<?php if($this->filter == 'random') : echo ' selected'; endif; ?>>Aléatoire</option>
+                <option value="<?php echo $this->url('postvote/list', array('id' => $this->game->getIdentifier(), 'channel' => $this->channel, 'filter' => 'vote'))?>"<?php if($this->filter == 'vote') : echo ' selected'; endif; ?>>Plus populaires</option>
             </select>
         </div>
-        <form action="<?php echo $this->url('postvote/list', array('id' => $this->game->getIdentifier(), 'filter' => $this->filter)); ?>" method="GET" class="row-fluid">
+        <form action="<?php echo $this->url('postvote/list', array('id' => $this->game->getIdentifier(), 'channel' => $this->channel, 'filter' => $this->filter)); ?>" method="GET" class="row-fluid">
 	        <div class="span4 offset4">	            
 				<input type="text" name="name" id="" placeholder="Rechercher" value="<?php echo $this->search?>"/>
 	        </div>
@@ -78,19 +78,19 @@
 							
 							<div class="photo-noslider">
 								<?php if(isset($post['data'][1])):?>
-									<h2 class="green"><a href="<?php echo $this->url('postvote/post', array('id' => $this->game->getIdentifier(), 'post' => $post['id']))?>"><?php echo $post['data'][1];?></a></h2>
+									<h2 class="green"><a href="<?php echo $this->url('postvote/post', array('id' => $this->game->getIdentifier(), 'channel' => $this->channel, 'post' => $post['id']))?>"><?php echo $post['data'][1];?></a></h2>
 								<?php endif ?>
 							    <div class="couv-img">
 							    	<?php if(isset($post['data'][2])):?>
-							    		<a href="<?php echo $this->url('postvote/post', array('id' => $this->game->getIdentifier(), 'post' => $post['id']))?>"><img src="<?php echo $this->basePath($post['data'][2])?>" alt="" /></a>
+							    		<a href="<?php echo $this->url('postvote/post', array('id' => $this->game->getIdentifier(), 'channel' => $this->channel, 'post' => $post['id']))?>"><img src="<?php echo $this->basePath($post['data'][2])?>" alt="" /></a>
 							    	<?php elseif(isset($post['data'][3])):?>
-							    		<a href="<?php echo $this->url('postvote/post', array('id' => $this->game->getIdentifier(), 'post' => $post['id']))?>"><img src="<?php echo $this->basePath($post['data'][3])?>" alt="" /></a>
+							    		<a href="<?php echo $this->url('postvote/post', array('id' => $this->game->getIdentifier(), 'channel' => $this->channel, 'post' => $post['id']))?>"><img src="<?php echo $this->basePath($post['data'][3])?>" alt="" /></a>
 							    	<?php elseif(isset($post['data'][4])):?>
-							    		<a href="<?php echo $this->url('postvote/post', array('id' => $this->game->getIdentifier(), 'post' => $post['id']))?>"><img src="<?php echo $this->basePath($post['data'][4])?>" alt="" /></a>
+							    		<a href="<?php echo $this->url('postvote/post', array('id' => $this->game->getIdentifier(), 'channel' => $this->channel, 'post' => $post['id']))?>"><img src="<?php echo $this->basePath($post['data'][4])?>" alt="" /></a>
 							    	<?php elseif(isset($post['data'][5])):?>
-							    		<a href="<?php echo $this->url('postvote/post', array('id' => $this->game->getIdentifier(), 'post' => $post['id']))?>"><img src="<?php echo $this->basePath($post['data'][5])?>" alt="" /></a>
+							    		<a href="<?php echo $this->url('postvote/post', array('id' => $this->game->getIdentifier(), 'channel' => $this->channel, 'post' => $post['id']))?>"><img src="<?php echo $this->basePath($post['data'][5])?>" alt="" /></a>
 							    	<?php elseif(isset($post['data'][6])):?>
-							    		<a href="<?php echo $this->url('postvote/post', array('id' => $this->game->getIdentifier(), 'post' => $post['id']))?>"><img src="<?php echo $this->basePath($post['data'][6])?>" alt="" /></a>
+							    		<a href="<?php echo $this->url('postvote/post', array('id' => $this->game->getIdentifier(), 'channel' => $this->channel, 'post' => $post['id']))?>"><img src="<?php echo $this->basePath($post['data'][6])?>" alt="" /></a>
 							    	<?php endif;?>
 							    </div>
 								<p><?php if(isset($post['data'][7])): echo substr(nl2br($post['data'][7]), 0, 200); endif;?>...</p>
@@ -101,11 +101,11 @@
 						<?php elseif($this->game->getTemplate() == 'recipe'): ?>
 							
 							<?php if(isset($post['data'][1])):?>
-								<h2 class="green"><a href="<?php echo $this->url('postvote/post', array('id' => $this->game->getIdentifier(), 'post' => $post['id']))?>"><?php echo $post['data'][1];?></a></h2>
+								<h2 class="green"><a href="<?php echo $this->url('postvote/post', array('id' => $this->game->getIdentifier(), 'channel' => $this->channel, 'post' => $post['id']))?>"><?php echo $post['data'][1];?></a></h2>
 							<?php endif ?>
 							<?php if(isset($post['data'][2])):?>
 								<div class="picture-kitchen">
-								    <a href="<?php echo $this->url('postvote/post', array('id' => $this->game->getIdentifier(), 'post' => $post['id']))?>"><img src="<?php echo $this->basePath($post['data'][2])?>" border="0" /></a>
+								    <a href="<?php echo $this->url('postvote/post', array('id' => $this->game->getIdentifier(), 'channel' => $this->channel, 'post' => $post['id']))?>"><img src="<?php echo $this->basePath($post['data'][2])?>" border="0" /></a>
 								</div>
 							<?php endif ?>
 							<?php if(isset($post['data'][3])):?>
@@ -121,14 +121,14 @@
 						
 						<?php else : ?>
 							
-							<h2 class="green"><a href="<?php echo $this->url('postvote/post', array('id' => $this->game->getIdentifier(), 'post' => $post['id']))?>"><?php echo $post['data'][1] ?></a></h2>
+							<h2 class="green"><a href="<?php echo $this->url('postvote/post', array('id' => $this->game->getIdentifier(), 'channel' => $this->channel, 'post' => $post['id']))?>"><?php echo $post['data'][1] ?></a></h2>
 							<p class="text"><?php echo substr(nl2br($post['data'][2]), 0, 200); ?>...</p>
 							
 						<?php endif; ?>
 						
-						<p class="readmore postvote">> <a href="<?php echo $this->url('postvote/post', array('id' => $this->game->getIdentifier(), 'post' => $post['id'])) ?>">Lire la suite</a></p>
+						<p class="readmore postvote">> <a href="<?php echo $this->url('postvote/post', array('id' => $this->game->getIdentifier(), 'channel' => $this->channel, 'post' => $post['id'])) ?>">Lire la suite</a></p>
 						
-						<?php echo $this->partial('adfab-game/partial/name.phtml', array('post'=> $post['user'], 'game' => $game, 'urlPost' => $this->url('postvote/post', array('id' => $this->game->getIdentifier(), 'post' => $post['id']), array('force_canonical' => true)), 'postTitle' => $post['data'][1])) ?>
+						<?php echo $this->partial('adfab-game/partial/name.phtml', array('post'=> $post['user'], 'game' => $game, 'urlPost' => $this->url('postvote/post', array('id' => $this->game->getIdentifier(), 'channel' => $this->channel, 'post' => $post['id']), array('force_canonical' => true)), 'postTitle' => $post['data'][1])) ?>
 						
 						<?php if($game->isStarted()):?>
 							<?php if($this->statusMail && ($post['id'] == $this->reportId )) : ?>
@@ -136,7 +136,7 @@
 							<?php else : ?>
 								<?php echo $this->form()->openTag($form) ?>
 									<?php echo $this->formInput($form->get('moderation')); ?>
-									<input type="hidden" name="link" value="<?php echo $this->url('postvote/post', array('id' => $this->game->getIdentifier(), 'post' => $post['id']))?>" />
+									<input type="hidden" name="link" value="<?php echo $this->url('postvote/post', array('id' => $this->game->getIdentifier(), 'channel' => $this->channel, 'post' => $post['id']))?>" />
 									<input type="hidden" name="reportid" value="<?php echo $post['id'] ?>" />
 									<p class="alert-link"><a href="#">Signaler</a></p>
 								<?php echo $this->form()->closeTag($form) ?>
@@ -150,9 +150,9 @@
 				        <div class="nb-votes">
 				        	<div class="already-voted">Vous avez déjà voté!</div>
 				        <?php if(!$this->zfcUserIdentity()): ?>
-				            <a href="<?php echo $this->url('postvote/post', array('id' => $this->game->getIdentifier(), 'post' => $post['id']))?>" class="btn-post-vote"></a>
+				            <a href="<?php echo $this->url('postvote/post', array('id' => $this->game->getIdentifier(), 'channel' => $this->channel, 'post' => $post['id']))?>" class="btn-post-vote"></a>
 				        <?php else:?>
-				            <a href="<?php echo $this->url('postvote/vote', array('id' => $this->game->getIdentifier(), 'post' => $post['id']))?>" class="btn-post-vote logged"></a>
+				            <a href="<?php echo $this->url('postvote/vote', array('id' => $this->game->getIdentifier(), 'channel' => $this->channel, 'post' => $post['id']))?>" class="btn-post-vote logged"></a>
 				        <?php endif;?>
 				            <div class="bn-votes"><span class="nb-post-vote-number"><?php echo $post['votes'];?></span> <?php echo ($post['votes'] > 1) ? 'votes' : 'vote'; ?></div>
 				        </div>
@@ -163,6 +163,6 @@
 	 </div>
 
 
-	<?php echo $this->paginationControl($this->posts, 'Sliding', 'adfab-game/postvote/pagination_list.phtml', array('id' => $this->game->getIdentifier(), 'filter' => $this->filter)); ?>
+	<?php echo $this->paginationControl($this->posts, 'Sliding', 'adfab-game/postvote/pagination_list.phtml', array('id' => $this->game->getIdentifier(), 'channel' => $this->channel, 'filter' => $this->filter)); ?>
 
 </div>
