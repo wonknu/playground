@@ -22,6 +22,12 @@ class ColumnLeft extends AbstractHelper
         } else {
             $template = $this->viewTemplate;
         }
+        
+        if (array_key_exists('channel', $options) && $options['channel'] != '') {
+        	$channel = $options['channel'];
+        } else {
+        	$channel = '';
+        }
 
        if (array_key_exists('adserving', $options) && is_array($options['adserving'])) {
             $cat1 = $options['adserving']['cat1'];
@@ -38,7 +44,8 @@ class ColumnLeft extends AbstractHelper
         $vm->setVariables(array(
             'cat1' => $cat1,
             'cat2' => $cat2,
-            'cat3' => $cat3
+            'cat3' => $cat3,
+        	'channel' => $channel,
         ));
 
         return $this->getView()->render($vm);
