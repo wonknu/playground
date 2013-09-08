@@ -27,7 +27,7 @@
         "adfab/game" : "dev-master", 
         "playground/partnership" : "dev-master",
         "adfab/reward" : "dev-master",
-        "adfab/flow" : "dev-master",
+        "playground/flow" : "dev-master",
         "playground/stats" : "dev-master",
         "adfab/core" : "0.*",
 		"zendframework/zend-developer-tools" : "dev-master",

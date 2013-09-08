@@ -18,7 +18,7 @@ return array(
     	'AdfabGame',
         'PlaygroundPartnership',
         'AdfabFacebook',
-    	'AdfabFlow',
+    	'PlaygroundFlow',
     	'PlaygroundStats',
    		'Application',
     ),

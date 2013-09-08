@@ -74,9 +74,9 @@ return array(
                 array('controller' => 'facebook',                             'roles' => array('guest', 'user')),
                 array('controller' => 'adfabcore_console',                    'roles' => array('guest', 'user')),
                 array('controller' => 'playgroundfaq',                             'roles' => array('guest', 'user')),
-            	array('controller' => 'adfabflow',                            'roles' => array('guest', 'user')),
-            	array('controller' => 'adfabflowrestauthent',                 'roles' => array('guest', 'user')),
-            	array('controller' => 'adfabflowrestsend',               	  'roles' => array('guest', 'user')),
+            	array('controller' => 'playgroundflow',                            'roles' => array('guest', 'user')),
+            	array('controller' => 'playgroundflowrestauthent',                 'roles' => array('guest', 'user')),
+            	array('controller' => 'playgroundflowrestsend',               	  'roles' => array('guest', 'user')),
             	array('controller' => 'adfabgame_easyxdm',                 	  'roles' => array('guest', 'user')),
 
 
@@ -104,10 +104,10 @@ return array(
             	array('controller' => 'elfinder',                             'roles' => array('admin')),
             	array('controller' => 'DoctrineORMModule\Yuml\YumlController','roles' => array('admin')),
             	array('controller' => 'applicationadmin',					  'roles' => array('admin')),
-            	array('controller' => 'adfabflowadminaction',				  'roles' => array('admin')),
-            	array('controller' => 'adfabflowadminobject',				  'roles' => array('admin')),
-            	array('controller' => 'adfabflowadminstory',				  'roles' => array('admin')),
-            	array('controller' => 'adfabflowadmindomain',				  'roles' => array('admin')),
+            	array('controller' => 'playgroundflowadminaction',				  'roles' => array('admin')),
+            	array('controller' => 'playgroundflowadminobject',				  'roles' => array('admin')),
+            	array('controller' => 'playgroundflowadminstory',				  'roles' => array('admin')),
+            	array('controller' => 'playgroundflowadmindomain',				  'roles' => array('admin')),
             	array('controller' => 'adminstats',				  			  'roles' => array('admin')),
             ),
 
