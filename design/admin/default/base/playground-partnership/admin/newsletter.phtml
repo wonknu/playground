@@ -1,7 +1,7 @@
-<?php $this->plugin('translate')->setTranslatorTextDomain('adfabpartnership'); ?>
-<?php $downloadLink = $this->url('admin/adfabpartnership_admin/download', array('partnerId' => $this->partner->getId()));?>
+<?php $this->plugin('translate')->setTranslatorTextDomain('playgroundpartnership'); ?>
+<?php $downloadLink = $this->url('admin/playgroundpartnership_admin/download', array('partnerId' => $this->partner->getId()));?>
 <?php
-$fm = $this->flashMessenger()->setNamespace('adfabpartnership')->getMessages();
+$fm = $this->flashMessenger()->setNamespace('playgroundpartnership')->getMessages();
 if (isset($fm[0]))
 {
     print '<span class=>' . $fm[0] . '</span>';
@@ -27,4 +27,4 @@ if (isset($fm[0]))
         </tr>
     <?php endforeach; ?>
 </table>
-<?php //echo $this->paginationControl($this->partners, 'Sliding', 'adfab-partnership/admin/pagination_partnerlist.phtml'); ?>
+<?php //echo $this->paginationControl($this->partners, 'Sliding', 'playground-partnership/admin/pagination_partnerlist.phtml'); ?>

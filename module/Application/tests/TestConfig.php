@@ -11,7 +11,7 @@ return array(
    		'AdfabCore',
         'AdfabUser',
    		'AdfabGame',
-        'AdfabPartnership',
+        'PlaygroundPartnership',
         'Application',
     ),
     'module_listener_options' => array(

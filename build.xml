@@ -127,7 +127,7 @@
 			<arg line="-c ${basedir}/vendor/adfab/game" />      
 		</exec>
 		<exec dir="${basedir}/vendor/bin" executable="phpunit" failonerror="true" description="Run unit tests with PHPUnit">  
-			<arg line="-c ${basedir}/vendor/adfab/partnership" />     
+			<arg line="-c ${basedir}/vendor/playground/partnership" />     
 		</exec>
 		<exec dir="${basedir}/vendor/bin" executable="phpunit" failonerror="true" description="Run unit tests with PHPUnit">   
 			<arg line="-c ${basedir}/vendor/adfab/reward" />   

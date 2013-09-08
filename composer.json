@@ -25,7 +25,7 @@
 		"playground/faq" : "dev-master",
 		"adfab/facebook" : "dev-master",
         "adfab/game" : "dev-master", 
-        "adfab/partnership" : "dev-master",
+        "playground/partnership" : "dev-master",
         "adfab/reward" : "dev-master",
         "adfab/flow" : "dev-master",
         "playground/stats" : "dev-master",

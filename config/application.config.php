@@ -16,7 +16,7 @@ return array(
     	'PlaygroundCms',
 		'AdfabReward',
     	'AdfabGame',
-        'AdfabPartnership',
+        'PlaygroundPartnership',
         'AdfabFacebook',
     	'AdfabFlow',
     	'PlaygroundStats',
