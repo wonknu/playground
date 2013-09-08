@@ -12,7 +12,7 @@ class ColumnRight extends AbstractHelper
     protected $viewTemplate = 'application/common/column_right.phtml';
     protected $rssUrl       = '';
 
-    public function __construct()
+    public function __construct() 
     {
     }
 
