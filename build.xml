@@ -103,7 +103,7 @@
 
     <target name="phpunit">
 		<exec dir="${basedir}/vendor/bin" executable="phpunit" failonerror="true" description="Run unit tests with PHPUnit">
-			<arg line="-c ${basedir}/vendor/adfab/core" />     
+			<arg line="-c ${basedir}/vendor/playground/core" />     
 		</exec>
 		<exec dir="${basedir}/vendor/bin" executable="phpunit" failonerror="true" description="Run unit tests with PHPUnit">
 			<arg line="-c ${basedir}/module/Application" />   
@@ -112,7 +112,7 @@
 			<arg line="-c ${basedir}/vendor/playground/cms" />    
 		</exec>
 		<exec dir="${basedir}/vendor/bin" executable="phpunit" failonerror="true" description="Run unit tests with PHPUnit"> 
-			<arg line="-c ${basedir}/vendor/adfab/facebook" />     
+			<arg line="-c ${basedir}/vendor/playground/facebook" />     
 		</exec>
 		<exec dir="${basedir}/vendor/bin" executable="phpunit" failonerror="true" description="Run unit tests with PHPUnit"> 
 			<arg line="-c ${basedir}/vendor/playground/faq" />   
@@ -121,19 +121,19 @@
 			<arg line="-c ${basedir}/vendor/playground/stats" />        
 		</exec>
 		<exec dir="${basedir}/vendor/bin" executable="phpunit" failonerror="true" description="Run unit tests with PHPUnit"> 
-			<arg line="-c ${basedir}/vendor/adfab/flow" />  
+			<arg line="-c ${basedir}/vendor/playground/flow" />  
 		</exec>
 		<exec dir="${basedir}/vendor/bin" executable="phpunit" failonerror="true" description="Run unit tests with PHPUnit">  
-			<arg line="-c ${basedir}/vendor/adfab/game" />      
+			<arg line="-c ${basedir}/vendor/playground/game" />      
 		</exec>
 		<exec dir="${basedir}/vendor/bin" executable="phpunit" failonerror="true" description="Run unit tests with PHPUnit">  
 			<arg line="-c ${basedir}/vendor/playground/partnership" />     
 		</exec>
 		<exec dir="${basedir}/vendor/bin" executable="phpunit" failonerror="true" description="Run unit tests with PHPUnit">   
-			<arg line="-c ${basedir}/vendor/adfab/reward" />   
+			<arg line="-c ${basedir}/vendor/playground/reward" />   
 		</exec>
 		<exec dir="${basedir}/vendor/bin" executable="phpunit" failonerror="true" description="Run unit tests with PHPUnit">  
-			<arg line="-c ${basedir}/vendor/adfab/user" />     
+			<arg line="-c ${basedir}/vendor/playground/user" />     
 		</exec>
 	</target>
 		

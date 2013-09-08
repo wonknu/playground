@@ -40,7 +40,7 @@
             </div>
 
             <?php if(!$game->isFinished()):?>
-            	<?php echo $this->partial('adfab-game/partial/share.phtml', array( 'color' => 'dark','game'=>$this->game, 'channel' => $this->channel, 'url'=>$this->url('frontend/' . $game->getClassType(), array('id' => $this->game->getIdentifier(), 'channel' => $this->channel), array('force_canonical' => true))));?>
+            	<?php echo $this->partial('playground-game/partial/share.phtml', array( 'color' => 'dark','game'=>$this->game, 'channel' => $this->channel, 'url'=>$this->url('frontend/' . $game->getClassType(), array('id' => $this->game->getIdentifier(), 'channel' => $this->channel), array('force_canonical' => true))));?>
             <?php endif; ?>
         </div>
         <?php if($game->isFinished()):?>

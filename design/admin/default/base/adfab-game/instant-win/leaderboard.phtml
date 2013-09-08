@@ -1,13 +1,13 @@
-<?php $this->plugin('translate')->setTranslatorTextDomain('adfabgame');// Pour le texte ?>
+<?php $this->plugin('translate')->setTranslatorTextDomain('playgroundgame');// Pour le texte ?>
 <?php $downloadLink = $this->url('admin/'. $this->game->getClassType() .'/download', array('gameId' => $this->game->getId()));?>
 <?php
-/*$fm = $this->flashMessenger()->setNamespace('adfabgame')->getMessages();
+/*$fm = $this->flashMessenger()->setNamespace('playgroundgame')->getMessages();
 if (isset($fm[0]))
 {
     print '<span class=>' . $fm[0] . '</span>';
 }*/
 ?>
-<h1><a href="<?php echo $this->url('admin/adfabgame/edit-instantwin', array('gameId' => $this->gameId)) ?>"><?php echo $this->game->getTitle(); ?></a></h1>
+<h1><a href="<?php echo $this->url('admin/playgroundgame/edit-instantwin', array('gameId' => $this->gameId)) ?>"><?php echo $this->game->getTitle(); ?></a></h1>
 
 <h3><?php echo $this->translate('Liste des Participants'); ?></h3>
 
@@ -33,8 +33,8 @@ if (isset($fm[0]))
             <td><?php echo $entry->getUser()->getOptinPartner(); ?></td>
             <td><?php echo $entry->getWinner(); ?></td>
 
-            <?php //$editLink = $this->url('admin/adfabgame/edit', array('gameId' => $game->getId()));?>
-            <?php //$deleteLink = $this->url('admin/adfabgame/remove', array('gameId' => $game->getId()));?>
+            <?php //$editLink = $this->url('admin/playgroundgame/edit', array('gameId' => $game->getId()));?>
+            <?php //$deleteLink = $this->url('admin/playgroundgame/remove', array('gameId' => $game->getId()));?>
 
             <td><?php echo $entry->getCreatedAt()->format('Y-m-d H:i:s')?></td>
         </tr>

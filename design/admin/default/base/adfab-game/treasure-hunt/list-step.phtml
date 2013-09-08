@@ -1,18 +1,18 @@
 <?php
-$fm = $this->flashMessenger()->setNamespace('adfabgame')->getMessages();
+$fm = $this->flashMessenger()->setNamespace('playgroundgame')->getMessages();
 if (isset($fm[0]))
 {
     print '<span class=>' . $fm[0] . '</span>';
 }
 ?>
-<?php $this->plugin('translate')->setTranslatorTextDomain('adfabgame'); ?>
-<?php $addLink = $this->url('admin/adfabgame/treasurehunt-step-add', array('gameId' => $this->gameId)); ?>
+<?php $this->plugin('translate')->setTranslatorTextDomain('playgroundgame'); ?>
+<?php $addLink = $this->url('admin/playgroundgame/treasurehunt-step-add', array('gameId' => $this->gameId)); ?>
 
 <ul class="liste-buttons">
 	<li class="btn-admin"><a href="<?php echo $addLink;?>"><?php echo $this->translate('Add new step'); ?></a></li>
 </ul>
 
-<h1><a href="<?php echo $this->url('admin/adfabgame/edit-treasurehunt', array('gameId' => $this->gameId)) ?>"><?php echo $this->game->getTitle(); ?></a></h1>
+<h1><a href="<?php echo $this->url('admin/playgroundgame/edit-treasurehunt', array('gameId' => $this->gameId)) ?>"><?php echo $this->game->getTitle(); ?></a></h1>
 
 <h3><?php echo $this->translate('Liste des étapes'); ?></h3>
 
@@ -21,11 +21,11 @@ if (isset($fm[0]))
         <!--<th><?php echo $this->translate('Id'); ?></th>-->
         <th>
         	<?php if($this->filter == 'ASC'): ?>
-        	    <a href="<?php echo $this->url('admin/adfabgame/treasurehunt-step-list', array('gameId' => $this->gameId, 'filter' => 'DESC')); ?>">
+        	    <a href="<?php echo $this->url('admin/playgroundgame/treasurehunt-step-list', array('gameId' => $this->gameId, 'filter' => 'DESC')); ?>">
         	    	<img src="<?php echo $this->adminAssetPath('images/admin/arrow-down.png'); ?>" alt="" />
         	    </a>
 			<?php else : ?>
-				<a href="<?php echo $this->url('admin/adfabgame/treasurehunt-step-list', array('gameId' => $this->gameId, 'filter' => 'ASC')); ?>">
+				<a href="<?php echo $this->url('admin/playgroundgame/treasurehunt-step-list', array('gameId' => $this->gameId, 'filter' => 'ASC')); ?>">
 					<img src="<?php echo $this->adminAssetPath('images/admin/arrow-up.png'); ?>" alt="" />
 				</a>
         	<?php endif; ?>
@@ -39,8 +39,8 @@ if (isset($fm[0]))
         <tr>
             <!--<td><?php echo $step->getId() ?></td>-->
             <td></td>
-            <?php $editLink   = $this->url('admin/adfabgame/treasurehunt-step-edit', array('gameId' => $gameId, 'stepId' => $step->getId()));?>
-            <?php $deleteLink = $this->url('admin/adfabgame/treasurehunt-step-remove', array('stepId' => $step->getId()));?>
+            <?php $editLink   = $this->url('admin/playgroundgame/treasurehunt-step-edit', array('gameId' => $gameId, 'stepId' => $step->getId()));?>
+            <?php $deleteLink = $this->url('admin/playgroundgame/treasurehunt-step-remove', array('stepId' => $step->getId()));?>
             <td>ok</td>
             <td>ok</td>
             <td>
@@ -54,4 +54,4 @@ if (isset($fm[0]))
 	<li class="btn-admin bottom"><a href="<?php echo $addLink;?>"><?php echo $this->translate('Add new step'); ?></a></li>
 </ul>
 
-<?php echo $this->paginationControl($this->steps, 'Sliding', 'adfab-game/treasure-hunt/pagination_steplist', array('gameId' => $this->gameId, 'filter' => $this->filter)); ?>
+<?php echo $this->paginationControl($this->steps, 'Sliding', 'playground-game/treasure-hunt/pagination_steplist', array('gameId' => $this->gameId, 'filter' => $this->filter)); ?>

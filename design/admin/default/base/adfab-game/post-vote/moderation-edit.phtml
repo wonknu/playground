@@ -1,6 +1,6 @@
-<?php $this->plugin('translate')->setTranslatorTextDomain('adfabgame');// Pour le texte ?>
-<?php $validation = $this->url('admin/adfabgame/postvote-moderation-edit', array('postId' => $post->getId(), 'status' => 'validation'));?>
-<?php $rejection = $this->url('admin/adfabgame/postvote-moderation-edit', array('postId' => $post->getId(), 'status' => 'rejection'));?>
+<?php $this->plugin('translate')->setTranslatorTextDomain('playgroundgame');// Pour le texte ?>
+<?php $validation = $this->url('admin/playgroundgame/postvote-moderation-edit', array('postId' => $post->getId(), 'status' => 'validation'));?>
+<?php $rejection = $this->url('admin/playgroundgame/postvote-moderation-edit', array('postId' => $post->getId(), 'status' => 'rejection'));?>
 <?php $data = array();foreach($this->post->getPostElements() as $element):?>
 <?php $data[$element->getPosition()] = $element->getValue();?>
 <?php endforeach;?>
@@ -8,7 +8,7 @@
 <p><?php echo $this->game->getForm()->getDescription(); ?></p>
 <div class="span12 message">
    <div class="row-fluid">
-       <?php echo $this->partial('adfab-game/postvote/templates/' . $this->game->getTemplate(), array('data'=>$data));?>
+       <?php echo $this->partial('playground-game/postvote/templates/' . $this->game->getTemplate(), array('data'=>$data));?>
    </div>
    <div>
         <a href='<?php echo $rejection ?>'><?php echo $this->translate('Reject'); ?></a>

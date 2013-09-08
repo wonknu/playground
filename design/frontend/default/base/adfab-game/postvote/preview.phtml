@@ -1,4 +1,4 @@
-<?php $this->plugin('translate')->setTranslatorTextDomain('adfabgame');// Pour le texte ?>
+<?php $this->plugin('translate')->setTranslatorTextDomain('playgroundgame');// Pour le texte ?>
 <?php $data = array();foreach($this->post->getPostElements() as $element):?>
 <?php $data[$element->getPosition()] = $element->getValue();?>
 <?php endforeach;?>
@@ -6,7 +6,7 @@
 	<h1><?php echo $this->game->getTitle(); ?></h1>
 	<!-- BLOCK GAME START -->
 	<!--
-    <?php echo $this->partial('adfab-game/partial/game-header', array('game'=>$this->game, 'channel' => $this->channel));?>
+    <?php echo $this->partial('playground-game/partial/game-header', array('game'=>$this->game, 'channel' => $this->channel));?>
    -->
    <!-- BLOCK GAME START -->
 	<div class="block-game game-play">
@@ -53,8 +53,8 @@
        <div class="span11 message rounded">
            <div class="row-fluid posts">
 				<div class="span12 postvote-preview">
-               		<?php echo $this->partial('adfab-game/postvote/templates/' . $this->game->getTemplate(), array('data'=>$data, 'post'=>$this->post, 'channel' => $this->channel));?>
-					<?php //echo $this->partial('adfab-game/partial/name.phtml', array('post' => $this->post->getUser(), 'game' => $this->game, 'channel' => $this->channel));?>
+               		<?php echo $this->partial('playground-game/postvote/templates/' . $this->game->getTemplate(), array('data'=>$data, 'post'=>$this->post, 'channel' => $this->channel));?>
+					<?php //echo $this->partial('playground-game/partial/name.phtml', array('post' => $this->post->getUser(), 'game' => $this->game, 'channel' => $this->channel));?>
 					
 					<div class="row-fluid">
 					    <div class="avatar span5">

@@ -13,7 +13,7 @@ $playgrounduser = array(
 		 * Default: empty
 		 */		
 		'email_from_address' => array(
-			'email' => 'playground@adfab.fr',
+			'email' => 'contact@playground.gg',
 			'name' => 'Administrateur',
 		),
 		

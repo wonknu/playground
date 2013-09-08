@@ -1,4 +1,4 @@
-<?php $this->plugin('translate')->setTranslatorTextDomain('adfabgame');// Pour le texte ?>
+<?php $this->plugin('translate')->setTranslatorTextDomain('playgroundgame');// Pour le texte ?>
 
 <?php $data = array();foreach($this->post->getPostElements() as $element):?>
 <?php $data[$element->getPosition()] = $element->getValue();?>
@@ -7,7 +7,7 @@
 	<h1><?php echo $this->game->getTitle(); ?></h1>
 	<!-- BLOCK GAME START -->
 	<!--
-    <?php echo $this->partial('adfab-game/partial/game-header', array('game'=>$this->game, 'channel' => $this->channel));?>
+    <?php echo $this->partial('playground-game/partial/game-header', array('game'=>$this->game, 'channel' => $this->channel));?>
    -->
    <!-- BLOCK GAME START -->
 	<div class="block-game game-play">
@@ -55,8 +55,8 @@
             	<?php if(count($this->flashMessages)>0):?>
 					<p class="already-play"><?php echo $this->flashMessages[0];?></p>
 			    <?php endif;?>
-           		<?php echo $this->partial('adfab-game/postvote/templates/' . $this->game->getTemplate(), array('data'=>$data, 'channel' => $this->channel, 'post' => $post->getId()));?>
-				<?php echo $this->partial('adfab-game/partial/name.phtml', array('post' => $post->getUser(), 'game' => $game, 'channel' => $this->channel, 'urlPost' => $this->url('postvote/post', array('id' => $this->game->getIdentifier(), 'channel' => $this->channel,  'post' => $post->getId()), array('force_canonical' => true)), 'postTitle' => $data[1]));?>
+           		<?php echo $this->partial('playground-game/postvote/templates/' . $this->game->getTemplate(), array('data'=>$data, 'channel' => $this->channel, 'post' => $post->getId()));?>
+				<?php echo $this->partial('playground-game/partial/name.phtml', array('post' => $post->getUser(), 'game' => $game, 'channel' => $this->channel, 'urlPost' => $this->url('postvote/post', array('id' => $this->game->getIdentifier(), 'channel' => $this->channel,  'post' => $post->getId()), array('force_canonical' => true)), 'postTitle' => $data[1]));?>
        		</div>
        		<?php if($game->isStarted()):?>
 	       		<?php if($this->statusMail && ($post->getId() == $this->reportId )) : ?>

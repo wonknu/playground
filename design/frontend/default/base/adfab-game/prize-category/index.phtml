@@ -1,4 +1,4 @@
-<?php $this->plugin('translate')->setTranslatorTextDomain('adfabgame');// Pour le texte ?>
+<?php $this->plugin('translate')->setTranslatorTextDomain('playgroundgame');// Pour le texte ?>
 
 <!-- THEMATIQUES -->
 <div id="jeux-concours" class="thematique">
@@ -10,9 +10,9 @@
 			echo $this->flashMessages[0];
 		else :
 			$this->partialLoop()->setObjectKey('game');
-    		echo $this->partialLoop('adfab-game/partial/game.phtml', $this->games);
+    		echo $this->partialLoop('playground-game/partial/game.phtml', $this->games);
 		endif;
 		
 	?>
 </div><!-- END THEMATIQUES -->
-<?php echo $this->paginationControl($this->games, 'Sliding', 'adfab-game/prize-category/pagination.phtml', array('id' => $this->identifier)); ?>
+<?php echo $this->paginationControl($this->games, 'Sliding', 'playground-game/prize-category/pagination.phtml', array('id' => $this->identifier)); ?>

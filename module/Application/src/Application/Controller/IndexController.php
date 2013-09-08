@@ -270,7 +270,7 @@ class IndexController extends AbstractActionController
         $sg 		 = $this->getGameService();
         $events 	 = $this->getRewardService()->getEventMapper()->findActivity($this->zfcUserAuthentication()->getIdentity()->getId(),'sponsor');
 
-        $form = $this->getServiceLocator()->get('adfabgame_sharemail_form');
+        $form = $this->getServiceLocator()->get('playgroundgame_sharemail_form');
         $form->setAttribute('method', 'post');
 
         $games = $this->getGameService()->getActiveGames();
@@ -279,7 +279,7 @@ class IndexController extends AbstractActionController
             $data = $this->getRequest()->getPost()->toArray();
             $form->setData($data);
             if ($form->isValid()) {
-                $result = $this->getServiceLocator()->get('adfabgame_lottery_service')->sendShareMail($data, $games, $user, 'share_game_list', $subjectMail, $topic);
+                $result = $this->getServiceLocator()->get('playgroundgame_lottery_service')->sendShareMail($data, $games, $user, 'share_game_list', $subjectMail, $topic);
                 if ($result) {
                     $statusMail = true;
                 }
@@ -333,7 +333,7 @@ class IndexController extends AbstractActionController
             return false;
         }
 
-        $this->getServiceLocator()->get('adfabgame_lottery_service')->postFbWall($fbId, NULL, $user, $topic);
+        $this->getServiceLocator()->get('playgroundgame_lottery_service')->postFbWall($fbId, NULL, $user, $topic);
 
         return true;
 
@@ -353,7 +353,7 @@ class IndexController extends AbstractActionController
             return false;
         }
 
-        $this->getServiceLocator()->get('adfabgame_lottery_service')->postTwitter($tweetId, NULL, $user, $topic);
+        $this->getServiceLocator()->get('playgroundgame_lottery_service')->postTwitter($tweetId, NULL, $user, $topic);
 
         return true;
 
@@ -373,7 +373,7 @@ class IndexController extends AbstractActionController
             return false;
         }
 
-        $this->getServiceLocator()->get('adfabgame_lottery_service')->postGoogle($googleId, NULL, $user, $topic);
+        $this->getServiceLocator()->get('playgroundgame_lottery_service')->postGoogle($googleId, NULL, $user, $topic);
 
         return true;
 
@@ -452,7 +452,7 @@ class IndexController extends AbstractActionController
     public function getGameService()
     {
         if (!$this->gameService) {
-            $this->gameService = $this->getServiceLocator()->get('adfabgame_game_service');
+            $this->gameService = $this->getServiceLocator()->get('playgroundgame_game_service');
         }
 
         return $this->gameService;
@@ -468,7 +468,7 @@ class IndexController extends AbstractActionController
     public function getQuizService ()
     {
         if (! $this->quizService) {
-            $this->quizService = $this->getServiceLocator()->get('adfabgame_quiz_service');
+            $this->quizService = $this->getServiceLocator()->get('playgroundgame_quiz_service');
         }
 
         return $this->quizService;
@@ -500,7 +500,7 @@ class IndexController extends AbstractActionController
     public function getMailService()
     {
         if (!$this->mailService) {
-            $this->mailService = $this->getServiceLocator()->get('adfabgame_message');
+            $this->mailService = $this->getServiceLocator()->get('playgroundgame_message');
         }
 
         return $this->mailService;
@@ -516,7 +516,7 @@ class IndexController extends AbstractActionController
     public function getOptions()
     {
         if (!$this->options) {
-            $this->setOptions($this->getServiceLocator()->get('adfabcore_module_options'));
+            $this->setOptions($this->getServiceLocator()->get('playgroundcore_module_options'));
         }
 
         return $this->options;

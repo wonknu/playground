@@ -1,4 +1,4 @@
-<?php $this->plugin('translate')->setTranslatorTextDomain('adfabgame');// Pour le texte ?>
+<?php $this->plugin('translate')->setTranslatorTextDomain('playgroundgame');// Pour le texte ?>
 
 <div class="game-postvote list row-fluid">
 	<h1><?php echo $this->game->getTitle(); ?></h1>
@@ -63,7 +63,7 @@
         </form>
     </div>
 
-	<?php echo $this->paginationControl($this->posts, 'Sliding', 'adfab-game/postvote/pagination_list.phtml', array('id' => $this->game->getIdentifier(), 'filter' => $this->filter)); ?>
+	<?php echo $this->paginationControl($this->posts, 'Sliding', 'playground-game/postvote/pagination_list.phtml', array('id' => $this->game->getIdentifier(), 'filter' => $this->filter)); ?>
 	
 	<?php $form = $this->form;?>
 	<?php $form->prepare();?>
@@ -96,7 +96,7 @@
 								<p><?php if(isset($post['data'][7])): echo substr(nl2br($post['data'][7]), 0, 200); endif;?>...</p>
 							</div>
 							
-							<?php //echo $this->partial('adfab-game/postvote/templates/' . $this->game->getTemplate(), array('data'=> $post['data'], 'channel' => $this->channel)) ?>
+							<?php //echo $this->partial('playground-game/postvote/templates/' . $this->game->getTemplate(), array('data'=> $post['data'], 'channel' => $this->channel)) ?>
 							
 						<?php elseif($this->game->getTemplate() == 'recipe'): ?>
 							
@@ -128,7 +128,7 @@
 						
 						<p class="readmore postvote">> <a href="<?php echo $this->url('postvote/post', array('id' => $this->game->getIdentifier(), 'channel' => $this->channel, 'post' => $post['id'])) ?>">Lire la suite</a></p>
 						
-						<?php echo $this->partial('adfab-game/partial/name.phtml', array('post'=> $post['user'], 'game' => $game, 'channel' => $this->channel, 'urlPost' => $this->url('postvote/post', array('id' => $this->game->getIdentifier(), 'channel' => $this->channel, 'post' => $post['id']), array('force_canonical' => true)), 'postTitle' => $post['data'][1])) ?>
+						<?php echo $this->partial('playground-game/partial/name.phtml', array('post'=> $post['user'], 'game' => $game, 'channel' => $this->channel, 'urlPost' => $this->url('postvote/post', array('id' => $this->game->getIdentifier(), 'channel' => $this->channel, 'post' => $post['id']), array('force_canonical' => true)), 'postTitle' => $post['data'][1])) ?>
 						
 						<?php if($game->isStarted()):?>
 							<?php if($this->statusMail && ($post['id'] == $this->reportId )) : ?>
@@ -163,6 +163,6 @@
 	 </div>
 
 
-	<?php echo $this->paginationControl($this->posts, 'Sliding', 'adfab-game/postvote/pagination_list.phtml', array('id' => $this->game->getIdentifier(), 'channel' => $this->channel, 'filter' => $this->filter)); ?>
+	<?php echo $this->paginationControl($this->posts, 'Sliding', 'playground-game/postvote/pagination_list.phtml', array('id' => $this->game->getIdentifier(), 'channel' => $this->channel, 'filter' => $this->filter)); ?>
 
 </div>

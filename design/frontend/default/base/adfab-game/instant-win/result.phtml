@@ -1,4 +1,4 @@
-<?php $this->plugin('translate')->setTranslatorTextDomain('adfabgame');// Pour le texte ?>
+<?php $this->plugin('translate')->setTranslatorTextDomain('playgroundgame');// Pour le texte ?>
 
 <?php
 	$playLimitScale = $game->getPlayLimitScale();
@@ -68,7 +68,7 @@
 		
 		<!-- SPONSOR (parrainer) -->
         <div id="parrainer" class="row-fluid">
-			<?php echo $this->partial('adfab-game/partial/result-share', array(
+			<?php echo $this->partial('playground-game/partial/result-share', array(
 		            'game'			=> $this->game,
 		            'secretKey'		=> $this->secretKey,
 		            'socialLinkUrl' => $socialLinkUrl,

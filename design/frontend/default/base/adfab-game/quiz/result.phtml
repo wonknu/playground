@@ -1,10 +1,10 @@
-<?php $this->plugin('translate')->setTranslatorTextDomain('adfabgame');// Pour le texte ?>
+<?php $this->plugin('translate')->setTranslatorTextDomain('playgroundgame');// Pour le texte ?>
 
 <div class="game-quiz row-fluid result">
 	<h1><?php echo $this->game->getTitle(); ?></h1>
 	
 	<?php if($this->winner || $this->prediction):?>
-	    <?php echo $this->partial('adfab-game/quiz/partial/winner', array(
+	    <?php echo $this->partial('playground-game/quiz/partial/winner', array(
             'game'               =>$this->game,
             'userCorrectAnswers' =>$this->userCorrectAnswers,
             'maxCorrectAnswers'  =>$this->maxCorrectAnswers,
@@ -14,7 +14,7 @@
 	    	'channel' => $this->channel
         ));?>
 	<?php else:?>
-    	<?php echo $this->partial('adfab-game/quiz/partial/looser', array(
+    	<?php echo $this->partial('playground-game/quiz/partial/looser', array(
             'game'               =>$this->game,
     	    'userCorrectAnswers' =>$this->userCorrectAnswers,
 	        'maxCorrectAnswers'  =>$this->maxCorrectAnswers,
@@ -25,7 +25,7 @@
 	<?php endif;?>
 	
 	<?php if($this->userCorrectAnswers < $this->maxCorrectAnswers && $this->game->getVictoryConditions()>0):?>
-        <?php echo $this->partial('adfab-game/quiz/partial/answers', array(
+        <?php echo $this->partial('playground-game/quiz/partial/answers', array(
 	        'gameCorrectAnswers' =>$this->gameCorrectAnswers, 
         	'channel' => $this->channel
         ));?>
@@ -40,7 +40,7 @@
 	
 	<!-- SPONSOR (parrainer) -->
 	<div id="parrainer" class="row-fluid">
-		<?php echo $this->partial('adfab-game/partial/result-share', array(
+		<?php echo $this->partial('playground-game/partial/result-share', array(
 	            'game'			=> $this->game,
 	            'secretKey'		=> $this->secretKey,
 	            'socialLinkUrl' => $socialLinkUrl,

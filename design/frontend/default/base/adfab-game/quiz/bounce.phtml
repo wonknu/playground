@@ -1,4 +1,4 @@
-<?php $this->plugin('translate')->setTranslatorTextDomain('adfabgame');// Pour le texte ?>
+<?php $this->plugin('translate')->setTranslatorTextDomain('playgroundgame');// Pour le texte ?>
 <?php $game = $this->game;?>
 <?php $user = $this->user;?>
 <?php $availableGames = $this->availableGames?>
@@ -6,7 +6,7 @@
 <div class="game-quiz row-fluid recirculation">
 
 	<!-- BOUNCE -->
-	<?php echo $this->partial('adfab-game/partial/bounce', array(
+	<?php echo $this->partial('playground-game/partial/bounce', array(
 		'game' => $game,
 		'user' => $user,
 		'gameType' => 'Ce quizz',
@@ -28,12 +28,12 @@
 		</h2>
 		<?php if($availableGames): ?>
 			<?php $this->partialLoop()->setObjectKey('game')?>
-			<?php echo $this->partialLoop('adfab-game/partial/game.phtml', $availableGames) ?>
+			<?php echo $this->partialLoop('playground-game/partial/game.phtml', $availableGames) ?>
 		<?php endif;?>
 	</div>
 	<?php } ?>
 	
 	<!-- RSS FEED -->
-	<?php echo $this->partial('adfab-game/partial/news-feed', array('rssUrl' => $this->rssUrl, 'channel' => $this->channel)); ?>
+	<?php echo $this->partial('playground-game/partial/news-feed', array('rssUrl' => $this->rssUrl, 'channel' => $this->channel)); ?>
 
 </div>

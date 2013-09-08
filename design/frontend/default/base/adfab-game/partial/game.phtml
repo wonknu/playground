@@ -1,4 +1,4 @@
-<?php $this->plugin('translate')->setTranslatorTextDomain('adfabgame');// Pour le texte ?>
+<?php $this->plugin('translate')->setTranslatorTextDomain('playgroundgame');// Pour le texte ?>
 <?php if ($this->game->getStartDate() && $this->game->getEndDate()):?>
     <?php $play =  'Jouez du ' . strftime("%d %B", $this->game->getStartDate()->format('U')) . ' au ' . strftime("%d %B", $this->game->getEndDate()->format('U')) . ' avec'; ?>
 <?php elseif ($this->game->getStartDate()):?>
@@ -61,7 +61,7 @@
 		
 		
 		<?php if(!$this->game->isFinished()):?>
-			<?php echo $this->partial('adfab-game/partial/share.phtml', array( 'color' => 'grey', 'game'=>$this->game, '$this->layout()->channel' => $this->layout()->channel, 'url'=>$this->url('frontend/' . $game->getClassType(), array('id' => $this->game->getIdentifier()), array('force_canonical' => true))));?>
+			<?php echo $this->partial('playground-game/partial/share.phtml', array( 'color' => 'grey', 'game'=>$this->game, '$this->layout()->channel' => $this->layout()->channel, 'url'=>$this->url('frontend/' . $game->getClassType(), array('id' => $this->game->getIdentifier()), array('force_canonical' => true))));?>
 		<?php endif;?>
 		
 	</div>

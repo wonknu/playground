@@ -1,4 +1,4 @@
-<?php $this->plugin('translate')->setTranslatorTextDomain('adfabgame');// Pour le texte ?>
+<?php $this->plugin('translate')->setTranslatorTextDomain('playgroundgame');// Pour le texte ?>
 <div class="block-game game-play">
 	<div class="img-content">
 		<img class="rounded" src="<?php echo $this->basePath($this->game->getMainImage()); ?>" border="0"/>
@@ -37,7 +37,7 @@
 			<?php endif;?>
 		</div>
 
-		<?php echo $this->partial('adfab-game/partial/share.phtml', array( 'color' => 'grey', 'game'=>$this->game,'url'=>$this->url('frontend/' . $game->getClassType(), array('id' => $this->game->getIdentifier(), 'channel' => $this->channel), array('force_canonical' => true))));?>
+		<?php echo $this->partial('playground-game/partial/share.phtml', array( 'color' => 'grey', 'game'=>$this->game,'url'=>$this->url('frontend/' . $game->getClassType(), array('id' => $this->game->getIdentifier(), 'channel' => $this->channel), array('force_canonical' => true))));?>
 
 	</div>
 </div>

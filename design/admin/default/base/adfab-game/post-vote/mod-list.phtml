@@ -1,6 +1,6 @@
-<?php $this->plugin('translate')->setTranslatorTextDomain('adfabgame'); ?>
+<?php $this->plugin('translate')->setTranslatorTextDomain('playgroundgame'); ?>
 <?php
-$fm = $this->flashMessenger()->setNamespace('adfabgame')->getMessages();
+$fm = $this->flashMessenger()->setNamespace('playgroundgame')->getMessages();
 if (isset($fm[0]))
 {
     print '<span class=>' . $fm[0] . '</span>';
@@ -27,7 +27,7 @@ if (isset($fm[0]))
             <td><?php echo $post->getPostvote()->getTitle(); ?></td>
             <td><?php echo $post->getUser()->getFirstname() . ' ' . $post->getUser()->getLastname() ?></td>
             <td><?php echo $post->getCreatedAt()->format('d/m/Y h:i:s'); ?></td>
-            <?php $editLink = $this->url('admin/adfabgame/postvote-moderation-edit', array('postId' => $post->getId()));?>
+            <?php $editLink = $this->url('admin/playgroundgame/postvote-moderation-edit', array('postId' => $post->getId()));?>
             <td>
                 <a href='<?php echo $editLink ?>'><?php echo $this->translate('Moderate'); ?></a>
             </td>

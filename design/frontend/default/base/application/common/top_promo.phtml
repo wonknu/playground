@@ -11,7 +11,7 @@
         <?php foreach($this->sliderItems as $item):?>
             <?php if(! $item instanceof PlaygroundCms\Entity\Page):?>
                 <?php $this->partial()->setObjectKey('game')?>
-                <?php echo $this->partial('adfab-game/partial/slider-game.phtml', array('game' =>$item, 'channel' => $this->channel)) ?>
+                <?php echo $this->partial('playground-game/partial/slider-game.phtml', array('game' =>$item, 'channel' => $this->channel)) ?>
             <?php else:?>
                 <?php $this->partial()->setObjectKey('page')?>
                 <?php echo $this->partial('playground-cms/frontend/page/partial/slider-page.phtml', array('game' =>$item, 'channel' => $this->channel)) ?>

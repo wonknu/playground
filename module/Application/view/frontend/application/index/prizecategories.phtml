@@ -1,4 +1,4 @@
-<?php $this->plugin('translate')->setTranslatorTextDomain('adfabgame');// Pour le texte ?>
+<?php $this->plugin('translate')->setTranslatorTextDomain('playgroundgame');// Pour le texte ?>
 
 <!-- THEMATIQUES -->
 <div id="jeux-concours" class="thematique">
@@ -7,5 +7,5 @@
     </div>
 
     <?php $this->partialLoop()->setObjectKey('game')?>
-    <?php echo $this->partialLoop('adfab-game/partial/game.phtml', $this->games) ?>
+    <?php echo $this->partialLoop('playground-game/partial/game.phtml', $this->games) ?>
 </div><!-- END THEMATIQUES -->

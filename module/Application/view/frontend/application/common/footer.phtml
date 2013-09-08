@@ -20,7 +20,7 @@
 	</ul>
 	<ul class="jeuxnav span3">
 		<li class="title">Les jeux concours,<br />à gagner :</li>
-		<?php $categories = $this->adfabPrizeCategory(); ?>
+		<?php $categories = $this->playgroundPrizeCategory(); ?>
         <?php foreach($categories as $category): ?>
             <li class="jeu-item"><a href="<?php echo $this->url('prizecategories') . $category->getIdentifier(); ?>"><?php echo $category->getTitle() ?></a></li>
         <?php endforeach ?>
@@ -28,5 +28,5 @@
 	<div class="fb-box span3">
 		<div class="fb-like-box" data-href="http://www.facebook.com/adfabagency" data-width="287" data-height="185" data-show-faces="true" data-stream="false" data-border-color="#ffffff" data-header="false"></div>
 	</div>
-	<div class="actu"><a href="http://playground.adfab.fr" target="_blank">&lt; Retrouvez toute l'actualité</a></div>
+	<div class="actu"><a href="http://www.playground.gg" target="_blank">&lt; Retrouvez toute l'actualité</a></div>
 </div>

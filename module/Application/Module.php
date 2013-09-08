@@ -19,7 +19,7 @@ class Module
     {
 
         $translator = $e->getApplication()->getServiceManager()->get('translator');
-        AbstractValidator::setDefaultTranslator($translator,'adfabcore');
+        AbstractValidator::setDefaultTranslator($translator,'playgroundcore');
 
         $eventManager        = $e->getApplication()->getEventManager();
         $moduleRouteListener = new ModuleRouteListener();
