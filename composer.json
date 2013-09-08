@@ -21,7 +21,7 @@
 	"require" : {
 		"php" : ">=5.3.3",
 		"zendframework/zendframework" : "2.*",
-		"adfab/cms" : "dev-master",
+		"playground/cms" : "dev-master",
 		"playground/faq" : "dev-master",
 		"adfab/facebook" : "dev-master",
         "adfab/game" : "dev-master", 

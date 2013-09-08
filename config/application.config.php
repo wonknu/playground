@@ -13,7 +13,7 @@ return array(
     	'AdfabCore',
         'PlaygroundFaq',
 		'AdfabUser',
-    	'AdfabCms',
+    	'PlaygroundCms',
 		'AdfabReward',
     	'AdfabGame',
         'AdfabPartnership',

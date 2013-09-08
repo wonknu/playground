@@ -9,12 +9,12 @@
         <div class="carousel-inner">
     <?php endif;?>
         <?php foreach($this->sliderItems as $item):?>
-            <?php if(! $item instanceof AdfabCms\Entity\Page):?>
+            <?php if(! $item instanceof PlaygroundCms\Entity\Page):?>
                 <?php $this->partial()->setObjectKey('game')?>
                 <?php echo $this->partial('adfab-game/partial/slider-game.phtml', array('game' =>$item, 'channel' => $this->channel)) ?>
             <?php else:?>
                 <?php $this->partial()->setObjectKey('page')?>
-                <?php echo $this->partial('adfab-cms/frontend/page/partial/slider-page.phtml', array('game' =>$item, 'channel' => $this->channel)) ?>
+                <?php echo $this->partial('playground-cms/frontend/page/partial/slider-page.phtml', array('game' =>$item, 'channel' => $this->channel)) ?>
             <?php endif;?>
         <?php endforeach;?>
     <?php if($nb > 1):?>

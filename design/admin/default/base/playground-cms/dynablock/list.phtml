@@ -1,5 +1,5 @@
 <?php
-/*$fm = $this->flashMessenger()->setNamespace('adfabcms')->getMessages();
+/*$fm = $this->flashMessenger()->setNamespace('playgroundcms')->getMessages();
 if (isset($fm[0]))
 {
     print '<span class=>' . $fm[0] . '</span>';
@@ -22,20 +22,20 @@ if (isset($fm[0]))
             <td><?php echo $dynarea ?></td>
             <td><?php echo count($dynablocks);?></td>
 
-            <?php $editLink = $this->url('admin/adfabcmsadmin/dynablocks/create', array('dynareaId' => $dynarea));?>
-            <?php $deleteLink = $this->url('admin/adfabcmsadmin/dynablocks/remove', array('dynareaId' => $dynarea));?>
+            <?php $editLink = $this->url('admin/playgroundcmsadmin/dynablocks/create', array('dynareaId' => $dynarea));?>
+            <?php $deleteLink = $this->url('admin/playgroundcmsadmin/dynablocks/remove', array('dynareaId' => $dynarea));?>
             <td><a href='<?php echo $editLink ?>'><?php echo $this->translate('Edit'); ?></a> | <a href='<?php echo $deleteLink ?>'><?php echo $this->translate('Delete'); ?></a></td>
         </tr>
     <?php endforeach; ?>
 </table>
-<?php //echo $this->paginationControl($this->blocks, 'Sliding', 'adfab-cms/block/pagination_pagelist.phtml'); ?>
+<?php //echo $this->paginationControl($this->blocks, 'Sliding', 'playground-cms/block/pagination_pagelist.phtml'); ?>
 
 <?php echo $this->translate('Available Dynareas'); ?>
 <ul>
 <?php foreach ($this->dynareas as $id => $attributes): ?>
     <?php if(!array_key_exists($id,$this->activeDynareas) ): ?>
         <li>
-            <a href="<?php echo $this->url('admin/adfabcmsadmin/dynablocks/create', array('dynareaId' => $id))?>"> <?php echo $id . " : " . $attributes['title']?></a>
+            <a href="<?php echo $this->url('admin/playgroundcmsadmin/dynablocks/create', array('dynareaId' => $id))?>"> <?php echo $id . " : " . $attributes['title']?></a>
             <?php //echo $attributes['description']; ?>
             <?php //echo $attributes['location']; ?>
         </li>
