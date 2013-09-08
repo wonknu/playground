@@ -8,7 +8,7 @@
         <?php echo $this->partial('adfab-game/partial/game.phtml', array('game' => $item, 'channel' => $this->channel)) ?>
     <?php else:?>
         <?php $this->partial()->setObjectKey('page')?>
-        <?php echo $this->partial('adfab-cms/page/partial/page.phtml', array('game' => $item, 'channel' => $this->channel)) ?>
+        <?php echo $this->partial('adfab-cms/page/partial/page.phtml', array('page' => $item, 'channel' => $this->channel)) ?>
     <?php endif;?>
 <?php endforeach;?>
 <?php echo $this->paginationControl($this->items, 'Sliding', 'application/index/partial/pagination.phtml', array('url' => 'frontend/pagination')); ?>
