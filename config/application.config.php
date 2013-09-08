@@ -11,7 +11,7 @@ return array(
         'ZfcUser',
     	'BjyAuthorize',
     	'AdfabCore',
-        'AdfabFaq',
+        'PlaygroundFaq',
 		'AdfabUser',
     	'AdfabCms',
 		'AdfabReward',
