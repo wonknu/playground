@@ -1,4 +1,4 @@
-<?php $this->plugin('translate')->setTranslatorTextDomain('adfabuser');// Pour le texte ?>
+<?php $this->plugin('translate')->setTranslatorTextDomain('playgrounduser');// Pour le texte ?>
 <!-- NEW USER -->
 <div id="new-user" class="row-fluid">
 	<div class="span8 center">
@@ -13,10 +13,10 @@
 					</div>
 					<div class="block-right span5">
 					<?php if(!$this->zfcUserIdentity()): ?>
-					    <?php echo $this->adfabUserLoginWidget(array(
+					    <?php echo $this->playgroundUserLoginWidget(array(
 			    		        'redirect' => ($this->redirect) ? $this->redirect : $this->url('frontend', array('channel' => $this->channel)),
 			    		        'enableRegistration' => false,
-			    		        'template' => 'adfab-user/register/login.phtml'
+			    		        'template' => 'playground-user/register/login.phtml'
 				    		)); ?>
 					<?php endif;?>
 					<div class="input-login-error"></div>

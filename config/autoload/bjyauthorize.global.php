@@ -14,7 +14,7 @@ return array(
             ),
 
         	'BjyAuthorize\Provider\Role\DoctrineEntity' => array(
-                'role_entity_class' => 'AdfabUser\Entity\Role',
+                'role_entity_class' => 'PlaygroundUser\Entity\Role',
    		    ),
         ),
 
@@ -59,8 +59,8 @@ return array(
                 array('controller' => 'index', 'action' => 'index',           'roles' => array('guest', 'user')),
                 array('controller' => 'Application\Controller\Index',         'roles' => array('guest', 'user')),
                 array('controller' => 'zfcuser',                              'roles' => array('guest', 'user')),
-                array('controller' => 'adfabuser_user',                       'roles' => array('guest', 'user')),
-                array('controller' => 'adfabuser_forgot',                     'roles' => array('guest', 'user')),
+                array('controller' => 'playgrounduser_user',                       'roles' => array('guest', 'user')),
+                array('controller' => 'playgrounduser_forgot',                     'roles' => array('guest', 'user')),
                 array('controller' => 'playgroundcms',                             'roles' => array('guest', 'user')),
             	array('controller' => 'adfabgame',                            'roles' => array('guest', 'user')),
             	array('controller' => 'adfabgame_treasurehunt',               'roles' => array('guest', 'user')),
@@ -82,8 +82,8 @@ return array(
 
                 // Admin area
                 //array('controller' => 'ZfcAdmin\Controller\AdminController',  'roles' => array('admin')),
-            	array('controller' => 'adfabuseradmin_login',                 'roles' => array('guest', 'user')),
-            	array('controller' => 'adfabuseradmin',                       'roles' => array('admin')),
+            	array('controller' => 'playgrounduseradmin_login',                 'roles' => array('guest', 'user')),
+            	array('controller' => 'playgrounduseradmin',                       'roles' => array('admin')),
             	array('controller' => 'adfabgameadmin',                       'roles' => array('admin')),
                 array('controller' => 'adfabgame_admin_lottery',              'roles' => array('admin')),
                 array('controller' => 'adfabgame_admin_instantwin',           'roles' => array('admin')),
@@ -92,7 +92,7 @@ return array(
                 array('controller' => 'adfabgame_admin_prizecategory',        'roles' => array('admin')),
             	array('controller' => 'adfabgame_admin_treasurehunt',         'roles' => array('admin')),
                 array('controller' => 'playgroundfaq_admin',                       'roles' => array('admin')),
-                array('controller' => 'adfabfacebook_admin_app',              'roles' => array('admin')),
+                array('controller' => 'playgroundfacebook_admin_app',              'roles' => array('admin')),
                 array('controller' => 'playgroundpartnership_admin',               'roles' => array('admin')),
             	array('controller' => 'AdfabCore\Controller\System',          'roles' => array('admin')),
                 array('controller' => 'AdfabCore\Controller\Formgen',         'roles' => array('admin')),

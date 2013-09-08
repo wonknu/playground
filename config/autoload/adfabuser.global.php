@@ -1,5 +1,5 @@
 <?php
-$adfabuser = array(
+$playgrounduser = array(
 		
 		/**
 		 * add default registration role to BjyAuthorize
@@ -56,7 +56,7 @@ $adfabuser = array(
 		 * Name of Entity class to use. Useful for using your own entity class
 		 * instead of the default one provided. Default is ZfcUser\Entity\User.
 		 */
-		//'remember_me_entity_class' => 'AdfabUser\Entity\RememberMe',
+		//'remember_me_entity_class' => 'PlaygroundUser\Entity\RememberMe',
 		
 		/**
 		 * Remember me cookie expire time
@@ -104,7 +104,7 @@ $zfcSettings = array(
      * Accepted values: array containing services that implement 'ZfcUser\Authentication\Adapter\ChainableAdapter'
      */
     'auth_adapters' => array(
-    	50 => 'AdfabUser\Authentication\Adapter\Cookie',
+    	50 => 'PlaygroundUser\Authentication\Adapter\Cookie',
     	100 => 'ZfcUser\Authentication\Adapter\Db'
      ),
 
@@ -117,6 +117,6 @@ $zfcSettings = array(
  * You do not need to edit below this line
  */
 return array(
-    'adfabuser' => $adfabuser,
+    'playgrounduser' => $playgrounduser,
     'zfcuser' => $zfcSettings,
 );
