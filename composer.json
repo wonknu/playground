@@ -1,5 +1,5 @@
 {
-	"name" : "adfab/playground",
+	"name" : "playground/playground",
 	"description" : "Playground Game Framework",
 	"keywords" : [
 		"framework",
@@ -7,12 +7,12 @@
 		"playground",
 		"game"
 	],
-	"homepage" : "http://www.adfab.fr/",
+	"homepage" : "http://www.playground.gg/",
 	"authors" : [
 		{
 			"name" : "Greg Besson",
-			"email" : "gregory.besson@adfab.fr",
-			"homepage" : "http://www.adfab.fr"
+			"email" : "gregory.besson@playground.gg",
+			"homepage" : "http://www.playground.gg"
 		}
 	],
 	"license" : [
