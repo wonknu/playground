@@ -420,7 +420,7 @@ class IndexController extends AbstractActionController
     public function getAchievementService()
     {
         if (!$this->achievementService) {
-            $this->achievementService = $this->getServiceLocator()->get('adfabreward_achievement_service');
+            $this->achievementService = $this->getServiceLocator()->get('playgroundreward_achievement_service');
         }
 
         return $this->achievementService;
@@ -436,7 +436,7 @@ class IndexController extends AbstractActionController
     public function getRewardService()
     {
         if (!$this->rewardService) {
-            $this->rewardService = $this->getServiceLocator()->get('adfabreward_event_service');
+            $this->rewardService = $this->getServiceLocator()->get('playgroundreward_event_service');
         }
 
         return $this->rewardService;

@@ -1,11 +1,11 @@
 <?php
-$form = $this->createRewardForm;
+$form = $this->editUserForm;
 $form->prepare();
-$form->setAttribute('action', $this->url('admin/adfabrewardadmin/create'));
+$form->setAttribute('action', $this->url('admin/playgroundrewardadmin/edit', array('userId' => $this->userId)));
 $form->setAttribute('method', 'post');
 ?>
 
-<h1>Create user</h1>
+<h1>Edit user</h1>
 
 <?php echo $this->form()->openTag($form) ?>
 <dl class="zend_form">

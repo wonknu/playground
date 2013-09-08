@@ -1,4 +1,4 @@
-<?php $this->plugin('translate')->setTranslatorTextDomain('adfabreward'); ?>
+<?php $this->plugin('translate')->setTranslatorTextDomain('playgroundreward'); ?>
 
 <?php
 	$currentPageItems = $this->leaderboard->getCurrentPageNumber() * 100;
@@ -168,4 +168,4 @@
 
 </div>
 
-<?php echo $this->paginationControl($this->leaderboard, 'Sliding', 'adfab-reward/index/pagination.phtml', array('url' => 'frontend/reward/leaderboard', 'period'=> $this->period, 'filter' => $this->filter)); ?>
+<?php echo $this->paginationControl($this->leaderboard, 'Sliding', 'playground-reward/index/pagination.phtml', array('url' => 'frontend/reward/leaderboard', 'period'=> $this->period, 'filter' => $this->filter)); ?>
