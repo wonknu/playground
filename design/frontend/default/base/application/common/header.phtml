@@ -34,7 +34,7 @@
 		</div>
 	</div>
     <?php if(!$this->zfcUserIdentity()): ?>
-        <?php echo $this->playgroundUserLoginWidget(array('redirect' => $this->url('frontend', array('channel' => $this->channel)),'enableRegistration' => true)); ?>
+        <?php echo $this->userLoginWidget(array('redirect' => $this->url('frontend', array('channel' => $this->channel)),'enableRegistration' => true)); ?>
     <?php else: ?>
 	<div class="barnav row-fluid">
 		<div id="menu"></div>
