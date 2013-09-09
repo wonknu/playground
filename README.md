@@ -61,6 +61,6 @@ Notice that your web site root is under "public" directory
 
 Once done, don't forget to update your hosts file (Windows file : \Windows\System32\direvers\etc\hosts)
 
-    127.0.0.1		testgrg.local
+    127.0.0.1	playground.local
 
 
