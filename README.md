@@ -35,6 +35,32 @@ Once Composer installed, in playground directory :
  
     php composer.phar install
     
-### Initialise datas
+### Initialize datas
 Initialize application with install script (for Linux and Mac OS install.sh, for Windows install.bat)
 After installation you can login as application administrator using user email "admin@test.com" and password "playground".
+
+### Configure your webserver
+#### Apache
+
+You can create a virtual host 
+
+    <VirtualHost *:80>
+        ServerName playground.local
+        DocumentRoot c:\Users\gbesson\playground\public
+        SetEnv APPLICATION_ENV "development"
+        <Directory c:\Users\gbesson\playground\public>
+            DirectoryIndex index.php
+		    Options Indexes FollowSymLinks Includes ExecCGI
+            AllowOverride All
+            Order allow,deny
+            Allow from all
+        </Directory>
+    </VirtualHost>
+    
+Notice that your web site root is under "public" directory
+
+Once done, don't forget to update your hosts file (Windows file : \Windows\System32\direvers\etc\hosts)
+
+    127.0.0.1		testgrg.local
+
+
