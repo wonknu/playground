@@ -135,6 +135,17 @@ $form->prepare();
 	</div>
 </div>
 
+<div class="tab-pane" id="embed">
+    <div class="label-input checkbox">
+        <?php echo $this->formLabel($form->get('broadcastEmbed')); ?>
+        <?php echo $this->formCheckbox($form->get('broadcastEmbed')); ?>
+        <?php echo $this->formElementErrors($form->get('broadcastEmbed')) ?>
+	</div>
+	
+	You'll be able to broadcast your game with this special URL :<br/>
+	<textarea rows="10" cols="150"><iframe src='http://playground.local/embed/quiz/quiz-grg' width='320' height='210' frameborder='0' border='0' style='border:0;'><p>Play the game !</p></iframe></textarea>
+</div>
+
 <div class="tab-pane" id="share">
 	<div class="label-input">
 	    <?php echo $this->formLabel($form->get('fbShareMessage')); ?>
