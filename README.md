@@ -1,4 +1,4 @@
-playground
+Playground
 ==========
 
 Welcome to Playground an Open Source Game Platform tool.
@@ -10,20 +10,20 @@ Important Note: this application is not production ready and is intended for eva
 Requirements
 Playground requires Zend Framework 2, Doctrine 2 and PHP 5.3.3 or above.
 
-#Installation
+##Installation
 
     git clone https://github.com/gregorybesson/playground
  
     cd playground/config/autoload and create local.php using local.php.dist as example. Update database name and credentials (don't forget to create the database before going further). Alternatively local.xml can be created automatically on the next step when run composer install command, you will be able to customize all the values interactively.
  
-##Windows
+###Windows
  
 install Composer using the installer found here : https://getcomposer.org/Composer-Setup.exe
 Once Composer installed, in playground directory :
 
     composer install
 
-##Linux
+###Linux
     
     curl -s https://getcomposer.org/installer | php
  
