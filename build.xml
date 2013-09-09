@@ -61,7 +61,7 @@
 			<arg value="--reportfile" />
 			<arg value="${basedir}/build/logs/pmd.xml" />
 		</exec>
-	</target>
+	</target> 
 
 	<target name="phpcs-ci"
 		description="Find coding standard violations using PHP_CodeSniffer creating a log file for the continuous integration server">
