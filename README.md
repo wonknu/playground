@@ -37,4 +37,4 @@ Once Composer installed, in playground directory :
     
 ### Initialise datas
 Initialize application with install script (for Linux and Mac OS install.sh, for Windows install.bat)
-After installation you can login as application administrator using user email "admin@test.com" and password "admin".
+After installation you can login as application administrator using user email "admin@test.com" and password "playground".
