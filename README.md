@@ -12,16 +12,22 @@ Playground requires Zend Framework 2, Doctrine 2 and PHP 5.3.3 or above.
 
 Installation
 
-
     git clone https://github.com/gregorybesson/playground
  
     cd playground/config/autoload and create local.php using local.php.dist as example. Update database name and credentials (don't forget to create the database before going further). Alternatively local.xml can be created automatically on the next step when run composer install command, you will be able to customize all the values interactively.
  
-    cd ../..
+Windows
  
+install Composer using the installer found here : https://getcomposer.org/Composer-Setup.exe
+Once Composer installed, in playground directory :
+
+    composer install
+
+Linux
+    
     curl -s https://getcomposer.org/installer | php
  
     php composer.phar install
- 
+    
 Initialize application with install script (for Linux and Mac OS install.sh, for Windows install.bat)
 After installation you can login as application administrator using user email "admin@test.com" and password "admin".
