@@ -1,0 +1,74 @@
+<?php
+
+$dbParams = array(
+	'database'  => 'playground',
+	'username'  => 'root',
+	'password'  => 'root',
+	'hostname'  => 'localhost',
+	'port'		=> '3306',
+	'charset'	=> 'utf8',
+	'driverOptions' => array(
+		1002 => 'SET NAMES utf8',
+	),
+);
+
+return array(
+	'design' => array(
+		'admin' => array(
+			'package' => 'default',
+			'theme' => 'base',
+		),
+		'frontend' => array(
+			'package' => 'default',
+			'theme' => 'base',
+		),
+	),
+    // Licence keys and api keys
+    // The reason why having a Facebook subdomain is better is for separating sessions between plateform and facebook.
+    // This channel stuff gives the opportunity to know on which channel we are.
+    'channel' => array(
+        'facebook' => 'facebook.local',
+        'platform' => 'playground.local',
+    ),
+    'facebook' => array(
+        'fb_appid'  => '118474821657382',
+        'fb_secret' => 'fde26982baea07cab11881876a45a5fe',
+        'fb_page'   => '330253093762158',
+    ),
+    'contact' => array( 'email' => 'contact@test.com'),
+    'rss' => array(
+        'url' => 'http://www.metrofrance.com/rss.xml?c=1157379272-9',
+    ),
+    'doctrine' => array(
+        'connection' => array(
+            // default connection name
+            'orm_default' => array(
+                'driverClass' => 'Doctrine\DBAL\Driver\PDOMySql\Driver',
+                'params' => array(
+                    'host'     => $dbParams['hostname'],
+                    'port'     => $dbParams['port'],
+                    'user'     => $dbParams['username'],
+                    'password' => $dbParams['password'],
+                    'dbname'   => $dbParams['database'],
+                	'charset'  => $dbParams['charset'],
+                	'driverOptions' => $dbParams['driverOptions'],
+                )
+            )
+        ),
+    ),
+	'service_manager' => array(
+		'factories' => array(
+			'Zend\Db\Adapter\Adapter' => function ($sm) use ($dbParams) {
+				return new Zend\Db\Adapter\Adapter(array(
+					'driver'    => 'pdo',
+					'dsn'       => 'mysql:dbname='.$dbParams['database'].';host='.$dbParams['hostname'],
+					'database'  => $dbParams['database'],
+					'username'  => $dbParams['username'],
+					'password'  => $dbParams['password'],
+					'hostname'  => $dbParams['hostname'],
+					'charset'   => $dbParams['charset'],
+				));
+			},
+		),
+	),
+);
