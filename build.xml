@@ -116,10 +116,10 @@
 			<arg line="-c ${basedir}/vendor/playground/facebook" />     
 		</exec>
 		<exec dir="${basedir}/vendor/bin" executable="phpunit" failonerror="true" description="Run unit tests with PHPUnit"> 
-			<arg line="-c ${basedir}/vendor/playground/faq" />   
+			<arg line="-c ${basedir}/vendor/playground/faq" />
+		</exec>
 		<exec dir="${basedir}/vendor/bin" executable="phpunit" failonerror="true" description="Run unit tests with PHPUnit"> 
 			<arg line="-c ${basedir}/vendor/playground/stats" />        
-		</exec>
 		</exec>
 		<exec dir="${basedir}/vendor/bin" executable="phpunit" failonerror="true" description="Run unit tests with PHPUnit"> 
 			<arg line="-c ${basedir}/vendor/playground/flow" />  
