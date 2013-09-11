@@ -17,14 +17,14 @@
 		<div class="welcome-block<?php if($this->layout()->facebooktemplate): echo ' fb-target'; endif ?>"><?php echo $this->game->getWelcomeBlock(); ?></div>
 		<div class="center">
 			<div class="btn btn-inverse seeparticipants">
-				<a href="<?php echo $this->url('postvote/list', array('id' => $this->game->getIdentifier(), 'filter' => $this->game->getPostDisplayMode(), 'channel' => $this->channel))?>" class="arrow-right">Voir les participants</a>
+				<a href="<?php echo $this->url('frontend/postvote/list', array('id' => $this->game->getIdentifier(), 'filter' => $this->game->getPostDisplayMode(), 'channel' => $this->channel))?>" class="arrow-right">Voir les participants</a>
 			</div>
 			<?php if($game->isStarted()):?>
 			<div class="btn btn-warning">
-				<a href="<?php echo $this->url('postvote/play', array('id' => $this->game->getIdentifier(), 'channel' => $this->channel))?>" class="arrow-right">Participer</a>
+				<a href="<?php echo $this->url('frontend/postvote/play', array('id' => $this->game->getIdentifier(), 'channel' => $this->channel))?>" class="arrow-right">Participer</a>
 			</div>
 			<?php endif;?>
 		</div>
 	</div>
-	<p id="reglement"><a href="<?php echo $this->url('postvote/terms', array('id' => $this->game->getIdentifier(), 'channel' => $this->channel))?>" target="_blank">Règlement</a></p>
+	<p id="reglement"><a href="<?php echo $this->url('frontend/postvote/terms', array('id' => $this->game->getIdentifier(), 'channel' => $this->channel))?>" target="_blank">Règlement</a></p>
 </div>
