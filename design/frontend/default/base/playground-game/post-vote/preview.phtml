@@ -12,7 +12,7 @@
 	<div class="block-game game-play">
 		<div class="img-content">
 			<img class="rounded" src="<?php echo $this->basePath($this->game->getSecondImage()); ?>" border="0" />
-			
+
 			<?php if($this->game->getPartner()):?>
 				<?php if( ($this->game->getPartner()->getLogo() != '')) : ?>
 					<div class="logo-sponsor">
@@ -20,18 +20,18 @@
 					</div>
 				<?php endif;?>
 			<?php else :?>
-				<div class="logo-sponsor">		
+				<div class="logo-sponsor">
 					<img src="<?php echo $this->frontendAssetPath('images/common/logo-game-start.png')?>" width="83" height="81" border="0" alt="logo" />
 				</div>
 			<?php endif;?>
-			
+
 			<div class="dark-overlay row-fluid">
 				<div class="postvote"><?php echo $this->translate('Post & Vote'); ?> offert par <?php if($this->game->getPartner()): echo $this->game->getPartner()->getName(); else:?>Club Playground<?php endif;?></div>
 			</div>
 		</div>
 	</div>
 	<!-- END BLOCK GAME START -->
-   
+
     <!-- BLOCK CONTENT -->
     <div class="row-fluid buttons">
 		<div class="span2">
@@ -53,9 +53,9 @@
        <div class="span11 message rounded">
            <div class="row-fluid posts">
 				<div class="span12 postvote-preview">
-               		<?php echo $this->partial('playground-game/postvote/templates/' . $this->game->getTemplate(), array('data'=>$data, 'post'=>$this->post, 'channel' => $this->channel));?>
+               		<?php echo $this->partial('playground-game/post-vote/templates/' . $this->game->getTemplate(), array('data'=>$data, 'post'=>$this->post, 'channel' => $this->channel));?>
 					<?php //echo $this->partial('playground-game/partial/name.phtml', array('post' => $this->post->getUser(), 'game' => $this->game, 'channel' => $this->channel));?>
-					
+
 					<div class="row-fluid">
 					    <div class="avatar span5">
 					    	<?php if($this->post->getUser()->getAvatar()):?>
@@ -73,7 +73,7 @@
 
            		</div>
            </div>
-           
+
        </div>
 
        <div class="row-fluid">
