@@ -22,7 +22,7 @@
 		<li class="title">Les jeux concours,<br />à gagner :</li>
 		<?php $categories = $this->playgroundPrizeCategory(); ?>
         <?php foreach($categories as $category): ?>
-            <li class="jeu-item"><a href="<?php echo $this->url('prizecategories') . $category->getIdentifier(); ?>"><?php echo $category->getTitle() ?></a></li>
+            <li class="jeu-item"><a href="<?php echo $this->url('frontend/prizecategories') . $category->getIdentifier(); ?>"><?php echo $category->getTitle() ?></a></li>
         <?php endforeach ?>
 	</ul>
 	<div class="fb-box span3">
