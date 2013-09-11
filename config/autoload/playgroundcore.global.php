@@ -108,7 +108,7 @@ $zenddevelopertools = array(
         'collectors' => array(),
     ),
     'toolbar' => array(
-        'enabled' => true,
+        'enabled' => false,
         'auto_hide' => false,
         'position' => 'bottom',
         'version_check' => true,
