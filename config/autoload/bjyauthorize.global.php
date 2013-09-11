@@ -110,16 +110,6 @@ return array(
             	array('controller' => 'playgroundflowadmindomain',				  'roles' => array('admin')),
             	array('controller' => 'adminstats',				  			  'roles' => array('admin')),
             ),
-
-            /*'BjyAuthorize\Guard\Route' => array(
-                array('route' => 'zfcuser', 'roles' => array('guest','user')),
-                array('route' => 'zfcuser/logout', 'roles' => array('guest','user')),
-                array('route' => 'zfcuser/login', 'roles' => array('guest','user')),
-                array('route' => 'zfcuser/register', 'roles' => array('guest','user')),
-                // Below is the default index action used by the [ZendSkeletonApplication](https://github.com/zendframework/ZendSkeletonApplication)
-                array('route' => 'frontend', 'roles' => array('guest', 'user')),
-                array('route' => 'admin', 'roles' => array('admin')),
-            ),*/
         ),
     ),
 );
