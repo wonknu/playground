@@ -63,7 +63,7 @@
         </form>
     </div>
 
-	<?php echo $this->paginationControl($this->posts, 'Sliding', 'playground-game/postvote/pagination_list.phtml', array('id' => $this->game->getIdentifier(), 'filter' => $this->filter)); ?>
+	<?php echo $this->paginationControl($this->posts, 'Sliding', 'playground-game/post-vote/pagination_list.phtml', array('id' => $this->game->getIdentifier(), 'filter' => $this->filter)); ?>
 	
 	<?php $form = $this->form;?>
 	<?php $form->prepare();?>
@@ -163,6 +163,6 @@
 	 </div>
 
 
-	<?php echo $this->paginationControl($this->posts, 'Sliding', 'playground-game/postvote/pagination_list.phtml', array('id' => $this->game->getIdentifier(), 'channel' => $this->channel, 'filter' => $this->filter)); ?>
+	<?php echo $this->paginationControl($this->posts, 'Sliding', 'playground-game/post-vote/pagination_list.phtml', array('id' => $this->game->getIdentifier(), 'channel' => $this->channel, 'filter' => $this->filter)); ?>
 
 </div>
