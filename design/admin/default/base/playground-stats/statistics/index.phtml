@@ -3,7 +3,7 @@
 	$form = $this->form;
 	$form->prepare();
 	$form->setAttribute('action', $this->url('admin/stats'));
-	
+
 	$startDate = isset($this->data['statsDateStart']) ? $this->data['statsDateStart'] : '';
 	$endDate = isset($this->data['statsDateEnd']) ? $this->data['statsDateEnd'] : '';
 ?>
@@ -22,7 +22,7 @@
 	        	<div style="font-size:60px; margin:60px 0 0 15px"><?php echo number_format($this->members, 0, ' ', ' ') ?></div><br/>
 	        	<div style="margin-left:15px;color:#888"><span style="color:#2CD35B">+<?php echo number_format($this->active, 0, ' ', ' ') ?></span> nouveaux membres</div>
 	        </li>
-	        
+
 	        <li data-row="2" data-col="1" data-sizex="2" data-sizey="2" style="background-image:url('<?php echo $this->adminAssetPath('images/gridster/graphique.jpg');?>');background-repeat:no-repeat;background-position:bottom;">
 	        	<div style="font-size:80px; margin:60px 0 0 50px"><?php echo number_format($this->participations, 0, ' ', ' ') ?></div>
 	        	<div style="margin:30px 0 0 50px;color:#888"><span style="color:#2CD35B">+27%</span> participations depuis le mois dernier</div>
@@ -52,13 +52,13 @@
 <?php echo $this->form()->openTag($form); ?>
 
 <div id="statistics" class="statistics-tab">
-	
+
 	<div class="statistics-form">
 		<label><b>Afficher les statistiques du : </b></label>
 		<input type="datetime" name="statsDateStart" value="<?php echo $startDate ?>" placeholder="Date de début" class="date" /> <b>au</b> <input type="datetime" name="statsDateEnd" value="<?php echo $endDate ?>" placeholder="Date de fin" class="date" />
 		<input type="submit" value="Go">
 	</div>
-	
+
 	<table class="table">
 		<tr>
 			<th></th>
@@ -85,7 +85,7 @@
 	        <td><?php echo number_format($this->femaleActive, 0, ' ', ' ') ?></td>
 	    </tr>
 	    <tr>
-	        <td><?php echo $this->translate('Nb d\'optins NL Metro'); ?></td>
+	        <td><?php echo $this->translate('Nb d\'optins Newsletter'); ?></td>
 	        <td><?php echo number_format($this->optin, 0, ' ', ' ') ?></td>
 	        <td><?php echo number_format($this->maleOptin, 0, ' ', ' ') ?></td>
 	        <td><?php echo number_format($this->femaleOptin, 0, ' ', ' ') ?></td>
@@ -147,18 +147,18 @@
 	</table>
 	<a href="<?php echo $this->url('admin/stats/share'); ?>" id="load-statistic-share"><?php echo $this->translate('Load shared statistics'); ?></a>
 	<a href="<?php echo $this->url('admin/stats/badge'); ?>" id="load-statistic-achievement"><?php echo $this->translate('Load achievement statistics'); ?></a>
-	
+
 </div>
 
 <?php echo $this->form()->closeTag($form) ?>
 
 <script type="text/javascript">
 	$(function(){ //DOM Ready
-	 
+
 	    $(".gridster ul").gridster({
 	        widget_margins: [10, 10],
 	        widget_base_dimensions: [250, 250]
 	    });
-	 
+
 	});
 </script>

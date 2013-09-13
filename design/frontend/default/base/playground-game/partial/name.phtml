@@ -16,9 +16,9 @@
     <div class="span3 offset5">
     	<?php //echo $this->partial('playground-game/partial/share.phtml', array( 'color' => 'grey', 'game'=>$this->game, 'channel' => $this->channel, 'url'=>$this->url('frontend/' . $game->getClassType(), array('id' => $this->game->getIdentifier()), array('force_canonical' => true)), 'urlPost' => $this->urlPost));?>
     
-	    <?php $fbShareMsg = 'Votez pour mon post sur le Club Playground : '.$this->postTitle; ?>
+	    <?php $fbShareMsg = 'Votez pour mon post sur Playground : '.$this->postTitle; ?>
 		<?php $fbShareImg = ($this->game->getFbShareImage()) ? $this->url('frontend', array('channel' => $this->channel), array('force_canonical' => true)). $this->game->getFbShareImage() : $this->url('frontend', array('channel' => $this->channel), array('force_canonical' => true)) . $this->game->getMainImage(); ?> 
-		<?php $twShareMsg = 'Votez pour mon post sur le Club Playground : '.$this->postTitle; ?>
+		<?php $twShareMsg = 'Votez pour mon post sur Playground : '.$this->postTitle; ?>
 		
 		<div class="social-share">
 			<a href="#" data-link="<?php echo $this->urlPost; ?>" data-picture="<?php echo $fbShareImg; ?>" data-caption="<?php echo $fbShareMsg; ?>" class="grey-fb" target="_blank"></a>
