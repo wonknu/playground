@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
 <project name="PLAYGROUND" default="build">
-	<target name="build" depends="prepare,composer,phpcs-ci,phpmd-ci,phpcpd,lint,docblox,phpunit" />
+	<target name="build" depends="prepare,composer,phpcs-ci,phpmd-ci,phpcpd,lint,docblox,phpunit,phpcb" />
 
 	<target name="build-parallel" depends="prepare,tools-parallel" />
 
@@ -135,6 +135,17 @@
 		</exec>
 	</target>
 		
+	<target name="phpcb" description="Aggregate tool output with PHP_CodeBrowser">
+	     <exec executable="phpcb">
+	         <arg value="--log" />
+	         <arg path="${basedir}/build/logs" />
+	         <arg value="--source" />
+	         <arg path="${basedir}/module" />
+	         <arg value="--output" />
+	         <arg path="${basedir}/build/code-browser" />
+	     </exec>
+	</target>
+	
 	<target name="coverage-checker" depends="phpunit">
 		<exec dir="/usr/bin" executable="php" failonerror="true" description="check unit test coverage percentage">
 			<arg line="${basedir}/build/coverage-checker.php ${basedir}/module/Application/build/clover.xml 0" />   
