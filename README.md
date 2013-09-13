@@ -37,6 +37,10 @@ Once Composer installed, in playground directory :
     
 ### Initialize datas
 Initialize application with install script (for Linux and Mac OS install.sh, for Windows install.bat)
+
+You'll have to give executable rights on update.sh and install.sh batchs. (chmod 755 *.sh)
+and read and write rights for directory and subdirectories of data (chmod 777 -R data)
+
 After installation you can login as application administrator using user email "admin@test.com" and password "playground".
 
 ### Configure your webserver
