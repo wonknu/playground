@@ -193,64 +193,61 @@ return array(
     ),
 
     'core_layout' => array(
-        'Application' => array(
-            'default_layout' => 'layout/homepage-2columns-right',
+        'application' => array(
+            'layout' => 'layout/homepage-2columns-right',
             'children_views' => array(
                 'col_right'  => 'common/column-right.phtml',
             ),
             'controllers' => array(
-            	'applicationadmin'   => array(
-            		'default_layout' => 'layout/admin',
-            	),
                 'Application\Controller\Index'   => array(
-                    'default_layout' => 'layout/1column',
+                    'layout' => 'layout/1column',
                     'actions' => array(
                         'index' => array(
-                            'default_layout' => 'layout/homepage-2columns-right',
+                            'layout' => 'layout/homepage-2columns-right',
                             'children_views' => array(
                                 'col_right'  => 'application/common/column_right.phtml',
                             ),
                         ),
                         'jeuxconcours' => array(
-                            'default_layout' => 'layout/jeuxconcours-2columns-right',
+                            'layout' => 'layout/jeuxconcours-2columns-right',
                             'children_views' => array(
                                 'col_right'  => 'application/common/column_right.phtml',
                             ),
                         ),
                         'activity' => array(
-                            'default_layout' => 'layout/2columns-left',
+                            'layout' => 'layout/2columns-left',
                             'children_views' => array(
-                                'col_left'  => 'playground-user/layout/col-user.phtml',
+                                'col_left'  => 'playground-user/user/col-user.phtml',
                             ),
                         ),
                         'prizecategories' => array(
-                            'default_layout' => 'layout/2columns-right',
+                            'layout' => 'layout/2columns-right',
                             'children_views' => array(
                                 'col_right'  => 'application/common/column_right.phtml',
                             ),
                         ),
                         'badges' => array(
-                            'default_layout' => 'layout/2columns-left',
+                            'layout' => 'layout/2columns-left',
                             'children_views' => array(
-                                'col_left'  => 'playground-user/layout/col-user.phtml',
+                                'col_left'  => 'playground-user/user/col-user.phtml',
                             ),
                         ),
                         'sponsorfriends' => array(
-                            'default_layout' => 'layout/2columns-left',
+                            'layout' => 'layout/2columns-left',
                             'children_views' => array(
-                                'col_left'  => 'playground-user/layout/col-user.phtml',
+                                'col_left'  => 'playground-user/user/col-user.phtml',
                             ),
                         ),
                         'contact' => array(
-                            'default_layout' => 'layout/2columns-left',
+                            'layout' => 'layout/2columns-left',
                             'children_views' => array(
-                                'col_left'  => 'playground-user/layout/col-user.phtml',
+                                'col_left'  => 'playground-user/user/col-user.phtml',
                             ),
                         ),
                         'contactconfirmation' => array(
-                            'default_layout' => 'layout/2columns-left',
+                            'layout' => 'layout/2columns-left',
                             'children_views' => array(
-                                'col_left'  => 'playground-user/layout/col-user.phtml',
+                                'col_left'  => 'playground-user/user/col-user.phtml',
                             ),
                         ),
                     ),

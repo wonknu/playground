@@ -113,6 +113,7 @@ $zenddevelopertools = array(
         'position' => 'bottom',
         'version_check' => true,
         'entries' => array(),
+        'template_hint' => false,
     ),
 );
 
