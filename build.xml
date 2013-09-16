@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
 <project name="PLAYGROUND" default="build">
-	<target name="build" depends="prepare,composer,phpcs-ci,phpmd-ci,phpcpd,lint,docblox,phpunit,phpcb" />
+	<target name="build" depends="prepare,composer,phpcs-ci,phpmd-ci,phpcpd,lint,docblox,phpunit-core,phpunit-application,phpunit-cms,phpunit-facebook,phpunit-faq,phpunit-flow,phpunit-game,phpunit-partnership,phpunit-reward,phpunit-user,phpcb" />
 
 	<target name="build-parallel" depends="prepare,tools-parallel" />
 
@@ -16,7 +16,16 @@
 			<antcall target="lint" />
 			<antcall target="docblox" />
 			<sequential>
-			<antcall target="phpunit" />
+			<antcall target="phpunit-core" />
+			<antcall target="phpunit-application" />
+			<antcall target="phpunit-cms" />
+			<antcall target="phpunit-facebook" />
+			<antcall target="phpunit-faq" />
+			<antcall target="phpunit-flow" />
+			<antcall target="phpunit-game" />
+			<antcall target="phpunit-partnership" />
+			<antcall target="phpunit-reward" />
+			<antcall target="phpunit-user" />
 			<antcall target="coverage-checker" />
 			</sequential>
 		</parallel>
@@ -102,34 +111,61 @@
 		</exec>
 	</target>
 
-    <target name="phpunit">
+    <target name="phpunit-core">
 		<exec dir="${basedir}/vendor/bin" executable="phpunit" failonerror="true" description="Run unit tests with PHPUnit">
 			<arg line="-c ${basedir}/vendor/playground/core" />     
 		</exec>
+    </target>
+	
+	<target name="phpunit-application">
 		<exec dir="${basedir}/vendor/bin" executable="phpunit" failonerror="true" description="Run unit tests with PHPUnit">
 			<arg line="-c ${basedir}/module/Application" />   
 		</exec>
+	</target>
+	
+	<target name="phpunit-cms">
 		<exec dir="${basedir}/vendor/bin" executable="phpunit" failonerror="true" description="Run unit tests with PHPUnit">
 			<arg line="-c ${basedir}/vendor/playground/cms" />    
 		</exec>
+	</target>
+	
+	<target name="phpunit-facebook">
 		<exec dir="${basedir}/vendor/bin" executable="phpunit" failonerror="true" description="Run unit tests with PHPUnit"> 
 			<arg line="-c ${basedir}/vendor/playground/facebook" />     
 		</exec>
+	</target>
+	
+	<target name="phpunit-faq">
 		<exec dir="${basedir}/vendor/bin" executable="phpunit" failonerror="true" description="Run unit tests with PHPUnit"> 
 			<arg line="-c ${basedir}/vendor/playground/faq" />
 		</exec>
+	</target>
+	
+	<target name="phpunit-flow">
 		<exec dir="${basedir}/vendor/bin" executable="phpunit" failonerror="true" description="Run unit tests with PHPUnit"> 
 			<arg line="-c ${basedir}/vendor/playground/flow" />  
 		</exec>
+	</target>
+	
+	<target name="phpunit-game">
 		<exec dir="${basedir}/vendor/bin" executable="phpunit" failonerror="true" description="Run unit tests with PHPUnit">  
 			<arg line="-c ${basedir}/vendor/playground/game" />      
 		</exec>
+	</target>
+	
+	<target name="phpunit-partnership">
 		<exec dir="${basedir}/vendor/bin" executable="phpunit" failonerror="true" description="Run unit tests with PHPUnit">  
 			<arg line="-c ${basedir}/vendor/playground/partnership" />     
 		</exec>
+	</target>
+	
+	<target name="phpunit-reward">
 		<exec dir="${basedir}/vendor/bin" executable="phpunit" failonerror="true" description="Run unit tests with PHPUnit">   
 			<arg line="-c ${basedir}/vendor/playground/reward" />   
 		</exec>
+	</target>
+	
+	<target name="phpunit-user">
 		<exec dir="${basedir}/vendor/bin" executable="phpunit" failonerror="true" description="Run unit tests with PHPUnit">  
 			<arg line="-c ${basedir}/vendor/playground/user" />     
 		</exec>
