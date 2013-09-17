@@ -29,26 +29,27 @@ return array(
                         )
                     )
                 ),
-                
+
                 'playgroundfacebook' => array(
                     'layout' => 'layout/2columns-left',
                     'children_views' => array(
                         'col_left' => 'playground-user/user/col-user.phtml'
                     )
                 ),
-                
+
                 'playgroundfaq' => array(
                     'layout' => 'layout/2columns-left',
                     'children_views' => array(
                         'col_left' => 'playground-user/user/col-user.phtml'
                     )
                 ),
-                
+
                 'playgroundflow' => array(
                     'layout' => 'layout/1column.phtml'
                 ),
-                
+
                 'playgroundgame' => array(
+                	'layout' => 'layout/game-2columns-right.phtml',
                     'channel' => array(
                         'facebook' => array(
                             'layout' => 'playground-game/layout/1column-facebook.phtml'
@@ -106,11 +107,11 @@ return array(
                         )
                     )
                 ),
-                
+
                 'playgroundpartnership' => array(
                     'layout' => 'layout/2columns-left.phtml'
                 ),
-                
+
                 'playgroundreward' => array(
                     'controllers' => array(
                         'playgroundreward' => array(
@@ -120,7 +121,7 @@ return array(
                         )
                     )
                 ),
-                
+
                 'playgrounduser' => array(
                     'layout' => 'layout/2columns-left.phtml',
                     'controllers' => array(
@@ -145,7 +146,7 @@ return array(
                         )
                     )
                 ),
-                
+
                 'application' => array(
                     'controllers' => array(
                         'Application\Controller\Index' => array(
