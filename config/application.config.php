@@ -6,11 +6,13 @@ return array(
     	'DoctrineDataFixtureModule',
 		'ZendDeveloperTools',
         'Jhu\ZdtLoggerModule',
+        'PlaygroundTemplateHint',
     	'AsseticBundle',
 		'ZfcBase',
         'ZfcUser',
     	'BjyAuthorize',
     	'PlaygroundCore',
+        'PlaygroundDesign',
         'PlaygroundFaq',
 		'PlaygroundUser',
     	'PlaygroundCms',
@@ -21,7 +23,6 @@ return array(
     	'PlaygroundFlow',
     	'PlaygroundStats',
    		'Application',
-        'PlaygroundTemplateHint',
     ),
     'module_listener_options' => array(
         'config_glob_paths'    => array(

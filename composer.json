@@ -31,6 +31,7 @@
         "playground/stats" : "dev-master",
         "playground/user" : "dev-master",
         "playground/core" : "dev-master",
+        "playground/design" : "dev-master",
 		"zendframework/zend-developer-tools" : "dev-master",
 		"doctrine/data-fixtures" : "dev-master",
 		"hounddog/doctrine-data-fixture-module" : "0.*",
