@@ -4,7 +4,9 @@
 	<target name="build" depends="prepare,composer,phpcs-ci,phpmd-ci,phpcpd,lint,docblox,phpunit-core,phpunit-application,phpunit-cms,phpunit-facebook,phpunit-faq,phpunit-flow,phpunit-game,phpunit-partnership,phpunit-reward,phpunit-user,phpcb" />
 
 	<target name="build-parallel" depends="prepare,tools-parallel" />
-
+	
+	<target name="build-phpunit" depends="phpunit-core,phpunit-application,phpunit-cms,phpunit-facebook,phpunit-faq,phpunit-flow,phpunit-game,phpunit-partnership,phpunit-reward,phpunit-user" />
+	
 	<target name="tools-parallel" description="Run tools in parallel">
 		<parallel threadCount="1">
 			<sequential>
@@ -110,6 +112,8 @@
 			<arg line="--title '${ant.project.name}'" />
 		</exec>
 	</target>
+	
+	
 
     <target name="phpunit-core">
 		<exec dir="${basedir}/vendor/bin" executable="phpunit" failonerror="true" description="Run unit tests with PHPUnit">
