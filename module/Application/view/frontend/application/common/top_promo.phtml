@@ -14,7 +14,7 @@
                 <?php echo $this->partial('playground-game/partial/slider-game.phtml', $item) ?>
             <?php else:?>
                 <?php $this->partial()->setObjectKey('page')?>
-                <?php echo $this->partial('playground-cms/frontend/page/partial/slider-page.phtml', $item) ?>
+                <?php echo $this->partial('playground-cms/page/partial/slider-page.phtml', $item) ?>
             <?php endif;?>
         <?php endforeach;?>
     <?php if($nb > 1):?>

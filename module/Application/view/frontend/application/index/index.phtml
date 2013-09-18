@@ -8,7 +8,7 @@
         <?php echo $this->partial('playground-game/partial/game.phtml', $item) ?>
     <?php else:?>
         <?php $this->partial()->setObjectKey('page')?>
-        <?php echo $this->partial('playground-cms/frontend/page/partial/page.phtml', $item) ?>
+        <?php echo $this->partial('playground-cms/page/partial/page.phtml', $item) ?>
         
         <?php //echo '<h1>'. $item->getTitle() .'</h1>'?>
     <?php endif;?>
