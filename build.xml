@@ -5,7 +5,7 @@
 
 	<target name="build-parallel" depends="prepare,tools-parallel" />
 	
-	<target name="build-phpunit" depends="phpunit-core,phpunit-application,phpunit-cms,phpunit-facebook,phpunit-faq,phpunit-flow,phpunit-game,phpunit-partnership,phpunit-reward,phpunit-user" />
+	<target name="phpunit" depends="phpunit-core,phpunit-application,phpunit-cms,phpunit-facebook,phpunit-faq,phpunit-flow,phpunit-game,phpunit-partnership,phpunit-reward,phpunit-user" />
 	
 	<target name="tools-parallel" description="Run tools in parallel">
 		<parallel threadCount="1">
