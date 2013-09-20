@@ -77,6 +77,18 @@ $playgrounduser = array(
 		 * Url relative path to the directory where user avatar will be stored
 		 */
 		'avatar_url' => 'media/user',
+    
+        /**
+         * For social authentication, do I propose the social data as input on the registration
+         * or do I create automatically an account ?
+         * 
+         * If false (default), I use the social (Facebook / Twitter ...) data of the user to fill in
+         * the registration form
+         * 
+         * If true, I create automatically the account without password.
+         */
+        
+        'create_user_auto_social' => true,
         
         'social' => array(
             'providers' => include __DIR__.'/social.config.php',
