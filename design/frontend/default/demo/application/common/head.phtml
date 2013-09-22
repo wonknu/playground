@@ -9,7 +9,9 @@ $this->headMeta()->appendName('viewport', 'width=device-width, initial-scale=1.0
 <?php echo $this->headMeta(); ?>
 
 <!-- Le styles -->
-<?php /*echo $this->headLink(array('rel' => 'shortcut icon', 'type' => 'image/vnd.microsoft.icon', 'href' => $this->basePath() . '/images/favicon.ico'))
+<?php echo $this->headLink(array('rel' => 'shortcut icon', 'type' => 'image/vnd.microsoft.icon', 'href' => $this->frontendAssetPath('images/favicon.ico'))) ?>
+
+<?php /*
                 ->prependStylesheet($this->basePath() . '/css/ie7.css', 'screen', 'IE 7')
                 ->prependStylesheet($this->basePath() . '/css/ie8.css', 'screen', 'IE 8')
                 ->prependStylesheet($this->basePath() . '/css/ie.css', 'screen', 'IE')

@@ -9,6 +9,7 @@ return array(
 				'collections' => array(
 					'frontend_images' => array(
 						'assets' => array(
+						    'images/*.ico',
 							'images/**/*.jpg',
 							'images/**/*.png',
 						    'images/**/*.gif',

@@ -1749,7 +1749,7 @@ input[type="submit"].btn.btn-mini {
   background: url("../images/common/icon-googleplus-over.png") no-repeat center center;
 }
 #containerpage #top-promo .shadow-toppromo {
-  background: url("../images/content/top-promo/shadow-bg.png") no-repeat center bottom;
+  background: url("../images/common/shadow-bg.png") no-repeat center bottom;
   background-size: 100% auto;
   box-shadow: none;
   height: 15px;
