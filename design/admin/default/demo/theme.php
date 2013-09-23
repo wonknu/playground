@@ -6,8 +6,8 @@ return array(
             'code' => 'default',
             'title' => 'default',
             'theme' => array(
-                'code' => 'base',
-                'title' => 'base',
+                'code' => 'demo',
+                'title' => 'Demo',
                 'parent' => 'default_base',
             )
         ),

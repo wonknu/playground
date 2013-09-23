@@ -18,6 +18,12 @@
 	"license" : [
 		"BSD-3-Clause"
 	],
+	"repositories": [
+    	{
+        "type": "git",
+        "url":  "https://github.com/gregorybesson/hybridauth"
+    	}
+	],
 	"require" : {
 		"php" : ">=5.3.3",
 		"zendframework/zendframework" : "2.*",
@@ -37,7 +43,7 @@
 		"hounddog/doctrine-data-fixture-module" : "0.*",
 		"jhuet/zdt-logger-module" : "0.*",
 		"playground/zdt-templatehint": "dev-master",
-		"hybridauth/hybridauth" : "dev-master",
+		"playground/hybridauth" : "dev-master",
 		"bjyoungblood/bjy-authorize" : "1.1.*"
 	},
 	"require-dev" : {
