@@ -38,10 +38,7 @@ $settings = array(
     'transport_class' => 'Zend\Mail\Transport\File',
     'options_class' => 'Zend\Mail\Transport\FileOptions',
     'options' => array(
-	    'path'              => 'data/mail/',
-	    'callback'  => function (\Zend\Mail\Transport\File $transport) {
-	        return 'Message_' . microtime(true) . '_' . mt_rand() . '.txt';
-	    },
+	    'path' => 'data/mail/',
 	),
 
 	'ckeditor' => array(
