@@ -42,42 +42,6 @@ class Module
         );
     }
 
-    /**
-     * Configuration des helpers de vue
-     * @return multitype:multitype:NULL |\Application\AbsoluteUrl
-     */
-    public function getViewHelperConfig()
-    {
-        return array(
-            'factories' => array(
-                'head' => function ($sm) {
-                    return new View\Helper\Head();
-                },
-                'header' => function ($sm) {
-                    return new View\Helper\Header();
-                },
-                'column_right' => function ($sm) {
-                    $locator = $sm->getServiceLocator();
-                    $rssUrl = '';
-                    $config = $locator->get('config');
-                    if (isset($config['rss']['url'])) {
-                        $rssUrl = $config['rss']['url'];
-                    }
-                    $viewHelper = new View\Helper\ColumnRight();
-                    $viewHelper->setRssUrl($rssUrl);
-
-                    return $viewHelper;
-                },
-                'column_left' => function ($sm) {
-                return new View\Helper\ColumnLeft();
-                },
-                'footer' => function ($sm) {
-                    return new View\Helper\Footer();
-                },
-            ),
-        );
-    }
-
     public function getServiceConfig()
     {
         return array(
