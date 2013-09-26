@@ -3,11 +3,11 @@
 <?php $leaderboardWeek = $this->leaderboardWidget('','week');?>
 <?php $baseUrl         = $this->url('frontend', array('channel' => $this->channel), array('force_canonical' => true)); ?>
 
-<div id="sidebar-homepage" class="sidebar span4">
+<div class="sidebar col-md-4">
 
     <!-- BLOCK NEWSLETTER -->
 	<?php if($this->zfcUserIdentity() && ! $this->zfcUserIdentity()->getOptin()): ?>
-	    <div class="sd-block newsletter-connect">
+	    <div class="sidebar-block newsletter-connect">
 	    	<img src="<?php echo $this->frontendAssetPath('images/common/icon-newsletter.png')?>" width="82" height="81" border="0" alt="newsletter" />
 			<div class="bg-sdblock">
 				<p class="green">Inscrivez-vous à la newsletter et ne ratez aucun jeu !</p>
@@ -23,14 +23,14 @@
 
     <?php if(($this->playgroundDynablock('column_home')) != ''):?>
     	<?php foreach($this->playgroundDynablock('column_home') as $block): ?>
-    		<div class="sd-block ad"><?php echo $block ?></div>
+    		<div class="sidebar-block ad"><?php echo $block ?></div>
     	<?php endforeach; ?>
     	<?php //echo $this->playgroundDynablock('column_home') ;?>
     <?php endif; ?>
 
 	<!-- BLOCK TONNES CADEAUX -->
 	<?php if(!$this->zfcUserIdentity()): ?>
-	    <div class="tonnes-cadeaux sd-block">
+	    <div class="sidebar-block tonnes-cadeaux">
 	    	<img src="<?php echo $this->frontendAssetPath('images/common/icon-gifts.png')?>" width="84" height="82" border="0" alt="gifts" />
 	    	<div class="bg-sdblock">
 				<p class="green">Gagnez des tonnes de cadeaux !</p>
@@ -47,14 +47,14 @@
     <!-- END ADSERVING SIDEBAR -->
 
     <!-- BLOCK FACEBOOK -->
-    <div class="fb-box sd-block">
+    <div class="sidebar-block fb-box">
     	<p class="green">Rejoignez-nous sur Facebook</p>
     	<div class="fb-like-box" data-href="http://www.facebook.com/adfabagency" data-width="287" data-height="291" data-show-faces="true" data-stream="false" data-border-color="#eeefef" data-header="false"></div>
     </div><!-- END BLOCK FACEBOOK -->
 
     <!-- BLOCK NEWSLETTER -->
     <!-- <?php if(!$this->zfcUserIdentity()): ?>
-    	    <div class="sd-block newsletter">
+    	    <div class="sidebar-block newsletter">
     	    	<img src="<?php echo $this->frontendAssetPath('images/common/icon-newsletter.png')?>" width="82" height="81" border="0" alt="newsletter" />
     			<div class="bg-sdblock">
     				<p class="green">Inscrivez-vous à la newsletter et ne ratez aucun jeu !</p>
@@ -69,7 +69,7 @@
 
     <!-- BLOCK WIN POINTS -->
     <?php if($this->zfcUserIdentity()): ?>
-		<div class="sd-block win-points">
+		<div class="sidebar-block win-points">
 			<img src="<?php echo $this->frontendAssetPath('images/common/icon-cup-home.png')?>" width="81" height="80" border="0" alt="cup" />
 			<div class="bg-sdblock">
 				<p class="green">Gagnez plus de points !</p>
@@ -98,7 +98,7 @@
 	<?php endif; ?><!-- END BLOCK WIN POINTS -->
 
     <!-- BLOCK HOW IT WORKS -->
-    <div class="sd-block how-works">
+    <div class="sidebar-block how-works">
     	<img src="<?php echo $this->frontendAssetPath('images/common/icon-question.png')?>" width="82" height="80" border="0" alt="question" />
 		<div class="bg-sdblock">
 			<p class="green">Comment ça marche ?</p>
@@ -112,7 +112,7 @@
     </div><!-- END BLOCK HOW IT WORKS -->
 
     <!-- BLOCK CLASSEMENT -->
-    <div class="sd-block ranking">
+    <div class="sidebar-block ranking">
     	<p class="green"><a href="<?php echo $this->url('frontend/reward/leaderboard', array('period'=>'general', 'channel' => $this->channel)); ?>" class="green">Classement</a></p>
     	<div class="filter-bar">
     		<div class="filter week"><a href="#" class="active">Cette semaine</a></div>
@@ -218,7 +218,7 @@
     </div>
 
     <!-- BLOC ACTIVITES RECENTES -->
-	<div class="sd-block activities">
+	<div class="sidebar-block activities">
 		<p class="green">Activités récentes</p>
 		<ul class="list">
     		<?php foreach($achievements as $achievement):?>
@@ -258,7 +258,7 @@
 	?>
 	<?php if(count($channel) > 0):?>
 	<!-- BLOC NEWS -->
-	<div class="sd-block news-feed">
+	<div class="sidebar-block news-feed">
 		<p class="green">Sur TF1</p>
 
 		<?php $i=1; foreach ($channel as $item) : ?>
