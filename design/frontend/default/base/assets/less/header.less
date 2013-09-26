@@ -32,6 +32,9 @@
     border:none;
   }
   .navbar-nav {
+    &.right{
+      float: right;
+    }
     > li{
       line-height: 35px;
       > a{
@@ -116,9 +119,6 @@
       padding-left: 30px;
     }
   }
-  .coordonnees{
-    margin-left: 270px;
-  }
   .slot-badge{
     float:left;
     width: 20px;
@@ -129,5 +129,17 @@
       height: 100%;
       display: block;
     }
+  }
+}
+
+// breadcrumb
+.breadcrumb{
+  background: none;
+  a{
+    color:@pg-red;
+    font-size: 12px;
+  }
+  > li + li:before{
+    font-size: 10px;
   }
 }
