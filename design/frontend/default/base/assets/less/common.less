@@ -1,0 +1,93 @@
+// Common structures
+// 
+// --------------------------------------------------
+
+// Override bootstrap font
+body{
+  font-family: @futura;
+}
+
+// Block structural
+.navbar-default,
+#containerpage,
+#header,
+#footer{
+  width: @site-width;
+  margin: 0 auto;
+}
+
+// header
+.wrap-header{
+  background-color: @pg-red;
+}
+
+#header{
+  padding: 30px 0;
+  > .row{
+    .hook-title{
+      color:@pg-black;
+      font-family: @comfortaa-bold;
+      font-size: 24px;
+      padding-top: 20px;
+    }
+  }
+}
+
+// Main navigation
+.barnav{
+  border-top: 1px solid @pg-black;
+  border-bottom: 1px solid @pg-black;
+  height: 35px;
+}
+.navbar-default {
+  background: none;
+    border:none;
+  .navbar-collapse{
+    border:none;
+  }
+  .navbar-nav {
+    > li{
+      line-height: 35px;
+      > a{
+        color:@pg-black;
+        padding-top: 0;
+        padding-bottom: 0;
+        line-height: 35px;
+      }
+      &.open > a,
+      &.open > a:hover,
+      &.open > a:focus{
+        background: none;
+        color:@pg-white;
+      }
+    }
+    > .active {
+      > a,
+      > .open > a,
+      > a:hover{
+        background: none;
+        color:@pg-white;
+      }
+    }
+    .dropdown-menu{
+      background-color: @pg-red;
+      a{
+        span{
+          .sprite-it();
+          &:hover,
+          &:focus{
+            background-color: none;
+          }
+        }
+      }
+    }
+  }
+  .coordonnees{
+    margin-left: 270px;
+  }
+}
+
+// Footer
+.wrap-footer{
+  background-color: @pg-black;
+}

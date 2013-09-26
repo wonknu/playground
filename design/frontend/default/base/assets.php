@@ -32,8 +32,22 @@ return array(
 				            'output' => 'frontend'
 				        )
 				    ),
+				    
+                    'frontend_css' => array(
+                        'assets' => array(
+                            'css/playground.css'
+                        ),
+                        'options' => array(
+                            'output' => 'frontend/css/playground'
+                        )
+                    ),
 				),
 			),
 		),
+        'routes' => array(
+            'frontend.*' => array(
+                '@frontend_css',
+            ),
+        ),
 	),
 );
