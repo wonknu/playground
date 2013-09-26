@@ -2,7 +2,7 @@
 return array(
     'core_layout' => array(
         'frontend' => array(
-            'layout' => 'layout/2columns-right',
+            'layout' => 'layout/2columns-right.phtml',
             'children_views' => array(
                 'col_right' => 'application/common/column_right.phtml',
                 'col_left' => 'playground-user/user/col-user.phtml'
@@ -29,32 +29,33 @@ return array(
                         )
                     )
                 ),
-                
+
                 'playgroundfacebook' => array(
                     'layout' => 'layout/2columns-left',
                     'children_views' => array(
                         'col_left' => 'playground-user/user/col-user.phtml'
                     )
                 ),
-                
+
                 'playgroundfaq' => array(
                     'layout' => 'layout/2columns-left',
                     'children_views' => array(
                         'col_left' => 'playground-user/user/col-user.phtml'
                     )
                 ),
-                
+
                 'playgroundflow' => array(
                     'layout' => 'layout/1column.phtml'
                 ),
-                
+
                 'playgroundgame' => array(
+                	'layout' => 'layout/game-2columns-right.phtml',
                     'channel' => array(
                         'facebook' => array(
-                            'layout' => 'playground-game/layout/1column-facebook.phtml'
+                            'layout' => 'layout/1column-facebook.phtml'
                         ),
                         'embed' => array(
-                            'layout' => 'playground-game/layout/1column-embed.phtml'
+                            'layout' => 'layout/1column-embed.phtml'
                         )
                     ),
                     'controllers' => array(
@@ -96,7 +97,7 @@ return array(
                         'playgroundgame' => array(
                             'layout' => 'layout/1column-custom.phtml',
                             'children_views' => array(
-                                'col_right' => 'playground-game/quiz/col-quiz.phtml'
+                                'col_right' => 'playground-game/quiz/col-quiz.phtml.phtml'
                             ),
                             'actions' => array(
                                 'index' => array(
@@ -106,11 +107,11 @@ return array(
                         )
                     )
                 ),
-                
+
                 'playgroundpartnership' => array(
                     'layout' => 'layout/2columns-left.phtml'
                 ),
-                
+
                 'playgroundreward' => array(
                     'controllers' => array(
                         'playgroundreward' => array(
@@ -120,7 +121,7 @@ return array(
                         )
                     )
                 ),
-                
+
                 'playgrounduser' => array(
                     'layout' => 'layout/2columns-left.phtml',
                     'controllers' => array(
@@ -145,7 +146,7 @@ return array(
                         )
                     )
                 ),
-                
+
                 'application' => array(
                     'controllers' => array(
                         'Application\Controller\Index' => array(

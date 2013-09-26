@@ -52,10 +52,10 @@ return array(
                 	'layout' => 'layout/game-2columns-right.phtml',
                     'channel' => array(
                         'facebook' => array(
-                            'layout' => 'playground-game/layout/1column-facebook.phtml'
+                            'layout' => 'layout/1column-facebook.phtml'
                         ),
                         'embed' => array(
-                            'layout' => 'playground-game/layout/1column-embed.phtml'
+                            'layout' => 'layout/1column-embed.phtml'
                         )
                     ),
                     'controllers' => array(
@@ -101,7 +101,7 @@ return array(
                             ),
                             'actions' => array(
                                 'index' => array(
-                                    'layout' => 'playground-game/layout/2columns-right.phtml'
+                                    'layout' => 'layout/2columns-right.phtml'
                                 )
                             )
                         )
