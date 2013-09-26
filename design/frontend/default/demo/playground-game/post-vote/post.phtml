@@ -83,16 +83,22 @@
                  
                 echo $this->form()->openTag($form);
             ?>
-            <?php if(!$this->zfcUserIdentity() && ! $this->voted): ?>
+            <?php if(!$this->zfcUserIdentity() &&  $this->game->getVoteAnonymous() && ! $this->voted ): ?>
                 <div class="vote"><?php echo $this->formRow($form->get('captcha')); ?></div>
+            <?php elseif(!$this->zfcUserIdentity() && ! $this->game->getVoteAnonymous()):?>
+                <div class="vote">Vous devez être <a href="<?php echo $this->url('frontend/zfcuser/register', array('channel' => $this->channel)) . '?redirect=' . $this->url('frontend/postvote/post', array('id' => $this->game->getIdentifier(), 'channel' => $this->channel, 'post' => $this->post->getId())) ?>">inscrit</a> pour voter</div>
             <?php endif ?>
             <?php if ($this->post->getStatus() == 2) : ?>
 	            <div class="row-fluid <?php if($this->zfcUserIdentity()): ?>logged<?php endif ?> nb-votes<?php echo ($this->voted)?'-check':'';?>">
 	            	<?php if($this->alreadyVoted) : ?><div class="already-voted"><?php echo $this->alreadyVoted; ?></div><?php endif; ?>
 	                <?php if($this->voted):?>
 	                    <img src="<?php echo $this->frontendAssetPath('images/common/icon-check.png');?>" />
-	                <?php else:?>
+	                <?php elseif($this->zfcUserIdentity() ||  $this->game->getVoteAnonymous()):?>
 	                    <input type="image" src="<?php echo $this->frontendAssetPath('images/common/round-vote.png');?>" alt="Voter">
+	                <?php elseif(! $this->game->getVoteAnonymous()):?>
+	                    <a href="<?php echo $this->url('frontend/zfcuser/register', array('channel' => $this->channel)) . '?redirect=' . $this->url('frontend/postvote/post', array('id' => $this->game->getIdentifier(), 'channel' => $this->channel, 'post' => $this->post->getId())) ?>">
+	                       <img src="<?php echo $this->frontendAssetPath('images/common/round-vote.png');?>" />
+	                   </a>
 	                <?php endif;?>
 	
 	                <div class="bn-votes text-warning"><span class="nb-post-vote-number"><?php echo count($this->post->getVotes())?></span> <?php echo (count($this->post->getVotes()) > 1) ? 'votes' : 'vote'; ?></div>

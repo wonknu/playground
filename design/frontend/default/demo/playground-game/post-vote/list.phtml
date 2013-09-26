@@ -149,9 +149,12 @@
 					<div class="span2">				    
 				        <div class="nb-votes">
 				        	<div class="already-voted">Vous avez déjà voté!</div>
-				        <?php if(!$this->zfcUserIdentity()): ?>
+				        <?php if(!$this->zfcUserIdentity() && $this->game->getVoteAnonymous()): ?>
 				            <a href="<?php echo $this->url('frontend/postvote/post', array('id' => $this->game->getIdentifier(), 'channel' => $this->channel, 'post' => $post['id']))?>" class="btn-post-vote"></a>
-				        <?php else:?>
+				        <?php elseif(!$this->zfcUserIdentity() && !$this->game->getVoteAnonymous()):?>
+				            <a href="<?php echo $this->url('frontend/zfcuser/register', array('channel' => $this->channel)) . '?redirect=' . $this->url('frontend/postvote/post', array('id' => $this->game->getIdentifier(), 'channel' => $this->channel, 'post' => $post['id'])) ?>" class="btn-post-vote"></a>
+				            <div class="bn-votes">Vous devez être inscrit pour voter</div>
+				        <?php elseif($this->zfcUserIdentity()):?>
 				            <a href="<?php echo $this->url('frontend/postvote/vote', array('id' => $this->game->getIdentifier(), 'channel' => $this->channel, 'post' => $post['id']))?>" class="btn-post-vote logged"></a>
 				        <?php endif;?>
 				            <div class="bn-votes"><span class="nb-post-vote-number"><?php echo $post['votes'];?></span> <?php echo ($post['votes'] > 1) ? 'votes' : 'vote'; ?></div>
