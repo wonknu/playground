@@ -39,11 +39,15 @@
         padding-top: 0;
         padding-bottom: 0;
         line-height: 35px;
+        &:hover,
+        &:focus{
+          color:@pg-white;
+        }
       }
       &.open > a,
       &.open > a:hover,
       &.open > a:focus{
-        background: none;
+        background-color: transparent;
         color:@pg-white;
       }
     }
@@ -68,6 +72,10 @@
         &:hover,
         &:focus{
           background-color: transparent;
+          color:@pg-white;
+          .caret{
+            color: @pg-black;
+          }
         }
         &.badges-points{
           span{
@@ -102,7 +110,24 @@
       }
     }
   }
+  .account-options{
+    .dropdown-toggle{
+      .sprite-it(24px, 100%, 0, 5px);
+      padding-left: 30px;
+    }
+  }
   .coordonnees{
     margin-left: 270px;
+  }
+  .slot-badge{
+    float:left;
+    width: 20px;
+    height: 20px;
+    margin:0 5px 5px;
+    img{
+      width: 100%;
+      height: 100%;
+      display: block;
+    }
   }
 }
