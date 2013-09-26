@@ -5993,15 +5993,41 @@ body {
 .navbar-default .navbar-nav .dropdown-menu {
   background-color: #e84c3c;
 }
-.navbar-default .navbar-nav .dropdown-menu a span {
-  background: '../common/sprite-playground.png' 0 0 transparent;
-  width: 10px;
-  height: 10px;
-  display: block;
+.navbar-default .navbar-nav .dropdown-menu a {
+  padding: 3px 20px 3px 30px;
 }
-.navbar-default .navbar-nav .dropdown-menu a span:hover,
-.navbar-default .navbar-nav .dropdown-menu a span:focus {
-  background-color: none;
+.navbar-default .navbar-nav .dropdown-menu a span {
+  background: url('../images/common/sprite-playground.png') no-repeat 0 -50px transparent;
+  width: 16px;
+  height: 20px;
+  display: block;
+  display: inline-block;
+  *display: inline;
+  zoom: 1;
+  position: absolute;
+  left: 8px;
+}
+.navbar-default .navbar-nav .dropdown-menu a:hover,
+.navbar-default .navbar-nav .dropdown-menu a:focus {
+  background-color: transparent;
+}
+.navbar-default .navbar-nav .dropdown-menu a.badges-points span {
+  background-position: 0 -50px;
+}
+.navbar-default .navbar-nav .dropdown-menu a.activity span {
+  background-position: 0 -100px;
+}
+.navbar-default .navbar-nav .dropdown-menu a.profile span {
+  background-position: 0 -145px;
+}
+.navbar-default .navbar-nav .dropdown-menu a.newsletter span {
+  background-position: 0 -188px;
+}
+.navbar-default .navbar-nav .dropdown-menu a.sponsorfriends span {
+  background-position: 0 -235px;
+}
+.navbar-default .navbar-nav .dropdown-menu a.logout span {
+  background-position: 0 -279px;
 }
 .navbar-default .coordonnees {
   margin-left: 270px;
