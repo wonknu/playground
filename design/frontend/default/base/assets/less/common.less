@@ -1,0 +1,32 @@
+// Common structures
+// 
+// --------------------------------------------------
+
+// Override bootstrap font
+body{
+  font-family: @futura;
+}
+
+// Block structural
+.navbar-default,
+#containerpage,
+#header,
+#footer{
+  width: @site-width;
+  margin: 0 auto;
+}
+
+.main-content {
+  
+}
+
+.sidebar {
+  padding: 30px 20px;
+  .sidebar-block {
+    padding: 20px 0;
+    border-top: 15px solid @pg-grey-light;
+    &:first-child {
+      border-top: none;
+    }
+  }
+}
