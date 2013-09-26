@@ -53,9 +53,9 @@
                                 <img src="<?php echo $this->basePath($this->zfcUserIdentity()->getAvatar()) ?>" width="28" height="28" alt="<?php echo $this->zfcUserIdentity()->getFirstname(); ?> <?php echo $this->zfcUserIdentity()->getLastname(); ?>" />
                             <?php else:?>
                                     <?php if($this->zfcUserIdentity()->getTitle() && $this->zfcUserIdentity()->getTitle() == 'M'): ?>
-                                        <img src="<?php echo $this->frontendAssetPath('images/user/no-avatar-small-h.png'); ?>" alt="no avatar" width="28" height="28" />
+                                        <img src="<?php echo $this->frontendAssetPath('images/user/no-avatar-small-h.png'); ?>" alt="no avatar" />
                                     <?php else: ?>
-                                        <img src="<?php echo $this->frontendAssetPath('images/user/no-avatar-small-f.png'); ?>" alt="no avatar" width="28" height="28" />
+                                        <img src="<?php echo $this->frontendAssetPath('images/user/no-avatar-small-f.png'); ?>" alt="no avatar" />
                                     <?php endif; ?>
                             <?php endif;?>
                             <?php echo $this->zfcUserIdentity()->getUsername();?>
@@ -67,37 +67,37 @@
                         </a>
                         <ul class="dropdown-menu">
                             <li id="first-item">
-                                <a href="<?php echo $this->url('frontend/badges', array('channel' => $this->channel));?>">
+                                <a href="<?php echo $this->url('frontend/badges', array('channel' => $this->channel));?>" class="badges-points">
                                     <span class="sprite-icon"></span>
                                     Mes badges et mes points
                                 </a>
                             </li>
                             <li>
-                                <a href="<?php echo $this->url('frontend/activity', array('channel' => $this->channel));?>">
+                                <a href="<?php echo $this->url('frontend/activity', array('channel' => $this->channel));?>" class="activity">
                                     <span class="sprite-icon"></span>
                                     Mon activité
                                 </a>
                             </li>
                             <li>
-                                <a href="<?php echo $this->url('frontend/zfcuser/profile', array('channel' => $this->channel));?>">
+                                <a href="<?php echo $this->url('frontend/zfcuser/profile', array('channel' => $this->channel));?>" class="profile">
                                     <span class="sprite-icon"></span>
                                     Modifier mes informations
                                 </a>
                             </li>
                             <li>
-                                <a href="<?php echo $this->url('frontend/zfcuser/newsletter', array('channel' => $this->channel));?>">
+                                <a href="<?php echo $this->url('frontend/zfcuser/newsletter', array('channel' => $this->channel));?>" class="newsletter">
                                     <span class="sprite-icon"></span>
                                     Gérer mes newletters
                                 </a>
                             </li>
                             <li>
-                                <a href="<?php echo $this->url('frontend/sponsorfriends', array('channel' => $this->channel)); ?>">
+                                <a href="<?php echo $this->url('frontend/sponsorfriends', array('channel' => $this->channel)); ?>" class="sponsorfriends">
                                     <span class="sprite-icon"></span>
                                     Parrainer mes amis
                                 </a>
                             </li>
                             <li id="last-item">
-                                <a href="<?php echo $this->url('frontend/zfcuser/logout', array('channel' => $this->channel)) ?>">
+                                <a href="<?php echo $this->url('frontend/zfcuser/logout', array('channel' => $this->channel)) ?>" class="logout">
                                     <span class="sprite-icon"></span>
                                     Déconnexion
                                 </a>
