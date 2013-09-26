@@ -1,0 +1,26 @@
+// Class
+@sprite-icon: '../common/sprite-playground.png';
+
+.up{
+  text-transform: uppercase;
+}
+
+.badge{
+  background-color: @pg-grey-light;
+  color: @pg-black;
+}
+
+// width & height, position x & y of the sprite, plus background color
+.sprite-it(@width:10px, @height: 10px, @x: 0, @y: 0, @color: transparent){
+  background:@sprite-icon @x @y @color;
+  width: @width;
+  height: @height;
+  display: block;
+}
+
+// inline-block avec hack pour IE7
+.inline-block(){
+  display: inline-block;
+  *display: inline;
+  zoom: 1;
+}
