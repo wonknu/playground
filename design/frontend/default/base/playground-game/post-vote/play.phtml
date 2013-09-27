@@ -43,7 +43,7 @@ $form->setAttribute('action', $this->url('frontend/postvote/play', array('id' =>
 			<a href="<?php echo $this->url('frontend/postvote/list', array('id' => $this->game->getIdentifier(), 'channel' => $this->channel, 'filter' => $this->game->getPostDisplayMode()))?>"><button class="btn btn-inverse">Voir les participations</button></a>
 		</div>
 		<div class="span3">
-			<a href="<?php echo $this->url('frontend/postvote/play', array('id' => $this->game->getIdentifier(), 'channel' => $this->channel))?>"><button class="btn btn-warning">Participer</button></a>
+			<a href="<?php echo $this->url('frontend/postvote/play', array('id' => $this->game->getIdentifier(), 'channel' => $this->channel))?>"><button class="btn btn-orange">Participer</button></a>
 		</div>
 	</div>
 	
@@ -131,7 +131,7 @@ $form->setAttribute('action', $this->url('frontend/postvote/play', array('id' =>
     	    </div>
     	    <!--<progress min="0" max="100" value="0">0% complete</progress>-->
     	    <div class="center">
-                <button type="submit" name="submitPost" value="" class="btn btn-warning"><span class="arrow-right">Prévisualiser</span></button>
+                <button type="submit" name="submitPost" value="" class="btn btn-orange"><span class="arrow-right">Prévisualiser</span></button>
     	    </div>
     	    
 			<?php echo $this->form()->closeTag() ?>
