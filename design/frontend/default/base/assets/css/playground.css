@@ -5999,6 +5999,9 @@ ul {
 .wrap-header {
   background-color: #e84c3c;
 }
+.wrap-header .barnav {
+  margin: 0;
+}
 #header {
   padding: 30px 0;
 }
@@ -6145,4 +6148,27 @@ ul {
 .wrap-footer li a:hover {
   color: #e84c3c;
   text-decoration: none;
+}
+h2,
+h1 {
+  font-family: 'futura-bk';
+  color: #5e5e5e;
+  border-bottom: 1px solid #e0e0e0;
+  padding-bottom: 15px;
+}
+h2 a,
+h1 a {
+  color: #5e5e5e;
+}
+h2 a:hover,
+h1 a:hover {
+  color: #2e2e2e;
+  text-decoration: none;
+}
+h2 {
+  margin-bottom: 15px;
+}
+h2 {
+  border: none;
+  margin-bottom: 10px;
 }

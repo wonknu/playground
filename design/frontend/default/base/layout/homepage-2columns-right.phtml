@@ -18,6 +18,7 @@ $ourView  = $children[0];
 	            <?php echo $this->header(array('adserving' => $this->adserving, 'currentPage' => $this->currentPage, 'channel' => $this->channel));?>     
 	            <div id="containerpage" class="row">
 	                
+                    <?php echo $this->slider; ?>
                     <!-- Main content left-->
                     <div class="main-content col-md-8">
     	            	<?php if (isset($ourView->flashMessages) && count($ourView->flashMessages)) : ?>
@@ -28,7 +29,6 @@ $ourView  = $children[0];
     	                    </ul>
     	                <?php endif; ?>
     
-                        <?php echo $this->slider; ?>
                         <?php echo $this->content; ?>
                     </div>
                     	

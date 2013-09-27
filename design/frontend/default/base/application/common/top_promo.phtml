@@ -2,22 +2,29 @@
     $first = true;
     $nb = count($this->sliderItems);
 ?>
-<div id="top-promo" class="row-fluid">
+<div id="top-promo" class="row">
     <?php if($nb > 1):?>
-    <div id="homepage-carousel" class="carousel slide">
+    <div id="homepage-carousel" class="carousel slide bs-docs-carousel-example">
+        <!-- Indicators -->
+        <ol class="carousel-indicators">
+            <?php $counter = 0; foreach($this->sliderItems as $item):?>
+                <li data-target="#homepage-carousel" data-slide-to="<?php echo $counter; ?>" <?php if($counter++ === 0) echo 'class="active"'; ?> ></li>
+            <?php endforeach;?>
+            
+        </ol>
         <!-- Carousel items -->
         <div class="carousel-inner">
-    <?php endif;?>
-        <?php foreach($this->sliderItems as $item):?>
-            <?php if(! $item instanceof PlaygroundCms\Entity\Page):?>
-                <?php $this->partial()->setObjectKey('game')?>
-                <?php echo $this->partial('playground-game/partial/slider-game.phtml', array('game' =>$item, 'channel' => $this->channel)) ?>
-            <?php else:?>
-                <?php $this->partial()->setObjectKey('page')?>
-                <?php echo $this->partial('playground-cms/page/partial/slider-page.phtml', array('page' =>$item, 'channel' => $this->channel)) ?>
             <?php endif;?>
-        <?php endforeach;?>
-    <?php if($nb > 1):?>
+                <?php foreach($this->sliderItems as $item):?>
+                    <?php if(! $item instanceof PlaygroundCms\Entity\Page):?>
+                        <?php $this->partial()->setObjectKey('game')?>
+                        <?php echo $this->partial('playground-game/partial/slider-game.phtml', array('game' =>$item, 'channel' => $this->channel)) ?>
+                    <?php else:?>
+                        <?php $this->partial()->setObjectKey('page')?>
+                        <?php echo $this->partial('playground-cms/page/partial/slider-page.phtml', array('page' =>$item, 'channel' => $this->channel)) ?>
+                    <?php endif;?>
+                <?php endforeach;?>
+            <?php if($nb > 1):?>
         </div>
         <!-- Carousel nav -->
         <a class="carousel-control left" href="#homepage-carousel" data-slide="prev">&lsaquo;</a>
