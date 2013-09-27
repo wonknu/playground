@@ -5928,6 +5928,16 @@ td.visible-print {
   src: url('../fonts/futura/futura-bk.eot');
   src: url('../fonts/futura/futura-bk.eot?#iefix') format('embedded-opentype'), url('../fonts/futura/futura-bk.woff') format('woff'), url('../fonts/futura/futura-bk.ttf') format('truetype'), url('../fonts/futura/futura-bk.svg#futura-bk') format('svg');
 }
+.btn-gray-dark {
+  color: #e0e0e0 !important;
+  background-color: #2e2e2e;
+  border-color: #e0e0e0;
+}
+.btn-gray-dark:hover,
+.btn-gray-dark.active {
+  color: #ffffff !important;
+  background-color: #5e5e5e;
+}
 .up {
   text-transform: uppercase;
 }
@@ -5961,17 +5971,22 @@ ul {
 .sidebar .sb-block:first-child {
   border-top: none;
 }
-.sidebar .sb-block h5 {
+.sidebar .sb-block h5,
+.sidebar .sb-block h5 a {
   color: #5e5e5e;
 }
 .sidebar .sb-block .sb-content {
   padding: 10px 0;
+}
+.sidebar .sb-block .sb-content a {
+  color: #000;
 }
 .sidebar .sb-block .sb-content ul.links-list li {
   text-align: left;
   margin-bottom: 2px;
   font-size: 12px;
   line-height: 20px;
+  color: #000;
   min-height: 48px;
   clear: both;
 }
@@ -5979,9 +5994,6 @@ ul {
   border: none;
   float: left;
   margin-right: 20px;
-}
-.sidebar .sb-block .sb-content ul.links-list li a {
-  color: #000;
 }
 .sidebar .sb-block .sb-content ul.links-list li a.sb-picto-link {
   display: block;
@@ -5991,10 +6003,44 @@ ul {
 .sidebar .sb-block .sb-content ul.links-list li a.sb-picto-link:hover {
   text-decoration: none;
 }
+.sidebar .sb-block.tonnes-cadeaux .accroche {
+  margin-bottom: 20px;
+}
 .sidebar .sb-block.fb-box .fb-like-box,
 .sidebar .sb-block.fb-box .fb_iframe_widget > span,
 .sidebar .sb-block.fb-box .fb-like-box iframe {
   width: 100% !important;
+}
+.sidebar .sb-block.ranking .btn-group {
+  margin: 0 5%;
+  width: 90%;
+  margin-bottom: 20px;
+}
+.sidebar .sb-block.ranking .list {
+  text-align: left;
+}
+.sidebar .sb-block.ranking .list li.row {
+  margin: 0;
+}
+.sidebar .sb-block.ranking .list li.row > div {
+  float: left;
+}
+.sidebar .sb-block.ranking .list li.row > div.position {
+  float: none;
+}
+.sidebar .sb-block.ranking .list li.row .rank {
+  color: #e84c3c;
+  font-size: 20px;
+  padding: 0 10px;
+}
+.sidebar .sb-block.ranking .list li.row .avatar,
+.sidebar .sb-block.ranking .list li.row .name {
+  margin-right: 10px;
+}
+.sidebar .sb-block.ranking .list li.row.current {
+  margin-top: 20px;
+  padding: 10px;
+  background-color: #e0e0e0;
 }
 .wrap-header {
   background-color: #e84c3c;
