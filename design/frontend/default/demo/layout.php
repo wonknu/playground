@@ -16,25 +16,9 @@ return array(
                 ),
             ),
             'modules' => array(
-                'playgroundcms' => array(
-                    'controllers' => array(
-                        'playgroundcms' => array(
-                            'actions' => array(
-                                'index' => array(
-                                    'children_views' => array(
-                                        'col_left' => 'playground-user/user/col-user.phtml'
-                                    )
-                                )
-                            )
-                        )
-                    )
-                ),
 
                 'playgroundfacebook' => array(
                     'layout' => 'layout/2columns-left',
-                    'children_views' => array(
-                        'col_left' => 'playground-user/user/col-user.phtml'
-                    )
                 ),
 
                 'playgroundfaq' => array(
@@ -49,7 +33,7 @@ return array(
                 ),
 
                 'playgroundgame' => array(
-                	'layout' => 'layout/game-2columns-right.phtml',
+                    'layout' => 'layout/game-2columns-right.phtml',
                     'channel' => array(
                         'facebook' => array(
                             'layout' => 'layout/1column-facebook.phtml'

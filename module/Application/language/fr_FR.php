@@ -29,6 +29,7 @@ return array(
     'Delete' => 'Supprimer',
     'Add new page' => 'Ajouter une nouvelle page',
     'Create' => 'Créer',
+    'Validate' => 'Valider',
     'title' => 'Titre',
     'identifier' => 'Identifiant',
     'is_active' => 'Est activé',
