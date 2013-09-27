@@ -38,7 +38,7 @@ $fbRequestMsg = ($this->game->getFbRequestMessage()) ? $this->game->getFbRequest
 					<div id="mail-sended">
 						<p class="a-left">Merci,<br/> Vos invitations ont bien été envoyées !</p>
 
-						<div class="btn btn-warning more-invit">
+						<div class="btn btn-orange more-invit">
 							Inviter + d'amis
 						</div>
 					</div>
@@ -66,7 +66,7 @@ $fbRequestMsg = ($this->game->getFbRequestMessage()) ? $this->game->getFbRequest
 <!-- terminer -->
 <div id="terminer" class="row-fluid">
 	<div class="span4 center">
-		<span class="btn btn-warning">
+		<span class="btn btn-orange">
 			<span class="arrow-right"><a href="<?php echo $this->url('frontend/' . $this->gameType.'/bounce', array('id' => $this->game->getIdentifier(), 'channel' => $this->channel));?>"><?php echo $this->translate('Terminer'); ?></a></span>
 		</span>
 	</div>

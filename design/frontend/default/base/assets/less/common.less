@@ -167,3 +167,73 @@ ul {
     }
   }
 }
+
+
+/* content */
+.block-game{
+  position: relative;
+  display: inline-block;
+  padding-bottom: 20px;
+  .img-content{
+    position: relative;
+    padding: 5px;
+    border:1px solid @pg-black;
+    img{
+      display: block;
+      max-width:100%;
+    }
+  }
+  .dark-overlay{
+    width: 100%;
+    padding: 0 5%;
+    margin: 0;
+    position: absolute;
+    bottom: 0;
+    left: 0;
+  }
+  .logo-sponsor{
+    position: absolute;
+    top: 20px;
+    left: 20px;
+  }
+  h2,
+  a{
+    color:@pg-white;
+    text-transform: uppercase;
+    font-size: 14px;
+  }
+  a:hover{
+    color: @pg-grey-light;
+  }
+  .btn-orange{
+    margin-top: 15px;
+  }
+  .stamp{
+    position: absolute;
+    right: 20px;
+    bottom: 20px;
+  }
+}
+
+.game-infos{
+  margin: 10px 0;
+  > div{
+    display: inline;
+  }
+  .logo-partner{
+    display: inline-block;
+    width: 20px;
+    height: 20px;
+    img{
+      width: 100%;
+    }
+  }
+}
+
+/* homepage carousel */
+#homepage-carousel{
+  margin: 20px 0;
+  .carousel-caption{
+    padding-bottom: 50px;
+  }
+}

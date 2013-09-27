@@ -17,7 +17,7 @@
         </h1>
         <?php if($game->isStarted()):?>
             <div class="button-wrap">
-                <div class="btn btn-warning">
+                <div class="btn btn-orange">
                     <a href="<?php echo $this->url('frontend/' . $game->getClassType(), array('id' => $game->getIdentifier(), 'channel' => $this->channel)) ; ?>" class="arrow-right-big">
                         Jouer
                     </a>
@@ -25,7 +25,7 @@
             </div>
         <?php elseif($game->isOpen() && !$game->isFinished() ):?>
             <div class="button-wrap">
-                <div class="btn btn-warning">
+                <div class="btn btn-orange">
                     <a href="<?php echo $this->url('frontend/' . $game->getClassType(), array('id' => $game->getIdentifier(), 'channel' => $this->channel)) ; ?>" class="arrow-right-big">
                         Bientôt
                     </a>
