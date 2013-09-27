@@ -3,3 +3,14 @@
 //    + Buttons
 //    + ...
 // --------------------------------------------------
+
+.btn-gray-dark {
+  color: @pg-grey-light !important;
+  background-color: @pg-black;
+  border-color: @pg-grey-light;
+  &:hover,
+  &.active {
+    color: @pg-white !important;
+    background-color: @pg-grey-dark;
+  }
+}
