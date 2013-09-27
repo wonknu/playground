@@ -5,7 +5,7 @@
 
 	<target name="build-parallel" depends="prepare,tools-parallel" />
 	
-	<target name="phpunit" depends="phpunit-core,phpunit-application,phpunit-cms,phpunit-facebook,phpunit-faq,phpunit-flow,phpunit-game,phpunit-partnership,phpunit-reward,phpunit-user" />
+	<target name="phpunit" depends="phpunit-core,phpunit-application,phpunit-cms,phpunit-facebook,phpunit-faq,phpunit-flow,phpunit-game,phpunit-partnership,phpunit-reward,phpunit-user,phpunit-design" />
 	
 	<target name="tools-parallel" description="Run tools in parallel">
 		<parallel threadCount="1">
@@ -28,6 +28,7 @@
 			<antcall target="phpunit-partnership" />
 			<antcall target="phpunit-reward" />
 			<antcall target="phpunit-user" />
+			<antcall target="phpunit-dessign" />
 			<antcall target="coverage-checker" />
 			</sequential>
 		</parallel>
@@ -172,6 +173,11 @@
 	<target name="phpunit-user">
 		<exec dir="${basedir}/vendor/bin" executable="phpunit" failonerror="true" description="Run unit tests with PHPUnit">  
 			<arg line="-c ${basedir}/vendor/playground/user" />     
+		</exec>
+	</target>
+	<target name="phpunit-design">
+		<exec dir="${basedir}/vendor/bin" executable="phpunit" failonerror="true" description="Run unit tests with PHPUnit">  
+			<arg line="-c ${basedir}/vendor/playground/design" />     
 		</exec>
 	</target>
 		

@@ -4,7 +4,7 @@ return array(
 		'modules' => array(
 			'default_base' => array(
 				'root_path' => array(
-					__DIR__ . '/../../../../design/admin/default/base/assets',
+					__DIR__ . '/../../../../design/admin/default/demo/assets',
 				),
 				'collections' => array(
 					/*'modern_admin_css' => array(

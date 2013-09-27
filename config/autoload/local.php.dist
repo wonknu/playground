@@ -1,28 +1,28 @@
 <?php
 
 $dbParams = array(
-	'database'  => 'playground',
-	'username'  => 'root',
-	'password'  => 'root',
-	'hostname'  => 'localhost',
-	'port'		=> '3306',
-	'charset'	=> 'utf8',
-	'driverOptions' => array(
-		1002 => 'SET NAMES utf8',
-	),
+    'database'  => 'playground',
+    'username'  => 'root',
+    'password'  => 'root',
+    'hostname'  => 'localhost',
+    'port'      => '3306',
+    'charset'   => 'utf8',
+    'driverOptions' => array(
+        1002 => 'SET NAMES utf8',
+    ),
 );
 
 return array(
-	'design' => array(
-		'admin' => array(
-			'package' => 'default',
-			'theme' => 'base',
-		),
-		'frontend' => array(
-			'package' => 'default',
-			'theme' => 'base',
-		),
-	),
+    'design' => array(
+        'admin' => array(
+            'package' => 'default',
+            'theme' => 'base',
+        ),
+        'frontend' => array(
+            'package' => 'default',
+            'theme' => 'base',
+        ),
+    ),
     // Licence keys and api keys
     // The reason why having a Facebook subdomain is better is for separating sessions between plateform and facebook.
     // This channel stuff gives the opportunity to know on which channel we are.
@@ -50,8 +50,8 @@ return array(
                     'user'     => $dbParams['username'],
                     'password' => $dbParams['password'],
                     'dbname'   => $dbParams['database'],
-                	'charset'  => $dbParams['charset'],
-                	'driverOptions' => $dbParams['driverOptions'],
+                    'charset'  => $dbParams['charset'],
+                    'driverOptions' => $dbParams['driverOptions'],
                 )
             )
         ),
