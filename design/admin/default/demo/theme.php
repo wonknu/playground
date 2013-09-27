@@ -8,7 +8,7 @@ return array(
             'theme' => array(
                 'code' => 'demo',
                 'title' => 'Demo',
-                'parent' => 'default_base',
+                'parent' => 'default_demo',
             )
         ),
     ),
