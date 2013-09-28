@@ -113,6 +113,32 @@
             background-position: 0 -279px;
           }
         }
+        &.btn-gray-dark{
+          float: left;
+          padding: 0 10px;
+          &:hover{
+            text-decoration: none;
+          }
+        }
+      }
+    }
+    #input-login{
+      text-align: center;
+      input{
+        margin: 10px 0;
+      }
+    }
+    .btn-success{
+      margin: 0 25px;
+      padding: 7px;
+      float: left;
+      .btn-playground();
+      color: @pg-grey-light !important;
+      background-color: @pg-black;
+      &:hover,
+      &.active {
+        color: @pg-white !important;
+        background-color: @pg-grey-dark;
       }
     }
   }
@@ -121,9 +147,6 @@
       .sprite-it(24px, 100%, 0, 5px);
       padding-left: 30px;
     }
-  }
-  .coordonnees{
-    margin-left: 270px;
   }
   .slot-badge{
     float:left;
