@@ -3,7 +3,7 @@
 <div class="corrections row-fluid">
 	<div class="span10 offset2">
 		<ul>
-			<?php $i=0;foreach($this->gameCorrectAnswers as $q):?>
+			<?php $i=0; foreach($this->gameCorrectAnswers as $q):?>
 			    <li class="question<?php if($this->layout()->facebooktemplate): echo ' fb-target'; endif ?>"><b>Question <?php echo $i+1; ?> :</b> <?php echo $q['question'];?>
 				    <ul>
     				<?php foreach ($q['answers'] as $k => $a):?>			

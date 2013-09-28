@@ -32,12 +32,19 @@
     background-color: @pg-grey-dark !important;
   }
 }
-
+.btn-warning,
 .btn-orange{
   .btn-playground();
   color: @pg-white;
   background-color: @pg-red;
   a{
     background-color: @pg-red;
+  }
+}
+
+.btn-warning{
+  &:hover{
+    background-color: @pg-red;
+    color: #333333;
   }
 }

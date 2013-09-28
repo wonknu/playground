@@ -5952,6 +5952,7 @@ td.visible-print {
   color: #ffffff !important;
   background-color: #5e5e5e !important;
 }
+.btn-warning,
 .btn-orange {
   -webkit-border-radius: 4px;
   border-radius: 4px;
@@ -5960,19 +5961,28 @@ td.visible-print {
   color: #ffffff;
   background-color: #e84c3c;
 }
+.btn-warning:hover,
 .btn-orange:hover,
+.btn-warning.active,
 .btn-orange.active {
   cursor: pointer;
 }
+.btn-warning a,
 .btn-orange a {
   text-decoration: none;
   color: inherit;
 }
+.btn-warning a:hover,
 .btn-orange a:hover {
   text-decoration: none;
 }
+.btn-warning a,
 .btn-orange a {
   background-color: #e84c3c;
+}
+.btn-warning:hover {
+  background-color: #e84c3c;
+  color: #333333;
 }
 .up {
   text-transform: uppercase;
@@ -5993,6 +6003,11 @@ body {
 ul {
   list-style-type: none;
   padding: 0;
+}
+#ad-mega-banner,
+#ad-left,
+#ad-right {
+  display: none;
 }
 .navbar-default,
 #containerpage,
@@ -6188,6 +6203,7 @@ ul {
 }
 .game-infos .logo-partner img {
   width: 100%;
+  height: auto;
 }
 /* homepage carousel */
 #homepage-carousel {
@@ -6206,6 +6222,73 @@ ul {
 #homepage-carousel .carousel-control.left {
   color: transparent;
   text-shadow: none;
+}
+/* quizz */
+.query-block {
+  padding-bottom: 20px;
+}
+.query-block .heading {
+  font-size: 18px;
+  padding-bottom: 10px;
+}
+.query-block .question {
+  font-size: 16px;
+  padding-bottom: 5px;
+}
+.query-block .clue {
+  font-size: 14px;
+  padding-bottom: 15px;
+}
+.query-block .clue p {
+  font-weight: bold;
+  display: inline;
+}
+.query-block .radio {
+  display: inline;
+  padding: 0 5px 0 0;
+}
+.query-block .radio input {
+  float: none;
+  margin: 0;
+}
+.query-block label {
+  display: block;
+}
+.query-block label:hover {
+  color: #e84c3c;
+}
+.query-block .question-image {
+  padding-bottom: 20px;
+}
+.query-block .answers {
+  padding-left: 20px;
+}
+.game-quiz .result-quizz {
+  width: 40px;
+}
+.game-quiz > div {
+  padding-bottom: 20px;
+}
+.game-quiz #invit-social {
+  margin: 0;
+}
+.game-quiz #invit-mail .row {
+  padding: 0;
+}
+.game-quiz #invit-mail .text-mail {
+  padding-top: 30px;
+}
+.game-quiz #mail-send input {
+  width: 25%;
+}
+.game-quiz #mail-send .btn-warning {
+  float: right;
+}
+.game-quiz #terminer {
+  text-align: right;
+}
+#sidebar-game .row > div {
+  padding-bottom: 10px;
 }
 .wrap-header {
   background-color: #e84c3c;

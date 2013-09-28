@@ -12,6 +12,13 @@ ul {
   padding: 0;
 }
 
+// hide advertising
+#ad-mega-banner,
+#ad-left,
+#ad-right{
+  display: none;
+}
+
 // Block structural
 .navbar-default,
 #containerpage,
@@ -226,6 +233,7 @@ ul {
     height: 20px;
     img{
       width: 100%;
+      height: auto;
     }
   }
 }
@@ -247,6 +255,90 @@ ul {
     &.left{
       color:transparent;
       text-shadow:none;
+    }
+  }
+}
+
+/* quizz */
+.query-block{
+  padding-bottom: 20px;
+  .heading{
+    font-size: 18px;
+    padding-bottom: 10px;
+  }
+  .question{
+    font-size: 16px;
+    padding-bottom: 5px;
+  }
+  .clue{
+    font-size: 14px;
+    padding-bottom: 15px;
+    p{
+      font-weight: bold;
+      display: inline;
+    }
+  }
+  .radio{
+    display: inline;
+    padding: 0 5px 0 0;
+    input{
+      float: none;
+      margin: 0;
+    }
+  }
+  label{
+    display: block;
+    &:hover{
+      color: @pg-red;
+    }
+  }
+  .question-image{
+    padding-bottom: 20px;
+  }
+  .answers{
+    padding-left: 20px;
+  }
+}
+.game-quiz{
+  .result-quizz{
+    width: 40px;
+  }
+  > div{
+    padding-bottom: 20px;
+  }
+  .social-icon{
+    li{
+      
+    }
+  }
+  #invit-social{
+    margin: 0;
+  }
+  #invit-mail{
+    .row{
+      padding: 0;
+    }
+    .text-mail{
+      padding-top: 30px;
+    }
+  }
+  #mail-send{
+    input{
+      width:25%;
+    }
+    .btn-warning{
+      float: right;
+    }
+  }
+  #terminer{
+    text-align: right;
+  }
+}
+
+#sidebar-game{
+  .row{
+    > div{
+      padding-bottom: 10px;
     }
   }
 }
