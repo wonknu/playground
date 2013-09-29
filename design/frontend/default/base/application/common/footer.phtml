@@ -3,7 +3,7 @@
 	<div class="social-share">
 		<div class="title">Rejoignez-nous!</div>
 		<ul>
-			<li><a href="http://www.facebook.com/adfabagency" class="fb" target="_blank"></a></li>
+		    <?php if ($this->facebookUrl()):?><li><a href="<?php echo $this->facebookUrl()?>" class="fb" target="_blank"></a></li><?php endif;?>
 			<li><a href="#" class="tw" target="_blank"></a></li>
 			<li><a href="#" class="gl" target="_blank"></a></li>
 			<li><a href="#" class="pt" target="_blank"></a></li>
@@ -25,8 +25,14 @@
             <li class="jeu-item"><a href="<?php echo $this->url('frontend/prizecategories', array('channel' => $this->channel)) . $category->getIdentifier(); ?>"><?php echo $category->getTitle() ?></a></li>
         <?php endforeach ?>
 	</ul>
-	<div class="fb-box span3">
-		<div class="fb-like-box" data-href="http://www.facebook.com/adfabagency" data-width="287" data-height="185" data-show-faces="true" data-stream="false" data-border-color="#ffffff" data-header="false"></div>
-	</div>
+	
+	<?php if ($this->facebookUrl()):?>
+        <!-- BLOCK FACEBOOK -->
+        <div class="fb-box span3">
+    		<div class="fb-like-box" data-href="<?php echo $this->facebookUrl()?>" data-width="287" data-height="185" data-show-faces="true" data-stream="false" data-border-color="#ffffff" data-header="false"></div>
+    	</div>
+        <!-- END BLOCK FACEBOOK -->
+    <?php endif;?>
+	
 	<div class="actu"><a href="http://www.playground.gg" target="_blank">&lt; Retrouvez toute l'actualité</a></div>
 </div>
