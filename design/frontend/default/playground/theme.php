@@ -8,7 +8,7 @@ return array(
             'theme' => array(
                 'code' => 'playground',
                 'title' => 'Playground',
-                'parent' => 'playground_base',
+                //'parent' => 'playground_base',
             )
         ),
     ),

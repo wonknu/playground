@@ -2,7 +2,7 @@
 return array(
 	'assetic_configuration' => array(
 		'modules' => array(
-			'default_base' => array(
+			'default_playground' => array(
 				'root_path' => array(
 					__DIR__ . '/../../../../design/frontend/default/playground/assets',
 				),
