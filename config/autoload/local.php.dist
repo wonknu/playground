@@ -30,6 +30,10 @@ return array(
         'facebook' => 'facebook.local',
         'platform' => 'playground.local',
     ),
+    // This URL is used as a link on pages
+    'facebook_url' => 'http://www.facebook.com/Playground.gg',
+    
+    // used only by PlaygroundFacebook : The app an page attached to the account. To Be Refactored    
     'facebook' => array(
         'fb_appid'  => '118474821657382',
         'fb_secret' => 'fde26982baea07cab11881876a45a5fe',
