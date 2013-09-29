@@ -1,0 +1,34 @@
+// Class
+@sprite-icon: '../images/common/sprite-playground.png';
+
+.up{
+  text-transform: uppercase;
+}
+
+.txt-center{
+  text-align: center;
+}
+
+.badge{
+  background-color: @pg-grey-light;
+  color: @pg-black;
+}
+
+.dark-overlay{
+  background-color: rgba(0, 0, 0, 0.4);
+}
+
+// width & height, position x & y of the sprite, plus background color
+.sprite-it(@width:10px, @height: 10px, @x: 0, @y: 0, @repeat: no-repeat, @color: transparent){
+  background:url(@sprite-icon) @repeat @x @y @color;
+  width: @width;
+  height: @height;
+  display: block;
+}
+
+// inline-block avec hack pour IE7
+.inline-block(){
+  display: inline-block;
+  *display: inline;
+  zoom: 1;
+}
