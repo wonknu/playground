@@ -6,66 +6,66 @@ $fbRequestMsg = 'Venez jouer aux jeux de Playground';
 ?>
 <!-- SPONSOR (parrainer amis) (user page) -->
 <div id="sponsor-friends" class="row">
-	<div
-	   id="datas-result"
-	   data-url="<?php echo $this->url('frontend', array('channel' => $this->channel), array('force_canonical' => true)); ?>" data-secretkey="<?php echo $this->secretKey; ?>"
-	   data-fbmsg="<?php echo $fbShareMsg; ?>" data-twmsg="<?php echo $twShareMsg; ?>"
-	   data-fbrequest="<?php echo $fbRequestMsg; ?>"
-	   data-sociallink="<?php echo $this->socialLinkUrl; ?>"
-	   data-route="<?php echo $this->url('frontend/sponsorfriends'); ?>">
+    <div
+       id="datas-result"
+       data-url="<?php echo $this->url('frontend', array('channel' => $this->channel), array('force_canonical' => true)); ?>" data-secretkey="<?php echo $this->secretKey; ?>"
+       data-fbmsg="<?php echo $fbShareMsg; ?>" data-twmsg="<?php echo $twShareMsg; ?>"
+       data-fbrequest="<?php echo $fbRequestMsg; ?>"
+       data-sociallink="<?php echo $this->socialLinkUrl; ?>"
+       data-route="<?php echo $this->url('frontend/sponsorfriends'); ?>">
     </div>
-	<!-- content -->
-	<div id="badges-resume">
-		<h1>
-		    Parrainer mes amis
-		</h1>
-		<h2>
-			Invitez vos amis et gagnez 250 points pour chacun de vos amis qui s’inscrira sur Playground
-		</h2>
-		<!-- SPONSOR (parrainer) -->
+    <!-- content -->
+    <div id="badges-resume">
+        <h1>
+            Parrainer mes amis
+        </h1>
+        <h2>
+            Invitez vos amis et gagnez 250 points pour chacun de vos amis qui s’inscrira sur Playground
+        </h2>
+        <!-- SPONSOR (parrainer) -->
         <?php echo $this->partial('playground-game/partial/result-share'); ?>
-		<!-- //END SPONSOR (parrainer) -->
-		<?php if(count($this->events)>0):?>
-		<div class="row">
-			<h1>
-			    Vos amis parrainés
-			</h1>
-			<?php
-			foreach($this->events as $event):
+        <!-- //END SPONSOR (parrainer) -->
+        <?php if(count($this->events)>0):?>
+        <div class="row">
+            <h1>
+                Vos amis parrainés
+            </h1>
+            <?php
+            foreach($this->events as $event):
                 if(in_array($event->getActionId(), array(20))):
                 $now = new \DateTime('now');
                 $interval = $now->diff($event->getCreatedAt());
-    		    $duration = 0;
-    	        if($interval->days < 1) $duration = 'moins d\'1 jour';
-    	        elseif($interval->days < 2) $duration = '1 jour';
-    	        elseif($interval->days < 31) $duration = $interval->days . ' jours';
-    	        elseif($interval->days < 365) $duration = $interval->m . ' mois';
-    	        elseif($interval->days < 730) $duration = $interval->y . ' an';
-    	        else $duration = $interval->y . ' ans';
-    	        ?>
-    			<div class="row orange-dot-top">
-    				<div class="col-md-8">
-    					<p>
-    						Vous avez parrainé 
-    						<a class="green-underline" href="">
-    						    <?php echo $event->getLabel()?>
-    						</a>
-    						<br/>
-    						<span class="small">
-    						    Il y a <?php echo $duration;?>
-    						</span>
-    					</p>
-    				</div>
-    				<div class="col-md-4">
-    					<p>
-    					    + <?php echo $event->getPoints()?> points
-    					</p>
-    				</div>
-    			</div>
-    			<?php endif;?>
-			<?php endforeach;?>
-		</div>
-		<?php endif;?>
-	</div>
+                $duration = 0;
+                if($interval->days < 1) $duration = 'moins d\'1 jour';
+                elseif($interval->days < 2) $duration = '1 jour';
+                elseif($interval->days < 31) $duration = $interval->days . ' jours';
+                elseif($interval->days < 365) $duration = $interval->m . ' mois';
+                elseif($interval->days < 730) $duration = $interval->y . ' an';
+                else $duration = $interval->y . ' ans';
+                ?>
+                <div class="row orange-dot-top">
+                    <div class="col-md-8">
+                        <p>
+                            Vous avez parrainé 
+                            <a class="green-underline" href="">
+                                <?php echo $event->getLabel()?>
+                            </a>
+                            <br/>
+                            <span class="small">
+                                Il y a <?php echo $duration;?>
+                            </span>
+                        </p>
+                    </div>
+                    <div class="col-md-4">
+                        <p>
+                            + <?php echo $event->getPoints()?> points
+                        </p>
+                    </div>
+                </div>
+                <?php endif;?>
+            <?php endforeach;?>
+        </div>
+        <?php endif;?>
+    </div>
 </div>
 <!-- END SPONSOR (parrainer amis) (user page) -->
