@@ -50,6 +50,7 @@
         </div>
 		<div id="btn-send" class="row-fluid">
 			<div class="span3 center">
+				<?php $form->get('submit')->setLabel($this->translate('Validate')); ?>
 				<?php echo $this->formButton($form->get('submit')) ?>
 			</div>
 		</div>

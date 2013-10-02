@@ -37,6 +37,7 @@ $form->setAttribute('id', 'header-login');
                                 <a href="<?php echo $this->url('frontend/zfcuser/forgotpassword', array('channel' => $this->channel)) ?>">
                                     Mot de passe oublié ?
                                 </a>
+                                <?php $form->get('submit')->setLabel($this->translate('Validate')); ?>
                                 <?php echo $this->formButton($form->get('submit')) ?>
                                 <?php if ($this->enableRegistration) : ?>
                                     <a class="btn-gray-dark" href="<?php echo $this->url('frontend/zfcuser/register', array('channel' => $this->channel)) . ($this->redirect ? '?redirect='.$this->redirect : '') ?>">

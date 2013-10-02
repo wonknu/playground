@@ -67,6 +67,7 @@
 	                            <?php echo $this->formInput($form->get('email3')); ?>
 	                            <?php echo $this->formElementErrors($form->get('email3')); ?>
 	                            <p class="peppo f-left"></p>
+                                <?php $form->get('submit')->setLabel($this->translate('Validate')); ?>
 	                            <?php echo $this->formButton($form->get('submit')) ?>
 	                            <!--<input class="btn btn-warning" type="submit" value="Envoyer"/>-->
 	                            <?php echo $this->form()->closeTag() ?>
