@@ -1,4 +1,4 @@
-<?php 
+<?php
 return array(
 	'assetic_configuration' => array(
 		'modules' => array(
@@ -74,6 +74,7 @@ return array(
         'routes' => array(
             'frontend.*' => array(
                 '@frontend_css',
+                '@head_frontend_js'
             ),
         ),
 	),
