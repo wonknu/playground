@@ -66,6 +66,7 @@ return array(
                 array('controller' => 'playgrounduser_forgot',                     'roles' => array('guest', 'user')),
                 array('controller' => 'playgroundcms',                             'roles' => array('guest', 'user')),
                 array('controller' => 'playgroundgame',                            'roles' => array('guest', 'user')),
+                array('controller' => 'playgroundgame_game',                       'roles' => array('guest', 'user')),
                 array('controller' => 'playgroundgame_treasurehunt',               'roles' => array('guest', 'user')),
                 array('controller' => 'playgroundgame_lottery',                    'roles' => array('guest', 'user')),
                 array('controller' => 'playgroundgame_quiz',                       'roles' => array('guest', 'user')),

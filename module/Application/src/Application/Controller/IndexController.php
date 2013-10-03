@@ -116,60 +116,6 @@ class IndexController extends AbstractActionController
         return new ViewModel();
     }
 
-    public function jeuxconcoursAction()
-    {
-
-        $layoutViewModel = $this->layout();
-
-        $slider = new ViewModel();
-        $slider->setTemplate('application/common/top_promo');
-
-        $sliderItems = $this->getGameService()->getActiveSliderGames();
-
-        $slider->setVariables(array('sliderItems' => $sliderItems));
-
-        $layoutViewModel->addChild($slider, 'slider');
-
-        $games = $this->getGameService()->getActiveGames(false,'','endDate');
-        if (is_array($games)) {
-            $paginator = new \Zend\Paginator\Paginator(new \Zend\Paginator\Adapter\ArrayAdapter($games));
-        } else {
-            $paginator = $games;
-        }
-
-        $paginator->setItemCountPerPage(7);
-        $paginator->setCurrentPageNumber($this->getEvent()->getRouteMatch()->getParam('p'));
-
-        $bitlyclient = $this->getOptions()->getBitlyUrl();
-        $bitlyuser = $this->getOptions()->getBitlyUsername();
-        $bitlykey = $this->getOptions()->getBitlyApiKey();
-
-        $this->getViewHelper('HeadMeta')->setProperty('bt:client', $bitlyclient);
-        $this->getViewHelper('HeadMeta')->setProperty('bt:user', $bitlyuser);
-        $this->getViewHelper('HeadMeta')->setProperty('bt:key', $bitlykey);
-
-           $this->layout()->setVariables(
-               array(
-                'sliderItems'	=> $sliderItems,
-                'adserving'       => array(
-                    'cat1' => 'playground',
-                    'cat2' => 'game',
-                    'cat3' => ''
-                ),
-                'currentPage' => array(
-                    'pageGames' => 'games',
-                    'pageWinners' => ''
-                ),
-               )
-           );
-
-        return new ViewModel(
-            array(
-                'games'       => $paginator
-            )
-        );
-    }
-
     public function activityAction()
     {
         $filter = $this->getEvent()->getRouteMatch()->getParam('filter');
