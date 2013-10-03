@@ -22,30 +22,6 @@ return array(
                         	'constraints' => array('p' => '[0-9]*'),
                         ),
                     ),
-                    'jeuxconcours' => array(
-                    	'type'    => 'Zend\Mvc\Router\Http\Literal',
-                    	'options' => array(
-               				'route'    => 'jeux-concours',
-                    		'defaults' => array(
-                   				'controller'    => 'Application\Controller\Index',
-                    			'action'        => 'jeuxconcours',
-                    		),
-                    	),
-                   		'may_terminate' => true,
-                   		'child_routes' => array(
-                    		'pagination' => array(
-                   				'type'    => 'Segment',
-                    			'options' => array(
-                   					'route'    => '[/:p]',
-                    				'defaults' => array(
-                   						'controller' => 'Application\Controller\Index',
-                    					'action'     => 'jeuxconcours',
-                    				),
-                    				'constraints' => array('p' => '[0-9]*'),
-               					),
-               				),
-                  		),
-                    ),
                     'activity' => array(
                     	'type' => 'Segment',
                     	'options' => array(
