@@ -181,6 +181,17 @@ ul {
   position: relative;
   display: inline-block;
   padding-bottom: 20px;
+  &.no-image{
+    display: block;
+    .img-content{
+      height: 200px;
+      > a{
+        height: 200px;
+        display: block;
+      }
+    }
+  }
+
   .img-content{
     position: relative;
     padding: 5px;
@@ -336,6 +347,47 @@ ul {
   .row{
     > div{
       padding-bottom: 10px;
+    }
+  }
+}
+
+/* My badges */
+#account-badge{
+  #my-badges{
+    li{
+      img{
+        width: 50%;
+      }
+    }
+  }
+  #my-points{
+    .view-detail{
+      padding-top: 10px;
+    }
+  }
+}
+
+/* user activity */
+#user-activity{
+  #list-activity{
+    .date{
+      font-size: 11px;
+      color:@pg-grey-light;
+    }
+  }
+}
+
+/* newsletter */
+#newsletter{
+  .choose{
+    .radio{
+      width: 100px;
+      margin: 0;
+      padding: 0;
+      min-height: 0;
+      span{
+        float: left;
+      }
     }
   }
 }

@@ -5952,6 +5952,7 @@ td.visible-print {
   color: #ffffff !important;
   background-color: #5e5e5e !important;
 }
+#newsletter .btn-success,
 .btn-warning,
 .btn-orange {
   -webkit-border-radius: 4px;
@@ -5961,21 +5962,26 @@ td.visible-print {
   color: #ffffff;
   background-color: #e84c3c;
 }
+#newsletter .btn-success:hover,
 .btn-warning:hover,
 .btn-orange:hover,
+#newsletter .btn-success.active,
 .btn-warning.active,
 .btn-orange.active {
   cursor: pointer;
 }
+#newsletter .btn-success a,
 .btn-warning a,
 .btn-orange a {
   text-decoration: none;
   color: inherit;
 }
+#newsletter .btn-success a:hover,
 .btn-warning a:hover,
 .btn-orange a:hover {
   text-decoration: none;
 }
+#newsletter .btn-success a,
 .btn-warning a,
 .btn-orange a {
   background-color: #e84c3c;
@@ -6151,6 +6157,16 @@ ul {
   display: inline-block;
   padding-bottom: 20px;
 }
+.block-game.no-image {
+  display: block;
+}
+.block-game.no-image .img-content {
+  height: 200px;
+}
+.block-game.no-image .img-content > a {
+  height: 200px;
+  display: block;
+}
 .block-game .img-content {
   position: relative;
   padding: 5px;
@@ -6286,6 +6302,28 @@ ul {
 }
 #sidebar-game .row > div {
   padding-bottom: 10px;
+}
+/* My badges */
+#account-badge #my-badges li img {
+  width: 50%;
+}
+#account-badge #my-points .view-detail {
+  padding-top: 10px;
+}
+/* user activity */
+#user-activity #list-activity .date {
+  font-size: 11px;
+  color: #e0e0e0;
+}
+/* newsletter */
+#newsletter .choose .radio {
+  width: 100px;
+  margin: 0;
+  padding: 0;
+  min-height: 0;
+}
+#newsletter .choose .radio span {
+  float: left;
 }
 .wrap-header {
   background-color: #e84c3c;
