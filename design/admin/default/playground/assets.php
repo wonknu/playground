@@ -2,7 +2,7 @@
 return array(
 	'assetic_configuration' => array(
 		'modules' => array(
-			'playground_base' => array(
+			'default_playground' => array(
 				'root_path' => array(
 					__DIR__ . '/../../../../design/admin/default/playground/assets',
 				),
@@ -34,19 +34,24 @@ return array(
                         ),
                     ),
                     
+                    /**
+                     * MAIN CSS FILES
+                     */
                     'playground_css' => array(
                         'assets' => array(
                             'bootstrap.min.css'              => 'css/lib/bootstrap.min.css',
                             'datepicker.css'                 => 'css/lib/datepicker.css',
-                            'administration.css'             => 'css/administration.css',
-                            'login.css'                      => 'css/login.css',
+                            'style.css'                      => 'css/style.css',
                         ),
                         'options' => array(
                             'output' => 'zfcadmin/css/playground'
                         ),
                     ),
                     
-                    'head_playground_js' => array(
+                    /**
+                     * MAIN JS FILES
+                     */
+                    'playground_js' => array(
                         'assets' => array(
                             'jquery-1.10.2.min.js'          => 'js/lib/jquery-1.10.2.min.js',
                             'bootstrap.min.js'              => 'js/lib/bootstrap.min.js',
@@ -54,30 +59,72 @@ return array(
                         ),
                         'filters' => array(),
                         'options' => array(
-                            'output' => 'zfcadmin/js/head_playground'
+                            'output' => 'zfcadmin/js/script_playground'
                         ),
                     ),
                     
-                    'playground_home_css' => array(
+                    /**
+                     * USER CSS FILES
+                     */
+                    'playground_user_css' => array(
                         'assets' => array(
-                            'jquery.gridster.min.css' => 'css/lib/jquery.gridster.min.css',
-                            'gridster.css' => 'css/gridster.css',
+                            'user-style.css'                      => 'css/playground-user/style.css',
                         ),
                         'options' => array(
-                            'output' => 'zfcadmin/css/gridster'
+                            'output' => 'zfcadmin/css/user'
                         ),
                     ),
                     
-                    'head_playground_home_js' => array(
+                    /**
+                     * STATS CSS FILES
+                     */
+                    'playground_stats_css' => array(
+                        'assets' => array(
+                            'jquery.gridster.min.css' => 'css/lib/jquery.gridster.min.css',
+                            'stats-style.css' => 'css/playground-stats/style.css',
+                        ),
+                        'options' => array(
+                            'output' => 'zfcadmin/css/stats'
+                        ),
+                    ),
+                    
+                    /**
+                     * STATS JS FILES
+                     */
+                    'playground_stats_js' => array(
                         'assets' => array(
                             'jquery.gridster.min.js'        => 'js/lib/jquery.gridster.min.js',
                         ),
                         'filters' => array(),
                         'options' => array(
-                            'output' => 'zfcadmin/js/head_playground_home'
+                            'output' => 'zfcadmin/js/script_stats'
                         ),
                     ),
                     
+                    /**
+                     * THEMES CSS FILES
+                     */
+                    'playground_theme_css' => array(
+                        'assets' => array(
+                            'design-style.css' => 'css/playground-design/style.css',
+                        ),
+                        'options' => array(
+                            'output' => 'zfcadmin/css/design'
+                        ),
+                    ),
+                    
+                    /**
+                     * THEMES JS FILES
+                     */
+                    'playground_theme_js' => array(
+                        'assets' => array(
+                            'design-script.js'        => 'js/playground-design/script.js',
+                        ),
+                        'filters' => array(),
+                        'options' => array(
+                            'output' => 'zfcadmin/js/script_theme'
+                        ),
+                    ),
 				),
 			),
 		),
@@ -85,17 +132,21 @@ return array(
         'routes' => array(
             'admin.*' => array(
                 '@playground_css',
-                '@head_playground_js',
-            ),
-            'admin.stats' => array(
-                '@playground_home_css',
-                '@head_playground_home_js',
+                '@playground_js',
             ),
             'admin' => array(
-                '@playground_home_css',
-                '@head_playground_home_js',
+                '@playground_stats_css',
+                '@playground_user_css',
+                '@playground_stats_js',
+            ),
+            'admin/stats.*' => array(
+                '@playground_stats_css',
+                '@playground_stats_js',
+            ),
+            'admin/playgrounddesign.*' => array(
+                '@playground_theme_css',
+                '@playground_theme_js',
             ),
         ),
-        
 	),
 );

@@ -1,0 +1,12 @@
+.thumbnails li {
+    margin: 10px 0px;
+}
+
+.thumbnail img {
+    width: 300px;
+    cursor: pointer;
+}
+
+.breadcrumb .form-control {
+    width: 120px;
+}

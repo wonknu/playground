@@ -17,7 +17,7 @@
 	<?php if ($this->data == '') : ?>
 	<div class="statistics-form">
 		
-		<div class="row button-top"><?php echo $this->formButton($form->get('submit')) ?></div>
+		<div class="row button-top"><?php $form->get('submit')->setLabel($this->translate('Validate')); ?><?php echo $this->formButton($form->get('submit')) ?></div>
 		
 		<div class="row">
 			<div class="block-left col-md-3"><?php echo $this->formLabel($form->get('gameid')); ?> :</div>
@@ -231,7 +231,7 @@
 			</div>
 		</div>
 		
-		<div class="row button-bottom"><?php echo $this->formButton($form->get('submit')) ?></div>
+		<div class="row button-bottom"><?php $form->get('submit')->setLabel($this->translate('Validate')); ?><?php echo $this->formButton($form->get('submit')) ?></div>
 	</div>
 	<?php endif ?>
 	
