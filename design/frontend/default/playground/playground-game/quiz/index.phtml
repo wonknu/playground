@@ -1,0 +1,25 @@
+<?php $this->plugin('translate')->setTranslatorTextDomain('playgroundgame');// Pour le texte ?>
+<!-- GAME QUIZ -->
+<div class="game-quiz welcome">
+	<h1><?php echo $this->game->getTitle(); ?></h1>
+
+	<!-- BLOCK GAME START -->
+    <?php echo $this->partial('playground-game/partial/game-header', array('game'=>$this->game, 'channel' => $this->channel));?>
+    <!-- END BLOCK GAME START -->
+
+	<!-- contenu article -->
+	<div id="content-article" class="row-fluid rounded backgrey">
+		<div class="welcome-block<?php if($this->layout()->facebooktemplate): echo ' fb-target'; endif ?>"><?php echo $this->game->getWelcomeBlock(); ?></div>
+		<?php if($game->isStarted()):?>
+		<div class="center">
+			<div class="btn btn-orange"><a href="<?php echo $this->url('frontend/quiz/play', array('id' => $this->game->getIdentifier(),'channel' => $this->channel));?>" class="arrow-right"><?php echo $this->translate('Participer'); ?></a></div>
+		</div>
+		<?php endif;?>
+	</div>
+	<p id="reglement">
+	    <a data-toggle="modal" href="<?php echo $this->url('frontend/quiz/terms', array('id' => $this->game->getIdentifier(), 'channel' => $this->channel))?>" data-target="#reglement">
+	        <?php echo $this->translate('Règlement'); ?>
+	    </a>
+	</p>
+</div>
+<!-- END GAME QUIZ -->

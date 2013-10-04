@@ -1,8 +1,8 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <testsuites>
-  <testsuite name="application" tests="1" assertions="1" failures="0" errors="0" time="0.004533">
-    <testsuite name="ApplicationTest\Controller\Admin\StatisticsControllerTest" file="/Users/greg/git/playground/module/Application/tests/ApplicationTest/Controller/Admin/StatisticsControllerTest.php" namespace="ApplicationTest\Controller\Admin" fullPackage="ApplicationTest.Controller.Admin" tests="1" assertions="1" failures="0" errors="0" time="0.004533">
-      <testcase name="testIndexActionNonExistentGame" class="ApplicationTest\Controller\Admin\StatisticsControllerTest" file="/Users/greg/git/playground/module/Application/tests/ApplicationTest/Controller/Admin/StatisticsControllerTest.php" line="21" assertions="1" time="0.004533"/>
+  <testsuite name="application" tests="1" assertions="1" failures="0" errors="0" time="0.002941">
+    <testsuite name="ApplicationTest\Controller\Admin\StatisticsControllerTest" file="/Users/greg/git/playground/module/Application/tests/ApplicationTest/Controller/Admin/StatisticsControllerTest.php" namespace="ApplicationTest\Controller\Admin" fullPackage="ApplicationTest.Controller.Admin" tests="1" assertions="1" failures="0" errors="0" time="0.002941">
+      <testcase name="testIndexActionNonExistentGame" class="ApplicationTest\Controller\Admin\StatisticsControllerTest" file="/Users/greg/git/playground/module/Application/tests/ApplicationTest/Controller/Admin/StatisticsControllerTest.php" line="21" assertions="1" time="0.002941"/>
     </testsuite>
   </testsuite>
 </testsuites>

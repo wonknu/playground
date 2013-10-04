@@ -113,7 +113,7 @@ return array(
                 array('controller' => 'playgroundflowadmindomain',                 'roles' => array('admin')),
                 array('controller' => 'adminstats',                                'roles' => array('admin')),
                 array('controller' => 'PlaygroundDesign\Controller\CompanyAdmin',  'roles' => array('admin')),
-                array('controller' => 'PlaygroundDesign\Controller\SkinAdmin',     'roles' => array('admin')),
+                array('controller' => 'PlaygroundDesign\Controller\ThemeAdmin',     'roles' => array('admin')),
             ),
         ),
     ),

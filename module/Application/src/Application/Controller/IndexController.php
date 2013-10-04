@@ -85,17 +85,10 @@ class IndexController extends AbstractActionController
             $paginator = $items;
         }
 
-        $fbAppId = '';
-        $config = $this->getGameService()->getServiceManager()->get('config');
-        if (isset($config['facebook']['fb_appid'])) {
-            $fbAppId = $config['facebook']['fb_appid'];
-        }
-
         $bitlyclient = $this->getOptions()->getBitlyUrl();
         $bitlyuser = $this->getOptions()->getBitlyUsername();
         $bitlykey = $this->getOptions()->getBitlyApiKey();
 
-        $this->getViewHelper('HeadMeta')->setProperty('fb:app', $fbAppId);
         $this->getViewHelper('HeadMeta')->setProperty('bt:client', $bitlyclient);
         $this->getViewHelper('HeadMeta')->setProperty('bt:user', $bitlyuser);
         $this->getViewHelper('HeadMeta')->setProperty('bt:key', $bitlykey);
@@ -147,17 +140,10 @@ class IndexController extends AbstractActionController
         $paginator->setItemCountPerPage(7);
         $paginator->setCurrentPageNumber($this->getEvent()->getRouteMatch()->getParam('p'));
 
-        $fbAppId = '';
-        $config = $this->getGameService()->getServiceManager()->get('config');
-        if (isset($config['facebook']['fb_appid'])) {
-            $fbAppId = $config['facebook']['fb_appid'];
-        }
-
         $bitlyclient = $this->getOptions()->getBitlyUrl();
         $bitlyuser = $this->getOptions()->getBitlyUsername();
         $bitlykey = $this->getOptions()->getBitlyApiKey();
 
-        $this->getViewHelper('HeadMeta')->setProperty('fb:app', $fbAppId);
         $this->getViewHelper('HeadMeta')->setProperty('bt:client', $bitlyclient);
         $this->getViewHelper('HeadMeta')->setProperty('bt:user', $bitlyuser);
         $this->getViewHelper('HeadMeta')->setProperty('bt:key', $bitlykey);
@@ -286,12 +272,6 @@ class IndexController extends AbstractActionController
             }
         }
 
-        $fbAppId = '';
-        $config = $sg->getServiceManager()->get('config');
-        if (isset($config['facebook']['fb_appid'])) {
-            $fbAppId = $config['facebook']['fb_appid'];
-        }
-
         $secretKey = strtoupper(substr(sha1($user->getId().'####'.time()),0,15));
         $socialLinkUrl = $this->url()->fromRoute('frontend', array(), array('force_canonical' => true)).'?key='.$secretKey;
         // With core shortener helper
@@ -302,7 +282,6 @@ class IndexController extends AbstractActionController
         $bitlyuser = $this->getOptions()->getBitlyUsername();
         $bitlykey = $this->getOptions()->getBitlyApiKey();
 
-        $this->getViewHelper('HeadMeta')->setProperty('fb:app', $fbAppId);
         $this->getViewHelper('HeadMeta')->setProperty('bt:client', $bitlyclient);
         $this->getViewHelper('HeadMeta')->setProperty('bt:user', $bitlyuser);
         $this->getViewHelper('HeadMeta')->setProperty('bt:key', $bitlykey);

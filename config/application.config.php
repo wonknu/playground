@@ -4,6 +4,7 @@ return array(
     	'DoctrineModule',
     	'DoctrineORMModule',
     	'DoctrineDataFixtureModule',
+        //'OcraCachedViewResolver',
 		'ZendDeveloperTools',
         'Jhu\ZdtLoggerModule',
         'PlaygroundTemplateHint',

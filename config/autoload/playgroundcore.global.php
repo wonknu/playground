@@ -15,6 +15,15 @@ $settings = array(
     'bitlyApiKey'   => 'R_335290ffb3f5fc08b45d3e0e6678c3db',
     'bitlyUrl'      => 'http://api.bit.ly/v3/shorten',
 
+    //Used to create the open graph stuff
+    'facebookOpengraph' => array(
+        'enable' => true,
+        'appId'  => '118474821657382',
+        'tags'   => array(
+            'og:site_name'  => 'Site Playground',
+            'og:type'       => 'game',
+        ),
+    ),
 
     /**
     * AdServing parameters
@@ -105,12 +114,12 @@ $zenddevelopertools = array(
         'collectors' => array(),
     ),
     'toolbar' => array(
-        'enabled' => false,
+        'enabled' => true,
         'auto_hide' => false,
         'position' => 'bottom',
         'version_check' => true,
         'entries' => array(),
-        'template_hint' => false,
+        'template_hint' => true,
     ),
 );
 

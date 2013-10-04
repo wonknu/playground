@@ -42,6 +42,7 @@
 		"doctrine/data-fixtures" : "dev-master",
 		"hounddog/doctrine-data-fixture-module" : "0.*",
 		"jhuet/zdt-logger-module" : "0.*",
+		"ocramius/ocra-cached-view-resolver" : "1.0.*",
 		"playground/zdt-templatehint": "dev-master",
 		"playground/hybridauth" : "dev-master",
 		"bjyoungblood/bjy-authorize" : "1.1.*"

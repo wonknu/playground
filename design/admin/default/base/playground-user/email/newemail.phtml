@@ -23,7 +23,7 @@
 													<table width="480" cellpadding="0" cellspacing="0" border="0">
 														<tr height="102">
 															<td height="102" width="417" style="font-size:0"><img border="0" src="<?php echo $this->url('frontend', array(), array('force_canonical' => true)). 'images/content/email/email3.jpg' ;?>" alt="" height="102" width="417"/></td>
-															<td height="102" width="63" style="font-size:0"><a href="http://facebook.com/playground/"><img border="0" src="<?php echo $this->url('frontend', array(), array('force_canonical' => true)). 'images/content/email/email4.jpg';?>" alt="" height="102" width="63"/></a></td>
+															<td height="102" width="63" style="font-size:0"><?php if ($this->facebookUrl()):?><a href="<?php echo $this->facebookUrl();?>"><?php endif;?><img border="0" src="<?php echo $this->skinUrl.'images/content/email/email4.jpg';?>" alt="" height="102" width="63"/><?php if ($this->facebookUrl()):?></a><?php endif;?></td>
 														</tr>
 													</table>
 												</td>
@@ -92,7 +92,9 @@
 																											<img border="0" src="<?php echo $this->url('frontend', array(), array('force_canonical' => true)). 'images/content/email/email9.jpg';?>" alt="" height="38" width="34"/>
 																										</td>
 																										<td height="38" width="174" style="font-size:14px">
-																											<a href="http://facebook.com/playground/" style="color:#3B5A99;"><font face="Arial" color="#3B5A99">Suivez-nous sur Facebook</font></a>
+																											<?php if ($this->facebookUrl()):?>
+																											<a href="<?php echo $this->facebookUrl();?>" style="color:#3B5A99;"><font face="Arial" color="#3B5A99">Suivez-nous sur Facebook</font></a>
+																											<?php endif;?>
 																										</td>
 																									</tr>
 																								</table>

@@ -26,9 +26,8 @@ if (isset($fm[0]))
         <th><?php echo $this->translate('Title'); ?></th>
         <th><?php echo $this->translate('Start Date'); ?></th>
         <th><?php echo $this->translate('End Date'); ?></th>
-        <th><?php echo $this->translate('Active'); ?></th>
-        <th><?php echo $this->translate('Online'); ?></th>
-        <th><?php echo $this->translate('Type'); ?></th>
+        <th><?php echo $this->translate('Status'); ?></th>
+        <th><?php echo $this->translate('State'); ?></th>
         <th><?php echo $this->translate('Slug'); ?></th>
         <th></th>
         <th><?php echo $this->translate('Participants'); ?></th>
@@ -72,7 +71,7 @@ if (isset($fm[0]))
                 <?php $optionLink = ''; ?>
             <?php endif; ?>
             <td>
-                <a href='<?php echo $leaderboardLink ?>'><?php echo $this->translate('Leader Board'); ?></a> | <a href='<?php echo $editLink ?>'><?php echo $this->translate('Edit'); ?></a> | <a href='<?php echo $deleteLink ?>'><?php echo $this->translate('Delete'); ?></a><?php if($optionLink != ''):?> | <a href='<?php echo $optionLink ?>'><?php echo $this->translate('Add options'); ?></a><?php endif;?>
+                <a href='<?php echo $leaderboardLink ?>'><?php echo $this->translate('Leader Board'); ?></a> | <a href='<?php echo $editLink ?>'><?php echo $this->translate('Edit'); ?></a> | <a href='<?php echo $deleteLink ?>'><?php echo $this->translate('Delete'); ?></a><?php if($optionLink != ''):?> | <a href='<?php echo $optionLink ?>'><?php echo $this->translate('Add options'); ?></a><?php endif;?> | <a target="_blank" href='<?php echo $this->url('frontend/' . $game->getClassType(), array('id' => $game->getIdentifier(), 'channel' => 'preview'), array('force_canonical' => true));?>'><?php echo $this->translate('Preview'); ?></a>
             </td>
             <td><?php echo $game->leaderboard; ?></td>
             <td><?php echo count($this->partnerSubscriber($game->getPartner(), false));?></td>
