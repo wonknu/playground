@@ -1,0 +1,252 @@
+<?php $this->plugin('translate')->setTranslatorTextDomain('playgrounduser');// Pour le texte ?>
+<?php
+$form = $this->form;
+$form->prepare();
+?>
+
+<?php /* echo $this->form()->openTag($form) */ ?>
+<?php /* echo $this->formButton($form->get('submit')) */ ?>
+
+<form action="/admin/user/create/0" method="post" enctype="multipart/form-data" role="form">
+
+    <button type="submit" name="submit" class="btn btn-default right" value="">Créer</button>
+    <h1>Editer un utilisateur</h1>
+
+<?php if ($this->redirect): ?><input type="hidden" name="redirect" value="<?php echo $this->redirect ?>" /><?php endif ?>
+
+<div id="content" class="tabbable tabs-left">
+    <ul id="tabs" class="nav nav-tabs" data-tabs="tabs">
+        <li class="active"><a href="#identity" data-toggle="tab"><?php echo $this->translate('Identity'); ?></a></li>
+        <li><a href="#address" data-toggle="tab"><?php echo $this->translate('Address'); ?></a></li>
+        <li><a href="#newsletter" data-toggle="tab"><?php echo $this->translate('Newsletters'); ?></a></li>
+        <li><a href="#avatar" data-toggle="tab"><?php echo $this->translate('Avatar'); ?></a></li>
+    </ul>
+    
+    <div id="my-tab-content" class="tab-content">
+        <div class="tab-pane active" id="identity">
+            
+            <?php echo $this->formHidden($form->get('id')); ?>
+            
+            <div class="row">
+                <span class="col-md-6">
+            
+                    <div class="form-group">
+                        <label for="<?php echo $form->get('username')->getAttribute('name'); ?>">
+                            <?php echo $form->get('username')->getLabel(); ?>
+                        </label>
+                        <input name="<?php echo $form->get('username')->getAttribute('name'); ?>" type="text"
+                            value="<?php echo $form->get('username')->getValue(); ?>" class="form-control" />
+                        
+                        <?php if($this->formElementErrors($form->get('username')) != '') : ?>
+                        <div class="alert alert-danger">
+                            <?php echo $this->formElementErrors($form->get('username')); ?>
+                        </div>
+                        <?php endif; ?>
+                    </div>
+                    
+                    <div class="form-group">
+                        <label for="<?php echo $form->get('email')->getAttribute('name'); ?>">
+                            <?php echo $form->get('email')->getLabel(); ?>
+                        </label>
+                        <input name="<?php echo $form->get('email')->getAttribute('name'); ?>" type="text"
+                            value="<?php echo $form->get('email')->getValue(); ?>" class="form-control" />
+                        
+                        <?php if($this->formElementErrors($form->get('email')) != '') : ?>
+                        <div class="alert alert-danger">
+                            <?php echo $this->formElementErrors($form->get('email')); ?>
+                        </div>
+                        <?php endif; ?>
+                    </div>
+                    
+                    <div class="form-group">
+                        <label for="<?php echo $form->get('title')->getAttribute('name'); ?>">
+                            <?php echo $form->get('title')->getLabel(); ?>
+                        </label>
+                        <?php foreach ($form->get('title')->getValueOptions() as $key => $value) : ?>
+                        <div class="radio">
+                            <label>
+                                <input type="radio" name="<?php echo $form->get('title')->getAttribute('name'); ?>"
+                                    <?php echo ($key == $form->get('title')->getValue()) ? 'checked="checked"' : ''; ?> value="<?php echo $key; ?>" />
+                                <?php echo $value; ?>
+                            </label>
+                        </div>
+                        <?php endforeach; ?>
+                        
+                        <?php if($this->formElementErrors($form->get('title')) != '') : ?>
+                        <div class="alert alert-danger">
+                            <?php echo $this->formElementErrors($form->get('title')); ?>
+                        </div>
+                        <?php endif; ?>
+                    </div>
+                    
+                    <div class="form-group">
+                        <label for="<?php echo $form->get('firstname')->getAttribute('name'); ?>">
+                            <?php echo $form->get('firstname')->getLabel(); ?>
+                        </label>
+                        <input name="<?php echo $form->get('firstname')->getAttribute('name'); ?>" type="text" value="<?php echo $form->get('firstname')->getValue(); ?>" class="form-control" />
+                        
+                        <?php if($this->formElementErrors($form->get('firstname')) != '') : ?>
+                        <div class="alert alert-danger">
+                            <?php echo $this->formElementErrors($form->get('firstname')); ?>
+                        </div>
+                        <?php endif; ?>
+                    </div>
+                    
+                    <div class="form-group">
+                        <label for="<?php echo $form->get('lastname')->getAttribute('name'); ?>">
+                            <?php echo $form->get('lastname')->getLabel(); ?>
+                        </label>
+                        <input name="<?php echo $form->get('lastname')->getAttribute('name'); ?>" type="text" value="<?php echo $form->get('lastname')->getValue(); ?>" class="form-control" />
+                        
+                        <?php if($this->formElementErrors($form->get('lastname')) != '') : ?>
+                        <div class="alert alert-danger">
+                            <?php echo $this->formElementErrors($form->get('lastname')); ?>
+                        </div>
+                        <?php endif; ?>
+                    </div>
+                    
+                    <div class="form-group">
+                        <label for="<?php echo $form->get('roleId')->getAttribute('name'); ?>">
+                            <?php echo $form->get('roleId')->getLabel(); ?>
+                        </label>
+                        <select name="<?php echo $form->get('roleId')->getAttribute('name'); ?>" id="<?php echo $form->get('roleId')->getAttribute('name'); ?>" class="form-control">
+                            <option value="">-</option>
+                            <?php foreach ($form->get('roleId')->getValueOptions() as $key => $value) : ?>
+                            <option value="<?php echo $value['value'] ?>" <?php echo ($value["value"] == $form->get('roleId')->getValue()) ? 'selected="selected"' : ''; ?>><?php echo $value['label'] ?></option>
+                            <?php endforeach; ?>
+                        </select>
+                        
+                        <?php if($this->formElementErrors($form->get('roleId')) != '') : ?>
+                        <div class="alert alert-danger">
+                            <?php echo $this->formElementErrors($form->get('roleId')); ?>
+                        </div>
+                        <?php endif; ?>
+                    </div>
+                    
+                    <div class="form-group">
+                        <label for="<?php echo $form->get('dob')->getAttribute('name'); ?>">
+                            <?php echo $form->get('dob')->getLabel(); ?>
+                        </label>
+                        <input name="<?php echo $form->get('dob')->getAttribute('name'); ?>" type="text" value="<?php echo $form->get('dob')->getValue(); ?>" class="form-control" />
+                        
+                        <?php if($this->formElementErrors($form->get('dob')) != '') : ?>
+                        <div class="alert alert-danger">
+                            <?php echo $this->formElementErrors($form->get('dob')); ?>
+                        </div>
+                        <?php endif; ?>
+                    </div>
+                </span>
+            </div>
+        </div>
+        
+        <!--div class="tab-pane active" id="identity">
+            <?php echo $this->formHidden($form->get('id')); ?>
+            
+            <div class="label-input">
+	            <?php echo $this->formLabel($form->get('username')); ?>
+	            <?php echo $this->formInput($form->get('username')); ?>
+	            <?php echo $this->formElementErrors($form->get('username')) ?>
+	        </div>
+	        <div class="label-input">
+	            <?php echo $this->formLabel($form->get('email')); ?>
+	            <?php echo $this->formInput($form->get('email')); ?>
+	            <?php echo $this->formElementErrors($form->get('email')) ?>
+	        </div>
+	        <div class="label-input">
+	            <?php echo $this->formLabel($form->get('title')); ?>
+	            <div class="radio">
+		            <?php echo $this->formRadio($form->get('title')); ?>
+		            <?php echo $this->formElementErrors($form->get('title')) ?>
+	            </div>
+	        </div>
+	        <div class="label-input">
+	            <?php echo $this->formLabel($form->get('firstname')); ?>
+	            <?php echo $this->formInput($form->get('firstname')); ?>
+	            <?php echo $this->formElementErrors($form->get('firstname')) ?>
+	        </div>
+	        <div class="label-input">
+	            <?php echo $this->formLabel($form->get('lastname')); ?>
+	            <?php echo $this->formInput($form->get('lastname')); ?>
+	            <?php echo $this->formElementErrors($form->get('lastname')) ?>
+	        </div>
+	        <div class="label-input">
+	            <?php echo $this->formLabel($form->get('roleId')); ?>
+	            <?php echo $this->formSelect($form->get('roleId')); ?>
+	            <?php echo $this->formElementErrors($form->get('roleId')) ?>
+	        </div>
+			
+			<div class="label-input">
+	            <?php echo $this->formLabel($form->get('dob')); ?>
+				<?php echo $this->formDateTime($form->get('dob')) ?>
+				<?php echo $this->formElementErrors($form->get('dob')) ?>
+	        </div>
+        </div-->
+        <div class="tab-pane" id="address">
+        	<div class="label-input">
+	            <?php echo $this->formLabel($form->get('address')); ?>
+	            <?php echo $this->formInput($form->get('address')); ?>
+	            <?php echo $this->formElementErrors($form->get('address')) ?>
+	        </div>
+	        <div class="label-input">
+	            <?php echo $this->formLabel($form->get('address2')); ?>
+	            <?php echo $this->formInput($form->get('address2')); ?>
+	            <?php echo $this->formElementErrors($form->get('address2')) ?>
+	        </div>
+	        <div class="label-input">
+	            <?php echo $this->formLabel($form->get('postal_code')); ?>
+	            <?php echo $this->formInput($form->get('postal_code')); ?>
+	            <?php echo $this->formElementErrors($form->get('postal_code')) ?>
+	        </div>
+	        <div class="label-input">
+	            <?php echo $this->formLabel($form->get('city')); ?>
+	            <?php echo $this->formInput($form->get('city')); ?>
+	            <?php echo $this->formElementErrors($form->get('city')) ?>
+	        </div>
+	        <div class="label-input">
+	            <?php echo $this->formLabel($form->get('telephone')); ?>
+	            <?php echo $this->formInput($form->get('telephone')); ?>
+	            <?php echo $this->formElementErrors($form->get('telephone')) ?>
+	        </div>
+			<div class="label-input">
+	            <?php echo $this->formLabel($form->get('country')); ?>
+	            <?php echo $this->formSelect($form->get('country')); ?>
+	            <?php echo $this->formElementErrors($form->get('country')) ?>
+	        </div>
+		</label>
+        </div>
+        <div class="tab-pane" id="newsletter">
+            <div class="label-input">
+	            <?php echo $this->formLabel($form->get('optin')); ?>
+	            <div class="radio">
+		            <?php echo $this->formRadio($form->get('optin')); ?>
+		            <?php echo $this->formElementErrors($form->get('optin')) ?>
+		        </div>
+            </div>
+            <div class="label-input">
+	            <?php echo $this->formLabel($form->get('optinPartner')); ?>
+	            <div class="radio">
+		            <?php echo $this->formRadio($form->get('optinPartner')); ?>
+		            <?php echo $this->formElementErrors($form->get('optinPartner')) ?>
+		        </div>
+            </div>
+        </div>
+        <div class="tab-pane" id="avatar">
+            <div class="image-profil">
+            	<?php echo $this->formLabel($form->get('avatar')); ?>
+            	<?php echo $this->formFile($form->get('avatar')); ?>
+				<?php echo $this->formElementErrors($form->get('avatar')) ?>
+            </div>
+            <?php if($form->get('avatar')->getValue() != ''):?>
+            	<img src="<?php echo $this->basePath($form->get('avatar')->getValue()); ?>" />
+            <?php endif;?>
+        </div>
+    </div>
+</div>
+<?php echo $this->form()->closeTag() ?>
+
+<script type="text/javascript">
+    jQuery(document).ready(function ($) {
+        $('#tabs').tab();
+        $('.date').datepicker();
+    });
+</script>

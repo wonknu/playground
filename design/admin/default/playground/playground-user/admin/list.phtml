@@ -1,0 +1,76 @@
+<?php $this->plugin('translate')->setTranslatorTextDomain('playgrounduser');// Pour le texte ?>
+
+<a class="btn btn-default right" href="<?php echo $this->url('admin/playgrounduser/create', array('userId' => 0));?>">Ajouter un nouvel utilisateur</a>
+
+<h1>Liste des utilisateurs</h1>
+
+<div class="sortby-role">Tri par rôle : <a href="<?php echo $this->url('admin/playgrounduser/list', array('roleId' => 'user', 'filter' => 'DESC')); ?>">Joueur</a> | <a href="<?php echo $this->url('admin/playgrounduser/list', array('roleId' => 'admin', 'filter' => 'DESC')); ?>">Administrateur</a> | <a href="<?php echo $this->url('admin/playgrounduser/list', array('roleId' => 'commercial', 'filter' => 'DESC')); ?>">Commercial</a></div>
+
+<form action="<?php echo $this->url('admin/playgrounduser/list', array('roleId' => $this->roleId, 'filter' => 'DESC')); ?>" method="GET" class="form-inline right" role="form">
+    <div class="row">
+        <span class="col-md-6">
+    	   <input class="form-control" type="text" id="searchName" name="name" id="" placeholder="Rechercher" value="<?php echo $this->search?>" />
+    	</span>
+        <span class="col-md-6">
+    	<input type="submit" class="btn btn-default" value="rechercher" />
+        </span>
+	</div>
+</form>
+
+<div class="pagination-top"><?php echo $this->paginationControl($this->users, 'Sliding', 'playground-user/admin/pagination_userlist.phtml', array('roleId' => $this->roleId, 'filter' => $this->filter)); ?></div>
+
+<table class="table table-striped table-hover">
+    <thead>
+        <tr>
+            <!-- <th><?php echo $this->translate('Id'); ?></th> -->
+            <th><?php echo $this->translate('Création'); ?></th>
+            <th><?php echo $this->translate('Adresse Email'); ?></th>
+            <th><?php echo $this->translate('Pseudo'); ?></th>
+            <th><?php echo $this->translate('Prénom'); ?></th>
+            <th><?php echo $this->translate('Nom'); ?></th>
+            <th><?php echo $this->translate('Téléphone'); ?></th>
+            <th><?php echo $this->translate('Actif'); ?></th>
+            <th><?php echo $this->translate('Roles'); ?></th>
+            <th></th>
+        </tr>
+    </thead>
+
+    <tbody>
+    <?php foreach ($this->users as $user): ?>
+        <tr>
+            <!-- <td><?php echo $user->getId() ?></td> -->
+            <td><?php echo $user->getCreatedAt()->format('d/m/Y') ?></td>
+            <td><?php echo $user->getEmail() ?></td>
+            <td><?php echo $user->getUsername(); ?></td>
+            <td><?php echo $user->getFirstname(); ?></td>
+            <td><?php echo $user->getLastname(); ?></td>
+            <td><?php echo $user->getTelephone(); ?></td>
+            <td>
+            <?php if($user->getState() == 0): ?>
+                Désactivé
+            <?php elseif($user->getState() == 1):?>
+                Actif
+            <?php else:?>
+                Suspendu
+            <?php endif;?>
+            </td>
+            <td>
+            <?php foreach($user->getRoles() as $k => $v){
+            	echo $v->getRoleId() . "<br/>";
+            }?>
+            </td>
+            <td>
+            <?php
+                $editLink   = $this->url('admin/playgrounduser/edit', array('userId' => $user->getId()));
+                $deleteLink = $this->url('admin/playgrounduser/remove', array('userId' => $user->getId()));
+                $resetLink  = $this->url('admin/playgrounduser/reset', array('userId' => $user->getId()));
+				$activateLink = $this->url('admin/playgrounduser/activate', array('userId' => $user->getId()));
+            ?>
+            <a href='<?php echo $resetLink ?>'>Réinitialiser le mot de passe</a> | <a href='<?php echo $editLink ?>'>Editer</a> | <?php if($user->getState() == 0 || $user->getState() == 2):?><a href='<?php echo $activateLink ?>'>Activer</a><?php else:?><a href='<?php echo $deleteLink ?>'>Désactiver</a><?php endif;?>
+            </td>
+        </tr>
+    <?php endforeach;?>
+    </tbody>
+</table>
+
+<?php echo $this->paginationControl($this->users, 'Sliding', 'playground-user/admin/pagination_userlist.phtml', array('roleId' => $this->roleId, 'filter' => $this->filter)); ?>
