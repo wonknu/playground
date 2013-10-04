@@ -1,0 +1,48 @@
+<?php
+$fm = $this->flashMessenger()->setNamespace('playgroundpartnership')->getMessages();
+if (isset($fm[0]))
+{
+    print '<span class=>' . $fm[0] . '</span>';
+}
+?>
+<?php $this->plugin('translate')->setTranslatorTextDomain('playgroundpartnership'); ?>
+
+<a class="btn btn-default right" href="<?php echo $this->url('admin/playgroundpartnership_admin/create');?>"><?php echo $this->translate('Ajouter un partenaire'); ?></a>
+
+<h1><?php echo $this->translate('Les partenaires'); ?></h1>
+
+<table class="table table-hover table-striped">
+    <thead>
+        <tr>
+            <!--<th><?php echo $this->translate('Id'); ?></th>-->
+            <th><?php echo $this->translate('Nom'); ?></th>
+            <th><?php echo $this->translate('Logo'); ?></th>
+            <th><?php echo $this->translate('Petit logo'); ?></th>
+            <th><?php echo $this->translate('Actif'); ?></th>
+            <th></th>
+        </tr>
+    </thead>
+    <tbody>
+        <?php foreach ($this->partners as $partner): ?>
+            <?php $editLink   = $this->url('admin/playgroundpartnership_admin/edit',       array('partnerId' => $partner->getId()));?>
+            <?php $deleteLink = $this->url('admin/playgroundpartnership_admin/remove',     array('partnerId' => $partner->getId()));?>
+            <?php $newsletterLink = $this->url('admin/playgroundpartnership_admin/newsletter', array('partnerId' => $partner->getId()));?>
+            <tr>
+                <!--<td><?php echo $partner->getId() ?></td>-->
+                <td><?php echo $partner->getName() ?></td>
+                <td>
+                    <?php if($partner->getLogo() != ''):?><img src="<?php echo $this->basePath($partner->getLogo()); ?>" width="100" /><?php endif;?>
+                </td>
+                <td>
+                    <?php if($partner->getSmallLogo() != ''):?><img src="<?php echo $this->basePath($partner->getSmallLogo()); ?>" width="50" /><?php endif;?>
+                </td>
+                <td><?php echo ($partner->getActive())? $this->translate('Actif'):$this->translate('inactif')?></td>
+                <td>
+                    <?php if($partner->getNewsletter()):?><a href='<?php echo $newsletterLink ?>'><?php echo $this->translate('Abonnés Newsletter'); ?></a> | <?php endif;?><a href='<?php echo $editLink ?>'><?php echo $this->translate('Edit'); ?></a> | <a class="remove-entry" href='<?php echo $deleteLink ?>'><?php echo $this->translate('Delete'); ?></a>
+                </td>
+            </tr>
+        <?php endforeach; ?>
+    </tbody>
+</table>
+
+<?php //echo $this->paginationControl($this->partners, 'Sliding', 'playground-partnership/admin/pagination_partnerlist.phtml'); ?>

@@ -1,0 +1,15 @@
+<?php $this->plugin('translate')->setTranslatorTextDomain('playgrounduser');// Pour le texte ?>
+<?php
+$form = $this->loginForm;
+$form->prepare();
+?>
+
+<form class="form-horizontal" method="post" id="loginAdmin">
+    
+    <input type="email" class="form-control" id="identity" name="identity" placeholder="<?php echo $form->get('identity')->getAttribute('placeholder'); ?>">
+    
+    <input type="password" class="form-control" id="credential" name="credential" placeholder="<?php echo $form->get('credential')->getAttribute('placeholder'); ?>">
+    
+    <button type="submit" name="submit" class="btn btn-default">Login</button>
+</form>
+

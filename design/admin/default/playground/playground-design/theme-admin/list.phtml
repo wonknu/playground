@@ -1,0 +1,49 @@
+<h1>Theme de demo</h1>
+
+<?php $this->plugin('translate')->setTranslatorTextDomain('playgrounddesign');// Pour le texte ?>
+<?php echo $this->partial('playground-design/partial/menu.phtml', array('action' => 'list', 'automaticTheme' => $automaticTheme)); ?>
+
+<div class="row show-grid">
+    <ul class="thumbnails list-unstyled">
+        <?php foreach ($themesActivated as $theme) : ?>
+            <li class="col-md-4">
+                <div class="thumbnail">
+                    <?php foreach ( $theme->getImages() as $image) : ?>
+                        <img alt="<?php echo $theme->getTitle(); ?>" data-src="holder.js/300x200" src="<?php echo $image;?>" class="image">
+                    <?php endforeach; ?>
+                    <div class="caption">
+                        <p class="muted"><?php echo $this->translate('Theme actuel'); ?><p>
+                        <h2><?php echo $theme->getTitle(); ?> <?php echo $this->translate('de type'); ?> <?php echo $theme->getArea(); ?></h2>
+                        <p><?php echo $this->translate('par'); ?> <?php echo $theme->getAuthor(); ?></p>
+                        <p><?php echo $this->translate('Tous les fichiers de ce thème se trouvent dans');?> <?php echo $theme->getUrlBase();?></p>
+                    </div>
+                </div>
+            </li>
+        <?php endforeach; ?>
+    </ul>
+</div>
+<div class="row show-grid">
+    <ul class="thumbnails list-unstyled">
+        <?php foreach ($themesNotActivated as $theme) : ?>
+            <li class="col-md-4">
+                <div class="thumbnail">
+                    <?php foreach ( $theme->getImages() as $image) : ?>
+                        <img alt="<?php echo $theme->getTitle(); ?>" data-src="holder.js/300x200" src="<?php echo $image;?>" class="image">
+                    <?php endforeach; ?>
+                    <div class="caption">
+                        <h2><?php echo $theme->getTitle(); ?> <?php echo $this->translate('de type'); ?> <?php echo $theme->getArea(); ?></h2>
+                        <p><?php echo $this->translate('par'); ?> <?php echo $theme->getAuthor(); ?></p>
+                        <p><?php echo $this->translate('Tous les fichiers de ce thème se trouvent dans');?>
+                            <div class="alert alert-info"><?php echo $theme->getUrlBase(); ?></div>
+                        </p>
+                        <p>
+                            <a class="btn btn-primary" href="<?php echo $this->url('admin/playgrounddesign_themeadmin_activate', array('themeId' => $theme->getId()));?>"><?php echo $this->translate('Activer');?></a>
+                            <a class="btn" href="<?php echo $this->url('admin/playgrounddesign_themeadmin_edit', array('themeId' => $theme->getId()));?>"><?php echo $this->translate('Editer');?></a> 
+                            <a class="btn" href="<?php echo $this->url('admin/playgrounddesign_themeadmin_delete', array('themeId' => $theme->getId()));?>"><?php echo $this->translate('Supprimer');?></a>
+                        </p>
+                    </div>
+                </div>
+            </li>
+        <?php endforeach; ?>
+    </ul>
+</div>
