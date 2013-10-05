@@ -96,6 +96,7 @@ return array(
                 array('controller' => 'playgroundgame_admin_treasurehunt',         'roles' => array('admin')),
                 array('controller' => 'playgroundfaq_admin',                       'roles' => array('admin')),
                 array('controller' => 'playgroundfacebook_admin_app',              'roles' => array('admin')),
+                array('controller' => 'playgroundfacebook_admin_page',             'roles' => array('admin')),
                 array('controller' => 'playgroundpartnership_admin',               'roles' => array('admin')),
                 array('controller' => 'PlaygroundDesign\Controller\System',        'roles' => array('admin')),
                 array('controller' => 'PlaygroundCore\Controller\Formgen',         'roles' => array('admin')),

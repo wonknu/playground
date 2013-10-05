@@ -2,7 +2,7 @@
 return array(
 	'assetic_configuration' => array(
 		'modules' => array(
-			'default_playground' => array(
+			'admin_default_playground' => array(
 				'root_path' => array(
 					__DIR__ . '/../../../../design/admin/default/playground/assets',
 				),
