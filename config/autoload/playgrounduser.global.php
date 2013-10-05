@@ -134,17 +134,26 @@ $zfcSettings = array(
 *
 */
 
-$playgroundAuth = array(
+/**
+*
+* playgroundAdminAuth
+* Permet de définir quelle est la route pour se connecter
+* Permet de définir quelle est la route d'apres connexion.
+* Permet de définir quelle est la route si on a pas les droits
+*
+*/
+
+$playgroundAdminAuth = array(
     // Route de login : ecran de connexion
     "routeLogin" => 'admin',
     // Information sur la page d'apres
     "loginSuccess" => array(
         // Ressource associé
-        'resource'   => 'core',
+        'resource'   => 'syncmytv',
         // Privilege associé
-        'privilege'  => 'dashboard',
+        'privilege'  => 'system',
         // Controller 
-        'controller' => 'adminstats',
+        'controller' => 'SyncMyTv\Controller\Admin\Index',
         // Action 
         'action'     => 'index'),
     "authFail" => array(
@@ -158,5 +167,5 @@ $playgroundAuth = array(
 return array(
     'playgrounduser' => $playgrounduser,
     'zfcuser' => $zfcSettings,
-    'playgroundAuth' => $playgroundAuth,
+    'playgroundAdminAuth' => $playgroundAdminAuth,
 );
