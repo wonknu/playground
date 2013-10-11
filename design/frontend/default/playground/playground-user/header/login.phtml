@@ -26,8 +26,8 @@ $form->setAttribute('id', 'header-login');
                             <div>
                                 <div id="input-login" class="">
                                     <div class="input-login-error"></div>
-                                    <?php echo $this->formInput($form->get('identity')) ?>
-                                    <?php echo $this->formInput($form->get('credential')) ?>
+                                    <?php echo $this->formInput($form->get('identity')->setAttributes(array('class' => 'form-control'))) ?>
+                                    <?php echo $this->formInput($form->get('credential')->setAttributes(array('class' => 'form-control'))) ?>
                                     <?php if ($this->redirect): ?>
                                         <input type="hidden" name="redirect" value="<?php echo $this->redirect ?>" />
                                     <?php endif ?>

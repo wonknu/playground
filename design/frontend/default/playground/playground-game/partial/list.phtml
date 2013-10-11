@@ -70,37 +70,23 @@
 	<div class="posts consultation-list-wrap<?php if(!$game->isStarted()):?> game-close<?php endif ?>">
 			<?php foreach($this->posts as $post): ?>
 				<div class="row">
-					<div class="col-md-12">
+					<div class="col-md-10 rounded">
 						<?php if($this->game->getTemplate() == 'photo'): ?>
 							<div class="photo-noslider">
 								<?php if(isset($post['data'][1])):?>
-									<h2>
-									    <a href="<?php echo $this->url('frontend/postvote/post', array('id' => $this->game->getIdentifier(), 'channel' => $this->channel, 'post' => $post['id']))?>">
-									        <?php echo $post['data'][1];?>
-									    </a>
-									</h2>
+									<h2><a href="<?php echo $this->url('frontend/postvote/post', array('id' => $this->game->getIdentifier(), 'channel' => $this->channel, 'post' => $post['id']))?>"><?php echo $post['data'][1];?></a></h2>
 								<?php endif ?>
 							    <div class="couv-img">
 							    	<?php if(isset($post['data'][2])):?>
-							    		<a href="<?php echo $this->url('frontend/postvote/post', array('id' => $this->game->getIdentifier(), 'channel' => $this->channel, 'post' => $post['id']))?>">
-							    		    <img src="<?php echo $this->basePath($post['data'][2])?>" alt="" />
-							    		</a>
+							    		<a href="<?php echo $this->url('frontend/postvote/post', array('id' => $this->game->getIdentifier(), 'channel' => $this->channel, 'post' => $post['id']))?>"><img src="<?php echo $this->basePath($post['data'][2])?>" alt="" /></a>
 							    	<?php elseif(isset($post['data'][3])):?>
-							    		<a href="<?php echo $this->url('frontend/postvote/post', array('id' => $this->game->getIdentifier(), 'channel' => $this->channel, 'post' => $post['id']))?>">
-							    		    <img src="<?php echo $this->basePath($post['data'][3])?>" alt="" />
-							    		</a>
+							    		<a href="<?php echo $this->url('frontend/postvote/post', array('id' => $this->game->getIdentifier(), 'channel' => $this->channel, 'post' => $post['id']))?>"><img src="<?php echo $this->basePath($post['data'][3])?>" alt="" /></a>
 							    	<?php elseif(isset($post['data'][4])):?>
-							    		<a href="<?php echo $this->url('frontend/postvote/post', array('id' => $this->game->getIdentifier(), 'channel' => $this->channel, 'post' => $post['id']))?>">
-							    		    <img src="<?php echo $this->basePath($post['data'][4])?>" alt="" />
-							    		</a>
+							    		<a href="<?php echo $this->url('frontend/postvote/post', array('id' => $this->game->getIdentifier(), 'channel' => $this->channel, 'post' => $post['id']))?>"><img src="<?php echo $this->basePath($post['data'][4])?>" alt="" /></a>
 							    	<?php elseif(isset($post['data'][5])):?>
-							    		<a href="<?php echo $this->url('frontend/postvote/post', array('id' => $this->game->getIdentifier(), 'channel' => $this->channel, 'post' => $post['id']))?>">
-							    		    <img src="<?php echo $this->basePath($post['data'][5])?>" alt="" />
-							    		</a>
+							    		<a href="<?php echo $this->url('frontend/postvote/post', array('id' => $this->game->getIdentifier(), 'channel' => $this->channel, 'post' => $post['id']))?>"><img src="<?php echo $this->basePath($post['data'][5])?>" alt="" /></a>
 							    	<?php elseif(isset($post['data'][6])):?>
-							    		<a href="<?php echo $this->url('frontend/postvote/post', array('id' => $this->game->getIdentifier(), 'channel' => $this->channel, 'post' => $post['id']))?>">
-							    		    <img src="<?php echo $this->basePath($post['data'][6])?>" alt="" />
-							    		</a>
+							    		<a href="<?php echo $this->url('frontend/postvote/post', array('id' => $this->game->getIdentifier(), 'channel' => $this->channel, 'post' => $post['id']))?>"><img src="<?php echo $this->basePath($post['data'][6])?>" alt="" /></a>
 							    	<?php endif;?>
 							    </div>
 								<p>

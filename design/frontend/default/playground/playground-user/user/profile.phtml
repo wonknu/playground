@@ -58,7 +58,7 @@
 					</p>
 				</div>
 				<div class="col-md-6">
-					<?php echo $this->formInput($formEmail->get('newIdentity')) ?>
+					<?php echo $this->formInput($formEmail->get('newIdentity')->setAttributes(array('class' => 'form-control'))) ?>
 					<?php echo $this->formElementErrors($formEmail->get('newIdentity')) ?>
 				</div>
 			</div>
@@ -69,7 +69,7 @@
 					</p>
 				</div>
 				<div class="col-md-6">
-					<?php echo $this->formInput($formEmail->get('newIdentityVerify')) ?>
+					<?php echo $this->formInput($formEmail->get('newIdentityVerify')->setAttributes(array('class' => 'form-control'))) ?>
 					<?php echo $this->formElementErrors($formEmail->get('newIdentityVerify')) ?>
 				</div>
 			</div>
@@ -81,7 +81,7 @@
 					</p>
 				</div>
 				<div class="col-md-6">
-					<?php echo $this->formInput($formEmail->get('credential')) ?>
+					<?php echo $this->formInput($formEmail->get('credential')->setAttributes(array('class' => 'form-control'))) ?>
 					<?php echo $this->formElementErrors($formEmail->get('credential')) ?>
 				</div>
 			</div>
@@ -100,6 +100,7 @@
             $form->setAttribute('method', 'post');
 			$form->setAttribute('class', 'validate');
             $emailElement = $form->get('identity');
+            $emailElement->setAttributes(array('class' => 'form-control'));
             $emailElement->setValue($this->zfcUserIdentity()->getEmail());
             echo $this->form()->openTag($form);
             echo $this->formElementErrors($form->get('identity'));
@@ -115,7 +116,7 @@
 					</p>
 				</div>
 				<div class="col-md-6">
-					<?php echo $this->formInput($form->get('credential')) ?>
+					<?php echo $this->formInput($form->get('credential')->setAttributes(array('class' => 'form-control'))) ?>
 					<?php echo $this->formElementErrors($form->get('credential')) ?>
 				</div>
 			</div>
@@ -131,7 +132,7 @@
 				    </p>
 				</div>
 				<div class="col-md-6">
-					<?php echo $this->formInput($form->get('newCredential')) ?>
+					<?php echo $this->formInput($form->get('newCredential')->setAttributes(array('class' => 'form-control'))) ?>
 					<?php echo $this->formElementErrors($form->get('newCredential')) ?>
 				</div>
 			</div>
@@ -143,7 +144,7 @@
 					</p>
 				</div>
 				<div class="col-md-6">
-					<?php echo $this->formInput($form->get('newCredentialVerify')) ?>
+					<?php echo $this->formInput($form->get('newCredentialVerify')->setAttributes(array('class' => 'form-control'))) ?>
 					<?php echo $this->formElementErrors($form->get('newCredentialVerify')) ?>
 				</div>
 			</div>
@@ -185,7 +186,7 @@
 					</p>
 				</div>
 				<div class="col-md-6">
-					<?php echo $this->formInput($formInfo->get('username')); ?>
+					<?php echo $this->formInput($formInfo->get('username')->setAttributes(array('class' => 'form-control'))); ?>
 				</div>
 				<div class="col-md-2">
 					<p class="orange-points">
@@ -231,7 +232,7 @@
 			        </p>
 				</div>
 				<div class="col-md-6">
-					<?php echo $this->formInput($formInfo->get('lastname')) ?>
+					<?php echo $this->formInput($formInfo->get('lastname')->setAttributes(array('class' => 'form-control'))) ?>
 					<?php echo $this->formElementErrors($formInfo->get('lastname')) ?>
 				</div>
 				<div class="col-md-2">
@@ -247,7 +248,7 @@
 			        </p>
 				</div>
 				<div class="col-md-6">
-					<?php echo $this->formInput($formInfo->get('firstname')) ?>
+					<?php echo $this->formInput($formInfo->get('firstname')->setAttributes(array('class' => 'form-control'))) ?>
 					<?php echo $this->formElementErrors($formInfo->get('firstname')) ?>
 				</div>
 				<div class="col-md-2">
@@ -258,9 +259,13 @@
 			</div>
 
 			<div class="row">
-				<div class="col-md-4"><p><?php echo $formInfo->get('address')->getLabel(); ?> :</p></div>
+				<div class="col-md-4">
+				    <p>
+				        <?php echo $formInfo->get('address')->getLabel(); ?> :
+				    </p>
+				</div>
 				<div class="col-md-6">
-					<?php echo $this->formInput($formInfo->get('address')) ?>
+					<?php echo $this->formInput($formInfo->get('address')->setAttributes(array('class' => 'form-control'))) ?>
 					<?php echo $this->formElementErrors($formInfo->get('address')) ?>
 				</div>
 				<div class="col-md-2">
@@ -276,7 +281,7 @@
 					</p>
 				</div>
 				<div class="col-md-6">
-					<?php echo $this->formInput($formInfo->get('address2')) ?>
+					<?php echo $this->formInput($formInfo->get('address2')->setAttributes(array('class' => 'form-control'))) ?>
 					<?php echo $this->formElementErrors($formInfo->get('address2')) ?>
 				</div>
 			</div>
@@ -288,7 +293,7 @@
 				    </p>
 				</div>
 				<div class="col-md-6">
-					<?php echo $this->formInput($formInfo->get('postal_code')) ?>
+					<?php echo $this->formInput($formInfo->get('postal_code')->setAttributes(array('class' => 'form-control'))) ?>
 					<?php echo $this->formElementErrors($formInfo->get('postal_code')) ?>
 				</div>
 				<div class="col-md-2">
@@ -305,7 +310,7 @@
 					</p>
 				</div>
 				<div class="col-md-6">
-					<?php echo $this->formInput($formInfo->get('city')) ?>
+					<?php echo $this->formInput($formInfo->get('city')->setAttributes(array('class' => 'form-control'))) ?>
 					<?php echo $this->formElementErrors($formInfo->get('city')) ?>
 				</div>
 				<div class="col-md-2">
@@ -320,7 +325,7 @@
 					</p>
 				</div>
 				<div class="col-md-6">
-					<?php echo $this->formSelect($formInfo->get('country')) ?>
+					<?php echo $this->formSelect($formInfo->get('country')->setAttributes(array('class' => 'form-control'))) ?>
 					<?php echo $this->formElementErrors($formInfo->get('country')) ?>
 				</div>
 				<div class="col-md-2">
@@ -337,7 +342,7 @@
 					</p>
 				</div>
 				<div class="col-md-6 phone">
-					<?php echo $this->formInput($formInfo->get('telephone')) ?>
+					<?php echo $this->formInput($formInfo->get('telephone')->setAttributes(array('class' => 'form-control'))) ?>
 					<?php echo $this->formElementErrors($formInfo->get('telephone')) ?>
 				</div>
 				<div class="col-md-2">
@@ -346,7 +351,6 @@
 					</p>
 				</div>
 			</div>
-			
 			<div class="row">
 				<div class="col-md-4">
 					<p>
@@ -355,7 +359,7 @@
 				    </p>
 				</div>
 				<div class="col-md-6">
-					<?php echo $this->formDateTime($formInfo->get('dob')) ?>
+					<?php echo $this->formDateTime($formInfo->get('dob')->setAttributes(array('class' => 'form-control'))) ?>
 					<?php echo $this->formElementErrors($formInfo->get('dob')) ?>
 				</div>
 			</div>
@@ -434,7 +438,7 @@
         echo $this->form()->openTag($formBlockAccount);
         echo $this->formElementErrors($formBlockAccount->get('identity'));
         echo $this->formHidden($formBlockAccount->get('activate'));
-        echo $this->formInput($formBlockAccount->get('identity'));
+        echo $this->formInput($formBlockAccount->get('identity')->setAttributes(array('class' => 'form-control')));
         ?>
 		<div class="row">
 			<div class="col-md-4">
@@ -443,7 +447,7 @@
 				</p>
 			</div>
 			<div class="col-md-6">
-				<?php echo $this->formInput($formBlockAccount->get('credential')) ?>
+				<?php echo $this->formInput($formBlockAccount->get('credential')->setAttributes(array('class' => 'form-control'))) ?>
 				<?php echo $this->formElementErrors($formBlockAccount->get('credential')) ?>
 			</div>
 		</div>
@@ -453,7 +457,7 @@
         </div>
         <div class="clearfix"></div>
 		<?php
-        echo $this->formInput($formBlockAccount->get('cancel'));
+        echo $this->formInput($formBlockAccount->get('cancel')->setAttributes(array('class' => 'form-control')));
         echo $this->formInput($formBlockAccount->get('confirm_submit'));
         echo $this->form()->closeTag($formBlockAccount);
         ?>

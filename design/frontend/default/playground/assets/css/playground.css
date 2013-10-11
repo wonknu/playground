@@ -6186,6 +6186,17 @@ ul {
   float: left;
   margin-right: 10px;
 }
+#sidebar-user #user {
+  padding-bottom: 20px;
+}
+#sidebar-user #point .icon-reward {
+  text-align: center;
+}
+#sidebar-user .avatar,
+#sidebar-user .username,
+#sidebar-user .btn-wrapper {
+  text-align: center;
+}
 /* content */
 .block-game {
   position: relative;
@@ -6262,9 +6273,16 @@ form[name="preview_form"] {
 form[name="preview_form"] .message {
   margin: 10px;
 }
+/* result game */
+#mail-send button {
+  margin-top: 10px;
+}
 #parrainer #terminer {
-  text-align: right;
   padding: 20px 0;
+}
+#parrainer #terminer div {
+  text-align: right;
+  padding-right: 23px;
 }
 .recirculation {
   padding-top: 20px;
@@ -6447,6 +6465,12 @@ form[name="preview_form"] .message {
   float: left;
 }
 /* Personnal informations */
+#account-modify form .row .col-md-4 {
+  line-height: 11px;
+}
+#account-modify form .btn-orange {
+  margin-top: 15px;
+}
 #account-modify input[type="text"],
 #account-modify input[type="email"],
 #account-modify input[type="password"],
@@ -6500,6 +6524,11 @@ form[name="preview_form"] .message {
 }
 .list-participant .search-bar form input[type="text"] {
   width: 100%;
+}
+/* contact page */
+#contact-us #btn-send {
+  text-align: right;
+  padding: 10px 0;
 }
 .wrap-header {
   background-color: #e84c3c;
