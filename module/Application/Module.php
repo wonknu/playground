@@ -18,7 +18,19 @@ class Module
     public function onBootstrap(MvcEvent $e)
     {
 
-        $translator = $e->getApplication()->getServiceManager()->get('translator');
+        $sm = $e->getApplication()->getServiceManager();
+
+        $options = $sm->get('playgroundcore_module_options');
+        $locale = $options->getLocale();
+        if (!empty($locale)) {
+            //translator
+            $translator = $sm->get('translator');
+            $translator->setLocale($locale);
+
+            // plugins
+            $translate = $sm->get('viewhelpermanager')->get('translate');
+            $translate->getTranslator()->setLocale($locale);
+        }
         AbstractValidator::setDefaultTranslator($translator,'playgroundcore');
 
         $eventManager        = $e->getApplication()->getEventManager();
