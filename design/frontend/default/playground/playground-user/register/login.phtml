@@ -4,21 +4,24 @@ $form = $this->loginForm;
 $form->prepare();
 $form->setAttribute('action', $this->url('frontend/zfcuser/ajaxlogin', array('channel' => $this->channel)));
 $form->setAttribute('id', 'register-login');
-$form->setAttribute('method', 'post');
-?>
-<?php echo $this->form()->openTag($form) ?>
-    <?php echo $this->formElementErrors($form->get('identity')) ?>
-    <?php echo $this->formInput($form->get('identity')) ?>
-    <?php echo $this->formInput($form->get('credential')) ?>
-    <?php //echo $this->formLabel($form->get('remember_me')) ?>
-    <?php //echo $this->formCheckbox($form->get('remember_me')) ?>
-    <?php if ($this->redirect): ?><input type="hidden" name="redirect" value="<?php echo $this->redirect ?>" /><?php endif ?>
-	<div class="row-fluid">
-		<div class="span4 lostpass">
-			<a href="<?php echo $this->url('frontend/zfcuser/forgotpassword', array('channel' => $this->channel)) ?>">Mot de passe oublié ?</a>
-		</div>
-		<div id="btn-connect" class="span8">
-			<?php echo $this->formButton($form->get('submit')) ?>
-		</div>
-	</div>
+$form->setAttribute('method', 'post'); ?>
+<?php echo $this->form()->openTag($form); ?>
+    <div class="row">
+        <div class="col-md-3" >
+            <?php echo $this->formElementErrors($form->get('identity')); ?>
+            <?php echo $this->formInput($form->get('identity')); ?>
+        </div>
+        <div class="col-md-3" >
+            <?php echo $this->formInput($form->get('credential')); ?>
+        </div>
+        <div id="btn-connect" class="col-md-2">
+            <?php echo $this->formButton($form->get('submit')) ?>
+        </div>
+    </div>
+        <a href="<?php echo $this->url('frontend/zfcuser/forgotpassword', array('channel' => $this->channel)) ?>">
+            Mot de passe oublié ?
+        </a>
+    <?php if ($this->redirect): ?>
+        <input type="hidden" name="redirect" value="<?php echo $this->redirect ?>" />
+    <?php endif ?>
 <?php echo $this->form()->closeTag() ?>

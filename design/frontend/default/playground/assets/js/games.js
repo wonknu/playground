@@ -58,14 +58,13 @@ $(function(){
 	
 	/**** Navigation - Mécanique */
 	$('#play-instantwin .btn a').bind('click', false);
-	$("#wScratchgame canvas").mouseup(function(){
+	$("#wScratchgame").on('click', function(){
 		var sp = $("#wScratchgame").attr('data-percentscratched');
 		if(sp >= 10){
 			$('#play-instantwin .btn').removeClass('btn-warning-inactive');
 	    	$('#play-instantwin .btn').addClass('btn-warning');
 	    	$('#play-instantwin .btn a').unbind('click', false);
-	    	
-	    	$('#play-instantwin .btn-warning.success').click(function(){
+	    	$('#play-instantwin .btn-orange.success').click(function(){
 				$('#play-instantwin').hide();
 				$('html, body').animate({ scrollTop: 0 }, 0);
 				$('#result-instantwin').fadeIn();

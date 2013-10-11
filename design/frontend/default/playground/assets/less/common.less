@@ -28,8 +28,8 @@ ul {
   margin: 0 auto;
 }
 
-.main-content {
-  
+#content.row {
+  margin: 0;
 }
 
 .sidebar {
@@ -249,6 +249,40 @@ ul {
   }
 }
 
+form[name="preview_form"]{
+  padding-bottom: 20px;
+  .message{
+    margin: 10px;
+  }
+}
+
+#parrainer{
+  #terminer{
+    text-align: right;
+    padding: 20px 0;
+  }
+}
+
+.recirculation{
+  padding-top: 20px;
+  .partenaire-logo{
+    width: 100%;
+  }
+  h2{
+    margin: 0;
+  }
+  .btn-group{
+    margin-bottom: 20px;
+  }
+  .offer{
+    clear: both;
+    margin: 20px 0 0 0;
+  }
+  .col-md-3{
+    text-align: center;
+  }
+}
+
 /* homepage carousel */
 #homepage-carousel{
   margin: 20px 0;
@@ -270,7 +304,7 @@ ul {
   }
 }
 
-/* quizz */
+/* game */
 .query-block{
   padding-bottom: 20px;
   .heading{
@@ -342,12 +376,76 @@ ul {
     text-align: right;
   }
 }
-
+/* Instant win */
+#play-instantwin{
+  padding-bottom: 20px;
+}
+#result-instantwin{
+  display: none;
+}
+#wScratchgame{
+  position: absolute;
+  top: 20px;
+  left: 20px;
+  .wScratchwin{
+    position: absolute;
+    top: 20px;
+    font-size: 20px;
+    padding: 10px;
+    text-align: center;
+    display: none;
+    div{
+      display: block;
+    }
+  }
+}
+.scratchcontent{
+  div{
+    display: inline;
+  }
+}
+.caracteres-restants{
+  text-align: right;
+}
+#postForm{
+  > .row{
+    padding-bottom: 5px;
+  }
+}
+.photo-file{
+  .preview-img{
+    position: relative;
+    padding-bottom: 5px;
+    img{
+      max-width: 100%;
+    }
+    .trash{
+      position: absolute;
+      top: 5px;
+      left: 5px;
+      opacity:.5;
+      .transition(all .5s);
+      &:hover{
+        opacity:1;
+      }
+    }
+  }
+}
 #sidebar-game{
   .row{
     > div{
       padding-bottom: 10px;
     }
+  }
+}
+
+.coordinates{
+  .win{
+    text-align: right;
+  }
+  #annotation{
+    clear: both;
+    text-align: left;
   }
 }
 
@@ -391,3 +489,79 @@ ul {
     }
   }
 }
+
+/* Personnal informations */
+#account-modify{
+  input[type="text"],
+  input[type="email"],
+  
+  input[type="password"],
+  select{
+    width: 100%;
+  }
+  .radio{
+    display: block;
+    min-height: 0;
+    margin: 0;
+    padding: 0;
+  }
+  .civility{
+    .col-md-6{
+      label{
+        display: inline-block;
+        padding: 0 20px;
+      }
+    }
+  }
+  .wrapper-submit{
+    text-align: right;
+  }
+  .selector{
+    span{
+      display: none;
+    }
+  }
+  #delete-account{
+    padding-bottom: 20px;
+    .btn{
+      margin-top: 15px;
+    }
+  }
+}
+
+/* register */
+#register-form{
+  margin: 0;
+  form{
+    > div{
+      padding-bottom: 5px;
+    }
+  }
+  .opt-in,
+  .civility {
+    label{
+      padding-left: 20px;
+      min-width: 110px;
+    }
+  }
+  .radio{
+    display: inline;
+    min-height: 0;
+    margin-top: 0;
+    margin-bottom: 0;
+    padding-left: 0;
+  }
+}
+
+/* list game participant */
+.list-participant{
+  .search-bar{
+    form{
+      margin: 15px 0 0 0;
+      input[type="text"]{
+        width: 100%;
+      }
+    }
+  }
+}
+

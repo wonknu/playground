@@ -1,73 +1,72 @@
-<?php $this->plugin('translate')->setTranslatorTextDomain('playgroundgame');// Pour le texte ?>
-
 <?php
-	$playLimitScale = $game->getPlayLimitScale();
-	$playLimitValue = '';
-	if ($playLimitScale == 'day') : $playLimitValue = 'dès demain';
-	elseif ($playLimitScale == 'week') : $playLimitValue = 'dès la semaine prochaine';
-	elseif ($playLimitScale == 'month') : $playLimitValue = 'dès le mois prochain';
-	elseif ($playLimitScale == 'year') : $playLimitValue = 'dès l\'année prochaine';
-	else : $playLimitValue = 'à un autre moment';
-	endif;
+$this->plugin('translate')->setTranslatorTextDomain('playgroundgame');
+$playLimitScale = $game->getPlayLimitScale();
+$playLimitValue = '';
+if ($playLimitScale == 'day') : $playLimitValue = 'dès demain';
+elseif ($playLimitScale == 'week') : $playLimitValue = 'dès la semaine prochaine';
+elseif ($playLimitScale == 'month') : $playLimitValue = 'dès le mois prochain';
+elseif ($playLimitScale == 'year') : $playLimitValue = 'dès l\'année prochaine';
+else : $playLimitValue = 'à un autre moment';
+endif;
 ?>
-
-<div class="game-instantwin row-fluid result">
-
-	<h1><?php echo $this->game->getTitle(); ?></h1>
-
+<div class="game-instantwin row result">
+	<h1>
+	    <?php echo $this->game->getTitle(); ?>
+	</h1>
 	<?php if(count($this->flashMessages)>0):?>
-			<div class="backgrey row-fluid rounded lose">
-    			<div class="span2">
-    				<img src="<?php echo $this->frontendAssetPath('images/common/round-wrong.png')?>" width="50" height="54" alt="" />
-    			</div>
-    			<div class="span10">
-    				<p id="valid-text"><?php echo $this->flashMessages[0];?></p>
-    			</div>
-    		</div>
+		<div class="row lose">
+			<div class="col-md-2">
+				<img src="<?php echo $this->frontendAssetPath('images/common/round-wrong.png')?>" alt="" />
+			</div>
+			<div class="col-md-10">
+				<p id="valid-text">
+				    <?php echo $this->flashMessages[0];?>
+				</p>
+			</div>
+		</div>
     <?php else:?>
-
     	<?php if($this->winner):?>
-    		<div class="backgrey row-fluid rounded win">
-    			<div class="span2">
-    				<img src="<?php echo $this->frontendAssetPath('images/common/round-valid.png')?>" width="50" height="54" alt="" />
+    		<div class="row win">
+    			<div class="col-md-1">
+    				<img src="<?php echo $this->frontendAssetPath('images/common/round-valid.png')?>" alt="" />
     			</div>
-    			<div class="span10">
-    				<p id="valid-text">Félicitations, vous avez gagné !</p>
+    			<div class="col-md-11">
+    				<p>
+    				    Félicitations, vous avez gagné !
+    				</p>
     			</div>
     		</div>
     	<?php else:?>
-    		<div class="backgrey row-fluid rounded lose">
-    			<div class="span2">
-    				<img src="<?php echo $this->frontendAssetPath('images/common/round-wrong.png')?>" width="50" height="54" alt="" />
+    		<div class="row lose">
+    			<div class="col-md-1">
+    				<img src="<?php echo $this->frontendAssetPath('images/common/round-wrong.png')?>" alt="" />
     			</div>
-    			<div class="span10">
-    				<p id="valid-text">Retentez votre chance <?php echo $playLimitValue; ?>!</p>
+    			<div class="col-md-11">
+    				<p>
+    				    Retentez votre chance <?php echo $playLimitValue; ?>!
+    				</p>
     			</div>
     		</div>
     	<?php endif;?>
 	<?php endif;?>
-
 	<div id="share-instantwin">
 	    <?php if($this->winner):?>
-		<div id="heading" class="row-fluid">
-			<div class="span12">
-				<p class="h2">
-					<img src="<?php echo $this->frontendAssetPath('images/common/hand-star-orange.png') ?>" alt=""/>
-					<span class="underline">Partagez le jeu...
-				</p>
-			</div>
-		</div>
+            <h2>
+                <span>
+                    Partagez le jeu...
+                </span>
+            </h2>
 		<?php else:?>
-		<div id="heading" class="row-fluid">
-			<div class="span1"><img src="<?php echo $this->frontendAssetPath('images/common/hand-star-orange.png') ?>" alt=""/></div>
-			<div class="span11">
-				<h2>Partagez le jeu...<br/><span>et gagnez 250 points par ami parrainé</span></h2>
-			</div>
-		</div>
+            <h2>
+                Partagez le jeu...
+                <br/>
+                <span>
+                    et gagnez 250 points par ami parrainé
+                </span>
+            </h2>
 		<?php endif;?>
-		
 		<!-- SPONSOR (parrainer) -->
-        <div id="parrainer" class="row-fluid">
+        <div id="parrainer">
 			<?php echo $this->partial('playground-game/partial/result-share', array(
 		            'game'			=> $this->game,
 		            'secretKey'		=> $this->secretKey,
@@ -79,6 +78,5 @@
 		    )); ?>
 		</div>
 		<!-- //END SPONSOR (parrainer) -->
-
 	</div>
 </div>
