@@ -1,0 +1,42 @@
+<?php $this->plugin('translate')->setTranslatorTextDomain('playgroundflow'); ?>
+<?php
+$fm = $this->flashMessenger()->setNamespace('playgroundflow')->getMessages();
+if (isset($fm[0]))
+{
+    print '<span class=>' . $fm[0] . '</span>';
+}
+?>
+
+<?php $addLink = $this->url('admin/playgroundflow/domain/story/object/create', array('domainId' => $this->domainId, 'mappingId' => $this->mappingId, 'objectId' => 0)); ?>
+
+<ul class="liste-buttons">
+	<li class="btn-admin"><a href="<?php echo $addLink;?>"><?php echo $this->translate('Add new object'); ?></a></li>
+</ul>
+
+<h1>Liste des objets</h1>
+
+<table class="table">
+    <tr>
+        <th><?php echo $this->translate('Code'); ?></th>
+        <th><?php echo $this->translate('Label'); ?></th>
+        <th><?php echo $this->translate('Definition'); ?></th>
+        <th><?php echo $this->translate('Mapping'); ?></th>
+        <th></th>
+    </tr>
+    <?php foreach ($this->objects as $objectMapping): ?>
+    	<?php $editLink = $this->url('admin/playgroundflow/domain/story/object/edit', array('domainId' => $this->domainId, 'mappingId' => $this->mappingId, 'objectId' => $objectMapping->getId()));?>
+    	<?php $deleteLink = $this->url('admin/playgroundflow/domain/story/object/remove', array('domainId' => $this->domainId, 'mappingId' => $this->mappingId, 'objectId' => $objectMapping->getId()));?>
+    	
+        <tr>
+            <td><?php echo $objectMapping->getobject()->getCode() ?></td>
+            <td><?php echo $objectMapping->getobject()->getLabel() ?></td>
+            <td><?php echo $objectMapping->getobject()->getDefinition() ?></td>
+            <td><?php echo $objectMapping->getXpath() ?></td>
+            <td>
+                <a href='<?php echo $editLink ?>'><?php echo $this->translate('Edit'); ?></a> | <a href='<?php echo $deleteLink ?>'><?php echo $this->translate('Delete'); ?></a>
+            </td>
+        </tr>
+    <?php endforeach; ?>
+</table>
+
+<?php echo $this->paginationControl($this->objects, 'Sliding', 'playground-flow/domain/pagination_domainobjectlist'); ?>

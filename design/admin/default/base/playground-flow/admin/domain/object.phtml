@@ -1,0 +1,69 @@
+<?php $this->plugin('translate')->setTranslatorTextDomain('playgroundflow');// Pour le texte ?>
+<?php
+$form = $this->form;
+$form->prepare();
+?>
+
+<div class="return"><a href="<?php echo $this->url('admin/playgroundflow/domain/story/object', array('domainId' => $this->domainId, 'mappingId' => $this->mappingId));?>"><?php echo $this->translate('Retour'); ?></a></div>
+
+<h1><?php echo $this->translate('Object'); ?></h1>
+
+<?php echo $this->form()->openTag($form) ?>
+<?php echo $this->formButton($form->get('submit')) ?>
+
+<div id="content">
+        <div>
+            <div class="label-input">
+	            <?php echo $this->formLabel($form->get('object')); ?>
+	            <?php echo $this->formSelect($form->get('object')); ?>
+	            <?php echo $this->formElementErrors($form->get('object')) ?>
+			</div>
+			<div class="label-input">
+	            <?php echo $this->formLabel($form->get('xpath')); ?>
+	            <?php echo $this->formInput($form->get('xpath')); ?>
+	            <?php echo $this->formElementErrors($form->get('xpath')) ?>
+			</div>
+			
+			<div id="attribute_entry" class="control-group">
+            <?php foreach($form->get('attributes') as $fieldset):?>
+                <fieldset>
+                <?php foreach($fieldset as $element):?>
+                    <?php echo $this->formRow($element); ?>
+                <?php endforeach;?>
+                </fieldset>
+            <?php endforeach;?>
+            <?php echo $this->formCollection()->renderTemplate($form->get('attributes'));?>
+            </div>
+            
+            <ul class="liste-buttons">
+				<li class="btn-admin"><a href="#" onclick="add_attribute()"><?php echo $this->translate('Add a attribute'); ?></a></li>
+			</ul>
+        </div>
+    </div>
+</div>
+<?php echo $this->form()->closeTag() ?>
+<script>
+	
+    var template = $('#attribute_entry > span');
+    var datatemplate = $('#attribute_entry > span').data('template');
+    template.data('template', '<fieldset id="attributes__index__">'+datatemplate+'</fieldset>');
+    
+    function add_attribute() {
+        var currentCount = $('#attribute_entry fieldset').length;
+        var template = $('#attribute_entry > span').data('template');
+        template = template.replace(/__index__/g, currentCount);
+        $('#attribute_entry').append('<fieldest>');
+        $('#attribute_entry').append(template);
+        $('#attribute_entry').append('<hr/>');
+        $('#attribute_entry').append('</fieldset>');
+
+        return false;
+    }
+	
+
+    $( document ).on( "click", "#attribute_entry button", function(){
+    	$(this).parent().empty();
+    	return false;
+    });
+    
+</script>
