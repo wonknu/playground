@@ -80,7 +80,7 @@ return array(
                 array('controller' => 'playgroundflow',                            'roles' => array('guest', 'user')),
                 array('controller' => 'playgroundflowrestauthent',                 'roles' => array('guest', 'user')),
                 array('controller' => 'playgroundflowrestsend',                    'roles' => array('guest', 'user')),
-                array('controller' => 'playgroundgame_easyxdm',                    'roles' => array('guest', 'user')),
+                array('controller' => 'playgroundfloweasyxdm',                     'roles' => array('guest', 'user')),
 
 
                 // Admin area
