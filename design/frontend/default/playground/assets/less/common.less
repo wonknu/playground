@@ -193,7 +193,7 @@ ul {
 /* content */
 .block-game{
   position: relative;
-  display: inline-block;
+  .inline-block();
   padding-bottom: 20px;
   &.no-image{
     display: block;
@@ -205,7 +205,6 @@ ul {
       }
     }
   }
-
   .img-content{
     position: relative;
     padding: 5px;
@@ -290,20 +289,31 @@ form[name="preview_form"]{
 .recirculation{
   padding-top: 20px;
   .partenaire-logo{
-    width: 100%;
+    img{
+      width: 100%;
+    }
   }
   h2{
     margin: 0;
   }
-  .btn-group{
-    margin-bottom: 20px;
-  }
   .offer{
     clear: both;
-    margin: 20px 0 0 0;
+    .btn-orange{
+      margin: 10px 0;
+    }
   }
   .col-md-3{
     text-align: center;
+  }
+  .btn-orange{
+    input{
+      margin: 0;
+      padding: 0;
+      border: none;
+      background: none;
+      color: inherit;
+      outline: none;
+    }
   }
 }
 
@@ -604,5 +614,16 @@ form[name="preview_form"]{
   #btn-send{
     text-align: right;
     padding: 10px 0;
+  }
+}
+
+/* RSS feed */
+.feed-news{
+  .link-feed,
+  .image-feed{
+    display: block;
+  }
+  .image-feed{
+    width: 100%;
   }
 }

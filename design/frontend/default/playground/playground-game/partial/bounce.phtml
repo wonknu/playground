@@ -1,37 +1,67 @@
-<?php $this->plugin('translate')->setTranslatorTextDomain('playgroundgame');// Pour le texte ?>
-<?php $game = $this->game;?>
-<?php $user = $this->user;?>
-<?php $availableGames = $this->availableGames?>
-
-<div class="game-instantwin row-fluid recirculation">
-<!-- BOUNCE -->
-    <?php echo $this->partial('playground-game/partial/bounce', array(
-        'game' => $game,
-        'user' => $user,
-        'gameType' => 'Cet instant-gagnant',
-        'facebooktemplate' => $this->layout()->facebooktemplate,
-        'channel' => $this->channel,
-        'isSubscriber' => $this->partnerSubscriber($game->getPartner(), $user) )
-    );?>
-    
-    <!-- OTHER GAMES -->
-    <?php if(!$this->layout()->facebooktemplate){?>
-    <div class="row-fluid other-games">
-        <h2 class="title">
-            <?php if($availableGames): ?>
-                <?php echo $this->translate('Tentez votre chance avec d\'autres jeux'); ?> Playground
-            <?php else: ?>
-                <?php echo $this->translate('Vous avez joué à tous les jeux'); ?> ! <br/>
-                <?php echo $this->translate('Revenez très bientôt'); ?>
-            <?php endif; ?>
-        </h2>
-        
-        <?php $this->partialLoop()->setObjectKey('game')?>
-        <?php echo $this->partialLoop('playground-game/partial/game.phtml', $availableGames) ?>
+<?php $this->plugin('translate')->setTranslatorTextDomain('playgroundgame'); ?>
+<?php $game = $this->game ?>
+<?php $user = $this->user ?>
+<?php $isSubscriber = $this->isSubscriber ?>
+<?php if(!$game->getPartner() || !$game->getPartner()->getBouncePage()):?>
+    <div class="partenaire-logo col-md-1">
+        <img src="<?php echo $this->frontendAssetPath('images/common/logo-hd.png')?>" alt="Playground" />
     </div>
-    <?php } ?>
-    
-    <!-- RSS FEED -->
-    <?php echo $this->partial('playground-game/partial/news-feed', array('rssUrl' => $this->rssUrl, 'channel' => $this->channel)); ?>
-
-</div>
+    <div class="col-md-11">
+        <?php echo $this->gameType ?> vous a été offert par 
+        <span class="name-partner">Playground</span>
+    </div>
+    <div class="offer">
+        <?php if(!$user->getAvatar() || !$user->getAddress() || !$user->getCity() || !$user->getTelephone() || !$user->getChildren()):?>
+            <a class="btn btn-orange" href="<?php if($this->channel === '') : echo $this->url('frontend/zfcuser/profile', array('channel' => $this->channel)); else : echo 'http://'.$this->channel['platform'].$this->url('frontend/zfcuser/profile', array('channel' => $this->channel)); endif; ?>">
+                Remplir mes coordonnées et gagnez des points
+            </a>
+            <br />
+        <?php endif;?>
+        <?php if(!$user->getOptin()):?>
+            <form class="btn btn-orange" action="<?php echo $this->url('frontend/zfcuser/ajax_newsletter', array('channel' => $this->channel));?>" method="POST" id="ajax-newsletter">
+                <input type="hidden" value="1" name="optin" />
+                <input type="submit" value="S'inscrire à la newsletter"/>
+            </form>
+            <br />
+        <?php endif;?>
+        <a href="http://www.facebook.com/playground" target="_blank" class="facebook btn btn-orange">
+            Devenir fan sur Facebook
+        </a>
+    </div>
+<?php else:?>
+    <div>
+        <?php echo $this->gameType ?> vous a été offert par <?php echo $game->getPartner()->getName();?>
+    </div>
+    <div class="row offer partner">
+        <?php if($game->getPartner()->getLogo()):?>
+            <div class="col-md-3">
+                <img src="<?php echo $this->basePath($game->getPartner()->getLogo())?>" border="0" width="137" alt="<?php echo $game->getPartner()->getName();?>" />
+            </div>
+        <?php endif;?>
+        <?php if($game->getPartner()->getNewsletter() && !$isSubscriber):?>
+            <div class="col-md-3">
+                <div class="bounce-newsform">
+                    <form action="<?php echo $this->url('frontend/partnership/ajax_newsletter', array('id' => $game->getPartner()->getId(), 'channel' => $this->channel));?>" method="POST" id="ajax-newsletter">
+                        <input type="hidden" value="1" name="optin" />
+                        <input type="hidden" value="<?php echo $game->getId();?>" name="gameId" />
+                        <input class="btn btn-orange" type="submit" value="S'inscrire à la newsletter"/>
+                    </form>
+                </div>
+            </div>
+        <?php endif;?>
+        <?php if($game->getPartner()->getWebsite()):?>
+            <div class="col-md-3">
+                <a href="<?php echo $game->getPartner()->getWebsite()?>" target="_blank" class="website">
+                    <div>Voir le <br/>site Internet</div>
+                </a>
+            </div>
+        <?php endif;?>
+        <?php if($game->getPartner()->getFacebook()):?>
+            <div class="col-md-3">
+                <a href="<?php echo $game->getPartner()->getFacebook()?>" target="_blank" class="facebook">
+                    <div>Devenir fan <br/>sur Facebook</div>
+                </a>
+            </div> 
+        <?php endif;?>
+    </div>
+<?php endif;?>

@@ -47,9 +47,6 @@ return array(
 			                'js/lib/playground/app.js',
 			            ),
 			            'filters' => array(),
-			            'options' => array(
-			                'output' => 'frontend/js/lib/playground/ears.min.js'
-			            ),
 			        ),
                     'frontend_images' => array(
                         'assets' => array(

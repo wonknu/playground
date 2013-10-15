@@ -3,8 +3,7 @@
 <?php $user = $this->user;?>
 <?php $availableGames = $this->availableGames?>
 
-<div class="game-lottery row-fluid recirculation">
-	
+<div class="game-treasure-hunt row recirculation">
 	<!-- BOUNCE -->
 	<?php echo $this->partial('playground-game/partial/bounce', array(
 		'game' => $game,
@@ -13,10 +12,9 @@
 		'facebooktemplate' => $this->layout()->facebooktemplate,
 		'channel' => $this->channel,
 		'isSubscriber' => $this->partnerSubscriber($game->getPartner(), $user) )
-	);?>
-	
+	); ?>
 	<!-- OTHER GAMES -->
-	<?php if(!$this->layout()->facebooktemplate){?>
+	<?php if(!$this->layout()->facebooktemplate) : ?>
 	<div class="row-fluid other-games">
 		<h2 class="title">
 			<?php if($availableGames): ?>
@@ -29,9 +27,7 @@
 		<?php $this->partialLoop()->setObjectKey('game')?>
 		<?php echo $this->partialLoop('playground-game/partial/game.phtml', $availableGames) ?>
 	</div>
-	<?php } ?>
-	
+	<?php endif; ?>
 	<!-- RSS FEED -->
 	<?php echo $this->partial('playground-game/partial/news-feed', array('rssUrl' => $this->rssUrl, 'channel' => $this->channel)); ?>
-
 </div>

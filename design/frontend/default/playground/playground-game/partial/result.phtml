@@ -1,5 +1,5 @@
 <?php if(!isset($this->folderUrl)) $this->folderUrl = ""; ?>
-<?php $this->plugin('translate')->setTranslatorTextDomain('playgroundgame');// Pour le texte ?>
+<?php $this->plugin('translate')->setTranslatorTextDomain('playgroundgame'); ?>
 <div class="game-"<?php echo $this->folderUrl; ?>" result row">
 	<h1>
 	    <?php echo $this->game->getTitle(); ?>
@@ -47,7 +47,7 @@
 	            'form'			=> $this->form,
 	            'statusMail'    => $statusMail,
 	            'gameType'		=> $this->folderUrl, 
-				'channel' => $this->channel
+				'channel'       => $this->channel
 	    )); ?>
 	</div>
 	<!-- END SPONSOR (parrainer) -->
