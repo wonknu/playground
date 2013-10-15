@@ -24,16 +24,16 @@ if (isset($fm[0]))
     <?php foreach ($this->mapping as $map): ?>
     	<?php $editLink = $this->url('admin/playgroundflow/domain/story/edit', array('domainId' => $this->domainId, 'mappingId' => $map->getId()));?>
     	<?php $deleteLink = $this->url('admin/playgroundflow/domain/story/remove', array('domainId' => $this->domainId, 'mappingId' => $map->getId()));?>
-    	<?php $optionLink = $this->url('admin/playgroundflow/domain/story/attribute', array('domainId' => $domain->getId(), 'mappingId' => $map->getId())); ?>
+    	<?php $optionLink = $this->url('admin/playgroundflow/domain/story/object', array('domainId' => $domain->getId(), 'mappingId' => $map->getId())); ?>
         <tr>
             <td><?php echo $map->getStory()->getCode() ?></td>
             <td><?php echo $map->getStory()->getLabel() ?></td>
             <td><?php echo $map->getStory()->getDefinition() ?></td>
             <td>
-                <a href='<?php echo $editLink ?>'><?php echo $this->translate('Edit'); ?></a> | <a href='<?php echo $deleteLink ?>'><?php echo $this->translate('Delete'); ?></a><?php if($optionLink != ''):?> | <a href='<?php echo $optionLink ?>'><?php echo $this->translate('Manage object attributes'); ?></a><?php endif;?>
+                <a href='<?php echo $editLink ?>'><?php echo $this->translate('Edit'); ?></a> | <a href='<?php echo $deleteLink ?>'><?php echo $this->translate('Delete'); ?></a><?php if($optionLink != ''):?> | <a href='<?php echo $optionLink ?>'><?php echo $this->translate('Manage objects'); ?></a><?php endif;?>
             </td>
         </tr>
     <?php endforeach; ?>
 </table>
 
-<?php echo $this->paginationControl($this->mapping, 'Sliding', 'playground-flow/admin/domain/pagination_domainstorylist'); ?>
+<?php echo $this->paginationControl($this->mapping, 'Sliding', 'playground-flow/domain/pagination_domainstorylist'); ?>

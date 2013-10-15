@@ -39,6 +39,18 @@ return array(
                             'output' => 'frontend/js/head_main',
                         ),
                     ),
+			        'head_frontendplayground_js' => array(
+			            'assets' => array(
+			                'js/lib/easyxdm/easyxdm.min.js',
+			                'js/lib/playground/pattern.js',
+			                'js/lib/playground/user.js',
+			                'js/lib/playground/app.js',
+			            ),
+			            'filters' => array(),
+			            'options' => array(
+			                'output' => 'frontend/js/lib/playground/ears.min.js'
+			            ),
+			        ),
                     'frontend_images' => array(
                         'assets' => array(
                             'images/**/*.png',
@@ -75,7 +87,8 @@ return array(
         'routes' => array(
             'frontend.*' => array(
                 '@frontend_css',
-                '@head_frontend_js'
+                '@head_frontend_js',
+                '@head_frontendplayground_js',
             ),
         ),
 	),
