@@ -1,6 +1,6 @@
 <?php if(!isset($this->folderUrl)) $this->folderUrl = ""; ?>
 <?php $this->plugin('translate')->setTranslatorTextDomain('playgroundgame'); ?>
-<div class="game-"<?php echo $this->folderUrl; ?>" result row">
+<div class="game-<?php echo $this->game->getClassType(); ?> result row">
 	<h1>
 	    <?php echo $this->game->getTitle(); ?>
 	</h1>
@@ -46,7 +46,7 @@
 	            'socialLinkUrl' => $socialLinkUrl,
 	            'form'			=> $this->form,
 	            'statusMail'    => $statusMail,
-	            'gameType'		=> $this->folderUrl, 
+	            'gameType'		=> $this->game->getClassType(), 
 				'channel'       => $this->channel
 	    )); ?>
 	</div>

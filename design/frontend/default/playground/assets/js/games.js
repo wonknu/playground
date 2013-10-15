@@ -1,15 +1,7 @@
 $(function(){
 	
 	/**************************** Homepage - Slider */
-    $('.carousel').carousel();
-    
-    //$('.carousel-inner .item:first').addClass('active');
-    $('.carousel').on('slide', function() {
-        var to_slide = $('.carousel-inner .item').index($('.carousel-inner .item.active'));
-        $('.carousel-indicators').children().removeClass('active');
-        $('.carousel-indicators [data-slide-to=' + to_slide + ']').addClass('active');
-    });
-    
+	$('.carousel .item:first-child').addClass('active');
     /**************************** Facebook : target:_blank */
 	$('.fb-target a').each(function() {
 		$(this).attr('target', '_blank');

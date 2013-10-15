@@ -6382,12 +6382,6 @@ form[name="preview_form"] .message {
 .game-quiz #invit-mail .text-mail {
   padding-top: 30px;
 }
-.game-quiz #mail-send input {
-  width: 25%;
-}
-.game-quiz #mail-send .btn-warning {
-  float: right;
-}
 .game-quiz #terminer {
   text-align: right;
 }
