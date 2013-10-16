@@ -13,20 +13,26 @@ $form->prepare();
 
 <div id="content">
         <div>
-			<div class="label-input">
+			<div class="form-group">
 	            <?php echo $this->formLabel($form->get('code')); ?>
-	            <?php echo $this->formInput($form->get('code')); ?>
-	            <?php echo $this->formElementErrors($form->get('code')) ?>
+	            <?php echo $this->formInput($form->get(('code'))->setAttribute('class', 'form-control')); ?>
+	            <?php echo $this->formElementErrors()
+						->setMessageOpenFormat('<div class="alert alert-danger">')
+						->setMessageCloseString('</div>')->render($form->get(('code'))) ?>
 			</div>
-			<div class="label-input">
+			<div class="form-group">
 	            <?php echo $this->formLabel($form->get('label')); ?>
-	            <?php echo $this->formInput($form->get('label')); ?>
-	            <?php echo $this->formElementErrors($form->get('label')) ?>
+	            <?php echo $this->formInput($form->get(('label'))->setAttribute('class', 'form-control')); ?>
+	            <?php echo $this->formElementErrors()
+						->setMessageOpenFormat('<div class="alert alert-danger">')
+						->setMessageCloseString('</div>')->render($form->get(('label'))) ?>
 			</div>
-			<div class="label-input">
+			<div class="form-group">
 	            <?php echo $this->formLabel($form->get('definition')); ?>
-	            <?php echo $this->formTextarea($form->get('definition')); ?>
-	            <?php echo $this->formElementErrors($form->get('definition')) ?>
+	            <?php echo $this->formTextarea($form->get(('definition'))->setAttribute('class', 'form-control')->setAttribute('row', '4')); ?>
+	            <?php echo $this->formElementErrors()
+						->setMessageOpenFormat('<div class="alert alert-danger">')
+						->setMessageCloseString('</div>')->render($form->get(('definition'))) ?>
 			</div>
         </div>
     </div>

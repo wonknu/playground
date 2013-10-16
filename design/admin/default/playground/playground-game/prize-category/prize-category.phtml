@@ -11,16 +11,22 @@ $form->prepare();
         <?php echo $this->formHidden($form->get('id')); ?>
 
         <?php echo $this->formLabel($form->get('title')); ?>
-        <?php echo $this->formInput($form->get('title')); ?>
-        <?php echo $this->formElementErrors($form->get('title')) ?>
+        <?php echo $this->formInput($form->get(('title'))->setAttribute('class', 'form-control')); ?>
+        <?php echo $this->formElementErrors()
+						->setMessageOpenFormat('<div class="alert alert-danger">')
+						->setMessageCloseString('</div>')->render($form->get(('title'))) ?>
         
         <?php echo $this->formLabel($form->get('identifier')); ?>
-        <?php echo $this->formInput($form->get('identifier')); ?>
-        <?php echo $this->formElementErrors($form->get('identifier')); ?>
+        <?php echo $this->formInput($form->get(('identifier'))->setAttribute('class', 'form-control')); ?>
+        <?php echo $this->formElementErrors()
+						->setMessageOpenFormat('<div class="alert alert-danger">')
+						->setMessageCloseString('</div>')->render($form->get(('identifier'))); ?>
 
         <?php echo $this->formLabel($form->get('active')); ?>
-        <?php echo $this->formSelect($form->get('active')); ?>
-        <?php echo $this->formElementErrors($form->get('active')) ?>
+        <?php echo $this->formSelect($form->get(('active'))->setAttribute('class', 'form-control')); ?>
+        <?php echo $this->formElementErrors()
+						->setMessageOpenFormat('<div class="alert alert-danger">')
+						->setMessageCloseString('</div>')->render($form->get(('active'))) ?>
 
     </div>
 </div>

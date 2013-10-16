@@ -1,14 +1,15 @@
 <?php $this->plugin('translate')->setTranslatorTextDomain('playgroundcms');// Pour le texte ?>
 
-<h1><?php echo $this->translate($titleForm); ?></h1>
-
 <?php
 $form = $this->form;
 $form->prepare();
 ?>
 
 <?php echo $this->form()->openTag($form) ?>
-<?php $form->get('submit')->setLabel($this->translate('Validate')); ?><?php echo $this->formButton($form->get('submit')) ?>
+<?php $form->get('submit')->setLabel($this->translate('Validate')); ?>
+<?php echo $this->formButton($form->get('submit')->setAttribute('class', 'btn btn-default right')) ?>
+
+<h1><?php echo $this->translate($titleForm); ?></h1>
 
 <div id="content" class="tabbable tabs-left">
     <ul id="tabs" class="nav nav-tabs" data-tabs="tabs">
@@ -21,39 +22,53 @@ $form->prepare();
             <div>
                 <?php echo $this->formHidden($form->get('id')); ?>
         		
-        		<div class="label-input">
+        		<div class="form-group">
 	                <?php echo $this->formLabel($form->get('title')); ?>
-	                <?php echo $this->formInput($form->get('title')); ?>
-	                <?php echo $this->formElementErrors($form->get('title')) ?>
+	                <?php echo $this->formInput($form->get(('title'))->setAttribute('class', 'form-control')); ?>
+	                <?php echo $this->formElementErrors()
+						->setMessageOpenFormat('<div class="alert alert-danger">')
+						->setMessageCloseString('</div>')->render($form->get(('title'))) ?>
                 </div>
-        		<div class="label-input">
+        		<div class="form-group">
 	                <?php echo $this->formLabel($form->get('identifier')); ?>
-	                <?php echo $this->formInput($form->get('identifier')); ?>
-	                <?php echo $this->formElementErrors($form->get('identifier')); ?>
+	                <?php echo $this->formInput($form->get(('identifier'))->setAttribute('class', 'form-control')); ?>
+	                <?php echo $this->formElementErrors()
+						->setMessageOpenFormat('<div class="alert alert-danger">')
+						->setMessageCloseString('</div>')->render($form->get(('identifier'))); ?>
                 </div>
-                <div class="label-input">
+                <div class="form-group">
 	                <?php echo $this->formLabel($form->get('publicationDate')); ?>
-	                <?php echo $this->formDateTime($form->get('publicationDate')); ?>
-	                <?php echo $this->formElementErrors($form->get('publicationDate')); ?>
+	                <?php echo $this->formDateTime($form->get(('publicationDate'))->setAttribute('class', 'form-control date')); ?>
+	                <?php echo $this->formElementErrors()
+						->setMessageOpenFormat('<div class="alert alert-danger">')
+						->setMessageCloseString('</div>')->render($form->get(('publicationDate'))); ?>
                 </div>
-                <div class="label-input">
+                <div class="form-group">
 	                <?php echo $this->formLabel($form->get('closeDate')); ?>
-	            	<?php echo $this->formDateTime($form->get('closeDate')); ?>
-	                <?php echo $this->formElementErrors($form->get('closeDate')); ?>
+	            	<?php echo $this->formDateTime($form->get(('closeDate'))->setAttribute('class', 'form-control date')); ?>
+	                <?php echo $this->formElementErrors()
+						->setMessageOpenFormat('<div class="alert alert-danger">')
+						->setMessageCloseString('</div>')->render($form->get(('closeDate'))); ?>
                 </div>
-                <div class="label-input">
+                <div class="form-group">
 	                <?php echo $this->formLabel($form->get('active')); ?>
-	                <?php echo $this->formSelect($form->get('active')); ?>
-	                <?php echo $this->formElementErrors($form->get('active')) ?>
+	                <?php echo $this->formSelect($form->get(('active'))->setAttribute('class', 'form-control')); ?>
+	                <?php echo $this->formElementErrors()
+						->setMessageOpenFormat('<div class="alert alert-danger">')
+						->setMessageCloseString('</div>')->render($form->get(('active'))) ?>
                 </div>
-                <div class="label-input">
+                <div class="form-group">
 	                <?php echo $this->formLabel($form->get('category')); ?>
-	                <?php echo $this->formSelect($form->get('category')); ?>
-	                <?php echo $this->formElementErrors($form->get('category')) ?>
+	                <?php echo $this->formSelect($form->get(('category'))->setAttribute('class', 'form-control')); ?>
+	                <?php echo $this->formElementErrors()
+						->setMessageOpenFormat('<div class="alert alert-danger">')
+						->setMessageCloseString('</div>')->render($form->get(('category'))) ?>
                 </div>
-				<div class="label-input heading">
+				<div class="form-group heading">
 		            <?php echo $this->formLabel($form->get('heading')); ?>
-		            <?php echo $this->formTextarea($form->get('heading')) . $this->formElementErrors($form->get('heading')) ?>
+		            <?php echo $this->formTextarea($form->get(('heading'))->setAttribute('class', 'form-control')->setAttribute('row', '4')) . $this->formElementErrors()
+						->setMessageOpenFormat('<div class="alert alert-danger">')
+						->setMessageCloseString('</div>')->render($form->get(('heading'))) ?>
 		            <?php $this->QgCKEditor(
 		                'block_heading',
 		                    array(
@@ -72,7 +87,7 @@ $form->prepare();
 		                );
 		            ?>
 		        </div>
-                <div class="label-input file">
+                <div class="form-group file">
 	                <?php echo $this->formLabel($form->get('uploadMainImage')); ?>
 	                <?php echo $this->formFile($form->get('uploadMainImage')); ?>
                 </div>
@@ -81,17 +96,22 @@ $form->prepare();
                 <?php endif;?>
             </div>
         </div>
+        
         <div class="tab-pane" id="homepage">
-        	<div class="label-input checkbox">
+        	<div class="form-group checkbox">
                 <?php echo $this->formCheckbox($form->get('displayHome')); ?>
                 <?php echo $this->formLabel($form->get('displayHome')); ?>
-                <?php echo $this->formElementErrors($form->get('displayHome')) ?>
+                <?php echo $this->formElementErrors()
+						->setMessageOpenFormat('<div class="alert alert-danger">')
+						->setMessageCloseString('</div>')->render($form->get(('displayHome'))) ?>
             </div>
             
-            <div class="label-input checkbox">
+            <div class="form-group checkbox">
                 <?php echo $this->formCheckbox($form->get('pushHome')); ?>
                 <?php echo $this->formLabel($form->get('pushHome')); ?>
-                <?php echo $this->formElementErrors($form->get('pushHome')) ?>
+                <?php echo $this->formElementErrors()
+						->setMessageOpenFormat('<div class="alert alert-danger">')
+						->setMessageCloseString('</div>')->render($form->get(('pushHome'))) ?>
             </div>
             
             <div class="image-slider">
@@ -102,9 +122,13 @@ $form->prepare();
             	<img src="<?php echo $this->basePath($form->get('secondImage')->getValue()); ?>" />
             <?php endif;?>
         </div>
+        
         <div class="tab-pane" id="tabcontent">
             <div>
-            <?php echo $this->formTextarea($form->get('content')) . $this->formElementErrors($form->get('content')) ?>
+            <?php echo $this->formLabel($form->get('content')); ?>
+            <?php echo $this->formTextarea($form->get(('content'))->setAttribute('class', 'form-control')->setAttribute('row', '4')) . $this->formElementErrors()
+						->setMessageOpenFormat('<div class="alert alert-danger">')
+						->setMessageCloseString('</div>')->render($form->get(('content'))) ?>
             <?php $this->QgCKEditor(
                 'block_content',
                     array(
@@ -131,12 +155,3 @@ $form->prepare();
     </div>
 </div>
 <?php echo $this->form()->closeTag() ?>
-
-<script type="text/javascript">
-    jQuery(document).ready(function ($) {
-        $('#tabs').tab();
-        $('.date').datepicker({
-            dateFormat : 'dd/mm/yy'
-        });
-    });
-</script>

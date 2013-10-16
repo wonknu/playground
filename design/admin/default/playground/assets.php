@@ -2,7 +2,7 @@
 return array(
 	'assetic_configuration' => array(
 		'modules' => array(
-			'admin_default_playground' => array(
+			'default_playground' => array(
 				'root_path' => array(
 					__DIR__ . '/../../../../design/admin/default/playground/assets',
 				),
@@ -54,8 +54,10 @@ return array(
                     'playground_js' => array(
                         'assets' => array(
                             'jquery-1.10.2.min.js'          => 'js/lib/jquery-1.10.2.min.js',
+                            //'jquery-1.10.2.min.map'          => 'js/lib/jquery-1.10.2.min.map',
                             'bootstrap.min.js'              => 'js/lib/bootstrap.min.js',
                             'bootstrap-datepicker.js'       => 'js/lib/bootstrap-datepicker.js',
+                            'main.js'                       => 'js/main.js',
                         ),
                         'filters' => array(),
                         'options' => array(
@@ -124,6 +126,25 @@ return array(
                         'options' => array(
                             'output' => 'zfcadmin/js/script_theme'
                         ),
+                    ),
+                    
+                    /**
+                     * CKEDITOR
+                     */
+                    'admin_ckeditor' => array(
+                        'assets' => array(
+                            'js/lib/ckeditor/*',
+                            'js/lib/ckeditor/**/*',
+                            'js/lib/ckeditor/**/**/*',
+                            'js/lib/ckeditor/**/**/**/*',
+                            'js/ckeditor-custom/*',
+                            'js/ckeditor-custom/**/*',
+                            'css/ckeditor-custom/*',
+                        ),
+                        'options' => array(
+                            'move_raw' => true,
+                            'output' => 'zfcadmin',
+                        )
                     ),
 				),
 			),
