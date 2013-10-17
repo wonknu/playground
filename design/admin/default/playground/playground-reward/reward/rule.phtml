@@ -1,0 +1,106 @@
+<?php $this->plugin('translate')->setTranslatorTextDomain('playgroundreward');// Pour le texte ?>
+<?php
+$form = $this->form;
+$form->prepare();
+
+//$form->setAttribute('action', $this->url('admin/reward/rule-add', array('rewardId' => $this->reward_id, 'ruleId' => $this->rule_id)));
+?>
+
+<h1><?php echo $this->translate('Rules'); ?></h1>
+
+<?php echo $this->form()->openTag($form) ?>
+<?php echo $this->formButton($form->get('submit')->setLabel($this->translate('Validate'))); ?>
+
+<div id="content" class="tabbable tabs-left">
+    <ul id="tabs" class="nav nav-tabs" data-tabs="tabs">
+        <li class="active"><a href="#general" data-toggle="tab"><?php echo $this->translate('General'); ?></a></li>
+        <li><a href="#conditions" data-toggle="tab"><?php echo $this->translate('Conditions'); ?></a></li>
+    </ul>
+    <div id="my-tab-content" class="tab-content">
+        <div class="tab-pane active" id="general">
+
+            <?php echo $this->formInput($form->get('reward_id')); ?>
+
+            <div class="control-group">
+                <?php echo $this->formLabel($form->get('completionType')); ?>
+                <div class="controls"><?php echo $this->formSelect($form->get('completionType')); ?></div>
+                <div class="controls"><?php echo $this->formElementErrors($form->get('completionType')); ?></div>
+            </div>
+
+            <div class="control-group">
+                <?php echo $this->formLabel($form->get('storyMappings')); ?>
+                <div class="controls">
+                    <?php echo $this->formSelect($form->get('storyMappings')); ?>
+                    <?php echo $this->formElementErrors($form->get('storyMappings')) ?>
+                </div>
+            </div>
+            
+            <div class="control-group">
+                <?php echo $this->formLabel($form->get('countType')); ?>
+                <div class="controls"><?php echo $this->formSelect($form->get('countType')); ?></div>
+                <div class="controls"><?php echo $this->formElementErrors($form->get('countType')); ?></div>
+            </div>
+
+            <div class="control-group">
+                <?php echo $this->formLabel($form->get('count')); ?>
+                <div class="controls"><?php echo $this->formInput($form->get('count')); ?></div>
+                <?php echo $this->formElementErrors($form->get('count')) ?>
+            </div>
+            
+        </div>
+        <div class="tab-pane" id="conditions">
+			<ul class="liste-buttons">
+				<li class="btn-admin"><a href="#" onclick="add_condition()"><?php echo $this->translate('Add a condition'); ?></a></li>
+			</ul>
+			
+            <div id="condition_entry" class="control-group">
+            <?php foreach($form->get('conditions') as $fieldset):?>
+                <fieldset>
+                <?php foreach($fieldset as $element):?>
+                    <?php echo $this->formRow($element); ?>
+                <?php endforeach;?>
+                </fieldset>
+            <?php endforeach;?>
+            <?php echo $this->formCollection()->renderTemplate($form->get('conditions'));?>
+            </div>
+            
+            <ul class="liste-buttons">
+				<li class="btn-admin"><a href="#" onclick="add_condition()"><?php echo $this->translate('Add a condition'); ?></a></li>
+			</ul>
+        </div>
+    </div>
+</div>
+<?php echo $this->form()->closeTag() ?>
+<script type="text/javascript">
+    jQuery(document).ready(function ($) {
+        $('#tabs').tab();
+        $('.datepicker').datepicker();
+    });
+</script>
+<script>
+	
+    var template = $('#condition_entry > span');
+    var datatemplate = $('#condition_entry > span').data('template');
+    template.data('template', '<fieldset id="conditions__index__">'+datatemplate+'</fieldset>');
+    
+    function add_condition() {
+        var currentCount = $('#condition_entry fieldset').length;
+        var template = $('#condition_entry > span').data('template');
+        template = template.replace(/__index__/g, currentCount);
+        $('#condition_entry').append('<fieldest>');
+        $('#condition_entry').append(template);
+        $('#condition_entry').append('<hr/>');
+        $('#condition_entry').append('</fieldset>');
+
+        return false;
+    }
+	
+
+    $( document ).on( "click", "#condition_entry button", function(){
+    	$(this).parent().empty();
+    	return false;
+    });
+
+     
+    
+</script>

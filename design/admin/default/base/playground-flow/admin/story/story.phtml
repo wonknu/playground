@@ -34,9 +34,9 @@ $form->prepare();
 	            <?php echo $this->formElementErrors($form->get('action')) ?>
 			</div>
 			<div class="label-input">
-	            <?php echo $this->formLabel($form->get('object')); ?>
-	            <?php echo $this->formSelect($form->get('object')); ?>
-	            <?php echo $this->formElementErrors($form->get('object')) ?>
+	            <?php echo $this->formLabel($form->get('objects')); ?>
+	            <?php echo $this->formMultiCheckbox($form->get('objects')); ?>
+	            <?php echo $this->formElementErrors($form->get('objects')) ?>
 			</div>
         </div>
     </div>

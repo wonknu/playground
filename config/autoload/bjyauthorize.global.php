@@ -5,7 +5,7 @@ return array(
 
         'default_role' => 'guest',
         'identity_provider' => 'BjyAuthorize\Provider\Identity\AuthenticationDoctrineEntity',
-        'unauthorized_strategy' => 'PlaygroundUser\View\Strategy\UnauthorizedStrategy',
+        //'unauthorized_strategy' => 'PlaygroundUser\View\Strategy\UnauthorizedStrategy',
         'role_providers' => array(
             'BjyAuthorize\Provider\Role\Config' => array(
                 'guest' => array(),
@@ -80,7 +80,7 @@ return array(
                 array('controller' => 'playgroundflow',                            'roles' => array('guest', 'user')),
                 array('controller' => 'playgroundflowrestauthent',                 'roles' => array('guest', 'user')),
                 array('controller' => 'playgroundflowrestsend',                    'roles' => array('guest', 'user')),
-                array('controller' => 'playgroundgame_easyxdm',                    'roles' => array('guest', 'user')),
+                array('controller' => 'playgroundfloweasyxdm',                     'roles' => array('guest', 'user')),
 
 
                 // Admin area

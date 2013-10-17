@@ -19,25 +19,31 @@ $form->prepare();
     <div id="my-tab-content" class="tab-content">
         <div class="tab-pane active" id="general">
 
-            <?php echo $this->formInput($form->get('quiz_id')); ?>
+            <?php echo $this->formInput($form->get(('quiz_id'))->setAttribute('class', 'form-control')); ?>
 
             <div class="control-group">
                 <?php echo $this->formLabel($form->get('prediction')); ?>
                 <div class="controls"><?php echo $this->formCheckbox($form->get('prediction')); ?></div>
-                <?php echo $this->formElementErrors($form->get('prediction')); ?>
+                <?php echo $this->formElementErrors()
+						->setMessageOpenFormat('<div class="alert alert-danger">')
+						->setMessageCloseString('</div>')->render($form->get(('prediction'))); ?>
             </div>
 
             <div class="control-group">
                 <?php echo $this->formLabel($form->get('type')); ?>
                 <div class="controls"><?php echo $this->formRadio($form->get('type')); ?></div>
-                <div class="controls"><?php echo $this->formElementErrors($form->get('type')); ?></div>
+                <div class="controls"><?php echo $this->formElementErrors()
+						->setMessageOpenFormat('<div class="alert alert-danger">')
+						->setMessageCloseString('</div>')->render($form->get(('type'))); ?></div>
             </div>
 
             <div class="control-group">
                 <?php echo $this->formLabel($form->get('question')); ?>
                 <div class="controls">
-                    <?php echo $this->formTextarea($form->get('question')); ?>
-                    <?php echo $this->formElementErrors($form->get('question')) ?>
+                    <?php echo $this->formTextarea($form->get(('question'))->setAttribute('class', 'form-control')->setAttribute('row', '4')); ?>
+                    <?php echo $this->formElementErrors()
+						->setMessageOpenFormat('<div class="alert alert-danger">')
+						->setMessageCloseString('</div>')->render($form->get(('question'))) ?>
                 </div>
             <?php $this->QgCKEditor(
                 'question',
@@ -57,8 +63,10 @@ $form->prepare();
             <div class="control-group">
                 <?php echo $this->formLabel($form->get('hint')); ?>
                 <div class="controls">
-                    <?php echo $this->formTextarea($form->get('hint')); ?>
-                    <?php echo $this->formElementErrors($form->get('hint')) ?>
+                    <?php echo $this->formTextarea($form->get(('hint'))->setAttribute('class', 'form-control')->setAttribute('row', '4')); ?>
+                    <?php echo $this->formElementErrors()
+						->setMessageOpenFormat('<div class="alert alert-danger">')
+						->setMessageCloseString('</div>')->render($form->get(('hint'))) ?>
                 </div>
                 <?php $this->QgCKEditor(
                     'hint',
@@ -83,14 +91,18 @@ $form->prepare();
 
             <div class="control-group">
                 <?php echo $this->formLabel($form->get('position')); ?>
-                <div class="controls"><?php echo $this->formInput($form->get('position')); ?></div>
-                <?php echo $this->formElementErrors($form->get('position')) ?>
+                <div class="controls"><?php echo $this->formInput($form->get(('position'))->setAttribute('class', 'form-control')); ?></div>
+                <?php echo $this->formElementErrors()
+						->setMessageOpenFormat('<div class="alert alert-danger">')
+						->setMessageCloseString('</div>')->render($form->get(('position'))) ?>
             </div>
 
             <div class="control-group">
                 <?php echo $this->formLabel($form->get('video')); ?>
-                <div class="controls"><?php echo $this->formInput($form->get('video')); ?></div>
-                <?php echo $this->formElementErrors($form->get('video')) ?>
+                <div class="controls"><?php echo $this->formInput($form->get(('video'))->setAttribute('class', 'form-control')); ?></div>
+                <?php echo $this->formElementErrors()
+						->setMessageOpenFormat('<div class="alert alert-danger">')
+						->setMessageCloseString('</div>')->render($form->get(('video'))) ?>
             </div>
 
             <div class="control-group">
@@ -118,34 +130,3 @@ $form->prepare();
     </div>
 </div>
 <?php echo $this->form()->closeTag() ?>
-<script type="text/javascript">
-    jQuery(document).ready(function ($) {
-        $('#tabs').tab();
-        $('.datepicker').datepicker();
-    });
-</script>
-<script>
-	
-    var template = $('#answer_entry > fieldset > span');
-    var datatemplate = $('#answer_entry > fieldset > span').data('template');
-    template.data('template', '<fieldset id="answers__index__">'+datatemplate+'</fieldset>');
-    
-    function add_answer() {
-        var currentCount = $('#answer_entry textarea').length;
-        var template = $('#answer_entry > fieldset > span').data('template');
-        template = template.replace(/__index__/g, currentCount);
-        $('#answer_entry').append(template);
-        $('#answer_entry').append('<hr/>');
-
-        return false;
-    }
-	
-
-    $('#answer_entry button').live('click',function(){
-    	$(this).parent().parent().empty();
-    	return false;
-    });
-
-     
-    
-</script>

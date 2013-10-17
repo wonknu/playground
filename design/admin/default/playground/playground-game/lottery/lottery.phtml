@@ -4,10 +4,11 @@ $form = $this->form;
 $form->prepare();
 ?>
 
-<h1><?php echo $this->translate($this->title); ?></h1>
-
 <?php echo $this->form()->openTag($form) ?>
-<?php $form->get('submit')->setLabel($this->translate('Validate')); ?><?php echo $this->formButton($form->get('submit')) ?>
+<?php $form->get('submit')->setLabel($this->translate('Validate')); ?>
+<?php echo $this->formButton($form->get('submit')->setAttribute('class', 'btn btn-default right')) ?>
+
+<h1><?php echo $this->translate($this->title); ?></h1>
 
 <div id="content" class="tabbable tabs-left">
     <ul id="tabs" class="nav nav-tabs" data-tabs="tabs">
@@ -26,34 +27,31 @@ $form->prepare();
         <?php echo $this->game_form;?>
 
         <div class="tab-pane" id="mechanics">
-        	<div class="label-input">
+        	<div class="form-group">
 	            <?php echo $this->formLabel($form->get('drawAuto')); ?>
-	            <?php echo $this->formSelect($form->get('drawAuto')); ?>
-	            <?php echo $this->formElementErrors($form->get('drawAuto')) ?>
+	            <?php echo $this->formSelect($form->get(('drawAuto'))->setAttribute('class', 'form-control')); ?>
+	            <?php echo $this->formElementErrors()
+						->setMessageOpenFormat('<div class="alert alert-danger">')
+						->setMessageCloseString('</div>')->render($form->get(('drawAuto'))) ?>
 			</div>
 	        	<?php //echo $this->formLabel($form->get('drawDate')); ?>
-	        	<?php //echo $this->formDateTime($form->get('drawDate')); ?>
-	            <?php //echo $this->formElementErrors($form->get('drawDate')); ?>
-			<div class="label-input">
+	        	<?php //echo $this->formDateTime($form->get(('drawDate'))->setAttribute('class', 'form-control date')); ?>
+	            <?php //echo $this->formElementErrors() ?>
+			<div class="form-group">
 	            <?php echo $this->formLabel($form->get('winners')); ?>
-	            <?php echo $this->formInput($form->get('winners')); ?>
-	            <?php echo $this->formElementErrors($form->get('winners')) ?>
+	            <?php echo $this->formInput($form->get(('winners'))->setAttribute('class', 'form-control')); ?>
+	            <?php echo $this->formElementErrors()
+						->setMessageOpenFormat('<div class="alert alert-danger">')
+						->setMessageCloseString('</div>')->render($form->get(('winners'))) ?>
 			</div>
-			<div class="label-input">
+			<div class="form-group">
 	            <?php echo $this->formLabel($form->get('substitutes')); ?>
-	            <?php echo $this->formInput($form->get('substitutes')); ?>
-	            <?php echo $this->formElementErrors($form->get('substitutes')) ?>
+	            <?php echo $this->formInput($form->get(('substitutes'))->setAttribute('class', 'form-control')); ?>
+	            <?php echo $this->formElementErrors()
+						->setMessageOpenFormat('<div class="alert alert-danger">')
+						->setMessageCloseString('</div>')->render($form->get(('substitutes'))) ?>
 	        </div>
         </div>
     </div>
 </div>
 <?php echo $this->form()->closeTag() ?>
-
-<script type="text/javascript">
-    jQuery(document).ready(function ($) {
-        $('#tabs').tab();
-        $('.datepicker').datepicker({
-            dateFormat : 'dd/mm/yy'
-        });
-    });
-</script>

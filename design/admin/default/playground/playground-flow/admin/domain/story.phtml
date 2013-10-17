@@ -9,72 +9,59 @@ $form->prepare();
 <h1><?php echo $this->translate('Création'); ?></h1>
 
 <?php echo $this->form()->openTag($form) ?>
-<?php echo $this->formButton($form->get('submit')) ?>
+<?php $form->get('submit')->setLabel($this->translate('Validate')); ?><?php echo $this->formButton($form->get('submit')) ?>
 
 <div id="content">
         <div>
-        	<?php echo $this->formInput($form->get('domainId')); ?>
-			<div class="label-input">
+        	<?php echo $this->formInput($form->get(('domainId'))->setAttribute('class', 'form-control')); ?>
+			<div class="form-group">
 	            <?php echo $this->formLabel($form->get('story')); ?>
-	            <?php echo $this->formSelect($form->get('story')); ?>
-	            <?php echo $this->formElementErrors($form->get('story')) ?>
+	            <?php echo $this->formSelect($form->get(('story'))->setAttribute('class', 'form-control')); ?>
+	            <?php echo $this->formElementErrors()
+						->setMessageOpenFormat('<div class="alert alert-danger">')
+						->setMessageCloseString('</div>')->render($form->get(('story'))) ?>
 			</div>
-			<div class="label-input">
-	            <?php echo $this->formLabel($form->get('points')); ?>
-	            <?php echo $this->formInput($form->get('points')); ?>
-	            <?php echo $this->formElementErrors($form->get('points')) ?>
-			</div>
-			<div class="label-input">
-	            <?php echo $this->formLabel($form->get('hint')); ?>
-	            <?php echo $this->formInput($form->get('hint')); ?>
-	            <?php echo $this->formElementErrors($form->get('hint')) ?>
-			</div>
-			<div class="label-input">
-	            <?php echo $this->formLabel($form->get('activityStreamText')); ?>
-	            <?php echo $this->formInput($form->get('activityStreamText')); ?>
-	            <?php echo $this->formElementErrors($form->get('activityStreamText')) ?>
-			</div>
-			<div class="label-input">
-	            <?php echo $this->formLabel($form->get('countLimit')); ?>
-	            <?php echo $this->formInput($form->get('countLimit')); ?>
-	            <?php echo $this->formElementErrors($form->get('countLimit')) ?>
-			</div>
-			<div class="label-input file">
-        	    <?php echo $this->formLabel($form->get('uploadPicto')); ?>
-        	    <?php echo $this->formFile($form->get('uploadPicto')); ?>
-        	    <?php if($form->get('picto')->getValue() != ''):?>
-        	    	<img src="<?php echo $this->basePath($form->get('picto')->getValue()); ?>" />
-        	    <?php endif;?>
-            </div>
-			<div class="label-input">
+			<div class="form-group">
 	            <?php echo $this->formLabel($form->get('conditionsUrl')); ?>
-	            <?php echo $this->formInput($form->get('conditionsUrl')); ?>
-	            <?php echo $this->formElementErrors($form->get('conditionsUrl')) ?>
+	            <?php echo $this->formInput($form->get(('conditionsUrl'))->setAttribute('class', 'form-control')); ?>
+	            <?php echo $this->formElementErrors()
+						->setMessageOpenFormat('<div class="alert alert-danger">')
+						->setMessageCloseString('</div>')->render($form->get(('conditionsUrl'))) ?>
 			</div>
-			<div class="label-input">
+			<div class="form-group">
 	            <?php echo $this->formLabel($form->get('conditionsXpath')); ?>
-	            <?php echo $this->formInput($form->get('conditionsXpath')); ?>
-	            <?php echo $this->formElementErrors($form->get('conditionsXpath')) ?>
+	            <?php echo $this->formInput($form->get(('conditionsXpath'))->setAttribute('class', 'form-control')); ?>
+	            <?php echo $this->formElementErrors()
+						->setMessageOpenFormat('<div class="alert alert-danger">')
+						->setMessageCloseString('</div>')->render($form->get(('conditionsXpath'))) ?>
 			</div>
-			<div class="label-input">
+			<div class="form-group">
 	            <?php echo $this->formLabel($form->get('eventBeforeUrl')); ?>
-	            <?php echo $this->formInput($form->get('eventBeforeUrl')); ?>
-	            <?php echo $this->formElementErrors($form->get('eventBeforeUrl')) ?>
+	            <?php echo $this->formInput($form->get(('eventBeforeUrl'))->setAttribute('class', 'form-control')); ?>
+	            <?php echo $this->formElementErrors()
+						->setMessageOpenFormat('<div class="alert alert-danger">')
+						->setMessageCloseString('</div>')->render($form->get(('eventBeforeUrl'))) ?>
 			</div>
-			<div class="label-input">
+			<div class="form-group">
 	            <?php echo $this->formLabel($form->get('eventBeforeXpath')); ?>
-	            <?php echo $this->formInput($form->get('eventBeforeXpath')); ?>
-	            <?php echo $this->formElementErrors($form->get('eventBeforeXpath')) ?>
+	            <?php echo $this->formInput($form->get(('eventBeforeXpath'))->setAttribute('class', 'form-control')); ?>
+	            <?php echo $this->formElementErrors()
+						->setMessageOpenFormat('<div class="alert alert-danger">')
+						->setMessageCloseString('</div>')->render($form->get(('eventBeforeXpath'))) ?>
 			</div>
-			<div class="label-input">
+			<div class="form-group">
 	            <?php echo $this->formLabel($form->get('eventAfterUrl')); ?>
-	            <?php echo $this->formInput($form->get('eventAfterUrl')); ?>
-	            <?php echo $this->formElementErrors($form->get('eventAfterUrl')) ?>
+	            <?php echo $this->formInput($form->get(('eventAfterUrl'))->setAttribute('class', 'form-control')); ?>
+	            <?php echo $this->formElementErrors()
+						->setMessageOpenFormat('<div class="alert alert-danger">')
+						->setMessageCloseString('</div>')->render($form->get(('eventAfterUrl'))) ?>
 			</div>
-			<div class="label-input">
+			<div class="form-group">
 	            <?php echo $this->formLabel($form->get('eventAfterXpath')); ?>
-	            <?php echo $this->formInput($form->get('eventAfterXpath')); ?>
-	            <?php echo $this->formElementErrors($form->get('eventAfterXpath')) ?>
+	            <?php echo $this->formInput($form->get(('eventAfterXpath'))->setAttribute('class', 'form-control')); ?>
+	            <?php echo $this->formElementErrors()
+						->setMessageOpenFormat('<div class="alert alert-danger">')
+						->setMessageCloseString('</div>')->render($form->get(('eventAfterXpath'))) ?>
 			</div>
         </div>
     </div>

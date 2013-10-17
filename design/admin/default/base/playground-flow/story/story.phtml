@@ -33,12 +33,46 @@ $form->prepare();
 	            <?php echo $this->formSelect($form->get('action')); ?>
 	            <?php echo $this->formElementErrors($form->get('action')) ?>
 			</div>
-			<div class="label-input">
-	            <?php echo $this->formLabel($form->get('object')); ?>
-	            <?php echo $this->formSelect($form->get('object')); ?>
-	            <?php echo $this->formElementErrors($form->get('object')) ?>
-			</div>
+			<div id="condition_entry" class="control-group">
+            <?php foreach($form->get('objects') as $fieldset):?>
+                <fieldset>
+                <?php foreach($fieldset as $element):?>
+                    <?php echo $this->formRow($element); ?>
+                <?php endforeach;?>
+                </fieldset>
+            <?php endforeach;?>
+            <?php echo $this->formCollection()->renderTemplate($form->get('objects'));?>
+            </div>
+            
+            <ul class="liste-buttons">
+				<li class="btn-admin"><a href="#" onclick="add_condition()"><?php echo $this->translate('Add a condition'); ?></a></li>
+			</ul>
         </div>
     </div>
 </div>
 <?php echo $this->form()->closeTag() ?>
+<script>
+	
+    var template = $('#condition_entry > span');
+    var datatemplate = $('#condition_entry > span').data('template');
+    template.data('template', '<fieldset id="conditions__index__">'+datatemplate+'</fieldset>');
+    
+    function add_condition() {
+        var currentCount = $('#condition_entry fieldset').length;
+        var template = $('#condition_entry > span').data('template');
+        template = template.replace(/__index__/g, currentCount);
+        $('#condition_entry').append('<fieldest>');
+        $('#condition_entry').append(template);
+        $('#condition_entry').append('<hr/>');
+        $('#condition_entry').append('</fieldset>');
+
+        return false;
+    }
+	
+
+    $( document ).on( "click", "#condition_entry button", function(){
+    	$(this).parent().empty();
+    	return false;
+    });
+    
+</script>
