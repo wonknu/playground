@@ -1,0 +1,54 @@
+<div class="wrap-footer" >
+    <div id="footer" class="row">
+        <ul class="footer-links">
+            <li>
+                <a href="<?php echo $this->url('frontend', array('channel' => $this->channel)) ?>">Accueil</a>
+            </li>
+            <li>
+                <a href="<?php echo $this->url('frontend/jeuxconcours', array('channel' => $this->channel)) ?>">Tous les jeux concours</a>
+            </li>
+            <li>
+                <a href="<?php echo $this->url('frontend/winner', array('channel' => $this->channel)) ?>">Les gagnants</a>
+            </li>
+            <li>
+                <a href="<?php echo $this->url('frontend/cms', array('id' => 'comment-ca-marche', 'channel' => $this->channel)); ?>">Comment ça marche ?</a>
+            </li>
+            <li>
+                <a href="<?php if($this->zfcUserIdentity()): echo $this->url('frontend/badges', array('channel' => $this->channel)); else : echo $this->url('frontend/zfcuser/register', array('channel' => $this->channel)) . ($this->redirect ? '?redirect='.$this->redirect : ''); endif; ?>">Mon compte</a>
+            </li>
+            <li>
+                <a href="<?php echo $this->url('frontend/contact', array('channel' => $this->channel)) ?>">Contactez-nous</a>
+            </li>
+            <li>
+                <a href="<?php echo $this->url('frontend/faq', array('channel' => $this->channel)) ?>">FAQ</a>
+            </li>
+        </ul>
+        <ul class="game-nav footer-links">
+            <li class="title">Les jeux concours,<br />à gagner :</li>
+            <?php $categories = $this->playgroundPrizeCategory(); ?>
+            <?php foreach($categories as $category): ?>
+                <li class="jeu-item">
+                    <a href="<?php echo $this->url('frontend/prizecategories', array('channel' => $this->channel)) . $category->getIdentifier(); ?>"><?php echo $category->getTitle() ?></a>
+                </li>
+            <?php endforeach ?>
+        </ul>
+        <div class="logo">
+            <a href="<?php echo $this->url('frontend', array('channel' => $this->channel)) ?>">
+                <img src="<?php echo $this->frontendAssetPath('images/common/logo-white.png')?>" />
+            </a>
+        </div>
+    </div>
+</div>
+<div id="reglement-popin" class="modal fade" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+    <div class="modal-dialog">
+      <div class="modal-content">
+        <div class="modal-body">
+        </div>
+        <div class="modal-footer">
+          <button type="button" class="btn btn-default" data-dismiss="modal">
+              Fermer
+          </button>
+        </div>
+      </div><!-- /.modal-content -->
+    </div><!-- /.modal-dialog -->
+</div>

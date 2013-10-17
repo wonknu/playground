@@ -7,139 +7,158 @@ $form->setAttribute('action', $this->url('frontend/postvote/play', array('id' =>
 
 <?php $totalQuestions = count($this->questions);?>
 <!-- GAME QUIZ - FERME QUESTIONS -->
-<div class="row-fluid game-postvote play">
-	<h1><?php echo $this->game->getTitle(); ?></h1>
-
+<div class="row game-postvote play">
+	<h1>
+	    <?php echo $this->game->getTitle(); ?>
+	</h1>
 	<!-- BLOCK GAME START -->
-	<div class="block-game game-play">
+	<div class="block-game game-play <?php if ($this->basePath($this->game->getSecondImage()) == "") echo "no-image"; ?>">
 		<div class="img-content">
-			<img class="rounded" src="<?php echo $this->basePath($this->game->getSecondImage()); ?>" border="0" />
-			
+			<img class="rounded" src="<?php echo $this->basePath($this->game->getSecondImage()); ?>" />
 			<?php if($this->game->getPartner()):?>
 				<?php if( ($this->game->getPartner()->getLogo() != '')) : ?>
 					<div class="logo-sponsor">
-						<img src="<?php echo $this->basePath($this->game->getPartner()->getLogo());?>" width="120" border="0" alt="<?php echo $this->game->getPartner()->getName();?>" />
+						<img src="<?php echo $this->basePath($this->game->getPartner()->getLogo());?>" alt="<?php echo $this->game->getPartner()->getName();?>" />
 					</div>
 				<?php endif;?>
 			<?php else :?>
 				<div class="logo-sponsor">		
-					<img src="<?php echo $this->frontendAssetPath('images/common/logo-game-start.png')?>" width="83" height="81" border="0" alt="logo" />
+					<img src="<?php echo $this->frontendAssetPath('images/common/logo-game-start.png')?>" alt="logo" />
 				</div>
 			<?php endif;?>
 			
-			<div class="dark-overlay row-fluid">
-				<div class="postvote"><?php echo $this->translate('Post & Vote'); ?> offert par <?php if($this->game->getPartner()): echo $this->game->getPartner()->getName(); else:?>Playground<?php endif;?></div>
+			<div class="dark-overlay row">
+				<h2 class="col-md-10">
+				    <?php echo $this->translate('Post & Vote'); ?> offert par <?php if($this->game->getPartner()): echo $this->game->getPartner()->getName(); else:?>Playground<?php endif;?>
+				</h2>
 			</div>
 		</div>
 	</div>
 	<!-- END BLOCK GAME START -->
-
 	<!-- Content -->
-	<div class="row-fluid buttons">
-		<div class="span2">
-			<a href="<?php echo $this->url('frontend/postvote', array('id' => $this->game->getIdentifier(), 'channel' => $this->channel))?>"><button class="btn btn-inverse active">Accueil</button></a>
-		</div>
-		<div class="span4">
-			<a href="<?php echo $this->url('frontend/postvote/list', array('id' => $this->game->getIdentifier(), 'channel' => $this->channel, 'filter' => $this->game->getPostDisplayMode()))?>"><button class="btn btn-inverse">Voir les participations</button></a>
-		</div>
-		<div class="span3">
-			<a href="<?php echo $this->url('frontend/postvote/play', array('id' => $this->game->getIdentifier(), 'channel' => $this->channel))?>"><button class="btn btn-orange">Participer</button></a>
-		</div>
-	</div>
-	
-	
-	<div id="content-article" class="row-fluid rounded backgrey">
-	    <h2 class="green"><?php echo $this->game->getForm()->getTitle(); ?></h2>
-        <p><?php echo $this->game->getForm()->getDescription(); ?></p>
-		<div class="row-fluid">
-			
-			<div class="form-horizontal row-fluid">
-				<?php echo $this->form()->openTag($form); ?>
-		            <?php foreach ($this->form as $element): ?>
-		            	
-		            	<?php 
-		            		$attributes = $element->getAttributes();
-		            		$required = $attributes['required'];
-		            		$requiredContent = '';
-							(!empty($required)) ? $requiredContent = '<span class="text-error">*</span>' : '';
-						?>
-		            	
-		    			<?php if ($element instanceof Zend\Form\Element\Text): ?>
-		        			
-	    					<div class="form-input">
-	    						 <label class="span4">
-	    						 	<b><?php echo ($element->getLabel())? $this->formLabel($element) . ' ' . $requiredContent : ''; ?></b>
-	    						 </label>
-	    						 <div class="span7">
-	    						 	<?php echo $this->formText($element) ?>
-	    							<?php echo $this->formElementErrors($element) ?>
-	    						 </div>
+	<div class="btn-group">
+        <a href="<?php echo $this->url('frontend/postvote', array('id' => $this->game->getIdentifier(), 'channel' => $this->channel))?>" class="btn btn-orange" >
+            Accueil
+        </a>
+        <a href="<?php echo $this->url('frontend/postvote/list', array('id' => $this->game->getIdentifier(), 'channel' => $this->channel, 'filter' => $this->game->getPostDisplayMode()))?>" class="btn btn-orange" >
+            Voir les participations
+        </a>
+        <a href="<?php echo $this->url('frontend/postvote/play', array('id' => $this->game->getIdentifier(), 'channel' => $this->channel))?>" class="btn btn-orange" >
+            Participer
+        </a>
+    </div>
+	<div id="content-article">
+	    <h2>
+	        <?php echo $this->game->getForm()->getTitle(); ?>
+	    </h2>
+        <p>
+            <?php echo $this->game->getForm()->getDescription(); ?>
+        </p>
+		<div>
+			<div>
+				<?php
+				echo $this->form()->openTag($form);
+	            foreach ($this->form as $element) :
+            		$attributes = $element->getAttributes();
+            		$required = $attributes['required'];
+                    $element->setAttributes(array('class' => 'form-control'));
+            		$requiredContent = '';
+					(!empty($required)) ? $requiredContent = '<span class="text-error">*</span>' : '';
+					if ($element instanceof Zend\Form\Element\Text) : ?>
+    					<div class="row">
+    						 <label class="col-md-4">
+    						 	<b>
+    						 	    <?php echo ($element->getLabel())? $this->formLabel($element) . ' ' . $requiredContent : ''; ?>
+    						 	</b>
+    						 </label>
+    						 <div class="col-md-7">
+    						 	<?php echo $this->formText($element) ?>
+    							<?php echo $this->formElementErrors($element) ?>
+    						 </div>
+    					</div>
+                    <?php elseif ($element instanceof Zend\Form\Element\Textarea): ?>
+		                <div class="row">
+                                <label class="col-md-4">
+                                    <b>
+                                        <?php echo ($element->getLabel()) ? $this->formLabel($element) . ' ' . $requiredContent : ''; ?>
+                                    </b>
+				               	</label>
+				               	<div class="col-md-7">
+				               		<?php
+				               		echo $this->formTextarea($element);
+                                    ?>
+		    						<?php echo $this->formElementErrors($element) ?>
+				               	</div>
+				               <div class="caracteres-restants col-md-11">
+					               <span class="character-left"></span> 
+					               caractères restants
+					           </div>
+				         </div>
+                    <?php elseif ($element instanceof Zend\Form\Element\File): ?>
+                        <div class="clearfix"></div>
+	                    <div class="photo-file row" data-url="<?php echo $this->url('frontend/postvote/play/ajaxupload', array('id' => $this->game->getIdentifier(), 'channel' => $this->channel))?>" data-canonical="<?php echo $this->url('frontend', array('channel' => $this->channel), array('force_canonical' => true)) ?>">
+	                    	<label class="col-md-4">
+	    						<b>
+	    						    <?php echo ($element->getLabel()) ? $this->formLabel($element) . ' ' . $requiredContent :''; ?>
+    						    </b>
+    						    <br/>
+	    						<span class="annotation">
+	    						    500ko maximum
+	    						</span>
+	    					</label>
+	    					<div class="col-md-7">
+	                            <div class="preview-img">
+	                            <?php if($element->getValue() != ''):?>
+                                    <img class="preview" src="<?php echo $this->basePath($element->getValue());?>"/>
+                                    <a href="#"
+                                        class="trash"
+                                        data-delete="<?php echo $this->url('frontend/postvote/play/ajaxdelete', array('id' => $this->game->getIdentifier(), 'channel' => $this->channel))?>"
+                                        data-name="<?php echo $element->getName() ?>">
+                                        <img src="<?php echo $this->frontendAssetPath('images/common/trash.png');?>" alt="Supprimer" />
+                                    </a>
+	                            <?php endif;?>
+	                            </div>
+                                    <div class="progress progress-striped">
+                                        <div class="progress-bar progress-bar-success" role="progressbar" aria-valuenow="0" aria-valuemin="0" aria-valuemax="100" >
+                                            <span class="sr-only">0% Complete (success)</span>
+                                        </div>
+                                    </div>
+	                            <div class="wrap-progress">
+		                            <!-- <div class="progress">
+		    							<div class="bar rounded"></div>
+		                            </div>
+		                            <span class="percent">
+		                                <p>
+		                                    <b>0%</b>
+		                                </p>
+		                            </span> -->
+	                            </div>
+	                            <?php echo $this->formFile($element); ?>
+	                            <?php echo $this->formElementErrors($element) ?>
 	    					</div>
-	    		
-		    				
-		                <?php elseif ($element instanceof Zend\Form\Element\Textarea): ?>
-			                <div class="form-textarea">
-					               <label class="span4">
-					               <b><?php echo ($element->getLabel()) ? $this->formLabel($element) . ' ' . $requiredContent : ''; ?></b>
-					               	</label>
-					               	<div class="span7">
-					               		<?php echo $this->formTextarea($element);?>
-			    						<?php echo $this->formElementErrors($element) ?>
-					               	</div>
-					               <div class="caracteres-restants">
-						               <span class="character-left"> </span> caractères restants
-						           </div>
-
-					         </div>
-		                	
-
-		                <?php elseif ($element instanceof Zend\Form\Element\File): ?>
-		                    <div class="photo-file" data-url="<?php echo $this->url('frontend/postvote/play/ajaxupload', array('id' => $this->game->getIdentifier(), 'channel' => $this->channel))?>" data-canonical="<?php echo $this->url('frontend', array('channel' => $this->channel), array('force_canonical' => true)) ?>">
-		                    	
-		    					<label class="span4">
-		    						<b><?php echo ($element->getLabel()) ? $this->formLabel($element) . ' ' . $requiredContent :''; ?></b><br/>
-		    						<span class="annotation">500ko maximum</span>
-		    					</label>
-		    					<div class="span7">
-		                            <div class="preview-img">
-		                            <?php if($element->getValue() != ''):?>
-		                               <img class="preview" src="<?php echo $this->basePath($element->getValue());?>"/>
-		                               <ul class="picto">
-		                                	<!--<li class="star">
-		                                		<img src="<?php echo $this->frontendAssetPath('images/common/star.png');?>" alt="" height="35" width="37" />
-		                                	</li>-->
-		                                	<li class="trash" data-delete="<?php echo $this->url('frontend/postvote/play/ajaxdelete', array('id' => $this->game->getIdentifier(), 'channel' => $this->channel))?>" data-name="<?php echo $element->getName() ?>">
-		                                		
-		                                		<a href="#"><img src="<?php echo $this->frontendAssetPath('images/common/trash.png');?>" alt="Supprimer" height="35" width="37" /></a>
-		                                	</li>
-		                                </ul>
-		                            <?php endif;?>
-		                            </div>
-		                            
-		                            <div class="wrap-progress">
-			                            <div class="progress">
-			    							<div class="bar rounded"></div>
-			                            </div>
-			                            <span class="percent"><p><b>0%</b></p></span>
-		                            </div>
-		                            <?php echo $this->formFile($element); ?>
-		                            <?php echo $this->formElementErrors($element) ?>
-		    					</div>
-		    				</div>
-		                <?php endif;?>
-		    	    <?php endforeach;?> 
+	    				</div>
+                    <?php endif;?>
+        	    <?php endforeach;?> 
     	    </div>
-    	    <!--<progress min="0" max="100" value="0">0% complete</progress>-->
     	    <div class="center">
-                <button type="submit" name="submitPost" value="" class="btn btn-orange"><span class="arrow-right">Prévisualiser</span></button>
+                <button type="submit" name="submitPost" value="" class="btn btn-orange">
+                    Prévisualiser
+                </button>
     	    </div>
-    	    
 			<?php echo $this->form()->closeTag() ?>
 			<!-- FORM HANDLER LIVE UPLOAD PHOTO -->
-	        <form id="uploadform" method="post" enctype="multipart/form-data" action="<?php echo $this->url('frontend/photocontestcreate', array('channel' => $this->channel)) ?>" target="upload_iframe" style="display:none;"></form>
-
-		</div>
-		<p class="champs-obligatoitres">*champs obligatoires</p>
+	        <form
+               action="<?php echo $this->url('frontend/photocontestcreate', array('channel' => $this->channel)) ?>"
+               enctype="multipart/form-data"
+               target="upload_iframe"
+	           id="uploadform"
+	           method="post"
+	           style="display:none;" >
+	           </form>
+        </div>
+		<p class="champs-obligatoitres">
+		    *champs obligatoires
+		</p>
 	</div>
 </div>
 <!-- END GAME QUIZ - FERME QUESTIONS-->
