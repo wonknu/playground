@@ -12,45 +12,50 @@ $form->prepare();
 
 <h1><?php echo $this->translate('Block'); ?></h1>
 
-    <dl class="zend_form">
-    <?php foreach ($form as $element): ?>
-        <?php if (!$element instanceof Zend\Form\Element\Button && !$element instanceof Zend\Form\Element\Hidden): ?>
-            <dt><?php echo $this->formLabel($element) ?></dt>
-        <?php endif ?>
-        <?php if ($element instanceof Zend\Form\Element\Button): ?>
-            <dd><?php echo $this->formButton($element) ?></dd>
-        <?php elseif ($element instanceof Zend\Form\Element\Captcha): ?>
-            <dd><?php echo $this->formCaptcha($element) . $this->formElementErrors($element) ?></dd>
-        <?php elseif ($element instanceof Zend\Form\Element\Select): ?>
-            <dd><?php echo $this->formSelect($element) . $this->formElementErrors($element) ?></dd>
-        <?php elseif ($element instanceof Zend\Form\Element\Checkbox): ?>
-            <dd><?php echo $this->formCheckbox($element) . $this->formElementErrors($element) ?></dd>
-        <?php elseif ($element instanceof Zend\Form\Element\Textarea): ?>
-            <dd><?php echo $this->formtextarea($element) . $this->formElementErrors($element) ?></dd>
-            <?php $this->QgCKEditor(
-                'content',
-                    array(
-                    	'BasePath' => $this->adminAssetPath('js/lib/ckeditor'),
-                    	'Width' => "100%",
-                        'Height' => "340",
-                        'filebrowserBrowseUrl' => '/elfinder', // eg. 'includes/elFinder/elfinder.html'
-                        'uiColor' => '#9AB8F3',
-                        //'Color' => "#000",
-                        'Toolbar'=> array(
-                             array('Source','Maximize'),
-                             array('Templates','Styles','Format'),
-                             array('Bold','Italic','Underline','Subscript','Superscript'),
-                             array('NumberedList','BulletedList','Outdent','Indent'),
-                             array('JustifyLeft','JustifyCenter','JustifyRight'),
-                             array('Link','Unlink'),
-                             array('Image','Table')
-                         )
-                    )
-                );
-            ?>
-        <?php else: ?>
-            <dd><?php echo $this->formInput($element) . $this->formElementErrors($element) ?></dd>
-        <?php endif ?>
-    <?php endforeach ?>
-    </dl>
+    <div class="tab-pane active" id="general">
+	    <div>
+	    
+	    <?php foreach ($form as $element): ?>
+	    	<div class="form-group">
+	        <?php if (!$element instanceof Zend\Form\Element\Button && !$element instanceof Zend\Form\Element\Hidden): ?>
+	            <dt><?php echo $this->formLabel($element) ?></dt>
+	        <?php endif ?>
+	        <?php if ($element instanceof Zend\Form\Element\Button): ?>
+	            <dd><?php echo $this->formButton($element) ?></dd>
+	        <?php elseif ($element instanceof Zend\Form\Element\Captcha): ?>
+	            <dd><?php echo $this->formCaptcha($element) . $this->formElementErrors($element) ?></dd>
+	        <?php elseif ($element instanceof Zend\Form\Element\Select): ?>
+	            <dd><?php echo $this->formSelect($element->setAttribute('class', 'form-control')) . $this->formElementErrors($element) ?></dd>
+	        <?php elseif ($element instanceof Zend\Form\Element\Checkbox): ?>
+	            <dd><?php echo $this->formCheckbox($element) . $this->formElementErrors($element) ?></dd>
+	        <?php elseif ($element instanceof Zend\Form\Element\Textarea): ?>
+	            <dd><?php echo $this->formtextarea($element->setAttribute('class', 'form-control')) . $this->formElementErrors($element) ?></dd>
+	            <?php $this->QgCKEditor(
+	                'content',
+	                    array(
+	                    	'BasePath' => $this->adminAssetPath('js/lib/ckeditor'),
+	                    	'Width' => "100%",
+	                        'Height' => "340",
+	                        'filebrowserBrowseUrl' => '/elfinder', // eg. 'includes/elFinder/elfinder.html'
+	                        'uiColor' => '#9AB8F3',
+	                        //'Color' => "#000",
+	                        'Toolbar'=> array(
+	                             array('Source','Maximize'),
+	                             array('Templates','Styles','Format'),
+	                             array('Bold','Italic','Underline','Subscript','Superscript'),
+	                             array('NumberedList','BulletedList','Outdent','Indent'),
+	                             array('JustifyLeft','JustifyCenter','JustifyRight'),
+	                             array('Link','Unlink'),
+	                             array('Image','Table')
+	                         )
+	                    )
+	                );
+	            ?>
+	        <?php else: ?>
+	            <dd><?php echo $this->formInput($element->setAttribute('class', 'form-control')) . $this->formElementErrors($element) ?></dd>
+	        <?php endif ?>
+	        </div>
+	    <?php endforeach ?>
+	    </div>
+    </div>
 <?php echo $this->form()->closeTag() ?>
