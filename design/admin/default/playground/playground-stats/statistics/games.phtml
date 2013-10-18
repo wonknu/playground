@@ -12,8 +12,10 @@
 
 <div id="statistics-games" class="statistics-tab">
 	
-	<div class="statistics-form">
-		<label><b>Indiquez l'ID du jeu : </b></label><input type="text" name="gameId" value="<?php if($this->gameId != '') : echo $this->gameId; endif ?>" /><input type="submit" value="Go">
+	<div class="form-group statistics-form">
+		<label><b>Indiquez l'ID du jeu : </b></label>
+		<input type="text" name="gameId" value="<?php if($this->gameId != '') : echo $this->gameId; endif ?>" class="form-control" style="width:95%;display:inline"/>
+		<input type="submit" value="Go" class="btn btn-default right">
 	</div>
 	
 	<?php if($this->gameId != '') : ?>
