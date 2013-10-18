@@ -5952,7 +5952,8 @@ td.visible-print {
   color: #ffffff !important;
   background-color: #5e5e5e !important;
 }
-#newsletter .btn-success,
+#del-confirm,
+.btn-success,
 .btn-warning,
 .btn-orange {
   -webkit-border-radius: 4px;
@@ -5962,30 +5963,43 @@ td.visible-print {
   color: #ffffff;
   background-color: #e84c3c;
 }
-#newsletter .btn-success:hover,
+#del-confirm:hover,
+.btn-success:hover,
 .btn-warning:hover,
 .btn-orange:hover,
-#newsletter .btn-success.active,
+#del-confirm.active,
+.btn-success.active,
 .btn-warning.active,
 .btn-orange.active {
   cursor: pointer;
 }
-#newsletter .btn-success a,
+#del-confirm a,
+.btn-success a,
 .btn-warning a,
 .btn-orange a {
   text-decoration: none;
   color: inherit;
 }
-#newsletter .btn-success a:hover,
+#del-confirm a:hover,
+.btn-success a:hover,
 .btn-warning a:hover,
 .btn-orange a:hover {
   text-decoration: none;
 }
-#newsletter .btn-success a,
+#del-confirm a,
+.btn-success a,
 .btn-warning a,
 .btn-orange a {
   background-color: #e84c3c;
 }
+.btn-success:focus,
+#del-confirm:focus,
+.btn-warning:focus,
+.btn-success:focus,
+#del-confirm:focus,
+.btn-warning:focus,
+.btn-success:hover,
+#del-confirm:hover,
 .btn-warning:hover {
   background-color: #e84c3c;
   color: #333333;
@@ -5996,9 +6010,27 @@ td.visible-print {
 .txt-center {
   text-align: center;
 }
+.red {
+  color: red;
+}
 .badge {
   background-color: #e0e0e0;
   color: #2e2e2e;
+}
+form .annotation {
+  font-size: 10px;
+}
+form .has-error label {
+  color: #b94a48;
+  font-size: 11px;
+}
+form .radio .has-error label {
+  position: absolute;
+  bottom: 0px;
+  left: 0;
+}
+form .radio .has-error input {
+  margin-bottom: 15px;
 }
 .dark-overlay {
   background-color: rgba(0, 0, 0, 0.4);
@@ -6021,6 +6053,9 @@ ul {
 #footer {
   width: 960px;
   margin: 0 auto;
+}
+#content.row {
+  margin: 0;
 }
 .sidebar {
   padding: 30px 20px;
@@ -6151,10 +6186,23 @@ ul {
   float: left;
   margin-right: 10px;
 }
+#sidebar-user #user {
+  padding-bottom: 20px;
+}
+#sidebar-user #point .icon-reward {
+  text-align: center;
+}
+#sidebar-user .avatar,
+#sidebar-user .username,
+#sidebar-user .btn-wrapper {
+  text-align: center;
+}
 /* content */
 .block-game {
   position: relative;
   display: inline-block;
+  *display: inline;
+  zoom: 1;
   padding-bottom: 20px;
 }
 .block-game.no-image {
@@ -6221,6 +6269,49 @@ ul {
   width: 100%;
   height: auto;
 }
+form[name="preview_form"] {
+  padding-bottom: 20px;
+}
+form[name="preview_form"] .message {
+  margin: 10px;
+}
+/* result game */
+#mail-send button {
+  margin-top: 10px;
+}
+#parrainer #terminer {
+  padding: 20px 0;
+}
+#parrainer #terminer div {
+  text-align: right;
+  padding-right: 23px;
+}
+.recirculation {
+  padding-top: 20px;
+}
+.recirculation .partenaire-logo img {
+  width: 100%;
+}
+.recirculation h2 {
+  margin: 0;
+}
+.recirculation .offer {
+  clear: both;
+}
+.recirculation .offer .btn-orange {
+  margin: 10px 0;
+}
+.recirculation .col-md-3 {
+  text-align: center;
+}
+.recirculation .btn-orange input {
+  margin: 0;
+  padding: 0;
+  border: none;
+  background: none;
+  color: inherit;
+  outline: none;
+}
 /* homepage carousel */
 #homepage-carousel {
   margin: 20px 0;
@@ -6239,7 +6330,7 @@ ul {
   color: transparent;
   text-shadow: none;
 }
-/* quizz */
+/* game */
 .query-block {
   padding-bottom: 20px;
 }
@@ -6291,17 +6382,68 @@ ul {
 .game-quiz #invit-mail .text-mail {
   padding-top: 30px;
 }
-.game-quiz #mail-send input {
-  width: 25%;
-}
-.game-quiz #mail-send .btn-warning {
-  float: right;
-}
 .game-quiz #terminer {
   text-align: right;
 }
+/* Instant win */
+#play-instantwin {
+  padding-bottom: 20px;
+}
+#result-instantwin {
+  display: none;
+}
+#wScratchgame {
+  position: absolute;
+  top: 20px;
+  left: 20px;
+}
+#wScratchgame .wScratchwin {
+  position: absolute;
+  top: 20px;
+  font-size: 20px;
+  padding: 10px;
+  text-align: center;
+  display: none;
+}
+#wScratchgame .wScratchwin div {
+  display: block;
+}
+.scratchcontent div {
+  display: inline;
+}
+.caracteres-restants {
+  text-align: right;
+}
+#postForm > .row {
+  padding-bottom: 5px;
+}
+.photo-file .preview-img {
+  position: relative;
+  padding-bottom: 5px;
+}
+.photo-file .preview-img img {
+  max-width: 100%;
+}
+.photo-file .preview-img .trash {
+  position: absolute;
+  top: 5px;
+  left: 5px;
+  opacity: .5;
+  -webkit-transition: all 0.5s;
+  transition: all 0.5s;
+}
+.photo-file .preview-img .trash:hover {
+  opacity: 1;
+}
 #sidebar-game .row > div {
   padding-bottom: 10px;
+}
+.coordinates .win {
+  text-align: right;
+}
+.coordinates #annotation {
+  clear: both;
+  text-align: left;
 }
 /* My badges */
 #account-badge #my-badges li img {
@@ -6324,6 +6466,80 @@ ul {
 }
 #newsletter .choose .radio span {
   float: left;
+}
+/* Personnal informations */
+#account-modify form .row .col-md-4 {
+  line-height: 11px;
+}
+#account-modify form .btn-orange {
+  margin-top: 15px;
+}
+#account-modify input[type="text"],
+#account-modify input[type="email"],
+#account-modify input[type="password"],
+#account-modify select {
+  width: 100%;
+}
+#account-modify .radio {
+  display: block;
+  min-height: 0;
+  margin: 0;
+  padding: 0;
+}
+#account-modify .civility .col-md-6 label {
+  display: inline-block;
+  padding: 0 20px;
+}
+#account-modify .wrapper-submit {
+  text-align: right;
+}
+#account-modify .selector span {
+  display: none;
+}
+#account-modify #delete-account {
+  padding-bottom: 20px;
+}
+#account-modify #delete-account .btn {
+  margin-top: 15px;
+}
+/* register */
+#register-form {
+  margin: 0;
+}
+#register-form form > div {
+  padding-bottom: 5px;
+}
+#register-form .opt-in label,
+#register-form .civility label {
+  padding-left: 20px;
+  min-width: 110px;
+}
+#register-form .radio {
+  display: inline;
+  min-height: 0;
+  margin-top: 0;
+  margin-bottom: 0;
+  padding-left: 0;
+}
+/* list game participant */
+.list-participant .search-bar form {
+  margin: 15px 0 0 0;
+}
+.list-participant .search-bar form input[type="text"] {
+  width: 100%;
+}
+/* contact page */
+#contact-us #btn-send {
+  text-align: right;
+  padding: 10px 0;
+}
+/* RSS feed */
+.feed-news .link-feed,
+.feed-news .image-feed {
+  display: block;
+}
+.feed-news .image-feed {
+  width: 100%;
 }
 .wrap-header {
   background-color: #e84c3c;

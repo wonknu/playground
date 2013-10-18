@@ -5,11 +5,14 @@ if (isset($fm[0]))
     print '<span class=>' . $fm[0] . '</span>';
 }*/
 ?>
+
+<?php $this->plugin('translate')->setTranslatorTextDomain('playgroundcms');// Pour le texte ?>
+
 <ul class="liste-buttons">
 	<li class="btn-admin"></li>
 </ul>
 
-<h1>Liste des blocs dynamiques</h1>
+<h1><?php echo $this->translate($titleForm); ?></h1>
 
 <table class="table">
     <tr>

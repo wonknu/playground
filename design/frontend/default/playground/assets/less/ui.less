@@ -32,7 +32,8 @@
     background-color: @pg-grey-dark !important;
   }
 }
-#newsletter .btn-success,
+#del-confirm,
+.btn-success,
 .btn-warning,
 .btn-orange{
   .btn-playground();
@@ -42,8 +43,11 @@
     background-color: @pg-red;
   }
 }
-
+.btn-success,
+#del-confirm,
 .btn-warning{
+  &:focus,
+  &:focus,
   &:hover{
     background-color: @pg-red;
     color: #333333;

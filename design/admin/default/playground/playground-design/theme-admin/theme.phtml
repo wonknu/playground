@@ -11,7 +11,7 @@
         echo $this->partial('playground-design/partial/menu.phtml', array('action' => $type, 'automaticTheme' => $automaticTheme));
         echo $this->form()->openTag($form);
     ?>
-    <span class="col-md-6">
+    <span>
         <?php echo $this->formHidden($form->get('id')); ?>
 
         <div class="form-group">
@@ -21,9 +21,13 @@
             <input name="<?php echo $form->get('title')->getAttribute('name'); ?>" type="text"
                 value="<?php echo $form->get('title')->getValue(); ?>" class="form-control" />
             
-            <?php if($this->formElementErrors($form->get('title')) != '') : ?>
+            <?php if($this->formElementErrors()
+						->setMessageOpenFormat('<div class="alert alert-danger">')
+						->setMessageCloseString('</div>')->render($form->get(('title'))) != '') : ?>
             <div class="alert alert-danger">
-                <?php echo $this->formElementErrors($form->get('title')); ?>
+                <?php echo $this->formElementErrors()
+						->setMessageOpenFormat('<div class="alert alert-danger">')
+						->setMessageCloseString('</div>')->render($form->get(('title'))); ?>
             </div>
             <?php endif; ?>
         </div>
@@ -58,9 +62,13 @@
             <input name="<?php echo $form->get('author')->getAttribute('name'); ?>" type="text"
                 value="<?php echo $form->get('author')->getValue(); ?>" class="form-control" />
             
-            <?php if($this->formElementErrors($form->get('author')) != '') : ?>
+            <?php if($this->formElementErrors()
+						->setMessageOpenFormat('<div class="alert alert-danger">')
+						->setMessageCloseString('</div>')->render($form->get(('author'))) != '') : ?>
             <div class="alert alert-danger">
-                <?php echo $this->formElementErrors($form->get('author')); ?>
+                <?php echo $this->formElementErrors()
+						->setMessageOpenFormat('<div class="alert alert-danger">')
+						->setMessageCloseString('</div>')->render($form->get(('author'))); ?>
             </div>
             <?php endif; ?>
         </div>
@@ -80,9 +88,13 @@
             <input name="<?php echo $form->get('uploadImage')->getAttribute('name'); ?>" type="file"
                 value="<?php echo $form->get('uploadImage')->getValue(); ?>" class="form-control" />
             
-            <?php if($this->formElementErrors($form->get('uploadImage')) != '') : ?>
+            <?php if($this->formElementErrors()
+						->setMessageOpenFormat('<div class="alert alert-danger">')
+						->setMessageCloseString('</div>')->render($form->get(('uploadImage'))) != '') : ?>
             <div class="alert alert-danger">
-                <?php echo $this->formElementErrors($form->get('uploadImage')); ?>
+                <?php echo $this->formElementErrors()
+						->setMessageOpenFormat('<div class="alert alert-danger">')
+						->setMessageCloseString('</div>')->render($form->get(('uploadImage'))); ?>
             </div>
             <?php endif; ?>
                 
@@ -92,7 +104,8 @@
 </div>
 <div class="row show-grid">
     <div class="col-md-12">
-        <?php echo $this->formButton($form->get('submit')) ?>
+        <?php $form->get('submit')->setLabel($this->translate('Validate')); ?>
+        <?php echo $this->formButton($form->get('submit')->setAttribute('class', 'btn btn-default')) ?>
     </div>
     <?php echo $this->form()->closeTag() ?>
 </div>

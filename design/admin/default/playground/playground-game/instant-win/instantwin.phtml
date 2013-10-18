@@ -4,10 +4,11 @@ $form = $this->form;
 $form->prepare();
 ?>
 
-<h1><?php echo $this->translate($this->title); ?></h1>
-
 <?php echo $this->form()->openTag($form) ?>
-<?php $form->get('submit')->setLabel($this->translate('Validate')); ?><?php echo $this->formButton($form->get('submit')) ?>
+<?php $form->get('submit')->setLabel($this->translate('Validate')); ?>
+<?php echo $this->formButton($form->get('submit')->setAttribute('class', 'btn btn-default right')) ?>
+
+<h1><?php echo $this->translate($this->title); ?></h1>
 
 <div id="content" class="tabbable tabs-left">
     <ul id="tabs" class="nav nav-tabs" data-tabs="tabs">
@@ -26,27 +27,33 @@ $form->prepare();
         <?php echo $this->game_form;?>
 
         <div class="tab-pane" id="mechanics">
-        	<div class="label-input">
+        	<div class="form-group">
 	            <?php //echo $this->formLabel($form->get('occurrenceType')); ?>
-	            <?php echo $this->formInput($form->get('occurrenceType')); ?>
-	            <?php //echo $this->formElementErrors($form->get('occurrenceType')) ?>
+	            <?php echo $this->formInput($form->get(('occurrenceType'))->setAttribute('class', 'form-control')); ?>
+	            <?php //echo $this->formElementErrors() ?>
 	        </div>
-			<div class="label-input">
+			<div class="form-group">
 	            <?php echo $this->formLabel($form->get('scheduleOccurrenceAuto')); ?>
-	            <?php echo $this->formSelect($form->get('scheduleOccurrenceAuto')); ?>
-	            <?php echo $this->formElementErrors($form->get('scheduleOccurrenceAuto')) ?>
+	            <?php echo $this->formSelect($form->get(('scheduleOccurrenceAuto'))->setAttribute('class', 'form-control')); ?>
+	            <?php echo $this->formElementErrors()
+						->setMessageOpenFormat('<div class="alert alert-danger">')
+						->setMessageCloseString('</div>')->render($form->get(('scheduleOccurrenceAuto'))) ?>
 			</div>
-			<div class="label-input">
+			<div class="form-group">
 	            <?php echo $this->formLabel($form->get('occurrenceNumber')); ?>
-	            <?php echo $this->formInput($form->get('occurrenceNumber')); ?>
-	            <?php echo $this->formElementErrors($form->get('occurrenceNumber')) ?>
+	            <?php echo $this->formInput($form->get(('occurrenceNumber'))->setAttribute('class', 'form-control')); ?>
+	            <?php echo $this->formElementErrors()
+						->setMessageOpenFormat('<div class="alert alert-danger">')
+						->setMessageCloseString('</div>')->render($form->get(('occurrenceNumber'))) ?>
 			</div>
-			<div class="label-input">
+			<div class="form-group">
 	            <?php echo $this->formLabel($form->get('occurrenceDrawFrequency')); ?>
-	            <?php echo $this->formSelect($form->get('occurrenceDrawFrequency')); ?>
-	            <?php echo $this->formElementErrors($form->get('occurrenceDrawFrequency')) ?>
+	            <?php echo $this->formSelect($form->get(('occurrenceDrawFrequency'))->setAttribute('class', 'form-control')); ?>
+	            <?php echo $this->formElementErrors()
+						->setMessageOpenFormat('<div class="alert alert-danger">')
+						->setMessageCloseString('</div>')->render($form->get(('occurrenceDrawFrequency'))) ?>
 			</div>
-			<div class="label-input">
+			<div class="form-group">
 	            <?php echo $this->formLabel($form->get('uploadScratchcardImage')); ?>
 	            <?php echo $this->formFile($form->get('uploadScratchcardImage')); ?>
 	            <?php if($form->get('scratchcardImage')->getValue() != ''):?>
@@ -56,12 +63,3 @@ $form->prepare();
     </div>
 </div>
 <?php echo $this->form()->closeTag() ?>
-
-<script type="text/javascript">
-    jQuery(document).ready(function ($) {
-        $('#tabs').tab();
-        $('.datepicker').datepicker({
-            dateFormat : 'dd/mm/yy'
-        });
-    });
-</script>

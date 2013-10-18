@@ -23,8 +23,10 @@ $form->prepare();
             <div class="control-group">
                 <?php echo $this->formLabel($form->get('hint')); ?>
                 <div class="controls">
-                    <?php echo $this->formTextarea($form->get('hint')); ?>
-                    <?php echo $this->formElementErrors($form->get('hint')) ?>
+                    <?php echo $this->formTextarea($form->get(('hint'))->setAttribute('class', 'form-control')->setAttribute('row', '4')); ?>
+                    <?php echo $this->formElementErrors()
+						->setMessageOpenFormat('<div class="alert alert-danger">')
+						->setMessageCloseString('</div>')->render($form->get(('hint'))) ?>
                 </div>
                 <?php $this->QgCKEditor(
                     'hint',
@@ -53,27 +55,35 @@ $form->prepare();
             <div class="control-group">
                 <?php echo $this->formLabel($form->get('area')); ?>
                 <div class="controls">
-                    <?php echo $this->formTextarea($form->get('area')); ?>
-                    <?php echo $this->formElementErrors($form->get('area')) ?>
+                    <?php echo $this->formTextarea($form->get(('area'))->setAttribute('class', 'form-control')->setAttribute('row', '4')); ?>
+                    <?php echo $this->formElementErrors()
+						->setMessageOpenFormat('<div class="alert alert-danger">')
+						->setMessageCloseString('</div>')->render($form->get(('area'))) ?>
                 </div>
             </div>
 
             <div class="control-group">
                 <?php echo $this->formLabel($form->get('timer')); ?>
-                <div class="controls"><?php echo $this->formSelect($form->get('timer')); ?></div>
-                <?php echo $this->formElementErrors($form->get('timer')) ?>
+                <div class="controls"><?php echo $this->formSelect($form->get(('timer'))->setAttribute('class', 'form-control')); ?></div>
+                <?php echo $this->formElementErrors()
+						->setMessageOpenFormat('<div class="alert alert-danger">')
+						->setMessageCloseString('</div>')->render($form->get(('timer'))) ?>
             </div>
             
             <div class="control-group">
                 <?php echo $this->formLabel($form->get('timer_duration')); ?>
-                <div class="controls"><?php echo $this->formInput($form->get('timer_duration')); ?></div>
-                <?php echo $this->formElementErrors($form->get('timer_duration')) ?>
+                <div class="controls"><?php echo $this->formInput($form->get(('timer_duration'))->setAttribute('class', 'form-control')); ?></div>
+                <?php echo $this->formElementErrors()
+						->setMessageOpenFormat('<div class="alert alert-danger">')
+						->setMessageCloseString('</div>')->render($form->get(('timer_duration'))) ?>
             </div>
             
             <div class="control-group">
                 <?php echo $this->formLabel($form->get('position')); ?>
-                <div class="controls"><?php echo $this->formInput($form->get('position')); ?></div>
-                <?php echo $this->formElementErrors($form->get('position')) ?>
+                <div class="controls"><?php echo $this->formInput($form->get(('position'))->setAttribute('class', 'form-control')); ?></div>
+                <?php echo $this->formElementErrors()
+						->setMessageOpenFormat('<div class="alert alert-danger">')
+						->setMessageCloseString('</div>')->render($form->get(('position'))) ?>
             </div>
 
             <?php echo $this->formHidden($form->get('url')); ?>
@@ -86,11 +96,3 @@ $form->prepare();
     </div>
 </div>
 <?php echo $this->form()->closeTag() ?>
-<script type="text/javascript">
-    jQuery(document).ready(function ($) {
-        $('#tabs').tab();
-        $('#occurrence_date').datetimepicker({
-        	dateFormat : 'dd/mm/yy'
-        });
-    });
-</script>

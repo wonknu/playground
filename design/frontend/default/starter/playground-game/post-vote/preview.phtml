@@ -1,0 +1,90 @@
+<?php $this->plugin('translate')->setTranslatorTextDomain('playgroundgame');// Pour le texte ?>
+<?php $data = array();foreach($this->post->getPostElements() as $element):?>
+<?php $data[$element->getPosition()] = $element->getValue();?>
+<?php endforeach;?>
+<div class="game-postvote preview">
+	<h1>
+	    <?php echo $this->game->getTitle(); ?>
+	</h1>
+	<!-- BLOCK GAME START -->
+    <!-- BLOCK GAME START -->
+	<div class="block-game game-play <?php if ($this->basePath($this->game->getSecondImage()) == "") echo "no-image"; ?>">
+		<div class="img-content">
+			<img class="rounded" src="<?php echo $this->basePath($this->game->getSecondImage()); ?>" border="0" />
+			<?php if($this->game->getPartner()):?>
+				<?php if( ($this->game->getPartner()->getLogo() != '')) : ?>
+					<div class="logo-sponsor">
+						<img src="<?php echo $this->basePath($this->game->getPartner()->getLogo());?>" width="120" border="0" alt="<?php echo $this->game->getPartner()->getName();?>" />
+					</div>
+				<?php endif;?>
+			<?php else :?>
+				<div class="logo-sponsor">
+					<img src="<?php echo $this->frontendAssetPath('images/common/logo-game-start.png')?>" width="83" height="81" border="0" alt="logo" />
+				</div>
+			<?php endif;?>
+			<div class="dark-overlay row">
+				<h2 class="col-md-10">
+				    <?php echo $this->translate('Post & Vote'); ?> offert par <?php if($this->game->getPartner()): echo $this->game->getPartner()->getName(); else:?>
+				        Playground
+			        <?php endif;?>
+				</h2>
+			</div>
+		</div>
+	</div>
+	<!-- END BLOCK GAME START -->
+    <!-- BLOCK CONTENT -->
+    <div class="btn-group">
+        <a href="<?php echo $this->url('frontend/postvote', array('id' => $this->game->getIdentifier(), 'channel' => $this->channel))?>" class="btn btn-default">
+            Accueil
+        </a>
+        <a href="<?php echo $this->url('frontend/postvote/list', array('id' => $this->game->getIdentifier(), 'channel' => $this->channel, 'filter' => $this->game->getPostDisplayMode()))?>" class="btn btn-default">
+            Voir les participations
+        </a>
+        <a href="<?php echo $this->url('frontend/postvote/play', array('id' => $this->game->getIdentifier(), 'channel' => $this->channel))?>" class="btn btn-default">
+            Participer
+        </a>
+    </div>
+    <!-- BLOCK CONTENT -->
+   <form action="" method="post" name="preview_form">
+       <div id="content-article">
+            <h2>
+                Aperçu de votre message
+            </h2>
+            <p>
+                <?php echo $this->game->getForm()->getDescription(); ?>
+            </p>
+           <div class="message">
+               <div class="posts">
+    				<div class="postvote-preview">
+                   		<?php echo $this->partial('playground-game/post-vote/templates/' . $this->game->getTemplate(), array('data'=>$data, 'post'=>$this->post, 'channel' => $this->channel));?>
+    					<div class="row">
+    					    <div class="avatar col-md-5">
+    					    	<?php if($this->post->getUser()->getAvatar()):?>
+    						        <img src="<?php echo $this->basePath($this->post->getUser()->getAvatar()) ?>" alt="<?php echo $this->post->getUser()->getFirstname(); ?> <?php echo $this->post->getUser()->getLastname(); ?>" />
+    						    <?php else:?>
+    					    		<?php if($this->post->getUser()->getTitle() && $this->post->getUser()->getTitle() == 'M'): ?>
+    					        		<img src="<?php echo $this->frontendAssetPath('images/user/no-avatar-small-h.png'); ?>" alt="no avatar" />
+    					    		<?php else: ?>
+    					    			<img src="<?php echo $this->frontendAssetPath('images/user/no-avatar-small-f.png'); ?>" alt="no avatar" />
+    					    		<?php endif; ?>
+    						    <?php endif;?>
+    						    <?php echo $this->post->getUser()->getUsername(); ?>
+    					    </div>
+    					</div>
+               		</div>
+               </div>
+            </div>
+            <div class="btn-group">
+                <a href="<?php echo $this->url('frontend/postvote/play', array('id' => $this->game->getIdentifier(), 'channel' => $this->channel))?>" class="btn btn-default">
+                    Modifier
+                </a>
+                <button type="submit" name="submitPost" value="" class="btn btn-default">
+                    Valider
+                </button>
+                <a href="<?php echo $this->url('frontend/postvote/terms', array('id' => $this->game->getIdentifier(), 'channel' => $this->channel))?>" class="btn btn-default">
+                    Règlement
+                </a>
+            </div>
+        </div>
+    </form>
+</div>

@@ -32,7 +32,6 @@ return array(
                             'share.js' => 'js/share.js',
                             'games.js' => 'js/games.js',
                             'bootstrap.min.js' => 'js/bootstrap.min.js',
-                            'modal.js' => 'js/bootstrap-3.0.0/modal.js',
                         ),
                         'filters' => array(),
                         'options' => array(
@@ -47,9 +46,6 @@ return array(
 			                'js/lib/playground/app.js',
 			            ),
 			            'filters' => array(),
-			            'options' => array(
-			                'output' => 'frontend/js/lib/playground/ears.min.js'
-			            ),
 			        ),
                     'frontend_images' => array(
                         'assets' => array(

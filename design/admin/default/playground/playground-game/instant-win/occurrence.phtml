@@ -23,30 +23,28 @@ $form->prepare();
             <?php $today = new \DateTime('now');?>
             <?php $today = $today->format('d/m/Y H:i:s');?>
 
-            <div class="label-input">
+            <div class="form-group">
 	        	<?php echo $this->formLabel($form->get('occurrence_date')); ?>
-	            <?php echo $this->formInput($form->get('occurrence_date')); ?>
-	            <?php echo $this->formElementErrors($form->get('occurrence_date')); ?>
+	            <?php echo $this->formInput($form->get(('occurrence_date'))->setAttribute('class', 'form-control date')); ?>
+	            <?php echo $this->formElementErrors()
+						->setMessageOpenFormat('<div class="alert alert-danger">')
+						->setMessageCloseString('</div>')->render($form->get(('occurrence_date'))); ?>
 	        </div>
-	        <div class="label-input">
+	        <div class="form-group">
 	            <?php echo $this->formLabel($form->get('active')); ?>
-	            <?php echo $this->formSelect($form->get('active')); ?>
-	            <?php echo $this->formElementErrors($form->get('active')) ?>
+	            <?php echo $this->formSelect($form->get(('active'))->setAttribute('class', 'form-control')); ?>
+	            <?php echo $this->formElementErrors()
+						->setMessageOpenFormat('<div class="alert alert-danger">')
+						->setMessageCloseString('</div>')->render($form->get(('active'))) ?>
 	        </div>
-	        <div class="label-input">
+	        <div class="form-group">
 		        <?php echo $this->formLabel($form->get('prize')); ?>
-		        <?php echo $this->formSelect($form->get('prize')); ?>
-		        <?php echo $this->formElementErrors($form->get('prize')) ?>
+		        <?php echo $this->formSelect($form->get(('prize'))->setAttribute('class', 'form-control')); ?>
+		        <?php echo $this->formElementErrors()
+						->setMessageOpenFormat('<div class="alert alert-danger">')
+						->setMessageCloseString('</div>')->render($form->get(('prize'))) ?>
 			</div>
         </div>
     </div>
 </div>
 <?php echo $this->form()->closeTag() ?>
-<script type="text/javascript">
-    jQuery(document).ready(function ($) {
-        $('#tabs').tab();
-        $('#occurrence_date').datetimepicker({
-        	dateFormat : 'dd/mm/yy'
-        });
-    });
-</script>

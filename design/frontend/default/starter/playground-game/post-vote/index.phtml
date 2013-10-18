@@ -1,0 +1,36 @@
+<?php $this->plugin('translate')->setTranslatorTextDomain('playgroundgame'); ?>
+<div class="game-postvote welcome">
+	<h1>
+	    <?php echo $this->game->getTitle(); ?>
+	</h1>
+	<!-- BLOCK GAME START -->
+    <?php echo $this->partial('playground-game/partial/game-header', array('game'=>$this->game, 'channel' => $this->channel));?>
+    <!-- END BLOCK GAME START -->
+	<!-- contenu article -->
+	<div id="content-article" class="row">
+		<?php if(count($this->flashMessages)>0):?>
+			<p class="already-play">
+			    <?php echo $this->flashMessages[0];?>
+			</p>
+	    <?php endif;?>
+		<div class="welcome-block<?php if($this->layout()->facebooktemplate): echo ' fb-target'; endif ?>">
+		    <?php echo $this->game->getWelcomeBlock(); ?>
+		</div>
+		<div class="btn-group">
+            <a href="<?php echo $this->url('frontend/postvote/list', array('id' => $this->game->getIdentifier(), 'filter' => $this->game->getPostDisplayMode(), 'channel' => $this->channel))?>" class="btn btn-default">
+                Voir les participants
+            </a>
+            <?php if($game->isStarted()):?>
+            <a href="<?php echo $this->url('frontend/postvote/play', array('id' => $this->game->getIdentifier(), 'channel' => $this->channel))?>"  class="btn btn-default">
+                Participer
+            </a>
+            <?php endif;?>
+            <a href="<?php echo $this->url('frontend/postvote/terms', array('id' => $this->game->getIdentifier(), 'channel' => $this->channel))?>" target="_blank" class="btn btn-default">
+               Règlement
+            </a>
+        </div>
+	</div>
+	<p id="reglement">
+        
+	</p>
+</div>

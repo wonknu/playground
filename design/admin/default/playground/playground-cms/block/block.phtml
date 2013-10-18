@@ -1,7 +1,5 @@
 <?php $this->plugin('translate')->setTranslatorTextDomain('playgroundcms');// Pour le texte ?>
 
-<h1><?php echo $this->translate('Block'); ?></h1>
-
 <?php
 
 $form = $this->createBlockForm;
@@ -9,6 +7,11 @@ $form->prepare();
 ?>
 
 <?php echo $this->form()->openTag($form) ?>
+
+<?php echo $this->formButton($form->get('submit')->setAttribute('class', 'btn btn-default right')) ?>
+
+<h1><?php echo $this->translate('Block'); ?></h1>
+
     <dl class="zend_form">
     <?php foreach ($form as $element): ?>
         <?php if (!$element instanceof Zend\Form\Element\Button && !$element instanceof Zend\Form\Element\Hidden): ?>
