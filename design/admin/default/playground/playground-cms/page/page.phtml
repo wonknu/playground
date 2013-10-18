@@ -1,0 +1,157 @@
+<?php $this->plugin('translate')->setTranslatorTextDomain('playgroundcms');// Pour le texte ?>
+
+<?php
+$form = $this->form;
+$form->prepare();
+?>
+
+<?php echo $this->form()->openTag($form) ?>
+<?php $form->get('submit')->setLabel($this->translate('Validate')); ?>
+<?php echo $this->formButton($form->get('submit')->setAttribute('class', 'btn btn-default right')) ?>
+
+<h1><?php echo $this->translate($titleForm); ?></h1>
+
+<div id="content" class="tabbable tabs-left">
+    <ul id="tabs" class="nav nav-tabs" data-tabs="tabs">
+        <li class="active"><a href="#general" data-toggle="tab"><?php echo $this->translate('General'); ?></a></li>
+        <li><a href="#homepage" data-toggle="tab"><?php echo $this->translate('Homepage'); ?></a></li>
+        <li><a href="#tabcontent" data-toggle="tab"><?php echo $this->translate('Bloc de contenu'); ?></a></li>
+    </ul>
+    <div id="my-tab-content" class="tab-content">
+        <div class="tab-pane active" id="general">
+            <div>
+                <?php echo $this->formHidden($form->get('id')); ?>
+        		
+        		<div class="form-group">
+	                <?php echo $this->formLabel($form->get('title')); ?>
+	                <?php echo $this->formInput($form->get(('title'))->setAttribute('class', 'form-control')); ?>
+	                <?php echo $this->formElementErrors()
+						->setMessageOpenFormat('<div class="alert alert-danger">')
+						->setMessageCloseString('</div>')->render($form->get(('title'))) ?>
+                </div>
+        		<div class="form-group">
+	                <?php echo $this->formLabel($form->get('identifier')); ?>
+	                <?php echo $this->formInput($form->get(('identifier'))->setAttribute('class', 'form-control')); ?>
+	                <?php echo $this->formElementErrors()
+						->setMessageOpenFormat('<div class="alert alert-danger">')
+						->setMessageCloseString('</div>')->render($form->get(('identifier'))); ?>
+                </div>
+                <div class="form-group">
+	                <?php echo $this->formLabel($form->get('publicationDate')); ?>
+	                <?php echo $this->formDateTime($form->get(('publicationDate'))->setAttribute('class', 'form-control date')); ?>
+	                <?php echo $this->formElementErrors()
+						->setMessageOpenFormat('<div class="alert alert-danger">')
+						->setMessageCloseString('</div>')->render($form->get(('publicationDate'))); ?>
+                </div>
+                <div class="form-group">
+	                <?php echo $this->formLabel($form->get('closeDate')); ?>
+	            	<?php echo $this->formDateTime($form->get(('closeDate'))->setAttribute('class', 'form-control date')); ?>
+	                <?php echo $this->formElementErrors()
+						->setMessageOpenFormat('<div class="alert alert-danger">')
+						->setMessageCloseString('</div>')->render($form->get(('closeDate'))); ?>
+                </div>
+                <div class="form-group">
+	                <?php echo $this->formLabel($form->get('active')); ?>
+	                <?php echo $this->formSelect($form->get(('active'))->setAttribute('class', 'form-control')); ?>
+	                <?php echo $this->formElementErrors()
+						->setMessageOpenFormat('<div class="alert alert-danger">')
+						->setMessageCloseString('</div>')->render($form->get(('active'))) ?>
+                </div>
+                <div class="form-group">
+	                <?php echo $this->formLabel($form->get('category')); ?>
+	                <?php echo $this->formSelect($form->get(('category'))->setAttribute('class', 'form-control')); ?>
+	                <?php echo $this->formElementErrors()
+						->setMessageOpenFormat('<div class="alert alert-danger">')
+						->setMessageCloseString('</div>')->render($form->get(('category'))) ?>
+                </div>
+				<div class="form-group heading">
+		            <?php echo $this->formLabel($form->get('heading')); ?>
+		            <?php echo $this->formTextarea($form->get(('heading'))->setAttribute('class', 'form-control')->setAttribute('row', '4')) . $this->formElementErrors()
+						->setMessageOpenFormat('<div class="alert alert-danger">')
+						->setMessageCloseString('</div>')->render($form->get(('heading'))) ?>
+		            <?php $this->QgCKEditor(
+		                'block_heading',
+		                    array(
+		                    	'BasePath' => $this->adminAssetPath('js/lib/ckeditor'),
+		                    	'Width' => "40%",
+		                        'Height' => "100",
+		                        'filebrowserBrowseUrl' => '/elfinder', // eg. 'includes/elFinder/elfinder.html'
+		                        'uiColor' => '#9AB8F3',
+		                        //'Color' => "#000",
+		                        'Toolbar'=> array(
+		                             array('Source','Maximize'),
+		                             array('Bold','Italic','Underline','Subscript','Superscript'),
+		                             array('Link','Unlink'),
+		                         )
+		                    )
+		                );
+		            ?>
+		        </div>
+                <div class="form-group file">
+	                <?php echo $this->formLabel($form->get('uploadMainImage')); ?>
+	                <?php echo $this->formFile($form->get('uploadMainImage')); ?>
+                </div>
+                <?php if($form->get('mainImage')->getValue() != ''):?>
+                	<img src="<?php echo $this->basePath($form->get('mainImage')->getValue()); ?>" />
+                <?php endif;?>
+            </div>
+        </div>
+        
+        <div class="tab-pane" id="homepage">
+        	<div class="form-group checkbox">
+                <?php echo $this->formCheckbox($form->get('displayHome')); ?>
+                <?php echo $this->formLabel($form->get('displayHome')); ?>
+                <?php echo $this->formElementErrors()
+						->setMessageOpenFormat('<div class="alert alert-danger">')
+						->setMessageCloseString('</div>')->render($form->get(('displayHome'))) ?>
+            </div>
+            
+            <div class="form-group checkbox">
+                <?php echo $this->formCheckbox($form->get('pushHome')); ?>
+                <?php echo $this->formLabel($form->get('pushHome')); ?>
+                <?php echo $this->formElementErrors()
+						->setMessageOpenFormat('<div class="alert alert-danger">')
+						->setMessageCloseString('</div>')->render($form->get(('pushHome'))) ?>
+            </div>
+            
+            <div class="image-slider">
+                <?php echo $this->formLabel($form->get('uploadSecondImage')); ?>
+                <?php echo $this->formFile($form->get('uploadSecondImage')); ?>
+            </div>
+            <?php if($form->get('secondImage')->getValue() != ''):?>
+            	<img src="<?php echo $this->basePath($form->get('secondImage')->getValue()); ?>" />
+            <?php endif;?>
+        </div>
+        
+        <div class="tab-pane" id="tabcontent">
+            <div>
+            <?php echo $this->formLabel($form->get('content')); ?>
+            <?php echo $this->formTextarea($form->get(('content'))->setAttribute('class', 'form-control')->setAttribute('row', '4')) . $this->formElementErrors()
+						->setMessageOpenFormat('<div class="alert alert-danger">')
+						->setMessageCloseString('</div>')->render($form->get(('content'))) ?>
+            <?php $this->QgCKEditor(
+                'block_content',
+                    array(
+                    	'BasePath' => $this->adminAssetPath('js/lib/ckeditor'),
+                    	'Width' => "100%",
+                        'Height' => "340",
+                        'filebrowserBrowseUrl' => '/elfinder', // eg. 'includes/elFinder/elfinder.html'
+                        'uiColor' => '#9AB8F3',
+                        //'Color' => "#000",
+                        'Toolbar'=> array(
+                             array('Source','Maximize'),
+                             array('Templates','Styles','Format'),
+                             array('Bold','Italic','Underline','Subscript','Superscript'),
+                             array('NumberedList','BulletedList','Outdent','Indent'),
+                             array('JustifyLeft','JustifyCenter','JustifyRight'),
+                             array('Link','Unlink'),
+                             array('Image','Table')
+                         )
+                    )
+                );
+            ?>
+            </div>
+        </div>
+    </div>
+</div>
+<?php echo $this->form()->closeTag() ?>

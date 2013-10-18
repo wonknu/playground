@@ -1,0 +1,71 @@
+<?php $this->plugin('translate')->setTranslatorTextDomain('playgroundgame');// Pour le texte ?>
+<?php
+$form = $this->form;
+$form->prepare();
+?>
+
+
+<?php echo $this->form()->openTag($form) ?>
+<?php $form->get('submit')->setLabel($this->translate('Validate')); ?>
+<?php echo $this->formButton($form->get('submit')->setAttribute('class', 'btn btn-default right')) ?>
+
+<h1><?php echo $this->translate($this->title); ?></h1>
+
+<div id="content" class="tabbable tabs-left">
+    <ul id="tabs" class="nav nav-tabs" data-tabs="tabs">
+        <li class="active"><a href="#general" data-toggle="tab"><?php echo $this->translate('General'); ?></a></li>
+        <li><a href="#mechanics" data-toggle="tab"><?php echo $this->translate('Game Mechanics'); ?></a></li>
+        <li><a href="#prizes" data-toggle="tab"><?php echo $this->translate('Lots'); ?></a></li>
+        <li><a href="#platform" data-toggle="tab"><?php echo $this->translate('Plateforme'); ?></a></li>
+        <li><a href="#facebook" data-toggle="tab"><?php echo $this->translate('Facebook'); ?></a></li>
+        <li><a href="#design" data-toggle="tab"><?php echo $this->translate('Design'); ?></a></li>
+        <li><a href="#column" data-toggle="tab"><?php echo $this->translate('Colonne de droite'); ?></a></li>
+        <li><a href="#share" data-toggle="tab"><?php echo $this->translate('Partage'); ?></a></li>
+        <li><a href="#welcome_page" data-toggle="tab"><?php echo $this->translate('Bloc de bienvenue'); ?></a></li>
+        <li><a href="#terms_page" data-toggle="tab"><?php echo $this->translate('Page de règlement'); ?></a></li>
+    </ul>
+    <div id="my-tab-content" class="tab-content">
+        <?php echo $this->game_form;?>
+
+        <div class="tab-pane" id="mechanics">
+			<div class="form-group">
+	            <?php echo $this->formLabel($form->get('playerType')); ?>
+	            <?php echo $this->formSelect($form->get(('playerType'))->setAttribute('class', 'form-control')); ?>
+	            <?php echo $this->formElementErrors()
+						->setMessageOpenFormat('<div class="alert alert-danger">')
+						->setMessageCloseString('</div>')->render($form->get(('playerType'))) ?>
+			</div>
+			<div class="form-group">
+	            <?php echo $this->formLabel($form->get('winners')); ?>
+	            <?php echo $this->formInput($form->get(('winners'))->setAttribute('class', 'form-control')); ?>
+	            <?php echo $this->formElementErrors()
+						->setMessageOpenFormat('<div class="alert alert-danger">')
+						->setMessageCloseString('</div>')->render($form->get(('winners'))) ?>
+			</div>
+            <div class="form-group">
+                <?php echo $this->formLabel($form->get('timer')); ?>
+                <?php foreach ($form->get('timer')->getValueOptions() as $key => $value) : ?>
+                <div class="radio">
+                    <label>
+                        <input type="radio" name="<?php echo $form->get('timer')->getAttribute('name'); ?>"
+                            <?php echo ($key == $form->get('timer')->getValue()) ? 'checked="checked"' : ''; ?> value="<?php echo $key; ?>" />
+                        <?php echo $value; ?>
+                    </label>
+                </div>
+                <?php endforeach; ?>
+
+                <?php echo $this->formElementErrors()
+                    ->setMessageOpenFormat('<div class="alert alert-danger">')
+                    ->setMessageCloseString('</div>')->render($form->get('title')) ?>
+            </div>
+			<div class="form-group">
+	            <?php echo $this->formLabel($form->get('timerDuration')); ?>
+	            <?php echo $this->formInput($form->get(('timerDuration'))->setAttribute('class', 'form-control')); ?>
+	            <?php echo $this->formElementErrors()
+						->setMessageOpenFormat('<div class="alert alert-danger">')
+						->setMessageCloseString('</div>')->render($form->get(('timerDuration'))) ?>
+			</div>
+        </div>
+    </div>
+</div>
+<?php echo $this->form()->closeTag() ?>

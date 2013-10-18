@@ -17,7 +17,7 @@ if (isset($fm[0]))
     <tr>
         <!-- <th>Id</th> -->
         <th>
-        	Date de publication
+        	<?php echo $this->translate('Publishing date'); ?>
         	<?php if($this->filter == 'ASC'): ?>
         	    <a href="<?php echo $this->url('admin/playgroundcmsadmin/pages/list', array('filter' => 'DESC')); ?>">
         	    	<img src="<?php echo $this->adminAssetPath('images/admin/arrow-down.png'); ?>" alt="" />
@@ -28,7 +28,7 @@ if (isset($fm[0]))
 				</a>
         	<?php endif; ?>
 	    </th>
-        <th>Titre</th>
+        <th><?php echo $this->translate('Title'); ?></th>
         <th><?php echo $this->translate('identifier'); ?></th>
         <th></th>
     </tr>

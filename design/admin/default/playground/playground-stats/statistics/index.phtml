@@ -1,0 +1,170 @@
+<?php $this->plugin('translate')->setTranslatorTextDomain('application');// Pour le texte ?>
+<?php
+	$form = $this->form;
+	$form->prepare();
+	$form->setAttribute('action', $this->url('admin/stats'));
+
+	$startDate = isset($this->data['statsDateStart']) ? $this->data['statsDateStart'] : '';
+	$endDate = isset($this->data['statsDateEnd']) ? $this->data['statsDateEnd'] : '';
+?>
+<!-- STATS DASHBOARD -->
+<section class="demo">
+	<div class="gridster">
+	    <ul class="list-unstyled">
+	        <li data-row="1" data-col="1" data-sizex="1" data-sizey="1">
+	        	 <div style="font-size:60px; margin:60px 0 0 15px"><?php echo date("H:i"); ?></div><br/>
+	        	<div style="margin-left:15px;color:#888"><?php echo date("D d F y"); ?></div>
+	        </li>
+	        <li data-row="1" data-col="2" data-sizex="2" data-sizey="1">
+	        	<img src="<?php echo $this->adminAssetPath('images/gridster/norio5.png');?>" width="520" height="250"/>
+	        </li>
+	        <li data-row="1" data-col="4" data-sizex="1" data-sizey="1">
+	        	<div style="font-size:60px; margin:60px 0 0 15px"><?php echo number_format($this->members, 0, ' ', ' ') ?></div><br/>
+	        	<div style="margin-left:15px;color:#888"><span style="color:#2CD35B">+<?php echo number_format($this->active, 0, ' ', ' ') ?></span> nouveaux membres</div>
+	        </li>
+
+	        <li data-row="2" data-col="1" data-sizex="2" data-sizey="2" style="background-image:url('<?php echo $this->adminAssetPath('images/gridster/graphique.jpg');?>');background-repeat:no-repeat;background-position:bottom;">
+	        	<div style="font-size:80px; margin:60px 0 0 50px"><?php echo number_format($this->participations, 0, ' ', ' ') ?></div>
+	        	<div style="margin:30px 0 0 50px;color:#888"><span style="color:#2CD35B">+27%</span> participations depuis le mois dernier</div>
+	        </li>
+	        <li data-row="2" data-col="3" data-sizex="1" data-sizey="1">
+	        	<div style="font-size:40px; margin:60px 0 0 15px">154 jeux</div><br/>
+	        	<div style="font-size:20px; margin-left:35px;color:#888"><span style="color:#2CD35B"><?php echo number_format($this->activeGames, 0, ' ', ' ') ?></span> en cours</div>
+	        </li>
+	        <li data-row="2" data-col="4" data-sizex="1" data-sizey="1">
+	        	<div style="font-size:60px; margin:60px 0 0 15px"><?php echo number_format($this->optin, 0, ' ', ' ') ?></div><br/>
+	        	<div style="margin-left:15px;color:#888">optins Playground</div>
+	        </li>
+
+	        <li data-row="3" data-col="3" data-sizex="1" data-sizey="1">
+	        	<div style="font-size:40px; margin:60px 0 0 15px">154 articles</div><br/>
+	        	<div style="font-size:20px; margin-left:35px;color:#888"><span style="color:#2CD35B"><?php echo number_format($this->activeArticles, 0, ' ', ' ') ?></span> en cours</div>
+	        </li>
+	        <li data-row="3" data-col="4" data-sizex="1" data-sizey="1">
+	        	<div style="font-size:60px; margin:60px 0 0 15px"><?php echo number_format($this->optinPartners, 0, ' ', ' ') ?></div><br/>
+	        	<div style="margin-left:15px;color:#888">optins partenaires</div>
+	        </li>
+	    </ul>
+	</div>
+</section>
+
+<?php echo $this->form()->openTag($form); ?>
+
+<div id="statistics" class="statistics-tab">
+
+	<div class="panel panel-default">
+	    <div class="panel-heading">
+            Afficher les statistiques du :
+        </div>
+        <div class="panel-body">
+            <div class="row" role="form">
+                <div class="col-md-3 col-lg-3">
+                    <input type="text" id="statsDateStart" name="statsDateStart" value="<?php echo $startDate ?>" placeholder="Date de début" class="form-control date" />
+                </div>
+                <div class="col-md-1 col-lg-1">
+                    <p class="text-center">au</p>
+                </div>
+                <div class="col-md-3 col-lg-3">
+                    <input type="text" id="statsDateEnd" name="statsDateEnd" value="<?php echo $endDate ?>" placeholder="Date de fin" class="form-control date" />
+                </div>
+                <div class="col-md-2 col-lg-2">
+                    <input class="btn btn-default" type="submit" value="Go">
+                </div>
+            </div>
+        </div>
+    </div>
+
+	<table class="table table-hover table-striped">
+	    <thead>
+    		<tr>
+    			<th>#</td>
+    			<th><?php echo $this->translate('Total') ?></th>
+    			<th><?php echo $this->translate('Hommes') ?></th>
+    			<th><?php echo $this->translate('Femmes') ?></th>
+    		</tr>
+        </thead>
+        <tbody>
+		<tr class="light">
+	        <td><?php echo $this->translate('Nb total de membres'); ?></td>
+	        <td><?php echo number_format($this->members, 0, ' ', ' ') ?></td>
+	        <td></td>
+	        <td></td>
+	    </tr>
+	    <tr>
+	        <td><?php echo $this->translate('Nb de membres validés'); ?></td>
+	        <td><?php echo number_format($this->validatedMembers, 0, ' ', ' ') ?></td>
+	        <td><?php echo number_format($this->maleMembers, 0, ' ', ' ') ?></td>
+	        <td><?php echo number_format($this->femaleMembers, 0, ' ', ' ') ?></td>
+	    </tr>
+	    <tr class="light">
+	        <td><?php echo $this->translate('Nb de membres actifs'); ?></td>
+	        <td><?php echo number_format($this->active, 0, ' ', ' ') ?></td>
+	        <td><?php echo number_format($this->maleActive, 0, ' ', ' ') ?></td>
+	        <td><?php echo number_format($this->femaleActive, 0, ' ', ' ') ?></td>
+	    </tr>
+	    <tr>
+	        <td><?php echo $this->translate('Nb d\'optins Newsletter'); ?></td>
+	        <td><?php echo number_format($this->optin, 0, ' ', ' ') ?></td>
+	        <td><?php echo number_format($this->maleOptin, 0, ' ', ' ') ?></td>
+	        <td><?php echo number_format($this->femaleOptin, 0, ' ', ' ') ?></td>
+	    </tr>
+	    <tr class="light">
+	        <td><?php echo $this->translate('Nb d\'optins NL partenaires'); ?></td>
+	        <td><?php echo number_format($this->optinPartners, 0, ' ', ' ') ?></td>
+	        <td><?php echo number_format($this->maleOptinPartners, 0, ' ', ' ') ?></td>
+	        <td><?php echo number_format($this->femaleOptinPartners, 0, ' ', ' ') ?></td>
+	    </tr>
+	    <tr height="50">
+	        <td></td>
+	        <td></td>
+	        <td></td>
+	        <td></td>
+	    </tr>
+	    <tr class="light">
+	        <td><?php echo $this->translate('Nb d\'inscriptions non validées'); ?></td>
+	        <td><?php echo number_format($this->unregistered, 0, ' ', ' ') ?></td>
+	        <td><?php echo number_format($this->maleUnregistered, 0, ' ', ' ') ?></td>
+	        <td><?php echo number_format($this->femaleUnregistered, 0, ' ', ' ') ?></td>
+	    </tr>
+	    <tr>
+	        <td><?php echo $this->translate('Nb de membres suspendus'); ?></td>
+	        <td><?php echo number_format($this->suspended, 0, ' ', ' ') ?></td>
+	        <td></td>
+	        <td></td>
+	    </tr>
+	    <tr height="50">
+	        <td></td>
+	        <td></td>
+	        <td></td>
+	        <td></td>
+	    </tr>
+	    <tr class="light">
+	        <td><?php echo $this->translate('Nb de participations'); ?></td>
+	        <td><?php echo number_format($this->participations, 0, ' ', ' ') ?></td>
+	        <td></td>
+	        <td></td>
+	    </tr>
+	    <tr>
+	        <td><?php echo $this->translate('Nb de jeux actifs'); ?></td>
+	        <td><?php echo number_format($this->activeGames, 0, ' ', ' ') ?></td>
+	        <td></td>
+	        <td></td>
+	    </tr>
+	    <tr class="light">
+	        <td><?php echo $this->translate('Nb d\'articles actifs'); ?></td>
+	        <td><?php echo number_format($this->activeArticles, 0, ' ', ' ') ?></td>
+	        <td></td>
+	        <td></td>
+	    </tr>
+	    <tr height="50" id="statistic-share">
+	        <td></td>
+	        <td></td>
+	        <td></td>
+	        <td></td>
+	    </tr>
+	</table>
+	<a href="<?php echo $this->url('admin/stats/share'); ?>" id="load-statistic-share"><?php echo $this->translate('Load shared statistics'); ?></a>
+	<a href="<?php echo $this->url('admin/stats/badge'); ?>" id="load-statistic-achievement"><?php echo $this->translate('Load achievement statistics'); ?></a>
+</div>
+
+<?php echo $this->form()->closeTag($form) ?>

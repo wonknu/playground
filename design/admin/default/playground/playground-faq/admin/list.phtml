@@ -1,0 +1,38 @@
+<?php //$this->plugin('translate')->setTranslatorTextDomain('playgroundfaq'); ?>
+
+<a class="btn btn-default right" href="<?php echo $this->url('admin/playgroundfaq_admin/create');?>"><?php echo $this->translate('Ajouter une FAQ'); ?></a>
+
+<h1 class="f-left"><?php echo $this->translate('Liste des FAQ'); ?></h1>
+
+<table class="table table-hover table-striped">
+    <thead>
+	    <tr>
+	        <th><?php //echo $this->translate('Id'); ?></th>
+	        <th><?php echo $this->translate('Question et Réponse'); ?></th>
+	        <th><?php echo $this->translate('Active'); ?></th>
+	        <th></th>
+	    </tr>
+    </thead>
+    <tbody id="sort-table">
+	    <?php foreach ($this->faqs as $faq): ?>
+	        <?php $editLink = $this->url('admin/playgroundfaq_admin/edit', array('faqId' => $faq->getId()));?>
+	        <?php $deleteLink = $this->url('admin/playgroundfaq_admin/remove', array('faqId' => $faq->getId()));?>
+	        <tr class="sortable" id="<?php echo $faq->getId() ?>" 
+	        	data-url="<?php echo $this->url('admin/playgroundfaq_admin/edit', array('faqId' => $faq->getId()))?>"
+	        	data-active="<?php echo $faq->getIsActive() ?>">
+	            
+	            <td><?php //echo $faq->getId() ?></td>
+	            <td>
+	            	<?php echo $faq->getQuestion() ?>
+	            	<?php echo $faq->getAnswer() ?>
+	            </td>
+	            <td><?php echo ($faq->getIsActive())? $this->translate('Actif'):$this->translate('Inactif')?></td>
+	            <td>
+	                <a href='<?php echo $editLink ?>'><?php echo $this->translate('Edit'); ?></a> | <a class="remove-entry" href='<?php echo $deleteLink ?>'><?php echo $this->translate('Delete'); ?></a>
+	            </td>
+	        </tr>
+	    <?php endforeach; ?>
+    </tbody>
+</table>
+
+<?php //echo $this->paginationControl($this->faqs, 'Sliding', 'playground-faq/admin/pagination_faqlist.phtml'); ?>

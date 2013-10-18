@@ -1,0 +1,54 @@
+<?php $this->plugin('translate')->setTranslatorTextDomain('playgroundflow');// Pour le texte ?>
+<?php
+$form = $this->form;
+$form->prepare();
+?>
+
+<a class="btn btn-default right" href="<?php echo $this->url('admin/playgroundflow/story');?>"><?php echo $this->translate('Retour'); ?></a>
+
+<h1><?php echo $this->translate('Création'); ?></h1>
+
+<?php echo $this->form()->openTag($form) ?>
+<?php $form->get('submit')->setLabel($this->translate('Validate')); ?><?php echo $this->formButton($form->get('submit')) ?>
+
+<div id="content">
+        <div>
+			<div class="form-group">
+	            <?php echo $this->formLabel($form->get('code')); ?>
+	            <?php echo $this->formInput($form->get(('code'))->setAttribute('class', 'form-control')); ?>
+	            <?php echo $this->formElementErrors()
+						->setMessageOpenFormat('<div class="alert alert-danger">')
+						->setMessageCloseString('</div>')->render($form->get(('code'))) ?>
+			</div>
+			<div class="form-group">
+	            <?php echo $this->formLabel($form->get('label')); ?>
+	            <?php echo $this->formInput($form->get(('label'))->setAttribute('class', 'form-control')); ?>
+	            <?php echo $this->formElementErrors()
+						->setMessageOpenFormat('<div class="alert alert-danger">')
+						->setMessageCloseString('</div>')->render($form->get(('label'))) ?>
+			</div>
+			<div class="form-group">
+	            <?php echo $this->formLabel($form->get('definition')); ?>
+	            <?php echo $this->formTextarea($form->get(('definition'))->setAttribute('class', 'form-control')->setAttribute('row', '4')); ?>
+	            <?php echo $this->formElementErrors()
+						->setMessageOpenFormat('<div class="alert alert-danger">')
+						->setMessageCloseString('</div>')->render($form->get(('definition'))) ?>
+			</div>
+			<div class="form-group">
+	            <?php echo $this->formLabel($form->get('action')); ?>
+	            <?php echo $this->formSelect($form->get(('action'))->setAttribute('class', 'form-control')); ?>
+	            <?php echo $this->formElementErrors()
+						->setMessageOpenFormat('<div class="alert alert-danger">')
+						->setMessageCloseString('</div>')->render($form->get(('action'))) ?>
+			</div>
+			<div class="form-group">
+	            <?php echo $this->formLabel($form->get('object')); ?>
+	            <?php echo $this->formSelect($form->get(('object'))->setAttribute('class', 'form-control')); ?>
+	            <?php echo $this->formElementErrors()
+						->setMessageOpenFormat('<div class="alert alert-danger">')
+						->setMessageCloseString('</div>')->render($form->get(('object'))) ?>
+			</div>
+        </div>
+    </div>
+</div>
+<?php echo $this->form()->closeTag() ?>

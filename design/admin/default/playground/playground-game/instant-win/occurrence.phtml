@@ -1,0 +1,50 @@
+<?php $this->plugin('translate')->setTranslatorTextDomain('playgroundgame');// Pour le texte ?>
+<?php
+$form = $this->form;
+$form->prepare();
+?>
+
+<h1><?php echo $this->translate($this->title); ?></h1>
+
+<?php echo $this->form()->openTag($form) ?>
+<?php $form->get('submit')->setLabel($this->translate('Validate')); ?><?php echo $this->formButton($form->get('submit')) ?>
+
+<div id="content" class="tabbable tabs-left">
+    <ul id="tabs" class="nav nav-tabs" data-tabs="tabs">
+        <li class="active"><a href="#general" data-toggle="tab"><?php echo $this->translate('General'); ?></a></li>
+    </ul>
+    <div id="my-tab-content" class="tab-content">
+        <div class="tab-pane active" id="general">
+
+            <?php echo $this->formHidden($form->get('instant_win_id')); ?>
+
+            <?php echo $this->formHidden($form->get('id')); ?>
+
+            <?php $today = new \DateTime('now');?>
+            <?php $today = $today->format('d/m/Y H:i:s');?>
+
+            <div class="form-group">
+	        	<?php echo $this->formLabel($form->get('occurrence_date')); ?>
+	            <?php echo $this->formInput($form->get(('occurrence_date'))->setAttribute('class', 'form-control date')); ?>
+	            <?php echo $this->formElementErrors()
+						->setMessageOpenFormat('<div class="alert alert-danger">')
+						->setMessageCloseString('</div>')->render($form->get(('occurrence_date'))); ?>
+	        </div>
+	        <div class="form-group">
+	            <?php echo $this->formLabel($form->get('active')); ?>
+	            <?php echo $this->formSelect($form->get(('active'))->setAttribute('class', 'form-control')); ?>
+	            <?php echo $this->formElementErrors()
+						->setMessageOpenFormat('<div class="alert alert-danger">')
+						->setMessageCloseString('</div>')->render($form->get(('active'))) ?>
+	        </div>
+	        <div class="form-group">
+		        <?php echo $this->formLabel($form->get('prize')); ?>
+		        <?php echo $this->formSelect($form->get(('prize'))->setAttribute('class', 'form-control')); ?>
+		        <?php echo $this->formElementErrors()
+						->setMessageOpenFormat('<div class="alert alert-danger">')
+						->setMessageCloseString('</div>')->render($form->get(('prize'))) ?>
+			</div>
+        </div>
+    </div>
+</div>
+<?php echo $this->form()->closeTag() ?>

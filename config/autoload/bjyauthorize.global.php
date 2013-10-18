@@ -5,7 +5,7 @@ return array(
 
         'default_role' => 'guest',
         'identity_provider' => 'BjyAuthorize\Provider\Identity\AuthenticationDoctrineEntity',
-        'unauthorized_strategy' => 'PlaygroundUser\View\Strategy\UnauthorizedStrategy',
+        //'unauthorized_strategy' => 'PlaygroundUser\View\Strategy\UnauthorizedStrategy',
         'role_providers' => array(
             'BjyAuthorize\Provider\Role\Config' => array(
                 'guest' => array(),
@@ -81,7 +81,7 @@ return array(
                 array('controller' => 'playgroundflow',                            'roles' => array('guest', 'user')),
                 array('controller' => 'playgroundflowrestauthent',                 'roles' => array('guest', 'user')),
                 array('controller' => 'playgroundflowrestsend',                    'roles' => array('guest', 'user')),
-                array('controller' => 'playgroundgame_easyxdm',                    'roles' => array('guest', 'user')),
+                array('controller' => 'playgroundfloweasyxdm',                     'roles' => array('guest', 'user')),
 
 
                 // Admin area
@@ -97,6 +97,7 @@ return array(
                 array('controller' => 'playgroundgame_admin_treasurehunt',         'roles' => array('admin')),
                 array('controller' => 'playgroundfaq_admin',                       'roles' => array('admin')),
                 array('controller' => 'playgroundfacebook_admin_app',              'roles' => array('admin')),
+                array('controller' => 'playgroundfacebook_admin_page',             'roles' => array('admin')),
                 array('controller' => 'playgroundpartnership_admin',               'roles' => array('admin')),
                 array('controller' => 'PlaygroundDesign\Controller\System',        'roles' => array('admin')),
                 array('controller' => 'PlaygroundCore\Controller\Formgen',         'roles' => array('admin')),

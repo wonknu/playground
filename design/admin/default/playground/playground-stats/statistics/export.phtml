@@ -1,0 +1,360 @@
+<?php $this->plugin('translate')->setTranslatorTextDomain('application');// Pour le texte ?>
+<?php
+	$form = $this->form;
+	$form->prepare();
+	$form->setAttribute('action', $this->url('admin/stats/export'));
+	$form->setAttribute('class', 'validate');
+	
+?>
+
+<?php echo $this->form()->openTag($form); ?>
+
+<div id="statistics-export" class="statistics-tab">
+	
+	<?php if ($this->data == '') : ?>
+	<div class="statistics-form">
+        
+        <?php $form->get('submit')->setLabel($this->translate('Validate')); ?>
+        <?php echo $this->formButton($form->get('submit')->setAttribute('class', 'btn btn-default right')) ?>
+
+        <!-- STATS DASHBOARD -->
+        <h1><?php echo $this->translate('Exporter des membres'); ?></h1>
+		
+        <div class="form-group">
+			<?php echo $this->formLabel($form->get('gameid')); ?> :
+			<?php echo $this->formInput($form->get(('gameid'))->setAttribute('class', 'form-control')) ?>
+			<?php echo $this->formElementErrors()
+					->setMessageOpenFormat('<div class="alert alert-danger">')
+					->setMessageCloseString('</div>')->render($form->get(('gameid'))) ?>
+		</div>
+		
+        <div class="form-group">
+			<?php echo $this->formLabel($form->get('lastname')); ?> :
+			<?php echo $this->formSelect($form->get(('lastname'))->setAttribute('class', 'form-control')) ?>
+			<?php echo $this->formElementErrors()
+					->setMessageOpenFormat('<div class="alert alert-danger">')
+					->setMessageCloseString('</div>')->render($form->get(('lastname'))) ?>
+			<?php echo $this->formInput($form->get(('lastname-input'))->setAttribute('class', 'form-control')) ?>
+			<?php echo $this->formElementErrors()
+					->setMessageOpenFormat('<div class="alert alert-danger">')
+					->setMessageCloseString('</div>')->render($form->get(('lastname-input'))) ?>
+		</div>
+		
+        <div class="form-group">
+			<?php echo $this->formLabel($form->get('firstname')); ?> :
+			<?php echo $this->formSelect($form->get(('firstname'))->setAttribute('class', 'form-control')) ?>
+			<?php echo $this->formElementErrors()
+					->setMessageOpenFormat('<div class="alert alert-danger">')
+					->setMessageCloseString('</div>')->render($form->get(('firstname'))) ?>
+			<?php echo $this->formInput($form->get(('firstname-input'))->setAttribute('class', 'form-control')) ?>
+			<?php echo $this->formElementErrors()
+					->setMessageOpenFormat('<div class="alert alert-danger">')
+					->setMessageCloseString('</div>')->render($form->get(('firstname-input'))) ?>
+		</div>
+		
+        <div class="form-group">
+			<?php echo $this->formLabel($form->get('sexe')); ?> :
+			<?php echo $this->formSelect($form->get(('sexe'))->setAttribute('class', 'form-control')) ?>
+			<?php echo $this->formElementErrors()
+					->setMessageOpenFormat('<div class="alert alert-danger">')
+					->setMessageCloseString('</div>')->render($form->get(('sexe'))) ?>
+		</div>
+		
+        <div class="form-group">
+            <?php echo $this->formLabel($form->get('memberid')); ?>
+            <?php foreach ($form->get('memberid')->getValueOptions() as $key => $value) : ?>
+            <div class="radio">
+                <label>
+                    <input type="radio" name="<?php echo $form->get('memberid')->getAttribute('name'); ?>"
+                        <?php echo ($key == $form->get('memberid')->getValue()) ? 'checked="checked"' : ''; ?> value="<?php echo $key; ?>" />
+                    <?php echo $value; ?>
+                </label>
+            </div>
+            <?php endforeach; ?>
+            <?php echo $this->formInput($form->get(('memberid-input'))->setAttribute('class', 'form-control')) ?>
+            <?php echo $this->formElementErrors()
+                    ->setMessageOpenFormat('<div class="alert alert-danger">')
+                    ->setMessageCloseString('</div>')->render($form->get(('memberid-input'))) ?>
+        </div>
+		
+        <div class="form-group">
+			<?php echo $this->formLabel($form->get('email')); ?> :
+			<?php echo $this->formSelect($form->get(('email'))->setAttribute('class', 'form-control')) ?>
+			<?php echo $this->formElementErrors()
+					->setMessageOpenFormat('<div class="alert alert-danger">')
+					->setMessageCloseString('</div>')->render($form->get(('email'))) ?>
+			<?php echo $this->formInput($form->get(('email-input'))->setAttribute('class', 'form-control')) ?>
+			<?php echo $this->formElementErrors()
+					->setMessageOpenFormat('<div class="alert alert-danger">')
+					->setMessageCloseString('</div>')->render($form->get(('email-input'))) ?>
+		</div>
+		
+        <div class="form-group">
+			<?php echo $this->formLabel($form->get('zipcode')); ?> :
+			<?php echo $this->formSelect($form->get(('zipcode'))->setAttribute('class', 'form-control')) ?>
+			<?php echo $this->formElementErrors()
+					->setMessageOpenFormat('<div class="alert alert-danger">')
+					->setMessageCloseString('</div>')->render($form->get(('zipcode'))) ?>
+			<?php echo $this->formInput($form->get(('zipcode-input'))->setAttribute('class', 'form-control')) ?>
+			<?php echo $this->formElementErrors()
+					->setMessageOpenFormat('<div class="alert alert-danger">')
+					->setMessageCloseString('</div>')->render($form->get(('zipcode-input'))) ?>
+		</div>
+		
+        <div class="form-group">
+            <?php echo $this->formLabel($form->get('birthdate')); ?>
+            <?php foreach ($form->get('birthdate')->getValueOptions() as $key => $value) : ?>
+            <div class="radio">
+                <label>
+                    <input type="radio" name="<?php echo $form->get('birthdate')->getAttribute('name'); ?>"
+                        <?php echo ($key == $form->get('birthdate')->getValue()) ? 'checked="checked"' : ''; ?> value="<?php echo $key; ?>" />
+                    <?php echo $value; ?>
+                </label>
+            </div>
+            <?php endforeach; ?>
+        </div>
+        
+        <div class="form-group">
+				<?php echo $this->formInput($form->get(('birthdate-start'))->setAttribute('class', 'form-control')) ?> et le <?php echo $this->formInput($form->get(('birthdate-end'))->setAttribute('class', 'form-control')) ?>
+				<?php echo $this->formElementErrors()
+					->setMessageOpenFormat('<div class="alert alert-danger">')
+					->setMessageCloseString('</div>')->render($form->get(('birthdate-start'))) ?>
+				<?php echo $this->formElementErrors()
+					->setMessageOpenFormat('<div class="alert alert-danger">')
+					->setMessageCloseString('</div>')->render($form->get(('birthdate-end'))) ?>
+			</div>
+			<?php echo $this->formInput($form->get(('birthdate-equal'))->setAttribute('class', 'form-control')) ?>
+			<?php echo $this->formElementErrors()
+					->setMessageOpenFormat('<div class="alert alert-danger">')
+					->setMessageCloseString('</div>')->render($form->get(('birthdate-equal'))) ?>
+		</div>
+        
+        <div class="form-group">
+            <?php echo $this->formLabel($form->get('prizeCategory')); ?>
+            <?php foreach ($form->get('prizeCategory')->getValueOptions() as $key => $value) : ?>
+            <div class="checkbox">
+                <label>
+                    <input type="checkbox" name="<?php echo $form->get('prizeCategory')->getAttribute('name'); ?>"
+                        <?php echo ($key == $form->get('prizeCategory')->getValue()) ? 'checked="checked"' : ''; ?> value="<?php echo $key; ?>" />
+                    <?php echo $value; ?>
+                </label>
+            </div>
+            <?php endforeach; ?>
+        </div>
+		
+        <div class="form-group">
+            <?php echo $this->formLabel($form->get('optin')); ?>
+            <?php foreach ($form->get('optin')->getValueOptions() as $key => $value) : ?>
+            <div class="radio">
+                <label>
+                    <input type="radio" name="<?php echo $form->get('optin')->getAttribute('name'); ?>"
+                        <?php echo ($key == $form->get('optin')->getValue()) ? 'checked="checked"' : ''; ?> value="<?php echo $key; ?>" />
+                    <?php echo $value; ?>
+                </label>
+            </div>
+            <?php endforeach; ?>
+        </div>
+		
+        <div class="form-group">
+            <?php echo $this->formLabel($form->get('optinpartner')); ?>
+            <?php foreach ($form->get('optinpartner')->getValueOptions() as $key => $value) : ?>
+            <div class="radio">
+                <label>
+                    <input type="radio" name="<?php echo $form->get('optinpartner')->getAttribute('name'); ?>"
+                        <?php echo ($key == $form->get('optinpartner')->getValue()) ? 'checked="checked"' : ''; ?> value="<?php echo $key; ?>" />
+                    <?php echo $value; ?>
+                </label>
+            </div>
+            <?php endforeach; ?>
+        </div>
+		
+        <div class="form-group">
+            <?php echo $this->formLabel($form->get('inscriptiondate')); ?>
+            <?php foreach ($form->get('inscriptiondate')->getValueOptions() as $key => $value) : ?>
+            <div class="radio">
+                <label>
+                    <input type="radio" name="<?php echo $form->get('inscriptiondate')->getAttribute('name'); ?>"
+                        <?php echo ($key == $form->get('inscriptiondate')->getValue()) ? 'checked="checked"' : ''; ?> value="<?php echo $key; ?>" />
+                    <?php echo $value; ?>
+                </label>
+            </div>
+            <?php endforeach; ?>
+        </div>
+            
+        <div class="form-group">
+	        <?php echo $this->formInput($form->get(('inscriptiondate-start'))->setAttribute('class', 'form-control')) ?> et le <?php echo $this->formInput($form->get(('inscriptiondate-end'))->setAttribute('class', 'form-control')) ?>
+			<?php echo $this->formElementErrors()
+				->setMessageOpenFormat('<div class="alert alert-danger">')
+				->setMessageCloseString('</div>')->render($form->get(('inscriptiondate-start'))) ?>
+			<?php echo $this->formElementErrors()
+				->setMessageOpenFormat('<div class="alert alert-danger">')
+				->setMessageCloseString('</div>')->render($form->get(('inscriptiondate-end'))) ?>
+		</div>
+		
+        <div class="form-group">
+            <?php echo $this->formLabel($form->get('hardbounce')); ?>
+            <?php foreach ($form->get('hardbounce')->getValueOptions() as $key => $value) : ?>
+            <div class="radio">
+                <label>
+                    <input type="radio" name="<?php echo $form->get('hardbounce')->getAttribute('name'); ?>"
+                        <?php echo ($key == $form->get('hardbounce')->getValue()) ? 'checked="checked"' : ''; ?> value="<?php echo $key; ?>" />
+                    <?php echo $value; ?>
+                </label>
+            </div>
+            <?php endforeach; ?>
+        </div>
+            
+        <div class="form-group">
+	        <?php echo $this->formInput($form->get(('hardbounce-start'))->setAttribute('class', 'form-control')) ?> et le <?php echo $this->formInput($form->get(('hardbounce-end'))->setAttribute('class', 'form-control')) ?>
+			<?php echo $this->formElementErrors()
+				->setMessageOpenFormat('<div class="alert alert-danger">')
+				->setMessageCloseString('</div>')->render($form->get(('hardbounce-start'))) ?>
+			<?php echo $this->formElementErrors()
+				->setMessageOpenFormat('<div class="alert alert-danger">')
+				->setMessageCloseString('</div>')->render($form->get(('hardbounce-end'))) ?>
+		</div>
+		
+        <div class="form-group">
+            <?php echo $this->formLabel($form->get('nbpart')); ?>
+            <?php foreach ($form->get('nbpart')->getValueOptions() as $key => $value) : ?>
+            <div class="radio">
+                <label>
+                    <input type="radio" name="<?php echo $form->get('nbpart')->getAttribute('name'); ?>"
+                        <?php echo ($key == $form->get('nbpart')->getValue()) ? 'checked="checked"' : ''; ?> value="<?php echo $key; ?>" />
+                    <?php echo $value; ?>
+                </label>
+            </div>
+            <?php endforeach; ?>
+
+            <?php echo $this->formElementErrors()
+                ->setMessageOpenFormat('<div class="alert alert-danger">')
+                ->setMessageCloseString('</div>')->render($form->get('nbpart')) ?>
+        </div>
+        
+        <div class="form-group">
+	        <?php echo $this->formInput($form->get(('nbpart-start'))->setAttribute('class', 'form-control')) ?> et le <?php echo $this->formInput($form->get(('nbpart-end'))->setAttribute('class', 'form-control')) ?>
+			<?php echo $this->formElementErrors()
+				->setMessageOpenFormat('<div class="alert alert-danger">')
+				->setMessageCloseString('</div>')->render($form->get(('nbpart-start'))) ?>
+			<?php echo $this->formElementErrors()
+				->setMessageOpenFormat('<div class="alert alert-danger">')
+				->setMessageCloseString('</div>')->render($form->get(('nbpart-end'))) ?>
+		</div>
+        
+        <div class="form-group">
+            <?php echo $this->formLabel($form->get('validatedemail')); ?>
+            <?php foreach ($form->get('validatedemail')->getValueOptions() as $key => $value) : ?>
+            <div class="radio">
+                <label>
+                    <input type="radio" name="<?php echo $form->get('validatedemail')->getAttribute('name'); ?>"
+                        <?php echo ($key == $form->get('validatedemail')->getValue()) ? 'checked="checked"' : ''; ?> value="<?php echo $key; ?>" />
+                    <?php echo $value; ?>
+                </label>
+            </div>
+            <?php endforeach; ?>
+
+            <?php echo $this->formElementErrors()
+                ->setMessageOpenFormat('<div class="alert alert-danger">')
+                ->setMessageCloseString('</div>')->render($form->get('validatedemail')) ?>
+        </div>
+        
+        <div class="form-group">
+            <?php echo $this->formLabel($form->get('player')); ?>
+            <?php foreach ($form->get('player')->getValueOptions() as $key => $value) : ?>
+            <div class="radio">
+                <label>
+                    <input type="radio" name="<?php echo $form->get('player')->getAttribute('name'); ?>"
+                        <?php echo ($key == $form->get('player')->getValue()) ? 'checked="checked"' : ''; ?> value="<?php echo $key; ?>" />
+                    <?php echo $value; ?>
+                </label>
+            </div>
+            <?php endforeach; ?>
+
+            <?php echo $this->formElementErrors()
+                ->setMessageOpenFormat('<div class="alert alert-danger">')
+                ->setMessageCloseString('</div>')->render($form->get('player')) ?>
+        </div>
+        
+        <div class="form-group">
+            <?php echo $this->formLabel($form->get('goldfather')); ?>
+            <?php foreach ($form->get('goldfather')->getValueOptions() as $key => $value) : ?>
+            <div class="radio">
+                <label>
+                    <input type="radio" name="<?php echo $form->get('goldfather')->getAttribute('name'); ?>"
+                        <?php echo ($key == $form->get('goldfather')->getValue()) ? 'checked="checked"' : ''; ?> value="<?php echo $key; ?>" />
+                    <?php echo $value; ?>
+                </label>
+            </div>
+            <?php endforeach; ?>
+
+            <?php echo $this->formElementErrors()
+                ->setMessageOpenFormat('<div class="alert alert-danger">')
+                ->setMessageCloseString('</div>')->render($form->get('goldfather')) ?>
+        </div>
+        
+        <div class="form-group">
+            <?php echo $this->formLabel($form->get('brain')); ?>
+            <?php foreach ($form->get('brain')->getValueOptions() as $key => $value) : ?>
+            <div class="radio">
+                <label>
+                    <input type="radio" name="<?php echo $form->get('brain')->getAttribute('name'); ?>"
+                        <?php echo ($key == $form->get('brain')->getValue()) ? 'checked="checked"' : ''; ?> value="<?php echo $key; ?>" />
+                    <?php echo $value; ?>
+                </label>
+            </div>
+            <?php endforeach; ?>
+
+            <?php echo $this->formElementErrors()
+                ->setMessageOpenFormat('<div class="alert alert-danger">')
+                ->setMessageCloseString('</div>')->render($form->get('brain')) ?>
+        </div>
+        
+        <div class="form-group">
+            <?php echo $this->formLabel($form->get('ambassador')); ?>
+            <?php foreach ($form->get('ambassador')->getValueOptions() as $key => $value) : ?>
+            <div class="radio">
+                <label>
+                    <input type="radio" name="<?php echo $form->get('ambassador')->getAttribute('name'); ?>"
+                        <?php echo ($key == $form->get('ambassador')->getValue()) ? 'checked="checked"' : ''; ?> value="<?php echo $key; ?>" />
+                    <?php echo $value; ?>
+                </label>
+            </div>
+            <?php endforeach; ?>
+
+            <?php echo $this->formElementErrors()
+                ->setMessageOpenFormat('<div class="alert alert-danger">')
+                ->setMessageCloseString('</div>')->render($form->get('ambassador')) ?>
+        </div>
+		
+        <div class="form-group">
+            <?php echo $this->formLabel($form->get('anniversary')); ?>
+            <?php foreach ($form->get('anniversary')->getValueOptions() as $key => $value) : ?>
+            <div class="radio">
+                <label>
+                    <input type="radio" name="<?php echo $form->get('anniversary')->getAttribute('name'); ?>"
+                        <?php echo ($key == $form->get('anniversary')->getValue()) ? 'checked="checked"' : ''; ?> value="<?php echo $key; ?>" />
+                    <?php echo $value; ?>
+                </label>
+            </div>
+            <?php endforeach; ?>
+
+            <?php echo $this->formElementErrors()
+                ->setMessageOpenFormat('<div class="alert alert-danger">')
+                ->setMessageCloseString('</div>')->render($form->get('anniversary')) ?>
+        </div>
+	</div>
+	<?php endif ?>
+	
+	<?php if (isset($this->data) && $this->data != '') :
+		if($this->form->isValid()) : ?>
+		<div class="result">
+			Il y a <?php echo $this->records ?> <?php if($this->records <= 1) : echo 'enregistrement'; else : echo 'enregistrements'; endif ?> dans votre export.<br/><br/>
+			<a href="<?php echo $this->url('admin/stats/downloadexport');?>">Télécharger le fichier CSV.</a><br/><br/>
+			<a href="" class="right">Revenir à l'accueil des exports</a>
+		</div>
+		<?php endif;
+	endif ?>
+
+</div>
+
+<?php echo $this->form()->closeTag($form) ?>
