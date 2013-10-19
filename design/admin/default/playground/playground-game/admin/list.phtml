@@ -45,7 +45,7 @@ if (isset($fm[0]))
             <td class="listgame-begin"><?php echo ($game->getStartDate())? $game->getStartDate()->format('d/m/Y'):''; ?></td>
             <td><?php echo ($game->getEndDate())? $game->getEndDate()->format('d/m/Y'):''; ?></td>
             <td class="listgame-active"><?php echo ($game->getActive())? $this->translate('Yes'):$this->translate('No'); ?></td>
-            <td><?php if($game->isOpen()):?>ONLINE<?php else:?>OFFLINE<?php endif;?></td>
+            <td><?php echo $this->translate($game->getState()); ?></td>
             <td><?php echo $game->getClassType() ?></td>
             <td><?php echo $game->getIdentifier() ?></td>
             <?php if($game->getClassType() == 'quiz'):?>
