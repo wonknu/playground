@@ -149,47 +149,6 @@ class IndexController extends AbstractActionController
         );
     }
 
-    public function badgesAction()
-    {
-        $userId           = 1 * $this->zfcUserAuthentication()->getIdentity()->getId();
-
-        $gamesTotal       = 1 * $this->getRewardService()->getTotal($userId, 'game');
-        $userTotal        = 1 * $this->getRewardService()->getTotal($userId, 'user');
-        $newsletterTotal  = 1 * $this->getRewardService()->getTotal($userId, 'newsletter');
-        $sponsorshipTotal = 1 * $this->getRewardService()->getTotal($userId, 'sponsorship');
-        $socialTotal 	  = 1 * $this->getRewardService()->getTotal($userId, 'social');
-        $badgesBronze     = 1 * $this->getRewardService()->getTotal($userId, 'badgesBronze');
-        $badgesSilver     = 1 * $this->getRewardService()->getTotal($userId, 'badgesSilver');
-        $badgesGold       = 1 * $this->getRewardService()->getTotal($userId, 'badgesGold');
-        $anniversaryTotal = 1 * $this->getRewardService()->getTotal($userId, 'anniversary');
-        $total            = 1 * $this->getRewardService()->getTotal($userId);
-
-        $this->layout()->setVariables(
-            array(
-                'adserving'       => array(
-                    'cat1' => 'playground',
-                    'cat2' => 'myaccount',
-                    'cat3' => ''
-                )
-            )
-        );
-
-        return new ViewModel(
-            array(
-                'gamesTotal'       => $gamesTotal,
-                'userTotal'        => $userTotal,
-                'newsletterTotal'  => $newsletterTotal,
-                'sponsorshipTotal' => $sponsorshipTotal,
-                'socialTotal'	   => $socialTotal,
-                'badgesBronze'     => $badgesBronze,
-                'badgesSilver'     => $badgesSilver,
-                'badgesGold'       => $badgesGold,
-                'anniversaryTotal' => $anniversaryTotal,
-                'total'            => $total,
-            )
-        );
-    }
-
     /**
      * user sponsor friend
      */

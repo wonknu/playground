@@ -49,16 +49,6 @@ return array(
                     		),
                    		),
                     ),
-                    'badges' => array(
-                    	'type' => 'Literal',
-                    	'options' => array(
-                  			'route' => 'mon-compte/mes-badges',
-                    		'defaults' => array(
-                    			'controller' => 'Application\Controller\Index',
-                    			'action'     => 'badges',
-             				),
-                  		),
-                    ),
                     'sponsorfriends' => array(
                     	'type' => 'Literal',
                     	'options' => array(
