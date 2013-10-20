@@ -52,12 +52,12 @@
 			</div>
 			<!-- start form -->
 	        <?php echo $this->form()->openTag($form) ?>
-				<div class="row">
-					<div class="block-left yourtitle col-md-4"><?php echo $form->get('title')->getLabel(); ?> <span>*</span> :</div>
+				<!--div class="row">
+					<div class="block-left yourtitle col-md-4"><?php //echo $form->get('title')->getLabel(); ?> <span>*</span> :</div>
 					<div class="block-right civility col-md-4">
-						<?php echo $this->formRadio($form->get('title')) . $this->formElementErrors($form->get('title')) ?>
+						<?php //echo $this->formRadio($form->get('title')) . $this->formElementErrors($form->get('title')) ?>
 					</div>
-				</div>
+				</div-->
 				<div class="row">
 					<div class="block-left col-md-4">
 					    <?php echo $form->get('lastname')->getLabel(); ?> 
@@ -114,23 +114,6 @@
 					</div>
 				</div>
 				<?php endif;?>
-				<div class="row">
-					<div class="block-left col-md-4"><?php echo $form->get('dob')->getLabel(); ?><span>*</span> :</div>
-					<div class="block-right col-md-4 register-select mobile">
-						<?php echo $this->formDateTime($form->get('dob')) ?>
-						<?php echo $this->formElementErrors($form->get('dob')) ?>
-					</div>
-				</div>
-				<div class="row">
-					<div class="block-left col-md-4">
-					    <?php echo $form->get('postal_code')->getLabel(); ?> 
-					    <span>*</span> :
-					</div>
-					<div id="wrapcp" class="block-right col-md-4">
-						<?php echo $this->formInput($form->get('postal_code')) ?>
-						<?php echo $this->formElementErrors($form->get('postal_code')) ?>
-					</div>
-				</div>
                 <h2>
                     <?php echo $this->translate('Inscrivez-vous aux newsletters :')?>
                 </h2>
