@@ -31,6 +31,24 @@ $form->prepare();
         </div>
         
         <div class="label-input">
+            <?php echo $this->formLabel($form->get('hint')); ?>
+            <?php echo $this->formInput($form->get('hint')); ?>
+            <?php echo $this->formElementErrors($form->get('hint')) ?>
+		</div>
+		
+		<div class="label-input">
+            <?php echo $this->formLabel($form->get('activityStreamText')); ?>
+            <?php echo $this->formInput($form->get('activityStreamText')); ?>
+            <?php echo $this->formElementErrors($form->get('activityStreamText')) ?>
+		</div>
+		
+		<div class="label-input">
+            <?php echo $this->formLabel($form->get('hide')); ?>
+            <?php echo $this->formSelect($form->get('hide')); ?>
+            <?php echo $this->formElementErrors($form->get('hide')); ?>
+    	</div>
+			
+        <div class="label-input">
             <?php echo $this->formLabel($form->get('type')); ?>
             <?php echo $this->formSelect($form->get('type')); ?>
             <?php echo $this->formElementErrors($form->get('type')); ?>

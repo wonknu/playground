@@ -9,9 +9,8 @@ $form->prepare();
 $form = $this->form;
 $form->prepare();
 ?>
-
 <?php echo $this->form()->openTag($form) ?>
-<?php $form->get('submit')->setLabel($this->translate('Create'))->setAttribute('class', 'btn btn-default right'); ?>
+<?php $form->get('submit')->setLabel($this->translate('Validate'))->setAttribute('class', 'btn btn-default right'); ?>
 <?php echo $this->formButton($form->get('submit')) ?>
 
 <h1><?php echo $this->translate('Add a reward'); ?></h1>
@@ -38,6 +37,30 @@ $form->prepare();
 						->setMessageCloseString('</div>')->render($form->get(('active'))) ?>
         </div>
         
+        <div class="form-group">
+            <?php echo $this->formLabel($form->get('hint')); ?>
+            <?php echo $this->formInput($form->get('hint')); ?>
+            <?php echo $this->formElementErrors()
+            		->setMessageOpenFormat('<div class="alert alert-danger">')
+            		->setMessageCloseString('</div>')->render($form->get(('hint'))) ?>
+		</div>
+		
+		<div class="form-group">
+            <?php echo $this->formLabel($form->get('activityStreamText')); ?>
+            <?php echo $this->formInput($form->get('activityStreamText')); ?>
+            <?php echo $this->formElementErrors()
+            		->setMessageOpenFormat('<div class="alert alert-danger">')
+            		->setMessageCloseString('</div>')->render($form->get(('activityStreamText'))) ?>
+		</div>
+		
+		<div class="form-group">
+            <?php echo $this->formLabel($form->get('hide')); ?>
+            <?php echo $this->formSelect($form->get('hide')); ?>
+            <?php echo $this->formElementErrors()
+            			->setMessageOpenFormat('<div class="alert alert-danger">')
+						->setMessageCloseString('</div>')->render($form->get(('hide'))) ?>
+    	</div>
+    	
         <div class="form-group">
             <?php echo $this->formLabel($form->get('type')); ?>
             <?php echo $this->formSelect($form->get('type')->setAttribute('class', 'form-control')); ?>
