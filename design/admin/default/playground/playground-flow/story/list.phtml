@@ -31,7 +31,15 @@ if (isset($fm[0]))
             <td><?php echo $story->getCode() ?></td>
             <td><?php echo $story->getLabel() ?></td>
             <td><?php echo $story->getAction()->getLabel() ?></td>
-            <td><?php echo $story->getObject()->getLabel() ?></td>
+            <td><?php foreach($story->getObjects() as $object):?>
+                    <?php echo $object->getCode();?>
+                    (
+                    <?php foreach($object->getAttributes() as $attribute):?>
+                        <?php echo $attribute->getCode() . ',';?>
+                    <?php endforeach;?>
+                    )<br/>
+                <?php endforeach;?>
+            </td>
             <td>
                 <a href='<?php echo $editLink ?>'><?php echo $this->translate('Edit'); ?></a> | <a href='<?php echo $deleteLink ?>'><?php echo $this->translate('Delete'); ?></a><?php if($optionLink != ''):?> | <a href='<?php echo $optionLink ?>'><?php echo $this->translate('Add options'); ?></a><?php endif;?>
             </td>

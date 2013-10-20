@@ -56,12 +56,13 @@
         // this file is by default set up to use Access Control - this means that it will use the headers set by the server to decide whether or not to allow the call to return
         var useAccessControl = false;
         // always trusted origins, can be exact strings or regular expressions
-        var alwaysTrustedOrigins = [(/\.?easyxdm\.net/), (/p\.magento/), (/senseo\.local/), (/xdm1/), (/\.*/)];
+        //var alwaysTrustedOrigins = [(/\.?easyxdm\.net/), (/p\.magento/), (/senseo\.local/), (/xdm1/), (/\.*/)];
+        var alwaysTrustedOrigins = [(/\.*/)];
         
         // instantiate a new easyXDM object which will handle the request 
         var remote = new easyXDM.Rpc({
             local: "<?php echo $this->basePath() . 'easyxdm/name'?>",
-            swf: "<?php echo $this->frontendAssetPath() . 'js/lib/easyxdm/easyxdm.swf'?>"
+            swf: "<?php echo $this->frontendAssetPath() . '/js/lib/easyxdm/easyxdm.swf'?>"
         }, {
             local: {
                 // define the exposed method

@@ -45,7 +45,9 @@
 		"ocramius/ocra-cached-view-resolver" : "1.0.*",
 		"playground/zdt-templatehint": "dev-master",
 		"playground/hybridauth" : "dev-master",
-		"bjyoungblood/bjy-authorize" : "1.1.*"
+		"bjyoungblood/bjy-authorize" : "1.1.*",
+		"doctrine/doctrine-module": "0.8.*@dev",
+		"doctrine/doctrine-orm-module": "0.8.*@dev"
 	},
 	"require-dev" : {
 		"phpunit/phpunit" : "3.7.*"

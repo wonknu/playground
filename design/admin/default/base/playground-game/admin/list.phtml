@@ -40,7 +40,7 @@ if (isset($fm[0]))
             <td><?php echo $game->getTitle() ?></td>
             <td class="listgame-begin"><?php echo ($game->getStartDate())? $game->getStartDate()->format('d/m/Y'):''; ?></td>
             <td><?php echo ($game->getEndDate())? $game->getEndDate()->format('d/m/Y'):''; ?></td>
-            <td class="listgame-active"><?php echo ($game->getActive())? $this->translate('Yes'):$this->translate('No'); ?></td>
+            <td class="listgame-active"><?php echo ($game->isOnline())? $this->translate('Online'):$this->translate('Offline'); ?></td>
             <td><?php echo $this->translate($game->getState()); ?></td>
             <td><?php echo $game->getClassType() ?></td>
             <td><?php echo $game->getIdentifier() ?></td>

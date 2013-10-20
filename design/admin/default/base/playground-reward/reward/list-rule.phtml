@@ -32,8 +32,15 @@ if (isset($fm[0]))
     	<tr class="sortable" id="<?php echo $rule->getId() ?>" 
     		data-url="<?php echo $editLink; ?>">
             <!--<td><?php echo $rule->getId() ?></td>-->
-            <td><?php echo "count of story '" . $rule->getStoryMappings() . "' " . $rule->getCountType() . " " . $rule->getCount();?></td>
-            
+            <td>
+                    count of <?php echo $rule->getCompletionType()?> of these rules : <br/>
+                    <ul>
+                    <?php foreach($rule->getStoryMappings() as $storyMapping):?>
+                        <li><?php echo $storyMapping->getStory()->getCode();?></li>
+                    <?php endforeach;?>
+                    </ul>
+                    <?php echo " " . $rule->getCountType() . " " . $rule->getCount();?><br/>
+            </td>
             <td>
                 <a href='<?php echo $editLink ?>'><?php echo $this->translate('Edit'); ?></a> | <a href='<?php echo $deleteLink ?>'><?php echo $this->translate('Delete'); ?></a>
             </td>

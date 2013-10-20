@@ -36,7 +36,7 @@
 			
 			<?php if($this->game->isStarted()):?>
 			    <div class="btn btn-warning arrow-right"><a href="<?php echo $this->url('frontend/' . $this->game->getClassType(), array('id' =>$this->game->getIdentifier(), 'channel' => $this->layout()->channel)); ?>" class="arrow-right">Jouer</a></div>
-			<?php elseif($this->game->isOpen() && !$this->game->isFinished() ):?>
+			<?php elseif($this->game->isOpen() && !$this->game->isStarted() ):?>
 			    <div class="btn btn-warning arrow-right"><a href="<?php echo $this->url('frontend/' . $this->game->getClassType(), array('id' =>$this->game->getIdentifier(), 'channel' => $this->layout()->channel)); ?>" class="arrow-right">Bientôt</a></div>
 			<?php endif;?>
 		</div>
