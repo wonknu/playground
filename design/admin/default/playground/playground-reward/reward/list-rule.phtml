@@ -2,7 +2,7 @@
 /*$fm = $this->flashMessenger()->setNamespace('playgroundreward')->getMessages();
 if (isset($fm[0]))
 {
-    print '<span class=>' . $fm[0] . '</span>';
+    print '<div class="alert alert-success">' . $fm[0] . '</div>';
 }*/
 ?>
 <?php $this->plugin('translate')->setTranslatorTextDomain('playgroundreward'); ?>
@@ -16,7 +16,7 @@ if (isset($fm[0]))
 
 <h1><a href="<?php echo $this->url('admin/reward/edit', array('rewardId' => $this->reward_id)) ?>"><?php echo $this->reward->getTitle(); ?></a></h1>
 
-<h3><?php echo $this->translate('Rules list'); ?></h3>
+<h3><?php echo $this->translate('Liste des rules'); ?></h3>
 
 <table class="table">
     <tr>
@@ -32,15 +32,8 @@ if (isset($fm[0]))
     	<tr class="sortable" id="<?php echo $rule->getId() ?>" 
     		data-url="<?php echo $editLink; ?>">
             <!--<td><?php echo $rule->getId() ?></td>-->
-            <td>
-                    count of <?php echo $rule->getCompletionType()?> of these rules : <br/>
-                    <ul>
-                    <?php foreach($rule->getStoryMappings() as $storyMapping):?>
-                        <li><?php echo $storyMapping->getStory()->getCode();?></li>
-                    <?php endforeach;?>
-                    </ul>
-                    <?php echo " " . $rule->getCountType() . " " . $rule->getCount();?><br/>
-            </td>
+            <td><?php echo "count of story '" . $rule->getStoryMappings() . "' " . $rule->getCountType() . " " . $rule->getCount();?></td>
+            
             <td>
                 <a href='<?php echo $editLink ?>'><?php echo $this->translate('Edit'); ?></a> | <a href='<?php echo $deleteLink ?>'><?php echo $this->translate('Delete'); ?></a>
             </td>

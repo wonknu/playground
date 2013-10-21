@@ -1,12 +1,11 @@
+<?php $this->plugin('translate')->setTranslatorTextDomain('playgroundcms');// Pour le texte ?>
 <?php
-/*$fm = $this->flashMessenger()->setNamespace('playgroundcms')->getMessages();
+$fm = $this->flashMessenger()->setNamespace('playgroundcms')->getMessages();
 if (isset($fm[0]))
 {
-    print '<span class=>' . $fm[0] . '</span>';
-}*/
+    print '<div class="alert alert-success">' . $fm[0] . '</div>';
+}
 ?>
-
-<?php $this->plugin('translate')->setTranslatorTextDomain('playgroundcms');// Pour le texte ?>
 
 <a class="btn btn-default right" href="<?php echo $this->url('admin/playgroundcmsadmin/blocks/create');?>"><?php echo $this->translate('Add new block'); ?></a>
 

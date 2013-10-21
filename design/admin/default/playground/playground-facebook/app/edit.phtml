@@ -4,37 +4,35 @@ $form->prepare();
 ?>
 
 <?php echo $this->form()->openTag($form) ?>
-<?php $form->get('submit')->setLabel($this->translate('Create'))->setAttribute('class', 'btn btn-default right'); ?>
-<?php echo $this->formButton($form->get('submit')) ?>
+<?php $form->get('submit')->setLabel($this->translate('Validate')); ?>
+<?php echo $this->formButton($form->get('submit')->setAttribute('class', 'btn btn-default right')) ?>
 
 <h1><?php $title = $this->isCreate ? $this->translate('Create Appli') : $this->translate('Edit Appli'); echo $title; ?></h1>
 
-<div class="facebook-admin">
+<div class="form-group">
     <?php echo $this->formHidden($form->get('id')); ?>
 
-    <div class="form-group">
-        <?php echo $this->formLabel($form->get('appId')); ?>
-        <?php echo $this->formInput($form->get('appId')->setAttribute('class', 'form-control')); ?>
-        <?php echo $this->formElementErrors()
-						->setMessageOpenFormat('<div class="alert alert-danger">')
-						->setMessageCloseString('</div>')->render($form->get(('appId'))) ?>
-    </div>
+    <?php echo $this->formLabel($form->get('appId')); ?>
+    <?php echo $this->formInput($form->get('appId')->setAttribute('class', 'form-control')); ?>
+    <?php echo $this->formElementErrors()
+                    ->setMessageOpenFormat('<div class="alert alert-danger">')
+                    ->setMessageCloseString('</div>')->render($form->get(('appId'))) ?>
+</div>
 <?php if ($this->isCreate && sizeof($form->get('appIdRetrieved')->getValueOptions())): ?>
-    <div class="form-group">
+<div class="form-group">
         <?php echo $this->formLabel($form->get('appIdRetrieved')); ?>
         <?php echo $this->formSelect($form->get('appIdRetrieved')->setAttribute('class', 'form-control')); ?>
         <?php echo $this->formElementErrors()
-						->setMessageOpenFormat('<div class="alert alert-danger">')
-						->setMessageCloseString('</div>')->render($form->get(('appIdRetrieved'))) ?>
-    </div>
+                        ->setMessageOpenFormat('<div class="alert alert-danger">')
+                        ->setMessageCloseString('</div>')->render($form->get(('appId'))) ?>
+</div>
 <?php endif; ?>
-    <div class="label-input">
+<div class="form-group">
         <?php echo $this->formLabel($form->get('appSecret')); ?>
         <?php echo $this->formInput($form->get('appSecret')->setAttribute('class', 'form-control')); ?>
         <?php echo $this->formElementErrors()
-						->setMessageOpenFormat('<div class="alert alert-danger">')
-						->setMessageCloseString('</div>')->render($form->get(('appSecret'))) ?>
-	</div>
+                        ->setMessageOpenFormat('<div class="alert alert-danger">')
+                        ->setMessageCloseString('</div>')->render($form->get(('appSecret'))) ?>
 </div>
 
 <?php echo $this->form()->closeTag() ?>

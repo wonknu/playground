@@ -1,4 +1,11 @@
 <?php $this->plugin('translate')->setTranslatorTextDomain('playgrounduser');// Pour le texte ?>
+<?php
+$fm = $this->flashMessenger()->setNamespace('playgrounduser')->getMessages();
+if (isset($fm[0]))
+{
+    print '<div class="alert alert-success">' . $fm[0] . '</div>';
+}
+?>
 
 <a class="btn btn-default right" href="<?php echo $this->url('admin/playgrounduser/create', array('userId' => 0));?>">Ajouter un nouvel utilisateur</a>
 

@@ -3,7 +3,7 @@
 $fm = $this->flashMessenger()->setNamespace('playgroundflow')->getMessages();
 if (isset($fm[0]))
 {
-    print '<span class=>' . $fm[0] . '</span>';
+    print '<div class="alert alert-success">' . $fm[0] . '</div>';
 }
 ?>
 <?php $addLink = $this->url('admin/playgroundflow/action/create', array('actionId' => 0)); ?>

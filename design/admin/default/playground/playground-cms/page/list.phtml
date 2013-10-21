@@ -1,11 +1,11 @@
 <?php $this->plugin('translate')->setTranslatorTextDomain('playgroundcms');?>
 
 <?php
-/*$fm = $this->flashMessenger()->setNamespace('playgroundcms')->getMessages();
+$fm = $this->flashMessenger()->setNamespace('playgroundcms')->getMessages();
 if (isset($fm[0]))
 {
-    print '<span class=>' . $fm[0] . '</span>';
-}*/
+    print '<div class="alert alert-success">' . $fm[0] . '</div>';
+}
 ?>
 <a class="btn btn-default right" href="<?php echo $this->url('admin/playgroundcmsadmin/pages/create');?>"><?php echo $this->translate('Add new page'); ?></a>
 

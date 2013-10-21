@@ -4,7 +4,7 @@
 /*$fm = $this->flashMessenger()->setNamespace('playgroundgame')->getMessages();
 if (isset($fm[0]))
 {
-    print '<span class=>' . $fm[0] . '</span>';
+    print '<div class="alert alert-success">' . $fm[0] . '</div>';
 }*/
 ?>
 <h1><a href="<?php echo $this->url('admin/playgroundgame/edit-postvote', array('gameId' => $this->gameId)) ?>"><?php echo $this->game->getTitle(); ?></a></h1>
@@ -50,4 +50,4 @@ if (isset($fm[0]))
         </tr>
     <?php endforeach; ?>
 </table>
-<?php echo (count($this->posts)>1)?$this->paginationControl($this->posts, 'Sliding', 'playground-game/admin/pagination_entrylist', array('classType' => $this->game->getClassType()  ,'gameId' => $this->gameId)):''; ?>
+<?php echo (count($this->posts)>1)?$this->paginationControl($this->posts, 'Sliding', 'pagination_entrylist', array('classType' => $this->game->getClassType()  ,'gameId' => $this->gameId)):''; ?>

@@ -10,87 +10,48 @@ $form = $this->form;
 $form->prepare();
 ?>
 <?php echo $this->form()->openTag($form) ?>
-<?php $form->get('submit')->setLabel($this->translate('Validate'))->setAttribute('class', 'btn btn-default right'); ?>
+<?php $form->get('submit')->setLabel($this->translate('Validate')); ?>
 <?php echo $this->formButton($form->get('submit')) ?>
-
-<h1><?php echo $this->translate('Add a reward'); ?></h1>
-
 <div class="tab-pane active" id="general">
     <div>
         <div class="label-input">
-        	<?php echo $this->formHidden($form->get('id')); ?>
+        <?php echo $this->formHidden($form->get('id')); ?>
         </div>
 
-        <div class="form-group">
-	        <?php echo $this->formLabel($form->get('title')); ?>
-	        <?php echo $this->formInput($form->get('title')->setAttribute('class', 'form-control')); ?>
-	        <?php echo $this->formElementErrors()
-						->setMessageOpenFormat('<div class="alert alert-danger">')
-						->setMessageCloseString('</div>')->render($form->get(('title'))) ?>
+        <div class="label-input">
+        <?php echo $this->formLabel($form->get('title')); ?>
+        <?php echo $this->formInput($form->get('title')); ?>
+        <?php echo $this->formElementErrors($form->get('title')) ?>
         </div>
 
-        <div class="form-group">
-	        <?php echo $this->formLabel($form->get('active')); ?>
-	        <?php echo $this->formSelect($form->get('active')->setAttribute('class', 'form-control')); ?>
-	        <?php echo $this->formElementErrors()
-						->setMessageOpenFormat('<div class="alert alert-danger">')
-						->setMessageCloseString('</div>')->render($form->get(('active'))) ?>
+        <div class="label-input">
+        <?php echo $this->formLabel($form->get('active')); ?>
+        <?php echo $this->formSelect($form->get('active')); ?>
+        <?php echo $this->formElementErrors($form->get('active')) ?>
         </div>
         
-        <div class="form-group">
-            <?php echo $this->formLabel($form->get('hint')); ?>
-            <?php echo $this->formInput($form->get('hint')); ?>
-            <?php echo $this->formElementErrors()
-            		->setMessageOpenFormat('<div class="alert alert-danger">')
-            		->setMessageCloseString('</div>')->render($form->get(('hint'))) ?>
-		</div>
-		
-		<div class="form-group">
-            <?php echo $this->formLabel($form->get('activityStreamText')); ?>
-            <?php echo $this->formInput($form->get('activityStreamText')); ?>
-            <?php echo $this->formElementErrors()
-            		->setMessageOpenFormat('<div class="alert alert-danger">')
-            		->setMessageCloseString('</div>')->render($form->get(('activityStreamText'))) ?>
-		</div>
-		
-		<div class="form-group">
-            <?php echo $this->formLabel($form->get('hide')); ?>
-            <?php echo $this->formSelect($form->get('hide')); ?>
-            <?php echo $this->formElementErrors()
-            			->setMessageOpenFormat('<div class="alert alert-danger">')
-						->setMessageCloseString('</div>')->render($form->get(('hide'))) ?>
-    	</div>
-    	
-        <div class="form-group">
+        <div class="label-input">
             <?php echo $this->formLabel($form->get('type')); ?>
-            <?php echo $this->formSelect($form->get('type')->setAttribute('class', 'form-control')); ?>
-            <?php echo $this->formElementErrors()
-						->setMessageOpenFormat('<div class="alert alert-danger">')
-						->setMessageCloseString('</div>')->render($form->get(('type'))) ?>
+            <?php echo $this->formSelect($form->get('type')); ?>
+            <?php echo $this->formElementErrors($form->get('type')); ?>
     	</div>
 	
-    	<div class="form-group">
+    	<div class="label-input">
             <?php echo $this->formLabel($form->get('category')); ?>
-            <?php echo $this->formSelect($form->get('category')->setAttribute('class', 'form-control')); ?>
-            <?php echo $this->formElementErrors()
-						->setMessageOpenFormat('<div class="alert alert-danger">')
-						->setMessageCloseString('</div>')->render($form->get(('category'))) ?>
+            <?php echo $this->formSelect($form->get('category')); ?>
+            <?php echo $this->formElementErrors($form->get('category')); ?>
     	</div>
     	
-    	<div class="form-group">
+    	<div class="label-input">
             <?php echo $this->formLabel($form->get('points')); ?>
-            <?php echo $this->formInput($form->get('points')->setAttribute('class', 'form-control')); ?>
-            <?php echo $this->formElementErrors()
-						->setMessageOpenFormat('<div class="alert alert-danger">')
-						->setMessageCloseString('</div>')->render($form->get(('points'))) ?>
+            <?php echo $this->formInput($form->get('points')); ?>
+            <?php echo $this->formElementErrors($form->get('points')) ?>
     	</div>
     	
-    	<div class="form-group">
+    	<div class="label-input">
             <?php echo $this->formLabel($form->get('countLimit')); ?>
-            <?php echo $this->formInput($form->get('countLimit')->setAttribute('class', 'form-control')); ?>
-            <?php echo $this->formElementErrors()
-						->setMessageOpenFormat('<div class="alert alert-danger">')
-						->setMessageCloseString('</div>')->render($form->get(('countLimit'))) ?>
+            <?php echo $this->formInput($form->get('countLimit')); ?>
+            <?php echo $this->formElementErrors($form->get('countLimit')) ?>
     	</div>
         
         <div class="label-input file">

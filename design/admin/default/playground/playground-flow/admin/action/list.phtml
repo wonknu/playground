@@ -3,39 +3,37 @@
 $fm = $this->flashMessenger()->setNamespace('playgroundflow')->getMessages();
 if (isset($fm[0]))
 {
-    print '<span class=>' . $fm[0] . '</span>';
+    print '<div class="alert alert-success">' . $fm[0] . '</div>';
 }
 ?>
 <?php $addLink = $this->url('admin/playgroundflow/action/create', array('actionId' => 0)); ?>
 
-<a class="btn btn-default right" href="<?php echo $addLink;?>"><?php echo $this->translate('Add new action'); ?></a>
+<ul class="liste-buttons">
+	<li class="btn-admin"><a href="<?php echo $addLink;?>"><?php echo $this->translate('Add new action'); ?></a></li>
+</ul>
 
 <h1>Liste des actions</h1>
 
-<table class="table table-hover table-striped">
-    <thead>
+<table class="table">
+    <tr>
+        <th><?php echo $this->translate('Code'); ?></th>
+        <th><?php echo $this->translate('Label'); ?></th>
+        <th><?php echo $this->translate('Definition'); ?></th>
+        <th></th>
+    </tr>
+    <?php foreach ($this->actions as $action): ?>
+    	<?php $editLink = $this->url('admin/playgroundflow/action/edit', array('actionId' => $action->getId()));?>
+    	<?php $deleteLink = $this->url('admin/playgroundflow/action/remove', array('actionId' => $action->getId()));?>
+    	
         <tr>
-            <th><?php echo $this->translate('Code'); ?></th>
-            <th><?php echo $this->translate('Label'); ?></th>
-            <th><?php echo $this->translate('Definition'); ?></th>
-            <th></th>
+            <td><?php echo $action->getCode() ?></td>
+            <td><?php echo $action->getLabel() ?></td>
+            <td><?php echo $action->getDefinition() ?></td>
+            <td>
+                <a href='<?php echo $editLink ?>'><?php echo $this->translate('Edit'); ?></a> | <a href='<?php echo $deleteLink ?>'><?php echo $this->translate('Delete'); ?></a>
+            </td>
         </tr>
-    </thead>
-    <tbody>
-        <?php foreach ($this->actions as $action): ?>
-        	<?php $editLink = $this->url('admin/playgroundflow/action/edit', array('actionId' => $action->getId()));?>
-        	<?php $deleteLink = $this->url('admin/playgroundflow/action/remove', array('actionId' => $action->getId()));?>
-        	
-            <tr>
-                <td><?php echo $action->getCode() ?></td>
-                <td><?php echo $action->getLabel() ?></td>
-                <td><?php echo $action->getDefinition() ?></td>
-                <td>
-                    <a href='<?php echo $editLink ?>'><?php echo $this->translate('Edit'); ?></a> | <a href='<?php echo $deleteLink ?>'><?php echo $this->translate('Delete'); ?></a>
-                </td>
-            </tr>
-        <?php endforeach; ?>
-    </tbody>
+    <?php endforeach; ?>
 </table>
 
 <?php echo $this->paginationControl($this->actions, 'Sliding', 'playground-flow/admin/action/pagination_actionlist'); ?>

@@ -3,7 +3,7 @@
 $fm = $this->flashMessenger()->setNamespace('playgroundgame')->getMessages();
 if (isset($fm[0]))
 {
-    print '<span class=>' . $fm[0] . '</span>';
+    print '<div class="alert alert-success">' . $fm[0] . '</div>';
 }
 ?>
 

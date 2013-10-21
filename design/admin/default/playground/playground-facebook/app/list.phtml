@@ -4,7 +4,7 @@
 $fm = $this->flashMessenger()->setNamespace('playgroundfacebook')->getMessages();
 if (isset($fm[0]))
 {
-    echo '<span class="alert">' . $fm[0] . '</span>';
+    print '<div class="alert alert-success">' . $fm[0] . '</div>';
 }
 ?>
 <ul class="liste-buttons">

@@ -4,12 +4,11 @@ $form = $this->form;
 $form->prepare();
 ?>
 
-<div class="return"><a href="<?php echo $this->url('admin/playgroundflow/domain');?>"><?php echo $this->translate('Retour'); ?></a></div>
+<?php echo $this->form()->openTag($form) ?>
+<?php $form->get('submit')->setLabel($this->translate('Validate')); ?>
+<?php echo $this->formButton($form->get('submit')->setAttribute('class', 'btn btn-default right')) ?>
 
 <h1><?php echo $this->translate('Création'); ?></h1>
-
-<?php echo $this->form()->openTag($form) ?>
-<?php $form->get('submit')->setLabel($this->translate('Validate')); ?><?php echo $this->formButton($form->get('submit')) ?>
 
 <div id="content">
         <div>

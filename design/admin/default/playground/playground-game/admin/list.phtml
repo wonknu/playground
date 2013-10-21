@@ -3,7 +3,7 @@
 $fm = $this->flashMessenger()->setNamespace('playgroundgame')->getMessages();
 if (isset($fm[0]))
 {
-    print '<span class=>' . $fm[0] . '</span>';
+    print '<div class="alert alert-success">' . $fm[0] . '</div>';
 }
 ?>
 
@@ -27,8 +27,9 @@ if (isset($fm[0]))
             <th><?php echo $this->translate('Title'); ?></th>
             <th><?php echo $this->translate('Start Date'); ?></th>
             <th><?php echo $this->translate('End Date'); ?></th>
-            <th><?php echo $this->translate('Status'); ?></th>
-        	<th><?php echo $this->translate('State'); ?></th>
+            <th><?php echo $this->translate('Active'); ?></th>
+            <th><?php echo $this->translate('Online'); ?></th>
+            <th><?php echo $this->translate('Type'); ?></th>
             <th><?php echo $this->translate('Slug'); ?></th>
             <th></th>
             <th><?php echo $this->translate('Participants'); ?></th>
@@ -43,8 +44,8 @@ if (isset($fm[0]))
             <td><?php echo $game->getTitle() ?></td>
             <td class="listgame-begin"><?php echo ($game->getStartDate())? $game->getStartDate()->format('d/m/Y'):''; ?></td>
             <td><?php echo ($game->getEndDate())? $game->getEndDate()->format('d/m/Y'):''; ?></td>
-            <td class="listgame-active"><?php echo ($game->isOnline())? $this->translate('Online'):$this->translate('Offline'); ?></td>
-            <td><?php echo $this->translate($game->getState()); ?></td>
+            <td class="listgame-active"><?php echo ($game->getActive())? $this->translate('Yes'):$this->translate('No'); ?></td>
+            <td><?php if($game->isOpen()):?>ONLINE<?php else:?>OFFLINE<?php endif;?></td>
             <td><?php echo $game->getClassType() ?></td>
             <td><?php echo $game->getIdentifier() ?></td>
             <?php if($game->getClassType() == 'quiz'):?>
@@ -73,18 +74,8 @@ if (isset($fm[0]))
             <?php else: ?>
                 <?php $optionLink = ''; ?>
             <?php endif; ?>
-            <?php if($game->getActive()):?>
-                <?php $activeString = $this->translate('Desactivate the game'); ?>
-            <?php else: ?>
-                <?php $activeString = $this->translate('Activate the game'); ?>
-            <?php endif; ?>
             <td>
-                <a href='<?php echo $leaderboardLink ?>'><?php echo $this->translate('Leader Board'); ?></a> 
-                | <a href='<?php echo $editLink ?>'><?php echo $this->translate('Edit'); ?></a> 
-                | <a href='<?php echo $deleteLink ?>'><?php echo $this->translate('Delete'); ?></a><?php if($optionLink != ''):?> 
-                | <a href='<?php echo $optionLink ?>'><?php echo $this->translate('Add options'); ?></a><?php endif;?> 
-                | <a target="_blank" href='<?php echo $this->url('frontend/' . $game->getClassType(), array('id' => $game->getIdentifier(), 'channel' => 'preview'), array('force_canonical' => true));?>'><?php echo $this->translate('Preview'); ?></a> 
-                | <a href='<?php echo $this->url('admin/playgroundgame/set-active', array('gameId' => $game->getId())); ?>'><?php echo $activeString; ?></a>
+                <a href='<?php echo $leaderboardLink ?>'><?php echo $this->translate('Leader Board'); ?></a> | <a href='<?php echo $editLink ?>'><?php echo $this->translate('Edit'); ?></a> | <a href='<?php echo $deleteLink ?>'><?php echo $this->translate('Delete'); ?></a><?php if($optionLink != ''):?> | <a href='<?php echo $optionLink ?>'><?php echo $this->translate('Add options'); ?></a><?php endif;?>
             </td>
             <td><?php echo $game->leaderboard; ?></td>
             <td><?php echo count($this->partnerSubscriber($game->getPartner(), false));?></td>

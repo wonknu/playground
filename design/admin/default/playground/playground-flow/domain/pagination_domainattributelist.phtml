@@ -1,15 +1,15 @@
 <?php if ($this->pageCount): ?>
-<div class="pagination pagination-centered pagination-small">
-    <ul>
-
+<div>
+    <ul class="pagination">
+        
         <!-- First page link -->
         <li<?php echo (isset($this->previous)) ? '' : ' class="disabled"'; ?>>
-            <a href="<?php echo $this->url('admin/playgroundflow/domain/story/attribute', array('p' => $this->first)); ?>">&lt;&lt; <?php echo $this->translate('First'); ?></a>
+            <a href="<?php echo $this->url('admin/playgroundflow/domain/story/attribute', array('p' => $this->first)); ?>">&lt;&lt;</a>
         </li>
 
         <!-- Previous page link -->
         <li<?php echo (isset($this->previous)) ? '' : ' class="disabled"'; ?>>
-            <a href="<?php echo $this->url('admin/playgroundflow/domain/story/attribute', array('p' => $this->previous)); ?>">&lt; <?php echo $this->translate('Previous'); ?></a>
+            <a href="<?php echo $this->url('admin/playgroundflow/domain/story/attribute', array('p' => $this->previous)); ?>">&lt;</a>
         </li>
 
         <!-- Numbered page links -->
@@ -21,12 +21,12 @@
 
         <!-- Next page link -->
         <li<?php echo (isset($this->next)) ? '' : ' class="disabled"'; ?>>
-            <a href="<?php echo $this->url('admin/playgroundflow/domain/story/attribute', array('p' => $this->next)); ?>"><?php echo $this->translate('Next'); ?> &gt;</a>
+            <a href="<?php echo $this->url('admin/playgroundflow/domain/story/attribute', array('p' => $this->next)); ?>">&gt;</a>
         </li>
 
         <!-- Last page link -->
         <li<?php echo (isset($this->next)) ? '' : ' class="disabled"'; ?>>
-            <a href="<?php echo $this->url('admin/playgroundflow/domain/story/attribute', array('p' => $this->last)); ?>"><?php echo $this->translate('Last'); ?> &gt;&gt;</a>
+            <a href="<?php echo $this->url('admin/playgroundflow/domain/story/attribute', array('p' => $this->last)); ?>">&gt;&gt;</a>
         </li>
 
     </ul>
