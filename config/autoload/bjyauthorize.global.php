@@ -82,6 +82,8 @@ return array(
                 array('controller' => 'playgroundflowrestauthent',                 'roles' => array('guest', 'user')),
                 array('controller' => 'playgroundflowrestsend',                    'roles' => array('guest', 'user')),
                 array('controller' => 'playgroundfloweasyxdm',                     'roles' => array('guest', 'user')),
+                array('controller' => 'AsseticBundle\Controller\Console',          'roles' => array('guest', 'user')),
+                array('controller' => 'DoctrineModule\Controller\Cli',             'roles' => array('guest', 'user')),
 
 
                 // Admin area
