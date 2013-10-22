@@ -32,6 +32,11 @@
             <limit>10</limit>
         </module>
         <module>
+            <name>GAME</name>
+            <path>vendor/playground/game</path>
+            <limit>10</limit>
+        </module>
+        <module>
             <name>PARTNERSHIP</name>
             <path>vendor/playground/partnership</path>
             <limit>10</limit>
