@@ -22,6 +22,41 @@ $form->prepare();
 						->setMessageCloseString('</div>')->render($form->get(('story'))) ?>
 			</div>
 			<div class="form-group">
+	            <?php echo $this->formLabel($form->get('points')); ?>
+	            <?php echo $this->formInput($form->get('points')->setAttribute('class', 'form-control')); ?>
+	            <?php echo $this->formElementErrors()
+						->setMessageOpenFormat('<div class="alert alert-danger">')
+						->setMessageCloseString('</div>')->render($form->get(('points'))) ?>
+			</div>
+			<div class="form-group">
+	            <?php echo $this->formLabel($form->get('hint')); ?>
+	            <?php echo $this->formInput($form->get('hint')->setAttribute('class', 'form-control')); ?>
+	            <?php echo $this->formElementErrors()
+						->setMessageOpenFormat('<div class="alert alert-danger">')
+						->setMessageCloseString('</div>')->render($form->get(('hint'))) ?>
+			</div>
+			<div class="form-group">
+	            <?php echo $this->formLabel($form->get('activityStreamText')); ?>
+	            <?php echo $this->formInput($form->get('activityStreamText')->setAttribute('class', 'form-control')); ?>
+	            <?php echo $this->formElementErrors()
+						->setMessageOpenFormat('<div class="alert alert-danger">')
+						->setMessageCloseString('</div>')->render($form->get(('activityStreamText'))) ?>
+			</div>
+			<div class="form-group">
+	            <?php echo $this->formLabel($form->get('countLimit')); ?>
+	            <?php echo $this->formInput($form->get('countLimit')->setAttribute('class', 'form-control')); ?>
+	            <?php echo $this->formElementErrors()
+						->setMessageOpenFormat('<div class="alert alert-danger">')
+						->setMessageCloseString('</div>')->render($form->get(('countLimit'))) ?>
+			</div>
+			<div class="form-group file">
+        	    <?php echo $this->formLabel($form->get('uploadPicto')); ?>
+        	    <?php echo $this->formFile($form->get('uploadPicto')->setAttribute('class', 'form-control')); ?>
+        	    <?php if($form->get('picto')->getValue() != ''):?>
+        	    	<img src="<?php echo $this->basePath($form->get('picto')->getValue()); ?>" />
+        	    <?php endif;?>
+            </div>
+			<div class="form-group">
 	            <?php echo $this->formLabel($form->get('conditionsUrl')); ?>
 	            <?php echo $this->formInput($form->get(('conditionsUrl'))->setAttribute('class', 'form-control')); ?>
 	            <?php echo $this->formElementErrors()
