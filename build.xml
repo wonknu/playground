@@ -194,7 +194,7 @@
 	
 	<target name="coverage-checker" depends="phpunit-core">
 		<exec dir="/usr/bin" executable="php" failonerror="true" description="check unit test coverage percentage">
-			<arg line="${basedir}/build/coverage-checker.php ${basedir}/module/Application/build/clover.xml 0" />   
+			<arg line="${basedir}/build/coverage-checker.php" />   
 		</exec>
     </target>
 
