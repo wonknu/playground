@@ -28,7 +28,7 @@
 			<antcall target="phpunit-partnership" />
 			<antcall target="phpunit-reward" />
 			<antcall target="phpunit-user" />
-			<antcall target="phpunit-dessign" />
+			<antcall target="phpunit-design" />
 			<antcall target="coverage-checker" />
 			</sequential>
 		</parallel>

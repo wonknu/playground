@@ -43,9 +43,6 @@ foreach ($modules->modules[0] as $module) {
         continue;
     }
 
-    if ($percentage == 0) {
-        continue;
-    }
 
     $xml             = new SimpleXMLElement(file_get_contents($inputFile));
     $metrics         = $xml->xpath('//metrics');
