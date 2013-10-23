@@ -1,13 +1,26 @@
 <?php
-
 function writeHtml($stats) {
     $content = '<html>
-    <head><link href="http://netdna.bootstrapcdn.com/bootstrap/3.0.0/css/bootstrap.min.css" rel="stylesheet" /></head>
-    <body><table class="table"><thead><tr><th>Module</th><th>Coverage</th><th>Percent</th></tr></thead><tbody>';
+    <head>
+    <style>
+        <style>
+            table tr {color:#333;line-height:20px;}
+            table tr.warning td {background-color:  #FCF8E3;}
+            table tr.success td {background-color:  #DFF0D8}
+            table tr.danger td {background-color: #F2DEDE}
+            table tr td {width : 100px; text-align:center; }
+        </style>
+    </style>
+    </head>
+    <body>
+    <table style="border-collapse:collapse"><thead><tr><th>Module</th><th>Coverage</th><th>Limit</th></tr></thead><tbody>';
     foreach ($stats as $stat) {
         $state = 'class="success"';
         if($stat['state'] == 'ko') {
             $state = 'class="danger"';
+        }
+        if($stat['state'] == 'warn') {
+            $state = 'class="warning"';
         }
         $content .="<tr ".$state."><td>".$stat['name']."</td><td><strong>".$stat['coverage']."%</strong></td><td>".$stat['percent']."%</td></tr>";
     }
@@ -20,6 +33,8 @@ function writeCli($stats) {
     foreach ($stats as $stat) {
         if($stat['state'] == 'ko') {
             echo "\033[31m".$stat['name']. " : ".$stat['coverage']."% (".$stat['percent']."%)"."\033[37m";
+        } else if($stat['state'] == 'warn') {
+            echo "\033[33m".$stat['name']. " : ".$stat['coverage']."% (".$stat['percent']."%)"."\033[37m";
         } else {
             echo "\033[32m".$stat['name']. " : ".$stat['coverage']."% (".$stat['percent']."%)"."\033[37m";
         }
@@ -54,13 +69,17 @@ foreach ($modules->modules[0] as $module) {
         $checkedElements += (int) $metric['coveredelements'];
     }
 
-    $coverage = ceil(($checkedElements / $totalElements) * 100);
-
-    if ($coverage < $percentage) {
+    $coverage = (int) ceil(($checkedElements / $totalElements) * 100);
+    if ($coverage < $percentage && (string) $module->mandatory == "true") {
         $error = true;
         $state = 'ko';
         echo 'Code coverage is ' . $coverage . '%, which is below the accepted ' . $percentage . '% for '.$module->name. PHP_EOL ;
     }
+
+    if ($coverage < $percentage && (string) $module->mandatory == "false") {
+        $state = 'warn';
+    }
+
     $stats[] = array('name' => (string) $module->name, 'percent' => $percentage, 'coverage' => $coverage, 'state' => $state);
 }
 
