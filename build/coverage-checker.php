@@ -62,6 +62,7 @@ foreach ($modules->modules[0] as $module) {
     if ($coverage < $percentage) {
         $error = true;
         $state = 'ko';
+        echo 'Code coverage is ' . $coverage . '%, which is below the accepted ' . $percentage . '% for '.$module->name. PHP_EOL ;
     }
     $stats[] = array('name' => (string) $module->name, 'percent' => $percentage, 'coverage' => $coverage, 'state' => $state);
 }

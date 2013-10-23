@@ -9,47 +9,47 @@
         <module>
             <name>CORE</name>
             <path>vendor/playground/core</path>
-            <limit>10</limit>
+            <limit>0</limit>
         </module>
         <module>
             <name>DESIGN</name>
             <path>vendor/playground/design</path>
-            <limit>10</limit>
+            <limit>0</limit>
         </module>
         <module>
             <name>FACEBOOK</name>
             <path>vendor/playground/facebook</path>
-            <limit>10</limit>
+            <limit>15</limit>
         </module>
         <module>
             <name>FAQ</name>
             <path>vendor/playground/faq</path>
-            <limit>10</limit>
+            <limit>37</limit>
         </module>
         <module>
             <name>FLOW</name>
             <path>vendor/playground/flow</path>
-            <limit>10</limit>
+            <limit>0</limit>
         </module>
         <module>
             <name>GAME</name>
             <path>vendor/playground/game</path>
-            <limit>10</limit>
+            <limit>8</limit>
         </module>
         <module>
             <name>PARTNERSHIP</name>
             <path>vendor/playground/partnership</path>
-            <limit>10</limit>
+            <limit>0</limit>
         </module>
         <module>
             <name>REWARD</name>
             <path>vendor/playground/reward</path>
-            <limit>10</limit>
+            <limit>0</limit>
         </module>
         <module>
             <name>USER</name>
             <path>vendor/playground/user</path>
-            <limit>10</limit>
+            <limit>13</limit>
         </module>
         <module>
             <name>APPLICATION</name>
