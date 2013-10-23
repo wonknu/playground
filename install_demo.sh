@@ -3,7 +3,7 @@
 ENV="prod"
 if [ $1 ]
 then
-    database="$1"
+    ENV="$1"
 fi
  
 echo "get data for playground demo"
