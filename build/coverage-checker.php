@@ -31,7 +31,7 @@ function writeCli($stats) {
 $error = false;
 $stats = array();
 
-$modules  = new SimpleXMLElement(file_get_contents('build/modules.xml'));
+$modules  = new SimpleXMLElement(file_get_contents(__DIR__.'/modules.xml'));
 
 foreach ($modules->modules[0] as $module) {
     $state = 'ok';
