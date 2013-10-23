@@ -11,55 +11,55 @@
             <name>CORE</name>
             <path>vendor/playground/core</path>
             <limit>0</limit>
-            <mandatory>false</mandatory>
+            <mandatory>true</mandatory>
         </module>
         <module>
             <name>DESIGN</name>
             <path>vendor/playground/design</path>
             <limit>0</limit>
-            <mandatory>false</mandatory>
+            <mandatory>true</mandatory>
         </module>
         <module>
             <name>FACEBOOK</name>
             <path>vendor/playground/facebook</path>
             <limit>15</limit>
-            <mandatory>false</mandatory>
+            <mandatory>true</mandatory>
         </module>
         <module>
             <name>FAQ</name>
             <path>vendor/playground/faq</path>
             <limit>37</limit>
-            <mandatory>false</mandatory>
+            <mandatory>true</mandatory>
         </module>
         <module>
             <name>FLOW</name>
             <path>vendor/playground/flow</path>
             <limit>0</limit>
-            <mandatory>false</mandatory>
+            <mandatory>true</mandatory>
         </module>
         <module>
             <name>GAME</name>
             <path>vendor/playground/game</path>
             <limit>8</limit>
-            <mandatory>false</mandatory>
+            <mandatory>true</mandatory>
         </module>
         <module>
             <name>PARTNERSHIP</name>
             <path>vendor/playground/partnership</path>
             <limit>0</limit>
-            <mandatory>false</mandatory>
+            <mandatory>true</mandatory>
         </module>
         <module>
             <name>REWARD</name>
             <path>vendor/playground/reward</path>
             <limit>0</limit>
-            <mandatory>false</mandatory>
+            <mandatory>true</mandatory>
         </module>
         <module>
             <name>USER</name>
             <path>vendor/playground/user</path>
-            <limit>13</limit>
-            <mandatory>false</mandatory>
+            <limit>14</limit>
+            <mandatory>true</mandatory>
         </module>
         <module>
             <name>APPLICATION</name>
