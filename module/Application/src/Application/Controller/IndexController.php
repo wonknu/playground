@@ -116,39 +116,6 @@ class IndexController extends AbstractActionController
         return new ViewModel();
     }
 
-    public function activityAction()
-    {
-        $filter = $this->getEvent()->getRouteMatch()->getParam('filter');
-        $events = $this->getRewardService()->getEventMapper()->findActivity($this->zfcUserAuthentication()->getIdentity()->getId(),$filter);
-        $total = count($events);
-
-        if (is_array($events)) {
-            $paginator = new \Zend\Paginator\Paginator(new \Zend\Paginator\Adapter\ArrayAdapter($events));
-            $paginator->setItemCountPerPage(25);
-            $paginator->setCurrentPageNumber($this->getEvent()->getRouteMatch()->getParam('p'));
-        } else {
-            $paginator = $events;
-        }
-
-        $this->layout()->setVariables(
-            array(
-                'adserving'       => array(
-                    'cat1' => 'playground',
-                    'cat2' => 'myaccount',
-                    'cat3' => ''
-                )
-            )
-        );
-
-        return new ViewModel(
-            array(
-                'events' => $paginator,
-                'filter' => $filter,
-                'total' => $total
-            )
-        );
-    }
-
     /**
      * user sponsor friend
      */
