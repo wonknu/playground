@@ -3,3 +3,6 @@
 /composer.lock
 .settings
 composer.phar
+/public/media/*/*.jpg
+/public/media/*/*.jpeg
+/public/media/*/*.png
