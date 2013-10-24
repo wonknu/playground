@@ -15,9 +15,9 @@ if (isset($fm[0]))
 	<li class="btn-admin"><a href="<?php echo $this->url('admin/playgroundgame/create-treasurehunt');?>"><?php echo $this->translate('Add new Treasure Hunt'); ?></a></li>
 </ul>
 
-<h1>Liste des jeux</h1>
+<h1><?php echo $this->translate('Game list'); ?></h1>
 
-<div class="sortby-role">Tri par : <a href="<?php echo $this->url('admin/playgroundgame/list', array('type' => 'startDate', 'filter' => 'DESC')); ?>">Date début</a> | <a href="<?php echo $this->url('admin/playgroundgame/list', array('type' => 'activeGames', 'filter' => 'DESC')); ?>">Actif</a> | <a href="<?php echo $this->url('admin/playgroundgame/list', array('type' => 'onlineGames', 'filter' => 'DESC')); ?>">Online</a></div>
+<div class="sortby-role"><?php echo $this->translate('Sort order'); ?> : <a href="<?php echo $this->url('admin/playgroundgame/list', array('type' => 'startDate', 'filter' => 'DESC')); ?>"><?php echo $this->translate('Start date'); ?></a> | <a href="<?php echo $this->url('admin/playgroundgame/list', array('type' => 'activeGames', 'filter' => 'DESC')); ?>"><?php echo $this->translate('Active'); ?></a> | <a href="<?php echo $this->url('admin/playgroundgame/list', array('type' => 'onlineGames', 'filter' => 'DESC')); ?>"><?php echo $this->translate('Online'); ?></a></div>
 
 <table class="table">
     <tr>
