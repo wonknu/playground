@@ -10,7 +10,10 @@ git clone https://github.com/gregorybesson/playground-demo.git "data\playground-
 xcopy "data\playground-demo\media\*" "public\media\." /s /i
 
 php vendor/doctrine/doctrine-module/bin/doctrine-module.php orm:schema-tool:drop --force || goto :error
-php vendor/doctrine/doctrine-module/bin/doctrine-module.php dba:import "data\playground-demo\sql\demo.sql" || goto :error
+
+php data/playground-demo/php/clean_sql.php  "data/playground-demo/sql/demo.sql"
+php vendor/doctrine/doctrine-module/bin/doctrine-module.php dba:import "data\playground-demo\sql\demo.sql.tmp" || goto :error
+
 php vendor/doctrine/doctrine-module/bin/doctrine-module.php orm:schema-tool:update --force || goto :error
 php public/index.php assetic setup || goto :error
 php public/index.php assetic build || goto :error
