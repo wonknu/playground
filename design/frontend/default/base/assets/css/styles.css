@@ -1232,10 +1232,11 @@ input[type="submit"].btn.btn-mini {
 }
 #header .barnav #logged .connexion #user-badge #count-badge {
   position: relative;
-  top: -2px;
-  height: 13px;
-  width: 13px;
-  font-size: 9px;
+  height: 17px;
+  line-height: 17px;
+  width: auto;
+  padding: 0 5px;
+  font-size: 10px;
   font-weight: bold;
   background: #ffa12d;
   display: inline-block;
@@ -1244,7 +1245,6 @@ input[type="submit"].btn.btn-mini {
   -o-border-radius: 8px;
   border-radius: 8px;
   text-align: center;
-  margin-top: -2px;
 }
 #header .barnav #logged .connexion #user-point {
   color: #8dc63f;
