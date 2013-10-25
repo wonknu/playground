@@ -22,33 +22,6 @@ return array(
                         	'constraints' => array('p' => '[0-9]*'),
                         ),
                     ),
-                    'activity' => array(
-                    	'type' => 'Segment',
-                    	'options' => array(
-               				'route' => 'mon-compte/mon-activite[/:filter]',
-              				'constraints' => array(
-                   				'filter' => '[a-zA-Z][a-zA-Z0-9_-]*',
-                    		),
-                    		'defaults' => array(
-                   				'controller' => 'Application\Controller\Index',
-          						'action'     => 'activity',
-               				),
-                    	),
-                    	'may_terminate' => true,
-                   		'child_routes' => array(
-                    		'pagination' => array(
-                  				'type'    => 'Segment',
-          						'options' => array(
-                    				'route'    => '[/:p]',
-                   					'defaults' => array(
-                    					'controller' => 'Application\Controller\Index',
-                    					'action'     => 'activity',
-      								),
-          							'constraints' => array('p' => '[0-9]*'),
-                 				),
-                    		),
-                   		),
-                    ),
                     'sponsorfriends' => array(
                     	'type' => 'Literal',
                     	'options' => array(
@@ -180,12 +153,6 @@ return array(
                                 'col_right'  => 'application/common/column_right.phtml',
                             ),
                         ),
-                        'activity' => array(
-                            'layout' => 'layout/2columns-left',
-                            'children_views' => array(
-                                'col_left'  => 'playground-user/user/col-user.phtml',
-                            ),
-                        ),
                         'prizecategories' => array(
                             'layout' => 'layout/2columns-right',
                             'children_views' => array(
@@ -249,10 +216,6 @@ return array(
             array(
                 'label' => 'Comment ça marche ?',
                 'route' => 'commentcamarche',
-            ),
-            array(
-                'label' => 'Mon activité',
-                'route' => 'activity',
             ),
             array(
                 'label' => 'Mes badges et mes points',
