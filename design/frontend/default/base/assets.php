@@ -55,6 +55,8 @@ return array(
                         'assets' => array(
                             'images/**/*.png',
                             'images/**/*.jpg',
+                            'images/content/**/*.jpg',
+                            'images/content/**/*.png'
                         ),
                         'options' => array(
                             'move_raw' => true,

@@ -16,4 +16,3 @@
 	   return o;
 	};
 })(jQuery);
-console.log('core');
