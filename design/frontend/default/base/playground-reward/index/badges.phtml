@@ -6,22 +6,23 @@
 	<div id="my-badges">
 		<p class="h1">Mes badges</p>
 		<ul>
-		    <?php $i=1;foreach($achievements as $key=>$achievement): ?>
-    		    <?php $badge = $achievement['badge'];?>
-    			<li<?php if ($i == 1): ?> id="first-badge"<?php endif;?>>
-    			     <?php if($badge):?>
-    			         <img src="<?php echo $this->frontendAssetPath('images/badges/big-'. strtolower($badge->getLevelLabel()) .'-' . strtolower($key) .'.png')?>" alt="" />
-    			     <?php else:?>
-    			         <img  src="<?php echo $this->frontendAssetPath('images/badges/big-default.png')?>" alt="" />
-    			     <?php endif;?>
-    			     <div class="<?php echo ($badge)? strtolower($badge->getLevelLabel()):'silverlight'?>">
-			             <p><b><?php echo ucfirst(strtolower($this->translate($key)));?></b></p>
-			             <p><?php echo ($badge)?'Niveau '.$this->translate($badge->getLevelLabel()):'Pas de niveau'; ?></p>
-    					 <p><?php echo $achievement['eventsDone'] ?></p>
-    					 <p><?php echo $achievement['nextBadge']?></p>
-    			     </div>
-    		    </li>
-            <?php $i++;endforeach;?>
+            <?php $i=0;foreach($achievements as $key=>$achievement): ?>
+    		    <?php $badge = $achievement['reward'];?>
+    		    <?php if($badge):?>
+	    		    <?php if($badge->getHide() == false) : ?>
+	    			<li<?php if ($i%5 == 0): ?> id="first-badge"<?php endif;?>>
+	    			     <?php if(in_array($badge->getId(), $achievement['userReward'])):?>
+	    			         <img src="/<?php echo $badge->getImage();?>" alt="/<?php echo $badge->getImage(); ?>" />
+	    			     <?php else:?>
+	    			         <img  src="<?php echo $this->frontendAssetPath('images/badges/big-default.png')?>" alt="" />
+	    			     <?php endif;?>
+	    			     <div class="<?php echo ($badge)? strtolower($badge->getTitle()):'silverlight'?>">
+				             <p><b><?php echo ucfirst(strtolower($this->translate($badge->getTitle())));?></b></p>
+	    			     </div>
+	    		    </li>
+    			<?php $i++;endif; ?>
+    			<?php endif; ?>
+            <?php endforeach;?>
 		</ul>
 	</div>
 
