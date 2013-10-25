@@ -96,11 +96,11 @@ class IndexController extends AbstractActionController
         $this->layout()->setVariables(
             array(
                 'sliderItems'	=> $sliderItems,
-                'adserving'       => array(
+                /*'adserving'       => array(
                     'cat1' => 'playground',
                     'cat2' => 'homepage',
                     'cat3' => ''
-                )
+                )*/
             )
         );
 
@@ -130,7 +130,7 @@ class IndexController extends AbstractActionController
             $paginator = $events;
         }
 
-        $this->layout()->setVariables(
+        /*$this->layout()->setVariables(
             array(
                 'adserving'       => array(
                     'cat1' => 'playground',
@@ -138,7 +138,7 @@ class IndexController extends AbstractActionController
                     'cat3' => ''
                 )
             )
-        );
+        );*/
 
         return new ViewModel(
             array(
