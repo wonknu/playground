@@ -28,11 +28,11 @@ $settings = array(
     /**
     * AdServing parameters
     */
-    'adserving' => array(
+    /*'adserving' => array(
         'cat1' => 'playground',
         'cat2' => '',
         'cat3' => ''
-    ),
+    ),*/
 
     /**
     * Social messages
