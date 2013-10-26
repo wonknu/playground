@@ -115,7 +115,7 @@
                                             <?php if($badge['reward']->getHide() == false) : ?>
                                                 <?php if($i<4): ?>                                        
                                                     <div class="slot-badge">
-                                                        <?php if(!empty($badge['reward']->getImage())): ?>
+                                                        <?php if($badge['reward']->getImage()): ?>
                                                             <img src="/<?php echo $badge['reward']->getImage();?>" alt="/<?php echo $badge['reward']->getImage(); ?>" width="33" height="34"  />
                                                         <?php else: ?>
                                                             <img  src="<?php echo $this->frontendAssetPath('images/badges/big-default.png')?>" alt="" width="33" height="34" />
