@@ -50,12 +50,15 @@ return array(
 							'grg.css' => 'css/grg.css',
 							'ie.css' => '',
 						),
-					),
+					),*/
 					'head_admin_js' => array(
 						'assets' => array(
-							'admin.js' => ''
+							'api-deezer.js' => 'js/api-deezer.js'
 						),
-					),*/
+					    'options' => array(
+	                        'output' => 'zfcadmin',
+                        )
+					),
 				),
 			),
 		),

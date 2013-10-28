@@ -1,4 +1,5 @@
 <?php $this->plugin('translate')->setTranslatorTextDomain('playgroundgame');// Pour le texte ?>
+<?php $this->headScript()->appendFile('http://cdn-files.deezer.com/js/min/dz.js', 'text/javascript'); ?>
 <?php
 $form = $this->form;
 $form->prepare();
@@ -6,6 +7,7 @@ $form->setAttribute('action', $this->url('frontend/quiz/play', array('id' => $th
 ?>
 <?php $totalQuestions = count($this->questions);?>
 <!-- GAME QUIZ - FERME QUESTIONS -->
+<div id="dz-root"></div>
 <div class="game-quiz play">
 	<h1>
 	    <?php echo $this->game->getTitle(); ?>
@@ -93,6 +95,9 @@ $form->setAttribute('action', $this->url('frontend/quiz/play', array('id' => $th
                         <div class="video">
         					<iframe width="100%" height="275" src="<?php echo $question->getVideo(); ?>" frameborder="0" allowfullscreen></iframe>
         				</div>
+                    <?php endif;?>
+                    <?php if($question->getAudio() != 0):?>
+                        <audio id="<?php echo $question->getAudio(); ?>" class="audio" controls="controls" value="<?php echo $question->getAutoplay(); ?>"></audio>
                     <?php endif;?>
     			</div>
     		    <?php ++$i;endforeach;?>

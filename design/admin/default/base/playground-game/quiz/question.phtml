@@ -1,4 +1,5 @@
 <?php $this->plugin('translate')->setTranslatorTextDomain('playgroundgame');// Pour le texte ?>
+<?php $this->headScript()->appendFile('http://cdn-files.deezer.com/js/min/dz.js', 'text/javascript'); ?>
 <?php
 $form = $this->form;
 $form->prepare();
@@ -10,6 +11,7 @@ $form->prepare();
 
 <?php echo $this->form()->openTag($form) ?>
 <?php echo $this->formButton($form->get('submit')->setLabel($this->translate('Validate'))); ?>
+<div id="dz-root"></div>
 <div id="content" class="tabbable tabs-left">
     <ul id="tabs" class="nav nav-tabs" data-tabs="tabs">
         <li class="active"><a href="#general" data-toggle="tab"><?php echo $this->translate('General'); ?></a></li>
@@ -99,6 +101,16 @@ $form->prepare();
             <?php if($form->get('image')->getValue() != ''):?>
             	<img src="<?php echo $this->basePath($form->get('image')->getValue()); ?>" />
             <?php endif;?>
+            
+            <div class="control-group">
+                <label class="control-label" for="search_sound">Audio</label>
+                <div class="controls">
+                    <input id="search_sound" name="search_sound" type="text" placeholder="Search music on Deezer">
+                </div>
+            </div>
+            
+             <?php echo $this->formHidden($form->get('audio')); ?>
+             <?php echo $this->formHidden($form->get('autoplay')); ?>
 
         </div>
         <div class="tab-pane" id="answers">

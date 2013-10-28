@@ -4,7 +4,7 @@ return array(
 		'modules' => array(
 			'default_playground' => array(
 				'root_path' => array(
-					__DIR__ . '/../../../../design/frontend/default/starter/assets',
+					__DIR__ . '/../../../../design/frontend/default/base/assets',
 				),
 			    'collections' => array(
                     'head_frontend_js' => array(
