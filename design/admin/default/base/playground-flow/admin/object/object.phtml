@@ -4,9 +4,9 @@ $form = $this->form;
 $form->prepare();
 ?>
 
-<div class="return"><a href="<?php echo $this->url('admin/playgroundflow/object');?>"><?php echo $this->translate('Retour'); ?></a></div>
+<div class="return"><a href="<?php echo $this->url('admin/playgroundflow/object');?>"><?php echo $this->translate('Back'); ?></a></div>
 
-<h1><?php echo $this->translate('Création'); ?></h1>
+<h1><?php echo $this->translate('Create an object'); ?></h1>
 
 <?php echo $this->form()->openTag($form) ?>
 <?php $form->get('submit')->setLabel($this->translate('Validate')); ?>

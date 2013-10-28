@@ -1,4 +1,4 @@
-<?php $this->plugin('translate')->setTranslatorTextDomain('application');// Pour le texte ?>
+<?php $this->plugin('translate')->setTranslatorTextDomain('playgroundstats');// Pour le texte ?>
 <?php
 	$form = $this->form;
 	$form->prepare();
@@ -8,7 +8,7 @@
 ?>
 
 <!-- STATS DASHBOARD -->
-<h1><?php echo $this->translate('Exporter des membres'); ?></h1>
+<h1><?php echo $this->translate('Export members'); ?></h1>
 
 <?php echo $this->form()->openTag($form); ?>
 

@@ -1,16 +1,17 @@
 <?php $this->plugin('translate')->setTranslatorTextDomain('playgrounduser');// Pour le texte ?>
 
 <ul class="liste-buttons">
-    <li class="btn-admin"><a href="<?php echo $this->url('admin/playgrounduser/create', array('userId' => 0));?>">Ajouter un nouvel utilisateur</a></li>
+    <li class="btn-admin"><a href="<?php echo $this->url('admin/playgrounduser/create', array('userId' => 0));?>"><?php echo $this->translate('Add new user'); ?></a></li>
 </ul>
 
-<h1>Liste des utilisateurs</h1>
-<div class="sortby-role">Tri par rôle : <a href="<?php echo $this->url('admin/playgrounduser/list', array('roleId' => 'user', 'filter' => 'DESC')); ?>">Joueur</a> | <a href="<?php echo $this->url('admin/playgrounduser/list', array('roleId' => 'admin', 'filter' => 'DESC')); ?>">Administrateur</a> | <a href="<?php echo $this->url('admin/playgrounduser/list', array('roleId' => 'commercial', 'filter' => 'DESC')); ?>">Commercial</a></div>
+<h1><?php echo $this->translate('Users list'); ?></h1>
+
+<div class="sortby-role"><?php echo $this->translate('Role sort order'); ?> : <a href="<?php echo $this->url('admin/playgrounduser/list', array('roleId' => 'user', 'filter' => 'DESC')); ?>"><?php echo $this->translate('Player'); ?></a> | <a href="<?php echo $this->url('admin/playgrounduser/list', array('roleId' => 'admin', 'filter' => 'DESC')); ?>"><?php echo $this->translate('Administrator'); ?></a> | <a href="<?php echo $this->url('admin/playgrounduser/list', array('roleId' => 'commercial', 'filter' => 'DESC')); ?>"><?php echo $this->translate('Salesman'); ?></a></div>
 
 <div class="search-user">
     <form action="<?php echo $this->url('admin/playgrounduser/list', array('roleId' => $this->roleId, 'filter' => 'DESC')); ?>" method="GET" class="row-fluid">
-        <input type="text" name="name" id="" placeholder="Rechercher" value="<?php echo $this->search?>"/>
-        <input type="submit" class="btn btn-success" value="rechercher" />
+        <input type="text" name="name" id="" placeholder="<?php echo $this->translate('Search'); ?>" value="<?php echo $this->search?>"/>
+        <input type="submit" class="btn btn-success" value="<?php echo $this->translate('Search'); ?>" />
     </form>
 </div>
 
@@ -67,7 +68,7 @@
 </table>
 
 <ul class="liste-buttons bottom">
-    <li class="btn-admin bottom"><a href="<?php echo $this->url('admin/playgrounduser/create', array('userId' => 0));?>">Ajouter un nouvel utilisateur</a></li>
+    <li class="btn-admin bottom"><a href="<?php echo $this->url('admin/playgrounduser/create', array('userId' => 0));?>"><?php echo $this->translate('Add new user'); ?></a></li>
 </ul>
 
 <?php echo $this->paginationControl($this->users, 'Sliding', 'playground-user/admin/pagination_userlist.phtml', array('roleId' => $this->roleId, 'filter' => $this->filter)); ?>
