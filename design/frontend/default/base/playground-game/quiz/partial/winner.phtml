@@ -1,10 +1,10 @@
 <?php $this->plugin('translate')->setTranslatorTextDomain('playgroundgame');// Pour le texte ?>
 			
-<div class="backgrey row-fluid rounded <?php if($this->prediction):?>prediction<?php endif; ?>">
-	<div class="span2">
-		<img src="<?php echo $this->frontendAssetPath('images/common/round-valid.png')?>" alt="Gagné" />
+<div class="row <?php if($this->prediction):?>prediction<?php endif; ?>">
+	<div class="col-md-1">
+		<img src="<?php echo $this->frontendAssetPath('images/common/round-valid.png')?>" alt="Gagné" class="result-quizz" />
 	</div>
-	<div class="span10">
+	<div class="col-md-11">
 		<?php if(count($this->flashMessages)>0):?>
 			<p class="already-play"><?php echo $this->flashMessages[0];?></p>
 	    <?php endif;?>

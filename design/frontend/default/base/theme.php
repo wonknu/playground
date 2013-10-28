@@ -6,9 +6,9 @@ return array(
             'code' => 'default',
             'title' => 'default',
             'theme' => array(
-                'code' => 'base',
-                'title' => 'base',
-                'parent' => 'playground_base',
+                'code' => 'starter',
+                'title' => 'starter',
+                //'parent' => 'playground_base',
             )
         ),
     ),

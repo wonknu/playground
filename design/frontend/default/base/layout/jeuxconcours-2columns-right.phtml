@@ -14,59 +14,57 @@ $ourView  = $children[0];
     <body>
     	<div id="container">
         	<div id="fb-root"></div>
-			<div id="content" class="row-fluid">
+			<div id="content">
 				
             	<!-- HEADER WRAPPER -->
-	            <?php echo $this->header(array(/*'adserving' => $this->adserving,*/ 'currentPage' => $this->currentPage, 'channel' => $this->channel));?>
+	            <?php echo $this->header(array('adserving' => $this->adserving, 'currentPage' => $this->currentPage, 'channel' => $this->channel));?>
 	            <!-- END HEADER WRAPPER -->
 	                
 	            <!-- CONTENT PAGE -->
-	            <div id="containerpage">
-	            	<?php if (isset($ourView->flashMessages) && count($ourView->flashMessages)) : ?>
-	                    <ul class="flashMessages">
-	                        <?php foreach ($ourView->flashMessages as $fMessage) : ?>
-	                        <li><?php echo $this->translate($fMessage); ?></li>
-	                        <?php endforeach; ?>
-	                    </ul>
-	                <?php endif; ?>
+	            <div id="containerpage" class="row">
 	                
-	                <?php echo $this->slider; ?>
-	                
-	                <div class="row-fluid">
+                    <!-- CONTENT-INNER -->
+                    <div class="main-content col-md-8">
+    	            	<?php if (isset($ourView->flashMessages) && count($ourView->flashMessages)) : ?>
+    	                    <ul class="flashMessages">
+    	                        <?php foreach ($ourView->flashMessages as $fMessage) : ?>
+    	                        <li><?php echo $this->translate($fMessage); ?></li>
+    	                        <?php endforeach; ?>
+    	                    </ul>
+    	                <?php endif; ?>
+    	                
+    	                <?php echo $this->slider; ?>
 	                	
-	                	<!-- CONTENT-INNER -->
-	                	<div class="content-inner span8">
 	                		
-	                		<?php 
-			                // TODO : Positionner ça dans un listener des modules concernés (PlaygroundGame & PlaygroundCms)
-			                    $container = $this->navigation()
-		    	                    ->breadcrumbs('nav')
-		    	                    ->setMaxDepth(3)
-		                    		->setMinDepth(0)
-		    	                    ->setPartial(array(
-		                		        'application/common/breadcrumbs.phtml', 
-		                		        'default', 
-		                    		));
-			                    $active = $container->findActive($container->getContainer());
-			                    if($active && $this->breadcrumbTitle){
-		    	                    $active = $active['page'];
-		    	                    $active->setLabel($this->breadcrumbTitle);
-			                    }
-			                ?>
-	                		
-		    	            <?php echo $container; ?>
-    	            
-	                		<?php echo $this->content; ?>
-	                	</div><!-- END CONTENT-INNER -->
-	                		
-	                	<!-- SIDEBAR -->
-	                	<?php echo $this->column_right(array(
-	                		'template' => $this->col_right,
-	                	    //'adserving' => $this->adserving,
-	                		'channel' => $this->channel
-	                	)); ?>
-	                	<!-- END SIDEBAR -->
-	                </div>
+                		<?php 
+		                // TODO : Positionner ça dans un listener des modules concernés (PlaygroundGame & PlaygroundCms)
+		                    $container = $this->navigation()
+	    	                    ->breadcrumbs('nav')
+	    	                    ->setMaxDepth(3)
+	                    		->setMinDepth(0)
+	    	                    ->setPartial(array(
+	                		        'application/common/breadcrumbs.phtml', 
+	                		        'default', 
+	                    		));
+		                    $active = $container->findActive($container->getContainer());
+		                    if($active && $this->breadcrumbTitle){
+	    	                    $active = $active['page'];
+	    	                    $active->setLabel($this->breadcrumbTitle);
+		                    }
+		                ?>
+                		
+	    	            <?php echo $container; ?>
+	            
+                		<?php echo $this->content; ?>
+                	</div><!-- END CONTENT-INNER -->
+                		
+                	<!-- SIDEBAR -->
+                	<?php echo $this->column_right(array(
+                		'template' => $this->col_right,
+                	    'adserving' => $this->adserving,
+                		'channel' => $this->channel
+                	)); ?>
+                	<!-- END SIDEBAR -->
 	                	
 	            </div><!-- END CONTENT PAGE -->
 	            

@@ -77,7 +77,17 @@ $(function(){
 	$('#register-form #postalcode').attr('minlength',5);
 	
 	$('.validate').each(function () {
-	    $(this).validate();
+	    $(this).validate({
+	        invalidHandler: function(form, validator)
+	        {
+                var errors = validator.numberOfInvalids();
+                $(this).find('.has-error').removeClass('has-error');
+                $.each(validator.invalid, function (i, o)
+                {
+                    $('input[name="' + i + '"]').parent().addClass('has-error');
+                });
+            }
+	    });
 	});
 	
 	jQuery.validator.addMethod('security', function(value, element) {
@@ -101,25 +111,19 @@ $(function(){
 	$('#passwordVerify').keyup(function(){
 		if($('#password').val() == $('#passwordVerify').val()){
 			setTimeout(function(){
-				$('#passwordVerify').parent().addClass('valid-form');
+				$('#passwordVerify').parent().addClass('has-error');
 			});
 		}else{
 			setTimeout(function(){
-				$('#passwordVerify').parent().removeClass('valid-form');
+				$('#passwordVerify').parent().removeClass('has-error');
 			});
 		}
 	});
 	
 	$('.validate input').keyup(function(){
-		$(this).parent().removeClass('valid-form');
-		if($(this).hasClass('valid')){
-			$(this).parent().addClass('valid-form');
-		}
-		else{
-			$(this).parent().removeClass('valid-form');
-		}
-		if($(this).val()== ''){
-			$(this).parent().removeClass('valid-form');
+		$(this).parent().removeClass('has-error');
+		if($(this).hasClass('has-error')){
+			$(this).parent().removeClass('has-error');
 		}
 	});
 	

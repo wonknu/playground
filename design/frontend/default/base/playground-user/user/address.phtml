@@ -1,85 +1,92 @@
-<?php $this->plugin('translate')->setTranslatorTextDomain('playgrounduser');// Pour le texte ?>
 <?php
+$this->plugin('translate')->setTranslatorTextDomain('playgrounduser');
 $form = $this->form;
-
 $form->prepare();
 $form->setAttribute('method', 'post');
 $form->setAttribute('class', 'validate');
-
 ?>
-    
-<div id="content-article" class="row-fluid rounded backgrey coordinates">
-	<p class="green">Vos coordonnées</p>
-	<p class="fillform"><b>Remplissez ou validez vos coordonnées afin que nous puissions vous envoyer votre cadeau :</b></p>
-	
+<div id="content-article" class="coordinates row">
+	<p class="col-md-12">
+	    Vos coordonnées
+	</p>
+	<p class="fillform col-md-12">
+	    <b>
+	        Remplissez ou validez vos coordonnées afin que nous puissions vous envoyer votre cadeau :
+	    </b>
+	</p>
 	<?php echo $this->form()->openTag($form) ?>
         <?php echo $this->formHidden($form->get('email')); ?>
-		<label class="row-fluid">
-			<div class="block-left span4">
-				<?php echo $form->get('lastname')->getLabel(); ?><span class="red">*</span> :
+		<div class="form-group row col-md-12">
+			<label class="block-left col-md-4">
+				<?php echo $form->get('lastname')->getLabel(); ?>
+				<span class="red">*</span> :
+			</label>
+			<div class="block-right col-md-7">
+				<?php echo $this->formInput($form->get('lastname'), array('class' => 'form-control')) ?>
+				<?php echo $this->formElementErrors($form->get('lastname')); ?>
 			</div>
-			<div class="block-right span7">
-				<?php echo $this->formInput($form->get('lastname')) ?>
-				<?php echo $this->formElementErrors($form->get('lastname')) ?>
-			</div>
-		</label>	
-		<label class="row-fluid">
-			<div class="block-left span4">
-				<?php echo $form->get('firstname')->getLabel(); ?><span class="red">*</span> :
-			</div>
-			<div class="block-right span7">
+		</div>	
+		<div class="form-group row col-md-12">
+			<label class="block-left col-md-4">
+				<?php echo $form->get('firstname')->getLabel(); ?>
+				<span class="red">*</span> :
+			</label>
+			<div class="block-right col-md-7">
 				<?php echo $this->formInput($form->get('firstname')) ?>
 				<?php echo $this->formElementErrors($form->get('firstname')) ?>
 			</div>
-		</label>
-		<label class="row-fluid">
-			<div class="block-left span4">
-				<?php echo $form->get('address')->getLabel(); ?><span class="red">*</span> :
-			</div>
-			<div class="block-right span7">
+		</div>
+		<div class="form-group row col-md-12">
+			<label class="block-left col-md-4">
+				<?php echo $form->get('address')->getLabel(); ?>
+				<span class="red">*</span> :
+			</label>
+			<div class="block-right col-md-7">
 				<?php echo $this->formInput($form->get('address')) ?>
 				<?php echo $this->formElementErrors($form->get('address')) ?>
 			</div>
-		</label>
-		<label class="row-fluid">
-			<div class="block-left span4">
+		</div>
+		<div class="form-group row col-md-12">
+			<label class="block-left col-md-4">
 				<?php echo $form->get('address2')->getLabel(); ?> :
-			</div>
-			<div class="block-right span7">
+			</label>
+			<div class="block-right col-md-7">
 				<?php echo $this->formInput($form->get('address2')) ?>
 				<?php echo $this->formElementErrors($form->get('address2')) ?>
 			</div>
-		</label>
-		<label class="row-fluid">
-			<div class="block-left span4">
-				<?php echo $form->get('city')->getLabel(); ?><span class="red">*</span> :
-			</div>
-			<div class="block-right span7">
+		</div>
+		<div class="form-group row col-md-12">
+			<label class="block-left col-md-4">
+				<?php echo $form->get('city')->getLabel(); ?>
+				<span class="red">*</span> :
+			</label>
+			<div class="block-right col-md-7">
 				<?php echo $this->formInput($form->get('city')) ?>
 				<?php echo $this->formElementErrors($form->get('city')) ?>
 			</div>
-		</label>
-		<label id="cp" class="row-fluid">
-			<div class="block-left span4">
-				<?php echo $form->get('postal_code')->getLabel(); ?><span class="red">*</span> :
-			</div>
-			<div class="block-right span7">
+		</div>
+		<div id="cp" class="form-group row col-md-12">
+			<label class="block-left col-md-4">
+				<?php echo $form->get('postal_code')->getLabel(); ?>
+				<span class="red">*</span> :
+			</label>
+			<div class="block-right col-md-7">
 				<?php echo $this->formInput($form->get('postal_code')) ?>
 				<?php echo $this->formElementErrors($form->get('postal_code')) ?>
 			</div>
-		</label>
-		<label id="country" class="row-fluid">
-			<div class="block-left span4">
+		</div>
+		<div id="country" class="form-group row col-md-12">
+			<label class="block-left col-md-4">
 				<?php echo $form->get('country')->getLabel(); ?> :
-			</div>
-			<div class="block-right span7">
+			</label>
+			<div class="block-right col-md-7">
 				<?php echo $this->formSelect($form->get('country')) ?>
 				<?php echo $this->formElementErrors($form->get('country')) ?>
 			</div>
-		</label>
-		<div class="center win">
-    		<button type="submit" class="btn btn-warning">
-    			<span class="arrow-right">Valider mes coordonnées</span>
+		</div>
+		<div class="win col-md-9">
+    		<button type="submit" class="btn btn-default">
+			    Valider mes coordonnées
     		</button>
 	    </div>
 	<?php echo $this->form()->closeTag() ?>

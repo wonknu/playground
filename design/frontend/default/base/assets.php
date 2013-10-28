@@ -1,25 +1,12 @@
-<?php 
+<?php
 return array(
 	'assetic_configuration' => array(
 		'modules' => array(
-			'default_base' => array(
+			'default_playground' => array(
 				'root_path' => array(
-					__DIR__ . '/../../../../design/frontend/default/base/assets',
+					__DIR__ . '/../../../../design/frontend/default/starter/assets',
 				),
-				  'collections' => array(
-                    'frontend_css' => array(
-                        'assets' => array(
-                            'ie7.css'                => 'css/ie7.css',
-                            'ie8.css'                => 'css/ie8.css',
-                            'ie.css'                 => 'css/ie.css',
-                            'styles.css'             => 'css/styles.css',
-                            'uniform.default.css'    => 'css/uniform.default.css',
-                        ),
-                        'filters' => array(),
-                        'options' => array(
-                            'output' => 'frontend/css/main'
-                        ),
-                    ),
+			    'collections' => array(
                     'head_frontend_js' => array(
                         'assets' => array(
                             //'html5.js' => 'js/html5.js',
@@ -51,12 +38,19 @@ return array(
                             'output' => 'frontend/js/head_main',
                         ),
                     ),
+			        'head_frontendplayground_js' => array(
+			            'assets' => array(
+			                'js/lib/easyxdm/easyxdm.min.js',
+			                'js/lib/playground/pattern.js',
+			                'js/lib/playground/user.js',
+			                'js/lib/playground/app.js',
+			            ),
+			            'filters' => array(),
+			        ),
                     'frontend_images' => array(
                         'assets' => array(
                             'images/**/*.png',
                             'images/**/*.jpg',
-                            'images/content/**/*.jpg',
-                            'images/content/**/*.png'
                         ),
                         'options' => array(
                             'move_raw' => true,
@@ -75,8 +69,23 @@ return array(
                             'output' => 'frontend'
                         )
                     ),
+	                'frontend_css' => array(
+	                    'assets' => array(
+	                        'css/starter.css'
+	                    ),
+	                    'options' => array(
+	                        'output' => 'frontend/css/starter'
+	                    )
+	                ),
                 ),
 			),
 		),
+        'routes' => array(
+            'frontend.*' => array(
+                '@frontend_css',
+                '@head_frontend_js',
+                '@head_frontendplayground_js',
+            ),
+        ),
 	),
 );
