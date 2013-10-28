@@ -118,5 +118,11 @@ $(function(){
             PIE.attach(this);
         });
     };*/
-	
+	var currentYear = new Date().getFullYear();
+	$('input[type="datetime"]').datepicker({
+		changeMonth: true,
+		changeYear: true,
+		//minDate: new Date(1900, 1 - 1, 1)
+		yearRange: (currentYear - 100) + ':' + currentYear
+    });
 });

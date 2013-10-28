@@ -79,6 +79,7 @@ function slideclick(binder,binded,firstSlide,secondSlide){
 }
 
 function sliderphoto(sliderid){
+	/*
 	$(sliderid).nivoSlider({
         effect: 'fade', // Specify sets like: 'fold,fade,sliceDown'
         slices: 15, // For slice animations
@@ -101,6 +102,7 @@ function sliderphoto(sliderid){
         lastSlide: function(){}, // Triggers when last slide is shown
         afterLoad: function(){} // Triggers when slider has loaded
     });
+    */
 }
 
 function postvotecount(buttonlink, buttonpostcheck, postnumber, votesnumber, buttonpost, button, votesnumberlink, alreadyvoted){
