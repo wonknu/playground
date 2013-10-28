@@ -1,11 +1,10 @@
-<?php $this->plugin('translate')->setTranslatorTextDomain('application'); ?>
 <!-- CONTACT-US -->
 <div id="contact-us" class="row">
 	<h1>
-	    Contactez-nous
+	    <?php echo $this->translate('Contact us'); ?>
 	</h1>
 	<h2>
-	    Une question à nous poser ?
+	    <?php echo $this->translate('A question to ask ?'); ?>
 	</h2>
 	<?php $form = $this->form;?>
     <?php $form->prepare();?>

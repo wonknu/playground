@@ -2,33 +2,33 @@
     <div id="footer" class="row">
         <ul class="footer-links">
             <li>
-                <a href="<?php echo $this->url('frontend', array('channel' => $this->channel)) ?>">Accueil</a>
+                <a href="<?php echo $this->url('frontend', array('channel' => $this->channel)) ?>"><?php echo $this->translate('Home'); ?></a>
             </li>
             <li>
-                <a href="<?php echo $this->url('frontend/jeuxconcours', array('channel' => $this->channel)) ?>">Tous les jeux concours</a>
+                <a href="<?php echo $this->url('frontend/jeuxconcours', array('channel' => $this->channel)) ?>"><?php echo $this->translate('All contests'); ?></a>
             </li>
             <li>
-                <a href="<?php echo $this->url('frontend/winner', array('channel' => $this->channel)) ?>">Les gagnants</a>
+                <a href="<?php echo $this->url('frontend/winner', array('channel' => $this->channel)) ?>"><?php echo $this->translate('Winners'); ?></a>
             </li>
             <li>
-                <a href="<?php echo $this->url('frontend/cms', array('id' => 'comment-ca-marche', 'channel' => $this->channel)); ?>">Comment ça marche ?</a>
+                <a href="<?php echo $this->url('frontend/cms', array('id' => 'comment-ca-marche', 'channel' => $this->channel)); ?>"><?php echo $this->translate('How it works ?'); ?></a>
             </li>
             <li>
-                <a href="<?php if($this->zfcUserIdentity()): echo $this->url('frontend/badges', array('channel' => $this->channel)); else : echo $this->url('frontend/zfcuser/register', array('channel' => $this->channel)) . ($this->redirect ? '?redirect='.$this->redirect : ''); endif; ?>">Mon compte</a>
+                <a href="<?php if($this->zfcUserIdentity()): echo $this->url('frontend/badges', array('channel' => $this->channel)); else : echo $this->url('frontend/zfcuser/register', array('channel' => $this->channel)) . ($this->redirect ? '?redirect='.$this->redirect : ''); endif; ?>"><?php echo $this->translate('My account'); ?></a>
             </li>
             <li>
-                <a href="<?php echo $this->url('frontend/contact', array('channel' => $this->channel)) ?>">Contactez-nous</a>
+                <a href="<?php echo $this->url('frontend/contact', array('channel' => $this->channel)) ?>"><?php echo $this->translate('Contact us'); ?></a>
             </li>
             <li>
-                <a href="<?php echo $this->url('frontend/faq', array('channel' => $this->channel)) ?>">FAQ</a>
+                <a href="<?php echo $this->url('frontend/faq', array('channel' => $this->channel)) ?>"><?php echo $this->translate('FAQ'); ?></a>
             </li>
         </ul>
         <ul class="game-nav footer-links">
-            <li class="title">Les jeux concours,<br />à gagner :</li>
+            <li class="title"><?php echo $this->translate('Contests'); ?>,<br /><?php echo $this->translate('to win'); ?> :</li>
             <?php $categories = $this->playgroundPrizeCategory(); ?>
             <?php foreach($categories as $category): ?>
                 <li class="jeu-item">
-                    <a href="<?php echo $this->url('frontend/prizecategories', array('channel' => $this->channel)) . $category->getIdentifier(); ?>"><?php echo $category->getTitle() ?></a>
+                    <a href="<?php echo $this->url('frontend/prizecategories', array('channel' => $this->channel)) . $category->getIdentifier(); ?>"><?php //echo $this->translate($category->getTitle()); ?></a>
                 </li>
             <?php endforeach ?>
         </ul>
