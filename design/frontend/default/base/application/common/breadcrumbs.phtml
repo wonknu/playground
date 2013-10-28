@@ -4,14 +4,15 @@
 <?php /* @var $navigation \Zend\Navigation\Navigation */ ?>
 
 <ul class="breadcrumb">
-    <li><a href="<?php echo $this->url('frontend', array('channel' => $this->channel)) ?>">Accueil</a> <span class="divider">&gt;</span></li>
+    <li>
+        <a href="<?php echo $this->url('frontend', array('channel' => $this->channel)) ?>">Accueil</a>
+    </li>
     <?php $active = $container->findActive($navigation) ?>
     <?php foreach($this->pages as $page): ?>
         <?php /* @var $page \Zend\Navigation\Page\Mvc */ ?>
         <?php if( ! $page->isActive()): ?>
             <li>
-                <a href="<?php echo $page->getHref() ?>"><?php echo $page->getLabel() ?></a> 
-                <span class="divider">&gt;</span>
+                <a href="<?php echo $page->getHref() ?>"><?php echo $page->getLabel() ?></a>
             </li>
         <?php else: ?>
             <li class="active">

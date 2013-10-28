@@ -14,26 +14,31 @@ $ourView  = $children[0];
     <body>
     	<div id="container">
         	<div id="fb-root"></div>
-			<div id="content" class="row-fluid">	
-	            <?php echo $this->header(array(/*'adserving' => $this->adserving,*/ 'currentPage' => $this->currentPage, 'channel' => $this->channel));?>     
-	            <div id="containerpage">
-	            	<?php if (isset($ourView->flashMessages) && count($ourView->flashMessages)) : ?>
-	                    <ul class="flashMessages">
-	                        <?php foreach ($ourView->flashMessages as $fMessage) : ?>
-	                        <li><?php echo $this->translate($fMessage); ?></li>
-	                        <?php endforeach; ?>
-	                    </ul>
-	                <?php endif; ?>
-
+			<div id="content">	
+	            <?php echo $this->header(array('adserving' => $this->adserving, 'currentPage' => $this->currentPage, 'channel' => $this->channel));?>     
+	            <div id="containerpage" class="row">
+	                
                     <?php echo $this->slider; ?>
-	                <div class="row-fluid">
-	                	<div class="content-inner span8"><?php echo $this->content; ?></div>
-	                	<?php echo $this->column_right(array(
-	                	        'template' => $this->col_right,
-	                	        //'adserving' => $this->adserving,
-	                			'channel' => $this->channel
-	                	)); ?>
-	                </div>	
+                    <!-- Main content left-->
+                    <div class="main-content col-md-8">
+    	            	<?php if (isset($ourView->flashMessages) && count($ourView->flashMessages)) : ?>
+    	                    <ul class="flashMessages">
+    	                        <?php foreach ($ourView->flashMessages as $fMessage) : ?>
+    	                        <li><?php echo $this->translate($fMessage); ?></li>
+    	                        <?php endforeach; ?>
+    	                    </ul>
+    	                <?php endif; ?>
+    
+                        <?php echo $this->content; ?>
+                    </div>
+                    	
+                    	
+                    <!-- Sidebar -->
+                	<?php echo $this->column_right(array(
+                	        'template' => $this->col_right,
+                	        'adserving' => $this->adserving,
+                			'channel' => $this->channel
+                	)); ?>
 	            </div>
                 <?php echo $this->footer(array('channel' => $this->channel));?>
             </div>
@@ -41,3 +46,4 @@ $ourView  = $children[0];
         <?php echo $this->inlineScript() ?>
     </body>
 </html>
+
