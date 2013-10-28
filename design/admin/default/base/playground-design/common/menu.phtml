@@ -1,3 +1,4 @@
+<?php $this->plugin('translate')->setTranslatorTextDomain('playgrounddesign');// Pour le texte ?>
 <?php foreach ($this->container as $item): ?>
 
     <?php
@@ -5,7 +6,6 @@
     // We then have to parse the navigation permissions in this view... What a pity
     // Below, it's the 'accept' stuff...
     $container = $this->navigation()->menu('admin_navigation'); ?>
-    
     <?php if( ! $item->isVisible() || !$container->accept($item)) continue; ?>
     <?php if ($item->hasPages()): ?>
         <li class="dropdown"><a href="#" class="dropdown-toggle"
