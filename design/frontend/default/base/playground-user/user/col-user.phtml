@@ -100,25 +100,25 @@
 		</div>
 		<div id="howto" class="sb-block">
 			<p>
-			    Comment ça marche ?
+			    <?php echo $this->translate('How it works ?'); ?>
 			</p>
 			<ul>
 				<li>
 					<img src="<?php echo $this->frontendAssetPath('images/user/icon-money-black.png') ?>" alt="" />
 					<a href="<?php echo $this->url('frontend/cms', array('id' => 'comment-ca-marche', 'channel' => $this->channel)); ?>">
-					    Les badges et les points
+					    <?php echo $this->translate('Badges and points'); ?>
 					</a>
 				</li>
 				<li>
 					<img src="<?php echo $this->frontendAssetPath('images/user/icon-calendar-black.png') ?>" alt="" />
 					<a href="<?php echo $this->url('frontend/faq', array('channel' => $this->channel)) ?>">
-					    F.A.Q
+					    <?php echo $this->translate('F.A.Q'); ?>
 					</a>
 				</li>
 				<li>
 					<img src="<?php echo $this->frontendAssetPath('images/user/icon-contact-black.png') ?>" alt="" />
 					<a href="<?php echo $this->url('frontend/contact', array('channel' => $this->channel)) ?>">
-					    Contactez-nous
+					    <?php echo $this->translate('Contact us'); ?>
 					</a>
 				</li>
 			</ul>
@@ -135,19 +135,19 @@
 	<?php else:?>
 		<div id="howto" class="sb-block">
 			<p class="green green-star">
-			    Comment ça marche ?
+			    <?php echo $this->translate('How it works ?'); ?>
 			</p>
 			<ul>
 				<li>
 					<img src="<?php echo $this->frontendAssetPath('images/user/icon-money-black.png') ?>" alt="" />
 					<a href="<?php echo $this->url('frontend/cms', array('id' => 'comment-ca-marche', 'channel' => $this->channel)); ?>">
-					    Les badges et les points
+					    <?php echo $this->translate('Badges and points'); ?>
 					</a>
 				</li>
 				<li>
 					<img src="<?php echo $this->frontendAssetPath('images/user/icon-calendar-black.png') ?>" alt="" />
 					<a href="<?php echo $this->url('frontend/faq', array('channel' => $this->channel)) ?>">
-					    F.A.Q
+					    <?php echo $this->translate('F.A.Q'); ?>
 					</a>
 				</li>
 				<!-- <li>
@@ -157,7 +157,7 @@
 				<li>
 					<img src="<?php echo $this->frontendAssetPath('images/user/icon-contact-black.png') ?>" alt="" />
 					<a href="<?php echo $this->url('frontend/contact', array('channel' => $this->channel)) ?>">
-					    Contactez-nous
+					    <?php echo $this->translate('Contact us'); ?>
 					</a>
 				</li>
 			</ul>

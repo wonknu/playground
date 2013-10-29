@@ -174,15 +174,15 @@
     <?php echo $this->formHidden($formInfo->get('email')); ?>
 		<div id="update-adresse" class="row backgrey">
             <h3>
-			    Modifier mes coordonées
+			    <?php echo $this->translate('Modify my details');?>
 			</h3>
             <p class="desc-form">
-                Validez ou renseignez vos infos et gagnez des points !
+                <?php echo $this->translate('Confirm or enter your info and earn points !');?>
             </p>
 			<div class="row">
 				<div class="col-md-4">
 					<p>
-					    Votre pseudonyme :
+					    <?php echo $this->translate('Your pseudo');?> :
 					</p>
 				</div>
 				<div class="col-md-6">
@@ -382,11 +382,11 @@
     	<!-- update hobby-->
     	<div id="update-hobby" class="row backgrey">
     		<p class="">
-    		    Centres d'intérêts
+    		    <?php echo $this->translate('Interests'); ?>
     		</p>
     		<p class="orange">
     		    <b id="motto-gagner-points-hobby">
-    		        Indiquez vos centres d'intérêts et gagnez 100 points !
+    		        <?php echo $this->translate('Indicate your interests and win 100 points !'); ?>
     		    </b>
     		</p>
     		<div class="row hobbies">
@@ -412,26 +412,23 @@
 	<div id="delete-account" class="row backgrey">
 	    <?php if($this->zfcUserIdentity()->getState() == 2):?>
     		<p class="">
-    		    Réactiver mon compte
+    		    <?php echo $this->translate('Reactivate my account'); ?>
     		</p>
     		<p>
-    		    Pour réactiver votre compte : 
+    		    <?php echo $this->translate('To reactivate my account'); ?> : 
     		</p>
     		<p>
-    			1/ Cliquez sur le bouton réactiver mon compte<br/>
-    			2/ Validez votre choix<br/>
+    			<?php echo $this->translate('Reactivate my account instuctions'); ?>
     		</p>
 		<?php else:?>
             <h3>
-    		    Supprimer mon compte
+    		    <?php echo $this->translate('Delete my account'); ?>
     		</h3>
             <p class="desc-form">
-    		    Pour supprimer votre compte : 
+    		    <?php echo $this->translate('To delete my account'); ?> : 
     		</p>
     		<p>
-    			1/ Cliquez sur le bouton supprimer mon compte<br/>
-    			2/ Validez votre choix<br/>
-    			3/ Vous avez une semaine pour changer d'avis, en vous connectant tout simplement à votre compte. au delà de ce délai votre compte sera définitivement supprimé.
+    			<?php echo $this->translate('Delete my account instructions'); ?>
     		</p>
 		<?php
 		endif;
