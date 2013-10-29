@@ -1,80 +1,52 @@
-$(function(){
-	
-	/**************************** Homepage - Slider */
-	$('.carousel .item:first-child').addClass('active');
-    /**************************** Facebook : target:_blank */
-	$('.fb-target a').each(function() {
+$(function ()
+{
+    // Facebook
+	$('.fb-target a').each(function ()
+	{
 		$(this).attr('target', '_blank');
 	}); 
     
-	/**************************** Game - Instant gagnant */
-	/**** Grattage */
-	if($(window).width() > 550){
-		$("#wScratchgame").wScratchPad({
-			width   : 211,
-	    	height  : 166,
-	    	size 	: 15,
-	    	image2  : $('#wScratchgame').attr('data-scratchthis'),
-	    	color 	: '#fff',
-			overlay : 'none',
-			firsttext 	: $('#wScratchgame div').attr('data-firsttxt'),
-			middletext 	: $('#wScratchgame div').attr('data-middletxt'),
-			lasttext 	: $('#wScratchgame div').attr('data-lasttxt'),
-			classscratch : $('#wScratchgame div').attr('class'),
-			scratchDown: function(e, percent){$("#wScratchgame").attr('data-percentscratched', percent)},
-	        scratchMove: function(e, percent){$("#wScratchgame").attr('data-percentscratched', percent)},
-	        scratchUp: function(e, percent){$("#wScratchgame").attr('data-percentscratched', percent)}
+	// Game : Instant win - scratch game
+	if($("#wScratchgame").size() > 0){
+		var $scratchGame = $("#wScratchgame");
+		$scratchGame.wScratchPad({
+	    	image 		: $scratchGame.attr('data-scratchthis'),
+	    	image2 		: $scratchGame.attr('data-scratchover'),
+	    	color 		: '#FFF',
+			overlay 	: 'none',
+			width : 211,
+			height : 166,
+			size : 15,
+	        scratchMove: function (e, percent)
+	        {
+	        	$scratchGame.attr('data-percentscratched', percent);
+	        	if(percent > 70){ // Has been scratched enough to end the game
+	        		$scratchGame.wScratchPad('clear');
+	        		$('.next-instant-win-step .btn').show().one('click', function (e)
+	        		{
+	        			e.preventDefault();
+						$('#play-instantwin').hide();
+						$('html, body').animate({ scrollTop: 0 }, 0);
+						$('#result-instantwin').fadeIn();
+	        		});
+	        	}
+	        }
 		});
-	} else {
-		$("#wScratchgame").wScratchPad({
-			width   : 140,
-	    	height  : 90,
-	    	size 	: 10,
-	    	image2  : $('#wScratchgame').attr('data-scratchthismobile'),
-	    	color 	: '#fff',
-			overlay : 'none',
-			firsttext 	: $('#wScratchgame div').attr('data-firsttxt'),
-			middletext 	: $('#wScratchgame div').attr('data-middletxt'),
-			lasttext 	: $('#wScratchgame div').attr('data-lasttxt'),
-			classscratch : $('#wScratchgame div').attr('class'),
-			scratchDown: function(e, percent){$("#wScratchgame").attr('data-percentscratched', percent)},
-	        scratchMove: function(e, percent){$("#wScratchgame").attr('data-percentscratched', percent)},
-	        scratchUp: function(e, percent){$("#wScratchgame").attr('data-percentscratched', percent)}
+	}
+	
+	//  Game : Post & vote
+	if($('.alert-link').size() > 0){
+		$('.alert-link').click(function ()
+		{
+			$(this).parent().submit();
+			return false;
 		});
-	};
-	
-	/**** Temps d'affichage du résulat */
-	$('#wScratchgame canvas').mousedown(function(){
-		$('#wScratchgame .scratchcontent').show();
-	})
-	
-	/**** Navigation - Mécanique */
-	$('#play-instantwin .btn a').bind('click', false);
-	$("#wScratchgame").on('click', function(){
-		var sp = $("#wScratchgame").attr('data-percentscratched');
-		if(sp >= 10){
-			$('#play-instantwin .btn').removeClass('btn-warning-inactive');
-	    	$('#play-instantwin .btn').addClass('btn-warning');
-	    	$('#play-instantwin .btn a').unbind('click', false);
-	    	$('#play-instantwin .btn-orange.success').click(function(){
-				$('#play-instantwin').hide();
-				$('html, body').animate({ scrollTop: 0 }, 0);
-				$('#result-instantwin').fadeIn();
-				return false;
-			});
-	    }
-	});
-	
-	
-	/**************************** Game - Post & vote */
-	$('.alert-link').click(function(){
-		$(this).parent().submit();
-		return false;
-	});
+	}
 	
     /**** Sliders Photo contest */
     var countslider = $('.nivoSlider').size();
-	$.each($('.nivoSlider'),function(){
+	$.each($('.nivoSlider'),function ()
+	{
 		 sliderphoto(this);
 	});
 	for(var i=0 ; i<=countslider ; i++){
@@ -105,7 +77,8 @@ $(function(){
 		});
 	}
 	
-	function PostVoteInput(inputfile, filename, picto){
+	function PostVoteInput (inputfile, filename, picto)
+	{
 		var ivalue = $(inputfile).attr('value');
 		if (ivalue != undefined){
 			var isplitted = ivalue.split('/');
@@ -124,7 +97,8 @@ $(function(){
    	/**** Count characters form */
    	$('#photomsg').limiter('400','#counter-photomsg');
    	
-   	$.each($('.form-textarea textarea'), function(){
+   	$.each($('.form-textarea textarea'), function ()
+   	{
    		var maxlength = $(this).attr('maxlength');
    		var charleft = $(this).parent().next().find('.character-left');
    		if(typeof maxlength !== 'undefined'){
@@ -181,9 +155,10 @@ $(function(){
 	});
 	
 	/**** Timer */
-	$(document).ready(function () {
+	$(document).ready(function ()
+	{
 		var Timerquiz = new (function() {
-		    var $countdown,
+			var $countdown,
 		        incrementTime = 70,
 		        currentTime = parseInt($('.timer').text()),
 		        updateTimer = function() {
@@ -210,22 +185,27 @@ $(function(){
 		}); 
 	});
 	
-	function pad(number, length) {
+	function pad (number, length)
+	{
 	    var str = '' + number;
 	    while (str.length < length) {str = '0' + str;}
 	    return str;
 	}
-	function formatTime(time) {
+	
+	function formatTime (time)
+	{
 	    var min = parseInt(time / 6000),
 	        sec = parseInt(time / 100) - (min * 60),
 	        hundredths = pad(time - (sec * 100) - (min * 6000), 2);
 	    return (min > 0 ? pad(min, 2) : "00") + ":" + pad(sec, 2) + ":" + hundredths;
 	}
 	
-	/**************************** Commun : Envoi mail */
-    $('.more-invit').click(function(){
+	// Commun : Envoi mail, reset mail invitation form on result page
+    $('.more-invit').click(function ()
+    {
     	$('#mail-send input').attr('value', '');
-		$(this).parent().fadeOut(function(){
+		$(this).parent().fadeOut(function ()
+		{
 	  		$('#mail-send').fadeIn();
 	  	});
   	});
