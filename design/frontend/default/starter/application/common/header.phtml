@@ -106,29 +106,47 @@
                             </li>
                         </ul>
                     </li>
-                    <li class="user-info badges">
-                            <a href="<?php echo $this->url('frontend/badges', array('channel' => $this->channel)) ?>"><span id="user-badge">Vos badges <span id="count-badge"><?php echo $badges['userCountBadges'].'/'.count($badges);?></span></span></a>
-                            <div id="slide-badge">
-                                <div id="container-badge">
-                                    <?php $i=0;foreach($badges as $badge): ?>
-                                        <?php if($badge['reward']): ?>
-                                            <?php if($badge['reward']->getHide() == false) : ?>
-                                                <?php if($i<4): ?>                                        
-                                                    <div class="slot-badge">
-                                                        <?php if($badge['reward']->getImage()): ?>
-                                                            <img src="/<?php echo $badge['reward']->getImage();?>" alt="/<?php echo $badge['reward']->getImage(); ?>" width="33" height="34"  />
-                                                        <?php else: ?>
-                                                            <img  src="<?php echo $this->frontendAssetPath('images/badges/big-default.png')?>" alt="" width="33" height="34" />
-                                                        <?php endif; ?>
-                                                    </div>
-                                                <?php endif; $i++; ?>
-                                            <?php endif; ?>
-                                        <?php endif; ?>
-                                    <?php endforeach;?>
-                                </div>
-                                <p><a href="<?php echo $this->url('frontend/badges', array('channel' => $this->channel)) ?>">Tous les badges</a></p>
-                            </div>
-                        </li>
+                    <li class="dropdown">
+                        <a href="#" class="dropdown-toggle" data-toggle="dropdown">
+                        <!-- <a href="<?php echo $this->url('frontend/badges', array('channel' => $this->channel)) ?>" class="dropdown-toggle" data-toggle="dropdown"> -->
+                            Vos badges <span class="badge"><?php echo count($badges);?></span>
+                            <b class="caret"></b>
+                        </a>
+                        <!-- menu slide badge -->
+                        <ul class="dropdown-menu">
+                            <?php $i=0;foreach($badges as $badge):?>
+                                <?php if($i>3) break;?>
+                                <?php
+                                $badgeColor = '';
+                                if($badge['level']>=3){
+                                    $badgeColor = "gold-";
+                                }elseif($badge['level']==2){
+                                    $badgeColor = "silver-";
+                                }elseif($badge['level']==1){
+                                    $badgeColor = "bronze-";
+                                }
+                                ?>
+                                <li class="slot-badge">
+                                    <img src="<?php echo $this->frontendAssetPath('images/badges/'. strtolower($badgeColor) . $badge['category'] . '.png')?>" alt="badge <?php echo $badge['label'];?>" width="33" height="34" />
+                                </li>
+                            <?php $i++;endforeach;?>
+                            <?php if($i==0): ?>
+                            <li class="slot-badge">
+                                <img src="<?php echo $this-> frontendAssetPath('images/badges/default.png')?>" alt="badge default" width="33" height="34" />
+                            </li>
+                            <?php for($i;$i<=2;$i++):?>
+                                <li class="slot-badge"></li>
+                            <?php endfor;?>
+                            <?php else: ?>
+                                <?php for($i;$i<=3;$i++):?>
+                                    <li class="slot-badge"></li>
+                                <?php endfor;?>
+                            <?php endif; ?>
+                            <li>
+                                <a href="<?php echo $this->url('frontend/badges', array('channel' => $this->channel)) ?>">Tous les badges</a>
+                            </li>
+                        </ul>
+                    </li>
                     <li class="user-info points">
                         <a href="<?php echo $this->url('frontend/badges', array('channel' => $this->channel)) ?>#title-point">
                             points <span class="badge"><?php echo number_format($this->userScore(), 0, ',', ' ');?></span>
