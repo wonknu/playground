@@ -58,7 +58,7 @@ $form->setAttribute('action', $this->url('frontend/quiz/play', array('id' => $th
     				<?php if($question->getHint()):?>
 				    <div class="clue<?php if($this->layout()->facebooktemplate): echo ' fb-target'; endif ?>">
 				        <span>
-				            Indice : 
+				            <?php echo $this->translate('Indication'); ?> : 
 				        </span>
 				        <?php echo $question->getHint();?>
 				    </div>
