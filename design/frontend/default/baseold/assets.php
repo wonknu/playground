@@ -4,7 +4,7 @@ return array(
 		'modules' => array(
 			'default_base' => array(
 				'root_path' => array(
-					__DIR__ . '/../../../../design/frontend/default/base/assets',
+					__DIR__ . '/../../../../design/frontend/default/baseold/assets',
 				),
 				  'collections' => array(
                     'frontend_css' => array(
