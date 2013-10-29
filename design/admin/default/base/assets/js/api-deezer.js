@@ -3,14 +3,6 @@ $(function(){
 	if($('#dz-root').size() > 0) {
 		var loadSongOnStart = $('input[name=audio]').val();
 		var isAutoplay = $('input[name=autoplay]').val();
-		
-		DZ.init({
-			appId  : 'YOUR_APP_ID',
-			channelUrl : 'http://YOUR_DOMAIN/channel.html',
-			player : {
-				onload : function(){}
-	        }
-	    });
 
 	    function addSource(elem, path) {  
 	    	$('<source>').attr('src', path).appendTo(elem);  

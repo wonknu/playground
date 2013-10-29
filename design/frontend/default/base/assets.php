@@ -25,6 +25,7 @@ return array(
                             'jquery.limit-1.2.source.js' => 'js/lib/jquery.limit-1.2.source.js',
                             'wScratchpad.js' => 'js/lib/wScratchPad.js',
                             'jquery.timer.js' => 'js/lib/jquery.timer.js',
+                            'dz.min.js' => 'js/lib/dz.min.js',
                             'sniffer.js' => 'js/sniffer.js',
                             'functions.js' => 'js/functions.js',
                             'script.js' => 'js/script.js',

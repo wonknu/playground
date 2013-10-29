@@ -53,7 +53,8 @@ return array(
 					),*/
 					'head_admin_js' => array(
 						'assets' => array(
-							'api-deezer.js' => 'js/api-deezer.js'
+							'api-deezer.js' => 'js/api-deezer.js',
+						    'dz.min.js' => 'js/lib/dz.min.js'
 						),
 					    'options' => array(
 	                        'output' => 'zfcadmin',

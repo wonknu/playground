@@ -172,14 +172,6 @@ $(function ()
 	});
 	
 	if($('#dz-root').size() > 0) {
-		console.log('OK');
-		 DZ.init({
-		     appId  : 'YOUR_APP_ID',
-		     channelUrl : 'http://YOUR_DOMAIN/channel.html',
-		     player : {
-		    	 onload : function(){}
-		     }
-		 });
 
 		 $('audio').each( function() {
 			 var loadSong = $(this).attr('id'),
