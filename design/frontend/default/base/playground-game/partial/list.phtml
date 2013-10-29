@@ -21,7 +21,7 @@
 
 			<div class="dark-overlay row">
 				<h2 class="col-md-12">
-				    <?php echo $this->translate('Post & Vote'); ?> offert par <?php if($this->game->getPartner()): echo $this->game->getPartner()->getName(); else:?>Playground<?php endif;?>
+				    <?php echo $this->translate('Post & Vote'); ?> <?php echo $this->translate('offered by'); ?> <?php if($this->game->getPartner()): echo $this->game->getPartner()->getName(); else:?>Playground<?php endif;?>
 				</h2>
 			</div>
 		</div>
@@ -164,7 +164,7 @@
 						<?php if($game->isStarted()):?>
 							<?php if($this->statusMail && ($post['id'] == $this->reportId )) : ?>
 								<p class="report-result">
-								    Merci d'avoir signalé.
+								    <?php echo $this->translate('Thank you for reporting'); ?>.
 								</p>
 							<?php else : ?>
 								<?php echo $this->form()->openTag($form) ?>
@@ -173,7 +173,7 @@
 									<input type="hidden" name="reportid" value="<?php echo $post['id'] ?>" />
 									<p class="alert-link">
 									    <a href="#" class="btn btn-default">
-									        Signaler
+									        <?php echo $this->translate('Report'); ?>
 									    </a>
 									</p>
 								<?php echo $this->form()->closeTag($form) ?>

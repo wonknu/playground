@@ -21,7 +21,7 @@
 			<?php endif;?>
 			<div class="dark-overlay row">
 				<h2 class="col-md-10">
-				    <?php echo $this->translate('Jeu'); ?> offert par <?php if($this->game->getPartner()): echo $this->game->getPartner()->getName(); else:?>
+				    <?php echo $this->translate('Jeu'); ?> <?php echo $this->translate('offered by'); ?> <?php if($this->game->getPartner()): echo $this->game->getPartner()->getName(); else:?>
                         Playground
 			        <?php endif;?>
 				</h2>

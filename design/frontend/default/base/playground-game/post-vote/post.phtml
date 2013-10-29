@@ -25,7 +25,7 @@ $data = array();foreach($this->post->getPostElements() as $element){
 			<div class="dark-overlay row">
 				<div class="postvote">
 				    <?php echo $this->translate('Post & Vote'); ?>
-				        offert par 
+				        <?php echo $this->translate('offered by'); ?> 
 			        <?php if($this->game->getPartner()): echo $this->game->getPartner()->getName(); else:?>
 				        Playground
 			        <?php endif;?>
@@ -37,15 +37,15 @@ $data = array();foreach($this->post->getPostElements() as $element){
     <!-- BLOCK CONTENT -->
     <div class="btn-group">
 		<a href="<?php echo $this->url('frontend/postvote', array('id' => $this->game->getIdentifier(), 'channel' => $this->channel))?>" class="btn btn-default">
-            Accueil
+            <?php echo $this->translate('Home'); ?>
         </a>
 		<a href="<?php echo $this->url('frontend/postvote/list', array('id' => $this->game->getIdentifier(), 'channel' => $this->channel, 'filter' => $this->game->getPostDisplayMode()))?>" class="btn btn-default">
-            Voir les participations
+            <?php echo $this->translate('See participants'); ?>
         </a>
 		</div>
 		<?php if($game->isStarted()):?>
 			<a href="<?php echo $this->url('frontend/postvote/play', array('id' => $this->game->getIdentifier(), 'channel' => $this->channel))?>" class="btn btn-default">
-			    Participer
+			    <?php echo $this->translate('Participate'); ?>
 			</a>
 		<?php endif ?>
 	</div>
@@ -88,7 +88,7 @@ $data = array();foreach($this->post->getPostElements() as $element){
        		</div>
        		<?php if($game->isStarted()):?>
 	       		<?php if($this->statusMail && ($post->getId() == $this->reportId )) : ?>
-					<p class="report-result">Merci d'avoir signalé.</p>
+					<p class="report-result"><?php echo $this->translate('Thank you for reporting'); ?>.</p>
 				<?php else : ?>
 		       		<?php $formModeration = $this->formModeration; ?>
 					<?php $formModeration->prepare(); ?>
@@ -98,7 +98,7 @@ $data = array();foreach($this->post->getPostElements() as $element){
 						<input type="hidden" name="reportid" value="<?php echo $post->getId() ?>" />
 						<p class="alert-link">
 						    <a href="#" class="btn btn-default">
-						        Signaler
+						        <?php echo $this->translate('Report'); ?>
 						    </a>
 						</p>
 					<?php echo $this->form()->closeTag($formModeration) ?>
@@ -145,7 +145,7 @@ $data = array();foreach($this->post->getPostElements() as $element){
 	                <?php if($this->voted):?>
 	                    <img src="<?php echo $this->frontendAssetPath('images/common/icon-check.png');?>" />
 	                <?php elseif($this->zfcUserIdentity() ||  $this->game->getVoteAnonymous()):?>
-	                    <input type="image" src="<?php echo $this->frontendAssetPath('images/common/round-vote.png');?>" alt="Voter">
+	                    <input type="image" src="<?php echo $this->frontendAssetPath('images/common/round-vote.png');?>" alt="<?php echo $this->translate('Vote'); ?>">
 	                <?php elseif(! $this->game->getVoteAnonymous()):?>
 	                    <a href="<?php echo $this->url('frontend/zfcuser/register', array('channel' => $this->channel)) . '?redirect=' . $this->url('frontend/postvote/post', array('id' => $this->game->getIdentifier(), 'channel' => $this->channel, 'post' => $this->post->getId())) ?>">
 	                       <img src="<?php echo $this->frontendAssetPath('images/common/round-vote.png');?>" />
