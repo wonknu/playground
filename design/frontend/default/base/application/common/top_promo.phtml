@@ -17,7 +17,13 @@
         <!-- Carousel items -->
         <div class="carousel-inner">
             <?php foreach($this->sliderItems as $item):?>
-                <?php if(! $item instanceof PlaygroundCms\Entity\Page):?>
+            	<?php
+                   $item->first = false;
+                   if($first){
+                       $item->first = true;
+                       $first = false;
+                   }
+                 if(! $item instanceof PlaygroundCms\Entity\Page):?>
                     <?php $this->partial()->setObjectKey('game')?>
                     <?php echo $this->partial('playground-game/partial/slider-game.phtml', array('game' =>$item, 'channel' => $this->channel)) ?>
                 <?php else:?>
