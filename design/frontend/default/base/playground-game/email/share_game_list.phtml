@@ -80,7 +80,7 @@
 																								</font>
 																							</td>
 																							<td height="55" width="152" style="font-size:0px">
-																								<?php $gameclasstype = str_replace('/', '', $this->url($onegame->getClassType())); ?>
+																								<?php $gameclasstype = str_replace('/', '', $this->url('frontend/' . $onegame->getClassType())); ?>
 																								<a href="<?php echo $this->skinUrl . $gameclasstype . '/' . $onegame->getIdentifier();?>?key=<?php echo $this->secretKey ?>"><img border="0" src="<?php echo $this->skinUrl.'images/content/email/jouer.jpg';?>" alt="Jouer" height="45" width="152"/></a>
 																							</td>
 																						</tr>
