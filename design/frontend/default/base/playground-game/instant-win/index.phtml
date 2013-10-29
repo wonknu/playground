@@ -14,14 +14,14 @@
 		<div class="btn-group">
     		<?php if($game->isStarted()):?>
     			<?php if($game->getTermsOptin()):?>
-    				J'accepte le règlement
+    				<?php echo $this->translate('I accept the rules'); ?>
     			<?php endif;?>
     		    <a href="<?php echo $this->url('frontend/instantwin/play', array('id' => $this->game->getIdentifier(), 'channel' => $this->channel))?>" class="btn btn-default" >
-    		        Participer
+    		        <?php echo $this->translate('Participate'); ?>
     		    </a>
     		<?php endif;?>
             <a href="<?php echo $this->url('frontend/instantwin/terms', array('id' => $this->game->getIdentifier(), 'channel' => $this->channel))?>" class="btn btn-default" >
-                <?php echo $this->translate('Règlement'); ?>
+                <?php echo $this->translate('Rules'); ?>
             </a>
         </div>
 	</div>
