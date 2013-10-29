@@ -7,7 +7,7 @@
 <?php else:?>
     <?php $play =  'Jouez avec';?>
 <?php endif; ?>
-<div class="item">
+<div class="item <?php if(isset($game->first) && $game->first) echo "active"; ?> ">
     <img src="<?php echo $this->basePath($game->getMainImage());?>" alt="<?php echo $game->getTitle(); ?>" />
     <div class="carousel-caption">
         <h1 class="title-promo">
@@ -17,7 +17,7 @@
         </h1>
         <?php if($game->isStarted()):?>
             <div class="button-wrap">
-                <div class="btn btn-default">
+                <div class="btn btn-orange">
                     <a href="<?php echo $this->url('frontend/' . $game->getClassType(), array('id' => $game->getIdentifier(), 'channel' => $this->channel)) ; ?>" class="arrow-right-big">
                         Jouer
                     </a>
@@ -25,7 +25,7 @@
             </div>
         <?php elseif($game->isOpen() && !$game->isFinished() ):?>
             <div class="button-wrap">
-                <div class="btn btn-default">
+                <div class="btn btn-orange">
                     <a href="<?php echo $this->url('frontend/' . $game->getClassType(), array('id' => $game->getIdentifier(), 'channel' => $this->channel)) ; ?>" class="arrow-right-big">
                         Bientôt
                     </a>

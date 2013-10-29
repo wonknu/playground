@@ -28,39 +28,74 @@ ul {
   margin: 0 auto;
 }
 
+#containerpage{
+	padding: 65px 0 0 0;
+	background-color: #f7f7f7;
+	
+	#top-promo{
+		width: 100%;
+		margin:0;
+	}
+}
 #content.row {
   margin: 0;
 }
 
 .sidebar {
-  padding: 30px 20px;
+  padding: 30px 0 30px 20px;
+  
   .sb-block {
+  	display: inline-block;
+  	margin: 0 0 55px 0;
     width: 100%;
-    padding: 20px 0;
-    border-top: 15px solid @pg-grey-light;
-    text-align: center;
+    //padding: 20px 0;
+    border-top: 1px solid @pg-orange;
+
     &:first-child {
       border-top: none;
     }
+    img{
+      float:left;
+      margin:0 18px 0 0;
+    }
     h5,
     h5 a {
-      color: @pg-grey-dark;
+      float:left;
+      font-family: @futura-medium;
+	  font-size:16px;
+	  line-height:18px;
+      color: @pg-black;
     }
     .sb-content {
-      padding: 10px 0;
+      width: 100%;
+      float: left;
+      padding: 10px 0 0 0;
+      margin:0 0 0 0;
+
       a {
         color: @pg-black;
       }
+      
       // list with picto
       ul.links-list {
+      margin:0;
         li {
+          background:url('../images/common/puce-sb-block.png') no-repeat left top transparent;
           text-align: left;
           margin-bottom: 2px;
-          font-size: 12px;
-          line-height: 20px;
+          font-family: @futura-medium;
+	  	  font-size:14px;
+	  	  line-height:20px;
           color: @pg-black;
-          min-height: 48px;
+          //min-height: 48px;
           clear: both;
+          padding: 0 0 0 20px;
+          margin: 10px 0 0 0;
+          
+          &:first-child{
+          	margin:0;
+          }
+          
           img {
             border: none;
             float: left;
@@ -69,7 +104,7 @@ ul {
           a.sb-picto-link {
             display: block; 
             width: 100%;
-            height: 48px;
+            //height: 48px;
             &:hover {
               text-decoration: none;
             }
@@ -78,6 +113,7 @@ ul {
       }
     }
     &.newsletter-connect {
+      display:none;
       .btn-gray-dark {
         margin: 5px 0; 
       }
@@ -95,20 +131,56 @@ ul {
       }
     }
     &.fb-box {
+      display:none;
+      
       .fb-like-box,
       .fb_iframe_widget>span,
       .fb-like-box iframe { 
         width: 100% !important; 
       }
     }
+
+	.link{
+		&.how-works,&.ranking{
+			color: @pg-white;
+			background-color: @pg-orange;
+			padding: 12px 10px;
+			float: left;
+			margin: 25px 13% 0;
+		}
+		&.ranking{
+		margin:25px 20% 0;
+		}
+	}
     &.ranking {
-      .btn-group {
-        margin: 0 5%;
+
+      .btn-group{
+      	margin: 0 5%;
         width: 90%;
-        margin-bottom: 20px;
+        margin-bottom: 10px;
+      	border-bottom: 1px solid @pg-grey-normal;
+	      .btn{
+	      	font-family: @futura-medium;
+			font-size:14px;
+			line-height:20px;
+	      	border:none;
+	      	border-radius:0;
+	      	box-shadow: none;
+			padding: 7px 0;
+			text-transform: none;
+			background-color:transparent;
+	      	&.active{
+	      		color: @pg-white;
+	      		background-color:@pg-grey-normal;
+	      		box-shadow:none;
+	      	}
+	      }
       }
       .list {
+      	margin: 0 5%;
+        width: 90%;
         text-align: left;
+        
         li.row {
           margin: 0;
           > div {
@@ -129,7 +201,10 @@ ul {
           &.current {
             margin-top: 20px;
             padding: 10px;
-            background-color: @pg-grey-light;
+            //background-color: @pg-grey-light;
+          }
+          &.week{
+          	border-bottom: 1px solid @pg-grey-normal;
           }
         }
       }
@@ -316,7 +391,11 @@ form[name="preview_form"]{
 
 /* homepage carousel */
 #homepage-carousel{
+  width: 100%;
+  float: left;
+  height: 100%;
   margin: 20px 0;
+  
   .carousel-caption{
     padding-bottom: 50px;
   }

@@ -6,8 +6,8 @@ return array(
             'code' => 'default',
             'title' => 'default',
             'theme' => array(
-                'code' => 'base',
-                'title' => 'base',
+                'code' => 'base_old',
+                'title' => 'base_old',
                 'parent' => 'playground_base',
             )
         ),
