@@ -19,7 +19,7 @@ $form->setAttribute('method', 'post'); ?>
         </div>
     </div>
         <a href="<?php echo $this->url('frontend/zfcuser/forgotpassword', array('channel' => $this->channel)) ?>">
-            Mot de passe oublié ?
+            <?php echo $this->translate('Forgot your password?');?>
         </a>
     <?php if ($this->redirect): ?>
         <input type="hidden" name="redirect" value="<?php echo $this->redirect ?>" />
