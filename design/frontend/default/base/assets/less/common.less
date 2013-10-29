@@ -139,6 +139,31 @@ ul {
         width: 100% !important; 
       }
     }
+    &.activities{
+    	.liste{
+    		float: left;
+			width: 100%;
+			padding: 0 20px;
+			margin: 10px 0 0 0;
+			
+			li{
+				width:100%;
+				margin:15px 0 0 0;
+				font-family: @futura-medium;
+		  	    font-size:15px;
+		  	    line-height:20px;
+				
+				.name{
+					color:@pg-orange;
+					text-transform:uppercase;
+				}
+				
+				&:first-child{
+					margin:0;
+				}
+			}
+    	}
+    }
 
 	.link{
 		&.how-works,&.ranking{
@@ -183,6 +208,7 @@ ul {
         
         li.row {
           margin: 0;
+          padding-top:0;
           > div {
             float: left;
             &.position {
@@ -204,12 +230,79 @@ ul {
             //background-color: @pg-grey-light;
           }
           &.week{
+          	margin:0;
           	border-bottom: 1px solid @pg-grey-normal;
+          	
+          	.position{
+          		&.global{
+          		width: 90%;
+          			li{
+          				background:url('../images/common/classement.png') no-repeat left top transparent;
+          				padding: 6px 0 6px 34px;
+          				margin:8px 0 0 0;
+          				font-family: @futura-medium;
+						font-size:20px;
+						line-height:25px;
+						
+						.pseudo{
+							font-size:14px;
+							text-transform:uppercase;
+						}
+						.point{
+							&.number{
+								color:@pg-white;
+								background-color:@pg-orange;
+								font-size:16px;
+								line-height:28px;
+								-webkit-border-radius: 5px;
+								-moz-border-radius: 5px;
+								border-radius: 5px;
+								padding: 0 10px;
+								float:right;
+							}
+						}
+          				
+          				&:first-child{
+          					margin:0;
+          				}
+          				&:nth-child(2){
+          					background-position:left -40px;
+          				}
+          				&:last-child{
+          					background-position:left -78px;
+          				}
+          			}
+          		}
+          		
+          		&.you{
+          			margin: 35px 0 0 0;
+          			text-align: center;
+          			font-family: @futura-medium;
+					font-size:14px;
+					line-height:20px;
+							
+          			.point{
+						&.number{
+							color:@pg-white;
+							background-color:@pg-orange;
+							font-size:16px;
+							line-height:28px;
+							-webkit-border-radius: 5px;
+							-moz-border-radius: 5px;
+							border-radius: 5px;
+							padding: 0 10px;
+							float:right;
+							margin: 0 25px 0 0;
+						}
+					}
+          		}
+          	}
           }
         }
       }
     }
     &.news-feed {
+    display:none;
       .row {
         margin: 0 0 20px;
         text-align: left;

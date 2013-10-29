@@ -80,21 +80,21 @@
 				<ul class="links-list">
 					<li class="coordonnees">
 						<a href="<?php echo $this->url('frontend/zfcuser/profile', array('channel' => $this->channel));?>" class="sb-picto-link">
-						   <!--   <img src="<?php //echo $this->frontendAssetPath('images/common/btn-coordonnees-hd.png')?>" alt="coordonnees" />-->
+						    <!-- <img src="<?php //echo $this->frontendAssetPath('images/common/btn-coordonnees-hd.png')?>" alt="coordonnees" /> -->
 							<?php echo $this->translate('Fill in your details'); ?>
 							50 points
 						</a>
 					</li>
 					<li class="parrain">
 						<a href="<?php echo $this->url('frontend/sponsorfriends', array('channel' => $this->channel)); ?>" class="sb-picto-link">
-                            <!-- <img src="<?php //echo $this->frontendAssetPath('images/common/btn-parrain-hd.png')?>" alt="parrain" /> -->
+                             <!--<img src="<?php //echo $this->frontendAssetPath('images/common/btn-parrain-hd.png')?>" alt="parrain" /> -->
 							<?php echo $this->translate('Refer your friends'); ?>
 							100 points <?php echo $this->translate('by friend sponsored'); ?>
 						</a>
 					</li>
 					<li class="partage">
 						<a href="<?php echo $this->url('frontend/sponsorfriends', array('channel' => $this->channel)); ?>" class="sb-picto-link">
-                          <!--  <img src="<?php //echo $this->frontendAssetPath('images/common/btn-partage-hd.png')?>" alt="partage" /> -->
+                           <!--  <img src="<?php //echo $this->frontendAssetPath('images/common/btn-partage-hd.png')?>" alt="partage" /> -->
 							<?php echo $this->translate('Share on social networks'); ?>
 							50 points
 						</a>
@@ -116,16 +116,16 @@
 	    		    <a href="<?php echo $this->url('frontend/zfcuser/register', array('channel' => $this->channel)) . ($this->redirect ? '?redirect='.$this->redirect : '') ?>"><?php echo $this->translate('log in'); ?></a> <?php echo $this->translate('to your account'); ?>
     		    </li>
 	    		<li class="game-play">
-                    <!-- <img src="<?php //echo $this->frontendAssetPath('images/common/btn-contest-play-hd.png')?>" alt="gameplay" /> -->
+                    <!-- <img src="<?php // echo $this->frontendAssetPath('images/common/btn-contest-play-hd.png')?>" alt="gameplay" />-->
 	    		    <a href="<?php echo $this->url('frontend/jeuxconcours', array('channel' => $this->channel)); ?>"><?php echo $this->translate('Participate in contests'); ?></a>
 	    		    <?php echo $this->translate('to win prizes'); ?>
     		    </li>
 	    		<li class="gain-points">
-                   <!--  <img src="<?php //echo $this->frontendAssetPath('images/common/btn-earn-points-hd.png')?>" alt="gain" />-->
+                    <!--<img src="<?php //echo $this->frontendAssetPath('images/common/btn-earn-points-hd.png')?>" alt="gain" />-->
                     <?php echo $this->translate('Collect points and earn badges.'); ?>
                 </li>
 	    	</ul>
-	    	<a href="<?php echo $this->url('frontend/cms', array('id' => 'comment-ca-marche', 'channel' => $this->channel)); ?>">&gt; <?php echo $this->translate('See how to earn more points!'); ?></a>
+	    	<a href="<?php echo $this->url('frontend/cms', array('id' => 'comment-ca-marche', 'channel' => $this->channel)); ?>" class="link how-works"><?php echo $this->translate('See how to earn more points!'); ?></a>
 	   </div>
     </div><!-- END BLOCK HOW IT WORKS -->
 
@@ -194,11 +194,7 @@
         		<?php if($this->zfcUserIdentity()): ?>
         			<?php $rank =  $this->rankWidget($this->zfcUserIdentity()->getId());?>
     	    		<li class="row general current">
-<<<<<<< HEAD
-    					<div class="position"><?php echo $this->translate('Your position'); ?></div>
-=======
-    					<!-- <div class="position">Votre position</div> -->
->>>>>>> new theme base, playground-348
+    					<!-- <div class="position"><?php //echo $this->translate('Your position'); ?></div> -->
 						<div class="avatar">
 							<?php if($this->zfcUserIdentity()->getAvatar()):?>
 								<img src="<?php echo $this->basePath($this->zfcUserIdentity()->getAvatar()) ?>" width="33" height="33" border="0" alt="<?php echo $this->zfcUserIdentity()->getFirstname(); ?> <?php echo $this->zfcUserIdentity()->getLastname(); ?>" />
@@ -230,51 +226,42 @@
     				</li>
     				<?php $rank =  $this->rankWidget($this->zfcUserIdentity()->getId(), 'week');?>
     	    		<li class="row week current">
-<<<<<<< HEAD
-    					<div class="position"><?php echo $this->translate('Your position'); ?></div>
-=======
-    					 <div class="position">vous</div> 
->>>>>>> new theme base, playground-348
-    					<div class="avatar">
-    						<?php if($this->zfcUserIdentity()->getAvatar()):?>
-    							<img src="<?php echo $this->basePath($this->zfcUserIdentity()->getAvatar()) ?>" width="33" height="33" border="0" alt="<?php echo $this->zfcUserIdentity()->getFirstname(); ?> <?php echo $this->zfcUserIdentity()->getLastname(); ?>" />
-    						<?php else:?>
-    							<?php if($this->zfcUserIdentity()->getTitle() && $this->zfcUserIdentity()->getTitle() == 'M'): ?>
-            			        	<img src="<?php echo $this->frontendAssetPath('images/user/no-avatar-small-h.png'); ?>" alt="<?php echo $this->zfcUserIdentity()->getFirstname(); ?> <?php echo $this->zfcUserIdentity()->getLastname(); ?>" width="33" height="33" border="0" />
-            			    	<?php else: ?>
-            			    		<img src="<?php echo $this->frontendAssetPath('images/user/no-avatar-small-f.png'); ?>" alt="<?php echo $this->zfcUserIdentity()->getFirstname(); ?> <?php echo $this->zfcUserIdentity()->getLastname(); ?>" width="33" height="33" border="0" />
-            			    	<?php endif; ?>
-            			    <?php endif;?>
-                        </div>
-						<div class="points">
-						    <?php echo number_format($rank['points'], 0, ',', ' ' );?> points<br />
-						    <?php echo $rank['rank']; ?>
-						    <sup>
-							<?php 
-								if($rank == 1){
-									echo $this->translate('first_place');
-								}elseif($rank == 2){
-									echo $this->translate('second_place');
-								}elseif($rank == 2){
-									echo $this->translate('third_place');
-								}else{
-									echo $this->translate('other_place');
-								}
-							?>
-							</sup> position
-					    </div>
+    	    			<ul class="position global">
+    	    				<li>1.
+    	    					<span class="pseudo">Admin</span>
+    	    					<span class="point number">2757</span>
+    	    				</li>
+    	    				<li>2.
+    	    					<span class="pseudo">Greg B</span>
+    	    					<span class="point number">550</span>
+    	    				</li>
+    	    				<li>3.
+    	    					<span class="pseudo">Greb B</span>
+    	    					<span class="point number">500</span>
+    	    				</li>
+    	    			</ul>
+    					<div class="position you">&gt; <span class="number ranking">12</span>. vous <span class="point number">150</span></div> 
     				</li>
     			<?php endif; ?>
         	</ul>
-<<<<<<< HEAD
-        	<a href="<?php echo $this->url('frontend/reward/leaderboard', array('period'=>'general', 'channel' => $this->channel)) ?>">&gt; <?php echo $this->translate('See the overall'); ?></a>
-=======
-        	<a href="<?php echo $this->url('frontend/reward/leaderboard', array('period'=>'general', 'channel' => $this->channel)) ?>" class="link ranking">Voir le classement g√©n√©ral</a>
->>>>>>> new theme base, playground-348
     	</div>
     </div>
 
     <!-- BLOC ACTIVITES RECENTES -->
+    <div class="sb-block activities">
+    	<img src="/frontend/images/common/icon-activities.png" alt="classement">
+    	<h5>
+    	    <a href="#">Activit&eacute; r&eacute;centes</a>
+    	</h5>
+    	<ul class="liste">
+    		<li>
+    			<span class="name">Admin</span> a obtenu le badge Le joueur Bronze
+    		</li>
+    		<li>
+    			<span class="name">Jeremy L</span> a obtenu le badge Le joueur Argent
+    		</li>
+    	</ul>
+    </div>
     <?php if (count($achievements) > 0): ?>
 	<div class="sb-block activities">
 		<h5><?php echo $this->translate('Recent activity'); ?></h5>
@@ -330,7 +317,7 @@
         		<div class="news-one row">
         			<p class="head-news">A la une</p>
         			<a href="<?php echo $item->getLink(); ?>" target="_blank">
-        				<img src="<?php echo $item->getEnclosure()->url; ?>" alt="actualit√© √† la une : <?php echo $item->getTitle(); ?>" />
+        				<img src="<?php echo $item->getEnclosure()->url; ?>" alt="actualitÈ ‡ la une : <?php echo $item->getTitle(); ?>" />
         				<div class="title-news"><?php echo $item->getTitle(); ?></div>
         				<div class="content-news"><?php echo $item->getDescription(); ?></div>
         			</a>
@@ -338,16 +325,14 @@
         		<?php endif;?>
         		<?php if($i==2) :?>
         		<div class="news-list row">
-        			<p class="head-news">Dans l‚Äôactu</p>
+        			<p class="head-news">Dans líactu</p>
         			<ul>
         		<?php endif;?>
         		<?php if($i>=2):?>
         				<li <?php if($i&1) : echo 'class="right"'; endif; ?>>
         					<a href="<?php echo $item->getLink(); ?>" target="_blank">
-                                <?php if($item->getEnclosure()) : ?>
-        					       <img src="<?php echo $item->getEnclosure()->url; ?>" height="63" border="0" alt="actualit√© : <?php echo $item->getTitle(); ?>" />
-        						<?php endif; ?>
-                                <div class="content-news"><?php echo $item->getTitle(); ?></div>
+        						<img src="<?php echo $item->getEnclosure()->url; ?>" height="63" border="0" alt="actualitÈ : <?php echo $item->getTitle(); ?>" />
+        						<div class="content-news"><?php echo $item->getTitle(); ?></div>
         					</a>
         				</li>
         		<?php endif;?>
