@@ -128,11 +128,9 @@ $data = array();foreach($this->post->getPostElements() as $element){
                 </div>
             <?php elseif(!$this->zfcUserIdentity() && ! $this->game->getVoteAnonymous()):?>
                 <div class="vote">
-                    Vous devez être 
                     <a href="<?php echo $this->url('frontend/zfcuser/register', array('channel' => $this->channel)) . '?redirect=' . $this->url('frontend/postvote/post', array('id' => $this->game->getIdentifier(), 'channel' => $this->channel, 'post' => $this->post->getId())) ?>"> 
-                        inscrit
+                        <?php echo $this->translate('You must be registered to vote'); ?>
                     </a>
-                    pour voter
                 </div>
             <?php endif ?>
             <?php if ($this->post->getStatus() == 2) : ?>
@@ -164,7 +162,7 @@ $data = array();foreach($this->post->getPostElements() as $element){
         <div class="col-md-12 humain">
             <?php if(!$this->zfcUserIdentity()): ?>
                 <span class="text-error">*</span> 
-                Pour prendre en compte votre vote, nous devons vérifer que vous êtes bien un être humain ;-)
+                <?php echo $this->translate('To take into account your vote, we Verifer that you are a human being');?>' ;-)
             <?php endif ?>
         </div>
         <?php endif ?>

@@ -30,26 +30,26 @@
 	<!-- BLOCK CONTENT -->
 	<div class="btn-group">
 	    <a href="<?php echo $this->url('frontend/postvote', array('id' => $this->game->getIdentifier(), 'channel' => $this->channel))?>" class="btn btn-default">
-	        Accueil
+	        <?php echo $this->translate('Home'); ?>
 	    </a>
 	    <a href="<?php echo $this->url('frontend/postvote/list', array('id' => $this->game->getIdentifier(), 'channel' => $this->channel, 'filter' => $this->game->getPostDisplayMode()))?>" class="btn btn-default">
-	        Voir les participations
+	        <?php echo $this->translate('See participants'); ?>
 	    </a>
 	    <a href="<?php echo $this->url('frontend/postvote/play', array('id' => $this->game->getIdentifier(), 'channel' => $this->channel))?>" class="btn btn-default">
-	        Participer
+	        <?php echo $this->translate('Participate'); ?>
         </a>
     </div>
 	<div class="row search-bar">
         <div class="col-md-3">
             <select class="form-control" name="filter-postvote" id="filter-postvote">
                 <option value="<?php echo $this->url('frontend/postvote/list', array('id' => $this->game->getIdentifier(), 'channel' => $this->channel, 'filter' => 'date'))?>"<?php if($this->filter == 'date') : echo ' selected'; endif; ?>>
-                    Plus récents
+                    <?php echo $this->translate('Latest'); ?>
                 </option>
                 <option value="<?php echo $this->url('frontend/postvote/list', array('id' => $this->game->getIdentifier(), 'channel' => $this->channel, 'filter' => 'random'))?>"<?php if($this->filter == 'random') : echo ' selected'; endif; ?>>
-                    Aléatoire
+                    <?php echo $this->translate('Random'); ?>
                 </option>
                 <option value="<?php echo $this->url('frontend/postvote/list', array('id' => $this->game->getIdentifier(), 'channel' => $this->channel, 'filter' => 'vote'))?>"<?php if($this->filter == 'vote') : echo ' selected'; endif; ?>>
-                    Plus populaires
+                    <?php echo $this->translate('Most popular'); ?>
                 </option>
             </select>
         </div>
@@ -190,7 +190,7 @@
 				            <a href="<?php echo $this->url('frontend/postvote/post', array('id' => $this->game->getIdentifier(), 'channel' => $this->channel, 'post' => $post['id']))?>" class="btn-post-vote"></a>
 				        <?php elseif(!$this->zfcUserIdentity() && !$this->game->getVoteAnonymous()):?>
 				            <a href="<?php echo $this->url('frontend/zfcuser/register', array('channel' => $this->channel)) . '?redirect=' . $this->url('frontend/postvote/post', array('id' => $this->game->getIdentifier(), 'channel' => $this->channel, 'post' => $post['id'])) ?>" class="btn-post-vote"></a>
-				            <div class="bn-votes">Vous devez être inscrit pour voter</div>
+				            <div class="bn-votes"><?php echo $this->translate('You must be registered to vote'); ?></div>
 				        <?php elseif($this->zfcUserIdentity()):?>
 				            <a href="<?php echo $this->url('frontend/postvote/vote', array('id' => $this->game->getIdentifier(), 'channel' => $this->channel, 'post' => $post['id']))?>" class="btn-post-vote logged"></a>
 				        <?php endif;?>

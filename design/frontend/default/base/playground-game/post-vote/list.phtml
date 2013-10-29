@@ -56,10 +56,10 @@
         <div class="clearfix"></div>
         <form action="<?php echo $this->url('frontend/postvote/list', array('id' => $this->game->getIdentifier(), 'channel' => $this->channel, 'filter' => $this->filter)); ?>" method="GET" class="row">
 	        <div class="col-md-4 offset4">	            
-				<input class="form-control" type="text" name="name" id="" placeholder="Rechercher" value="<?php echo $this->search?>"/>
+				<input class="form-control" type="text" name="name" id="" placeholder="<?php echo $this->translate('Search'); ?>" value="<?php echo $this->search?>"/>
 	        </div>
 	        <div class="col-md-1 btn-search">
-	            <input type="submit" class="btn btn-default" value="rechercher" />
+	            <input type="submit" class="btn btn-default" value="<?php echo $this->translate('Search'); ?>" />
 	            <img class="btn-glass" src="<?php echo $this->frontendAssetPath('images/common/btn-glass.png')?>" alt="" />
 	        </div>
         </form>
@@ -204,7 +204,7 @@
 				            <a href="<?php echo $this->url('frontend/postvote/post', array('id' => $this->game->getIdentifier(), 'channel' => $this->channel, 'post' => $post['id']))?>" class="btn-post-vote"></a>
 				        <?php elseif(!$this->zfcUserIdentity() && !$this->game->getVoteAnonymous()):?>
 				            <a href="<?php echo $this->url('frontend/zfcuser/register', array('channel' => $this->channel)) . '?redirect=' . $this->url('frontend/postvote/post', array('id' => $this->game->getIdentifier(), 'channel' => $this->channel, 'post' => $post['id'])) ?>" class="btn-post-vote"></a>
-				            <div class="bn-votes">Vous devez être inscrit pour voter</div>
+				            <div class="bn-votes"><?php echo $this->translate('You must be registered to vote'); ?></div>
 				        <?php elseif($this->zfcUserIdentity()):?>
 				            <a href="<?php echo $this->url('frontend/postvote/vote', array('id' => $this->game->getIdentifier(), 'channel' => $this->channel, 'post' => $post['id']))?>" class="btn-post-vote logged"></a>
 				        <?php endif;?>
