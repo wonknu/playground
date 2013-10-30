@@ -2,8 +2,8 @@
 if(isset($this->game)) :
     $this->plugin('translate')->setTranslatorTextDomain('playgroundgame');
     $defaultMsg = (isset($this->userTimer['timer'])) ?
-        'J\'ai eu '.$this->userTimer['ratio'].'% de bonnes réponses en '.$this->userTimer['timer'].' secondes au jeu '.$this->game->getTitle().'. Venez faire mieux ! ' :
-        'Venez jouer au jeu : ' . $this->game->getTitle() . ' de Playground ';
+        $this->translate('I had').' '.$this->userTimer['ratio'].'% '.$this->translate('of good answers in').' '.$this->userTimer['timer'].' '.$this->translate('seconds on game').' '.$this->game->getTitle().' '.$this->translate('Come do better !').' ' :
+        $this->translate('Come play game').' : ' . $this->game->getTitle() . ' '.$this->translate('of').' Playground ';
     $twShareMsg = ($this->game->getTwShareMessage()) ?
     $this->game->getTwShareMessage() :
     $defaultMsg;
@@ -25,7 +25,7 @@ if(isset($this->game)) :
 <!-- invitations sociales -->
 <div id="invit-social" class="row" >
 	<p class="col-md-3" >
-	    Sur les réseaux sociaux
+	    <?php echo $this->translate('On social networks'); ?>
 	</p>
 	<ul class="row col-md-5 social-icon">
 		<li class="col-md-1">
@@ -54,15 +54,15 @@ if(isset($this->game)) :
 		</div>
 		<div class="col-md-9">
 			<p class="text-mail">
-			    Par mail
+			    <?php echo $this->translate('By mail'); ?>
 			</p>
 			<?php if ($this->statusMail === true) : ?>
 				<div id="mail-sended">
 					<p class="a-left">
-					    Merci,<br/> Vos invitations ont bien été envoyées !
+					    <?php echo $this->translate('Thanks'); ?>,<br/> <?php echo $this->translate('Your invitations have been sent !'); ?>
 					</p>
 					<div class="btn btn-default more-invit">
-						Inviter + d'amis
+						<?php echo $this->translate('Invite more friends'); ?>
 					</div>
 				</div>
 			<?php endif; ?>
@@ -98,7 +98,7 @@ if(isset($this->game)) :
     	<div class="col-md-5">
     	    <span class="btn btn-default">
                 <a href="<?php echo $this->url('frontend/' . $this->gameType . '/bounce', array('id' => $this->game->getIdentifier(), 'channel' => $this->channel));?>">
-                    <?php echo $this->translate('Terminer'); ?>
+                    <?php echo $this->translate('Finish'); ?>
                 </a>
             </span>
     	</div>

@@ -18,15 +18,15 @@
 		</div>
 		<div class="btn-group">
             <a href="<?php echo $this->url('frontend/postvote/list', array('id' => $this->game->getIdentifier(), 'filter' => $this->game->getPostDisplayMode(), 'channel' => $this->channel))?>" class="btn btn-default">
-                Voir les participants
+                <?php echo $this->translate('See participants'); ?>
             </a>
             <?php if($game->isStarted()):?>
             <a href="<?php echo $this->url('frontend/postvote/play', array('id' => $this->game->getIdentifier(), 'channel' => $this->channel))?>"  class="btn btn-default">
-                Participer
+                <?php echo $this->translate('Participate'); ?>
             </a>
             <?php endif;?>
             <a href="<?php echo $this->url('frontend/postvote/terms', array('id' => $this->game->getIdentifier(), 'channel' => $this->channel))?>" target="_blank" class="btn btn-default">
-               Règlement
+               <?php echo $this->translate('Rules'); ?>
             </a>
         </div>
 	</div>

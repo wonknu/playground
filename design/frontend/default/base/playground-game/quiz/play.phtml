@@ -28,7 +28,7 @@ $form->setAttribute('action', $this->url('frontend/quiz/play', array('id' => $th
 			<div class="dark-overlay row">
     			<h2 class="col-md-10">
                     <?php echo $this->translate('Quiz'); ?> 
-                    offert par 
+                    <?php echo $this->translate('offered by'); ?> 
                     <?php
                     if($this->game->getPartner()): echo $this->game->getPartner()->getName();
                     else:
@@ -58,7 +58,7 @@ $form->setAttribute('action', $this->url('frontend/quiz/play', array('id' => $th
     				<?php if($question->getHint()):?>
 				    <div class="clue<?php if($this->layout()->facebooktemplate): echo ' fb-target'; endif ?>">
 				        <span>
-				            Indice : 
+				            <?php echo $this->translate('Indication'); ?> : 
 				        </span>
 				        <?php echo $question->getHint();?>
 				    </div>

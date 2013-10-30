@@ -1,3 +1,5 @@
+<?php $this->plugin('translate')->setTranslatorTextDomain('playgrounddesign');// Pour le texte ?>
+
 <?php $badges =  $this->userBadges();?>
 
 <?php $baseUrl = $this->url('frontend', array('channel' => $this->channel), array('force_canonical' => true)); ?>
@@ -29,7 +31,7 @@
                     <img src="<?php echo $this->frontendAssetPath('images/common/logo-black.png')?>" alt="logo" />
                 </a>
             </div>
-            <div class="col-md-5 hook-title" >La première plateforme de jeux open source !</div>
+            <div class="col-md-5 hook-title" ><?php echo $this->translate('The first open source platform games!'); ?></div>
         </div>
     </div>
         <?php if(!$this->zfcUserIdentity()): ?>
@@ -41,11 +43,11 @@
                 <ul class="nav navbar-nav">
                     <li class="active up">
                         <a href="<?php echo $this->url('frontend/jeuxconcours', array('channel' => $this->channel)) ?>"
-                            <?php if($this->pageGames != ''): echo ' class="'.$this->pageGames.'"'; endif; ?>>Jeux concours</a>
+                            <?php if($this->pageGames != ''): echo ' class="'.$this->pageGames.'"'; endif; ?>><?php echo $this->translate('Contests'); ?></a>
                     </li>
                     <li class="up">
                         <a href="<?php echo $this->url('frontend/winner', array('channel' => $this->channel)) ?>"
-                            <?php if($this->pageWinners != ''): echo ' class="'.$this->pageWinners.'"'; endif; ?>>Les gagnants</a>
+                            <?php if($this->pageWinners != ''): echo ' class="'.$this->pageWinners.'"'; endif; ?>><?php echo $this->translate('Winners'); ?></a>
                     </li>
                 </ul>
                 <ul class="nav navbar-nav right">
@@ -71,37 +73,37 @@
                             <li id="first-item">
                                 <a href="<?php echo $this->url('frontend/badges', array('channel' => $this->channel));?>" class="badges-points">
                                     <span class="sprite-icon"></span>
-                                    Mes badges et mes points
+                                    <?php echo $this->translate('Badges and points'); ?>
                                 </a>
                             </li>
                             <li>
                                 <a href="<?php echo $this->url('frontend/activity', array('channel' => $this->channel));?>" class="activity">
                                     <span class="sprite-icon"></span>
-                                    Mon activité
+                                    <?php echo $this->translate('My activity'); ?>
                                 </a>
                             </li>
                             <li>
                                 <a href="<?php echo $this->url('frontend/zfcuser/profile', array('channel' => $this->channel));?>" class="profile">
                                     <span class="sprite-icon"></span>
-                                    Modifier mes informations
+                                    <?php echo $this->translate('Change my informations'); ?>
                                 </a>
                             </li>
                             <li>
                                 <a href="<?php echo $this->url('frontend/zfcuser/newsletter', array('channel' => $this->channel));?>" class="newsletter">
                                     <span class="sprite-icon"></span>
-                                    Gérer mes newletters
+                                    <?php echo $this->translate('Manage my newletters'); ?>
                                 </a>
                             </li>
                             <li>
                                 <a href="<?php echo $this->url('frontend/sponsorfriends', array('channel' => $this->channel)); ?>" class="sponsorfriends">
                                     <span class="sprite-icon"></span>
-                                    Parrainer mes amis
+                                    <?php echo $this->translate('Sponsor my friends'); ?>
                                 </a>
                             </li>
                             <li id="last-item">
                                 <a href="<?php echo $this->url('frontend/zfcuser/logout', array('channel' => $this->channel)) ?>" class="logout">
                                     <span class="sprite-icon"></span>
-                                    Déconnexion
+                                    <?php echo $this->translate('Logout'); ?>
                                 </a>
                             </li>
                         </ul>
