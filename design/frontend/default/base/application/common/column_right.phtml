@@ -332,8 +332,10 @@
         		<?php if($i>=2):?>
         				<li <?php if($i&1) : echo 'class="right"'; endif; ?>>
         					<a href="<?php echo $item->getLink(); ?>" target="_blank">
-        						<img src="<?php echo $item->getEnclosure()->url; ?>" height="63" border="0" alt="actualité : <?php echo $item->getTitle(); ?>" />
-        						<div class="content-news"><?php echo $item->getTitle(); ?></div>
+                                <?php if($item->getEnclosure()) : ?>
+        					       <img src="<?php echo $item->getEnclosure()->url; ?>" height="63" border="0" alt="actualité : <?php echo $item->getTitle(); ?>" />
+        						<?php endif; ?>
+                                <div class="content-news"><?php echo $item->getTitle(); ?></div>
         					</a>
         				</li>
         		<?php endif;?>

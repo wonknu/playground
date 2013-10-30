@@ -9,7 +9,7 @@
 		    <?php echo $this->translate('The page you requested was not found') ?>
 		</h1>
 		<p>
-		    <a href="<?php echo $this->url('frontend/jeuxconcours') ?>" class="btn btn-default" ><?php echo $this->translate('Other games in') ?></a>
+		    <a href="<?php echo $this->url('frontend/jeuxconcours', array('channel' => $this->channel)) ?>" class="btn btn-default" ><?php echo $this->translate('Other games in') ?></a>
 		</p>
 	</div>
 	<?php
