@@ -16,8 +16,20 @@
 	                <?php echo $game->getTitle(); ?>
 	            </a>
 	        </h1>
-	        <p class="desc <?php echo $game->getClassType();?>">Instant gagnant : Jouer du 03 octobre au 30 octobre avec <img alt="" src=""></p>
-	        <ul class="social">
+	        <p class="desc <?php echo $game->getClassType();?>">Instant gagnant : Jouer du 03 octobre au 30 octobre avec 
+	        	<?php if($this->game->getPartner()):?>
+					<?php if($this->game->getPartner()->getSmallLogo()) : ?>
+						<img src="<?php echo $this->basePath($this->game->getPartner()->getSmallLogo()) ?>" alt="<?php echo $this->game->getPartner()->getName();?>" class="logo"/>
+					<?php else:?>
+						<span>
+						    <?php echo $this->game->getPartner()->getName();?>
+						</span>
+					<?php endif;?>
+				<?php else :?>
+					<img src="<?php echo $this->frontendAssetPath('images/common/logo-game-start.png');?>" alt="Logo" class="logo"/>
+				<?php endif;?>
+			</p>
+	        <ul class="social-share">
 	        	<li><a href="#" class="link fb">&nbsp;</a></li>
 	        	<li><a href="#" class="link twitter">&nbsp;</a></li>
 	        	<li><a href="#" class="link google">&nbsp;</a></li>
