@@ -8,7 +8,7 @@
 		    <?php echo $this->translate('La page que vous recherchez est introuvable') ?>
 		</h1>
 		<p>
-		    <a href="<?php echo $this->url('frontend/jeuxconcours') ?>" class="btn btn-default" >Voir tous les jeux en cours</a>
+		    <a href="<?php echo $this->url('frontend/jeuxconcours', array('channel' => $this->channel)) ?>" class="btn btn-default" >Voir tous les jeux en cours</a>
 		</p>
 	</div>
 	<?php

@@ -12,7 +12,7 @@ $fbRequestMsg = $this->translate('Come play games Playground');
 	   data-fbmsg="<?php echo $fbShareMsg; ?>" data-twmsg="<?php echo $twShareMsg; ?>"
 	   data-fbrequest="<?php echo $fbRequestMsg; ?>"
 	   data-sociallink="<?php echo $this->socialLinkUrl; ?>"
-	   data-route="<?php echo $this->url('frontend/sponsorfriends'); ?>">
+	   data-route="<?php echo $this->url('frontend/sponsorfriends', array('channel' => $this->channel)); ?>">
     </div>
 	<!-- content -->
 	<div id="badges-resume">
