@@ -72,10 +72,10 @@ return array(
                     ),
 	                'frontend_css' => array(
 	                    'assets' => array(
-	                        'css/starter.css'
+	                        'css/base.css'
 	                    ),
 	                    'options' => array(
-	                        'output' => 'frontend/css/starter'
+	                        'output' => 'frontend/css/base'
 	                    )
 	                ),
                 ),

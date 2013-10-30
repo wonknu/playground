@@ -193,6 +193,7 @@ ul {
 /* content */
 .block-game{
   position: relative;
+  width: 100%;
   .inline-block();
   padding-bottom: 20px;
   &.no-image{
@@ -398,12 +399,35 @@ form[name="preview_form"]{
     text-align: right;
   }
 }
+#invit-mail{
+  #mail-sended{
+    padding-bottom: 10px;
+  }
+}
 /* Instant win */
 #play-instantwin{
   padding-bottom: 20px;
+  .scratchcontent{
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    text-align: center;
+    display: none;
+  }
+}
+.next-instant-win-step{
+  .btn{
+    display: none;
+  }
+  margin: 15px 0;
 }
 #result-instantwin{
   display: none;
+  .valid-text{
+    margin: 7px 0 10px;
+  }
 }
 #wScratchgame{
   position: absolute;
@@ -421,11 +445,6 @@ form[name="preview_form"]{
     }
   }
 }
-.scratchcontent{
-  div{
-    display: inline;
-  }
-}
 .caracteres-restants{
   text-align: right;
 }
@@ -435,12 +454,12 @@ form[name="preview_form"]{
   }
 }
 .photo-file{
+  img.preview{
+    max-width: 100%;
+  }
   .preview-img{
     position: relative;
     padding-bottom: 5px;
-    img{
-      max-width: 100%;
-    }
     .trash{
       position: absolute;
       top: 5px;
