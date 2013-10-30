@@ -31,16 +31,16 @@
 
 	<!-- content -->
 	<h1>
-	    Modifier mes informations
+	   	<?php echo $this->translate('Change my informations') ?>
 	</h1>
 	<!-- update login -->
 	<div id="update-login" class="row">
 		<div class="update-login-block">
             <h3>
-			    Modifier mes identifiants
+			    <?php echo $this->translate('Change my password') ?>
 			</h3>
             <p class="desc-form">
-			    Vos identifiants vous permettent de vous connecter à votre compte Playground.
+			    <?php echo $this->translate('Your username allows you to login to your account Playground') ?>.
 			</p>
 		    <?php
             $formEmail = $this->changeEmailForm;
@@ -107,7 +107,7 @@
             echo $this->formInput($form->get('identity'));
             ?>
 			<h3>
-			    Changer le mot de passe
+			    <?php echo $this->translate('Change password');?>
 			</h3>
 			<div class="row">
 				<div class="col-md-4">
