@@ -128,7 +128,7 @@ $(function(){
 	    	}
 	    });
 
-	    if(loadSongOnStart != '') {
+	    if(loadSongOnStart != 0 && loadSongOnStart != '') {
 	        getAudioInformations(loadSongOnStart);
 	    }
 	}
