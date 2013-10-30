@@ -125,9 +125,11 @@ $(function ()
     /**************************** Game - Quizz */
     /**** Navigation - Mécanique */
 	$('.game-quiz .page').first().addClass('active');
-	var firstQuestionAudio = $('.game-quiz .page.active audio').get(0);
-	if($(firstQuestionAudio).attr('value')) {
-		firstQuestionAudio.play();
+	if($('.game-quiz .page.active audio').size() > 0) {
+		var firstQuestionAudio = $('.game-quiz .page.active audio').get(0);
+		if($(firstQuestionAudio).attr('value')) {
+			firstQuestionAudio.play();
+		}
 	}
 	$('.end').hide();
 	if($('.page:first').hasClass('active')){
@@ -139,14 +141,18 @@ $(function ()
 	}
 	$('#next').click(function() {
 		var idfirst = $('.game-quiz .page.active').attr('id');
-		var questionAudio = $('.game-quiz .page.active audio').get(0);
-		questionAudio.pause();
-		questionAudio.currentTime = 0;
+		if($('.game-quiz .page.active audio').size() > 0) {
+			var questionAudio = $('.game-quiz .page.active audio').get(0);
+			questionAudio.pause();
+			questionAudio.currentTime = 0;
+		}
 		$('#'+idfirst).removeClass('active');
-		$('#'+idfirst).next('.page').addClass('active');;
-		var nextQuestionAudio = $('.game-quiz .page.active audio').get(0);
-		if($(nextQuestionAudio).attr('value')) {
-			nextQuestionAudio.play();
+		$('#'+idfirst).next('.page').addClass('active');
+		if($('.game-quiz .page.active audio').size() > 0) {
+			var nextQuestionAudio = $('.game-quiz .page.active audio').get(0);
+			if($(nextQuestionAudio).attr('value')) {
+				nextQuestionAudio.play();
+			}
 		}
 		if($('.page').last().hasClass('active')){
 			$('.next').hide();
@@ -156,13 +162,17 @@ $(function ()
 	});
 	$('#previous').click(function() {
 		var idfirst = $('.game-quiz .page.active').attr('id');
-		$('.game-quiz .page.active audio').get(0).pause();
-		$('.game-quiz .page.active audio').get(0).currentTime = 0;
+		if($('.game-quiz .page.active audio').size() > 0) {
+			$('.game-quiz .page.active audio').get(0).pause();
+			$('.game-quiz .page.active audio').get(0).currentTime = 0;
+		}
 		$('#'+idfirst).removeClass('active');
-		$('#'+idfirst).prev('.page').addClass('active');;
-		var prevQuestionAudio = $('.game-quiz .page.active audio').get(0);
-		if($(prevQuestionAudio).attr('value')) {
-			prevQuestionAudio.play();
+		$('#'+idfirst).prev('.page').addClass('active');
+		if($('.game-quiz .page.active audio').size() > 0) {
+			var prevQuestionAudio = $('.game-quiz .page.active audio').get(0);
+			if($(prevQuestionAudio).attr('value')) {
+				prevQuestionAudio.play();
+			}
 		}
 		if($('.page:first').hasClass('active')){
 			$('.previous').hide();
