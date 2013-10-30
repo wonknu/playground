@@ -115,6 +115,7 @@ return array(
                 array('controller' => 'playgroundflowadminobject',                 'roles' => array('admin')),
                 array('controller' => 'playgroundflowadminstory',                  'roles' => array('admin')),
                 array('controller' => 'playgroundflowadmindomain',                 'roles' => array('admin')),
+                array('controller' => 'playgroundflowadminwebtechno',              'roles' => array('admin')),
                 array('controller' => 'adminstats',                                'roles' => array('admin')),
                 array('controller' => 'PlaygroundDesign\Controller\CompanyAdmin',  'roles' => array('admin')),
                 array('controller' => 'PlaygroundDesign\Controller\ThemeAdmin',     'roles' => array('admin')),

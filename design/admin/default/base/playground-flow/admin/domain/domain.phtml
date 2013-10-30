@@ -29,6 +29,11 @@ $form->prepare();
 	            <?php echo $this->formTextarea($form->get('description')); ?>
 	            <?php echo $this->formElementErrors($form->get('description')) ?>
 			</div>
+			<div class="label-input">
+	            <?php echo $this->formLabel($form->get('webTechno')); ?>
+	            <?php echo $this->formSelect($form->get('webTechno')); ?>
+	            <?php echo $this->formElementErrors($form->get('webTechno')) ?>
+			</div>
         </div>
     </div>
 </div>
