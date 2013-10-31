@@ -2,7 +2,7 @@
 
 <div id="winners" class="list row-fluid">
 	<div class="row-fluid">
-        <h1>Les gagnants</h1>
+        <h1><?php echo $this->translate('Winners'); ?></h1>
     </div>
 	<?php foreach($this->pages as $page):?>
 	    <?php $this->partial()->setObjectKey('page')?>

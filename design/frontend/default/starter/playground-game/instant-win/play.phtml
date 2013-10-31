@@ -2,11 +2,11 @@
 $this->plugin('translate')->setTranslatorTextDomain('playgroundgame');
 $playLimitScale = $game->getPlayLimitScale();
 $playLimitValue = '';
-if ($playLimitScale == 'day') : $playLimitValue = 'tous les jours';
-elseif ($playLimitScale == 'week') : $playLimitValue = 'toutes les semaines';
-elseif ($playLimitScale == 'month') : $playLimitValue = 'tous les mois';
-elseif ($playLimitScale == 'year') : $playLimitValue = 'tous les ans';
-else : $playLimitValue = 'à tout moment';
+if ($playLimitScale == 'day') : $playLimitValue = $this->translate('every day');
+elseif ($playLimitScale == 'week') : $playLimitValue = $this->translate('every week');
+elseif ($playLimitScale == 'month') : $playLimitValue = $this->translate('every month');
+elseif ($playLimitScale == 'year') : $playLimitValue = $this->translate('every year');
+else : $playLimitValue = $this->translate('everytime');
 endif;
 ?>
 <div class="game-instantwin row">
@@ -42,27 +42,27 @@ endif;
 	</div>
 	<div id="play-instantwin">
 		<p class="instructions">
-		    Grattez <?php echo $playLimitValue; ?> et découvrez immédiatement si vous avez gagné :
+		    <?php echo $this->translate('Scratch'); ?> <?php echo $playLimitValue; ?> <?php echo $this->translate('and find out immediately if you won'); ?> :
 		</p>
 		<!-- BLOCK GAME START -->
 		<div class="block-game game-play">
 			<div class="game-infos">
     	        <?php if ($this->game->getStartDate() && $this->game->getEndDate()):?>
     			    <div class="instantwin">
-    			        Instant gagnant : Jouez du <?php echo strftime("%d %B", $this->game->getStartDate()->format('U'));?> au 
-    			        <?php echo strftime("%d %B", $this->game->getEndDate()->format('U'));?> avec 
+    			        <?php echo $this->translate('instantwin'); ?> : <?php echo $this->translate('Play'); ?> <?php echo $this->translate('from'); ?> <?php echo strftime("%d %B", $this->game->getStartDate()->format('U'));?> <?php echo $this->translate('to'); ?> 
+    			        <?php echo strftime("%d %B", $this->game->getEndDate()->format('U'));?> <?php echo $this->translate('with'); ?> 
     			    </div>
     			<?php elseif ($this->game->getStartDate()):?>
     			    <div class="instantwin">
-    			        Instant gagnant : Jouez à partir du <?php echo strftime("%d %B", $this->game->getStartDate()->format('U'));?> avec 
+    			        <?php echo $this->translate('instantwin'); ?> : <?php echo $this->translate('Play'); ?> <?php echo $this->translate('after'); ?> <?php echo strftime("%d %B", $this->game->getStartDate()->format('U'));?> <?php echo $this->translate('with'); ?> 
     			    </div>
     			<?php elseif ($this->game->getEndDate()):?>
     			    <div class="instantwin">
-    			        Instant gagnant : Jouez jusqu'au <?php echo strftime("%d %B", $this->game->getEndDate()->format('U'));?> avec 
+    			        <?php echo $this->translate('instantwin'); ?> : <?php echo $this->translate('Play'); ?> <?php echo $this->translate('up to'); ?> <?php echo strftime("%d %B", $this->game->getEndDate()->format('U'));?> <?php echo $this->translate('with'); ?> 
     			    </div>
     			<?php else:?>
     			    <div class="instantwin">
-    			        Instant gagnant : Jouez avec 
+    			        <?php echo $this->translate('instantwin'); ?> : <?php echo $this->translate('Play'); ?> <?php echo $this->translate('with'); ?> 
     			    </div>
     			<?php endif; ?>
 				<div class="logo-partner">

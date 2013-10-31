@@ -22,7 +22,7 @@
             <a class="last<?php echo (isset($this->next)) ? '' : ' inactive'; ?>" href="<?php echo $this->url('frontend/postvote/list/pagination', array('id' => $this->id, 'filter' => $this->filter, 'p' => $this->last, 'channel' => $this->channel)); ?>"><?php echo $this->translate('Dernier'); ?></a>
         </li>
         <li<?php echo (isset($this->next)) ? '' : ' class="disabled"'; ?>>
-            <a class="next<?php echo (isset($this->next)) ? '' : ' inactive'; ?>" href="<?php echo $this->url('frontend/postvote/list/pagination', array('id' => $this->id, 'filter' => $this->filter, 'p' => $this->next, 'channel' => $this->channel)); ?>"><?php echo $this->translate('Suivant'); ?></a>
+            <a class="next<?php echo (isset($this->next)) ? '' : ' inactive'; ?>" href="<?php echo $this->url('frontend/postvot/list/pagination', array('id' => $this->id, 'filter' => $this->filter, 'p' => $this->next, 'channel' => $this->channel)); ?>"><?php echo $this->translate('Suivant'); ?></a>
         </li>
 	</ul>    
 </div>

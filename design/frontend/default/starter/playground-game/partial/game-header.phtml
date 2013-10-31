@@ -16,13 +16,13 @@
 	</div>
 	<div class="game-infos">
         <?php if ($this->game->getStartDate() && $this->game->getEndDate()):?>
-		    <div class="<?php echo $this->game->getClassType();?>"><?php echo $this->translate($this->game->getClassType());?> : Jouez du <?php echo strftime("%d %B", $this->game->getStartDate()->format('U'));?> au <?php echo strftime("%d %B", $this->game->getEndDate()->format('U'));?> avec </div>
+		    <div class="<?php echo $this->game->getClassType();?>"><?php echo $this->translate($this->game->getClassType());?> : <?php echo $this->translate('Play'); ?> <?php echo $this->translate('from'); ?> <?php echo strftime("%d %B", $this->game->getStartDate()->format('U'));?> <?php echo $this->translate('to'); ?> <?php echo strftime("%d %B", $this->game->getEndDate()->format('U'));?> <?php echo $this->translate('with'); ?> </div>
 		<?php elseif ($this->game->getStartDate()):?>
-		    <div class="<?php echo $this->game->getClassType();?>"><?php echo $this->translate($this->game->getClassType());?> : Jouez à partir du <?php echo strftime("%d %B", $this->game->getStartDate()->format('U'));?> avec </div>
+		    <div class="<?php echo $this->game->getClassType();?>"><?php echo $this->translate($this->game->getClassType());?> : <?php echo $this->translate('Play'); ?> <?php echo $this->translate('after'); ?> <?php echo strftime("%d %B", $this->game->getStartDate()->format('U'));?> <?php echo $this->translate('with'); ?> </div>
 		<?php elseif ($this->game->getEndDate()):?>
-		    <div class="<?php echo $this->game->getClassType();?>"><?php echo $this->translate($this->game->getClassType());?> : Jouez jusqu'au <?php echo strftime("%d %B", $this->game->getEndDate()->format('U'));?> avec </div>
+		    <div class="<?php echo $this->game->getClassType();?>"><?php echo $this->translate($this->game->getClassType());?> : <?php echo $this->translate('Play'); ?> <?php echo $this->translate('up to'); ?> <?php echo strftime("%d %B", $this->game->getEndDate()->format('U'));?> <?php echo $this->translate('with'); ?> </div>
 		<?php else:?>
-		    <div class="<?php echo $this->game->getClassType();?>"><?php echo $this->translate($this->game->getClassType());?> : Jouez avec </div>
+		    <div class="<?php echo $this->game->getClassType();?>"><?php echo $this->translate($this->game->getClassType());?> : <?php echo $this->translate('Play'); ?> <?php echo $this->translate('with'); ?> </div>
 		<?php endif; ?>
 		
 		<div class="logo-partner">

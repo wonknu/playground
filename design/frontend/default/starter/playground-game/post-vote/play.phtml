@@ -29,7 +29,7 @@ $form->setAttribute('action', $this->url('frontend/postvote/play', array('id' =>
 			
 			<div class="dark-overlay row">
 				<h2 class="col-md-10">
-				    <?php echo $this->translate('Post & Vote'); ?> offert par <?php if($this->game->getPartner()): echo $this->game->getPartner()->getName(); else:?>Playground<?php endif;?>
+				    <?php echo $this->translate('Post & Vote'); ?> <?php echo $this->translate('offered by'); ?> <?php if($this->game->getPartner()): echo $this->game->getPartner()->getName(); else:?>Playground<?php endif;?>
 				</h2>
 			</div>
 		</div>
@@ -38,13 +38,13 @@ $form->setAttribute('action', $this->url('frontend/postvote/play', array('id' =>
 	<!-- Content -->
 	<div class="btn-group">
         <a href="<?php echo $this->url('frontend/postvote', array('id' => $this->game->getIdentifier(), 'channel' => $this->channel))?>" class="btn btn-default" >
-            Accueil
+            <?php echo $this->translate('Home'); ?>
         </a>
         <a href="<?php echo $this->url('frontend/postvote/list', array('id' => $this->game->getIdentifier(), 'channel' => $this->channel, 'filter' => $this->game->getPostDisplayMode()))?>" class="btn btn-default" >
-            Voir les participations
+            <?php echo $this->translate('See participants'); ?>
         </a>
         <a href="<?php echo $this->url('frontend/postvote/play', array('id' => $this->game->getIdentifier(), 'channel' => $this->channel))?>" class="btn btn-default" >
-            Participer
+            <?php echo $this->translate('Participate'); ?>
         </a>
     </div>
 	<div id="content-article">
@@ -91,7 +91,7 @@ $form->setAttribute('action', $this->url('frontend/postvote/play', array('id' =>
 				               	</div>
 				               <div class="caracteres-restants col-md-11">
 					               <span class="character-left"></span> 
-					               caractères restants
+					               <?php echo $this->translate('remaining characters'); ?>
 					           </div>
 				         </div>
                     <?php elseif ($element instanceof Zend\Form\Element\File): ?>
@@ -142,7 +142,7 @@ $form->setAttribute('action', $this->url('frontend/postvote/play', array('id' =>
     	    </div>
     	    <div class="center">
                 <button type="submit" name="submitPost" value="" class="btn btn-default">
-                    Prévisualiser
+                    <?php echo $this->translate('Preview'); ?>
                 </button>
     	    </div>
 			<?php echo $this->form()->closeTag() ?>
@@ -157,7 +157,7 @@ $form->setAttribute('action', $this->url('frontend/postvote/play', array('id' =>
 	           </form>
         </div>
 		<p class="champs-obligatoitres">
-		    *champs obligatoires
+		    * <?php echo $this->translate('required fields'); ?>
 		</p>
 	</div>
 </div>

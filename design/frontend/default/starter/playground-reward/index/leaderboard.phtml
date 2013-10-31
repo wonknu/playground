@@ -9,7 +9,7 @@
 <div id="leaderboard" class="row-fluid">
 
 	<div class="row-fluid">
-		<h1 class="span8">Le classement</h1>
+		<h1 class="span8"><?php echo $this->translate('The ranking');?></h1>
 
 		<?php if($this->zfcUserIdentity()): ?>
 		    <?php $rank =  $this->rankWidget($this->zfcUserIdentity()->getId());?>
@@ -48,29 +48,29 @@
 	<div id="sort-leaderboard" class="row-fluid orange-dot-double">
 		<div class="span3">
 			<div class="btn btn-inverse<?php if($this->period == 'week'):?> active<?php endif;?>">
-				<a href="<?php echo $this->url('frontend/reward/leaderboard', array('period'=>'week', 'channel' => $this->channel)); ?>">Cette semaine</a>
+				<a href="<?php echo $this->url('frontend/reward/leaderboard', array('period'=>'week', 'channel' => $this->channel)); ?>"><?php echo $this->translate('Thisweek');?></a>
 			</div>
 		</div>
 		<div class="span2">
 			<div class="btn btn-inverse<?php if($this->period == 'general'):?> active<?php endif;?>">
-				<a href="<?php echo $this->url('frontend/reward/leaderboard', array('period'=>'general', 'channel' => $this->channel)); ?>">Général</a>
+				<a href="<?php echo $this->url('frontend/reward/leaderboard', array('period'=>'general', 'channel' => $this->channel)); ?>"><?php echo $this->translate('General');?></a>
 			</div>
 		</div>
 		<div class="span3">
 			<select name="filter-leaderboard" id="filter-leaderboard">
 				<option value="">Sélectionner</option>
-				<option value="<?php echo $this->url('frontend/reward/leaderboard',array('period' => $this->period, 'channel' => $this->channel, 'filter' => 'game')) ?>" <?php echo ($this->filter == 'game')? 'selected' : '';?>>Participations</option>
-				<option value="<?php echo $this->url('frontend/reward/leaderboard',array('period' => $this->period, 'channel' => $this->channel, 'filter' => 'sponsorship')) ?>" <?php echo ($this->filter == 'sponsorship')? 'selected' : '';?>>Parrainages</option>
-				<option value="<?php echo $this->url('frontend/reward/leaderboard',array('period' => $this->period, 'channel' => $this->channel, 'filter' => 'social')) ?>" <?php echo ($this->filter == 'social')? 'selected' : '';?>>Partages</option>
+				<option value="<?php echo $this->url('frontend/reward/leaderboard',array('period' => $this->period, 'channel' => $this->channel, 'filter' => 'game')) ?>" <?php echo ($this->filter == 'game')? 'selected' : '';?>><?php echo $this->translate('Participations');?></option>
+				<option value="<?php echo $this->url('frontend/reward/leaderboard',array('period' => $this->period, 'channel' => $this->channel, 'filter' => 'sponsorship')) ?>" <?php echo ($this->filter == 'sponsorship')? 'selected' : '';?>><?php echo $this->translate('Sponsorship');?></option>
+				<option value="<?php echo $this->url('frontend/reward/leaderboard',array('period' => $this->period, 'channel' => $this->channel, 'filter' => 'social')) ?>" <?php echo ($this->filter == 'social')? 'selected' : '';?>><?php echo $this->translate('Shares');?></option>
 			</select>
 		</div>
 		<div class="span4 search-leaderboard">
 			<form action="<?php echo $this->url('frontend/reward/leaderboard', array('period'=>'general', 'channel' => $this->channel, 'filter' => $this->filter)); ?>" method="GET" class="row-fluid">
 			<div class="span10">
-				<input type="text" name="name" id="" placeholder="Rechercher" value="<?php echo $this->search?>"/>
+				<input type="text" name="name" id="" placeholder="<?php echo $this->translate('Search');?>" value="<?php echo $this->search?>"/>
 			</div>
 			<div class="span2">
-				<input type="submit" class="btn btn-success" value="rechercher" />
+				<input type="submit" class="btn btn-success" value="<?php echo $this->translate('Search');?>" />
 				<img class="btn-glass" src="<?php echo $this->frontendAssetPath('images/common/btn-glass.png')?>" alt="" width="16" height="17"/>
 			</div>
 			</form>
