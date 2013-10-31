@@ -7,11 +7,11 @@ $form->setAttribute('class', 'validate');
 ?>
 <div id="content-article" class="coordinates row">
 	<p class="col-md-12">
-	    Vos coordonnées
+	    <?php echo $this->translate('Your details');?>
 	</p>
 	<p class="fillform col-md-12">
 	    <b>
-	        Remplissez ou validez vos coordonnées afin que nous puissions vous envoyer votre cadeau :
+	        <?php echo $this->translate('Complete or confirm your details so we can send your gift');?> :
 	    </b>
 	</p>
 	<?php echo $this->form()->openTag($form) ?>
@@ -86,9 +86,9 @@ $form->setAttribute('class', 'validate');
 		</div>
 		<div class="win col-md-9">
     		<button type="submit" class="btn btn-default">
-			    Valider mes coordonnées
+			    <?php echo $this->translate('Validate my details');?>
     		</button>
 	    </div>
 	<?php echo $this->form()->closeTag() ?>
-	<p id="annotation" class="win">* champs obligatoires</p>
+	<p id="annotation" class="win">* <?php echo $this->translate('required fields');?></p>
 </div>

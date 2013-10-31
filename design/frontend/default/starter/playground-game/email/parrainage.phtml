@@ -78,12 +78,12 @@
     <div class="mail">
 
         <img src="<?php echo $this->frontendAssetPath('images/common/logo.png'); ?>" width="75" height="75" class="logo">
-        <div class="titre-newsletter">La newsletter de Playground</div>
+        <div class="titre-newsletter"><?php echo $this->translate('Playground newsletter'); ?></div>
 
         <div style="text-align: left;padding:20px">
             <br>
-            <span class="green">Bonjour,</span><br>
-            <span class="green">Alexandre M. vous invite à participer au jeu :</span>
+            <span class="green"><?php echo $this->translate('Good morning'); ?>,</span><br>
+            <span class="green">Alexandre M. <?php echo $this->translate('invites you to participate in the game'); ?> :</span>
 
             <h1>Gagnez les 20 livres de cuisines numériques QOOQ</h1>
 
@@ -98,18 +98,17 @@
                     <img src="<?php echo $this->frontendAssetPath('images/common/logo-hd.png'); ?>" width="100" height="100">
                 </div>
                 <div class="col2">
-                    <h1>Connaissez-vous Playground ?</h1>
+                    <h1><?php echo $this->translate('Do you know Playground?'); ?></h1>
                     <p>
-                        Participez à nos jeux et tentez de remporter un max de cadeaux !
-                        High tech, culture, voyages... Il y en a pour tous les goûts !
+                        <?php echo $this->translate('Join our games and try to win loads of freebies! High tech, culture, travel ... There\'s something for everyone!'); ?>
                     </p>
-                    <a href="#">> Voir les jeux en cours</a>
+                    <a href="#">> <?php echo $this->translate('See the games being'); ?></a>
                 </div>
             </div>
 
             <center>
-                <span><strong>Merci et à très vite sur Playground !</strong></span>
-                <p>L'équipe Playground</p>
+                <span><strong><?php echo $this->translate('Thank you and see you soon on Playground!'); ?></strong></span>
+                <p><?php echo $this->translate('Playground team'); ?></p>
             </center>
 
         </div>

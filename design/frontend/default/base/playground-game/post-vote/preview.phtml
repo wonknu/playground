@@ -24,7 +24,7 @@
 			<?php endif;?>
 			<div class="dark-overlay row">
 				<h2 class="col-md-10">
-				    <?php echo $this->translate('Post & Vote'); ?> offert par <?php if($this->game->getPartner()): echo $this->game->getPartner()->getName(); else:?>
+				    <?php echo $this->translate('Post & Vote'); ?> <?php echo $this->translate('offered by'); ?> <?php if($this->game->getPartner()): echo $this->game->getPartner()->getName(); else:?>
 				        Playground
 			        <?php endif;?>
 				</h2>
@@ -35,20 +35,20 @@
     <!-- BLOCK CONTENT -->
     <div class="btn-group">
         <a href="<?php echo $this->url('frontend/postvote', array('id' => $this->game->getIdentifier(), 'channel' => $this->channel))?>" class="btn btn-default">
-            Accueil
+            <?php echo $this->translate('Home'); ?>
         </a>
         <a href="<?php echo $this->url('frontend/postvote/list', array('id' => $this->game->getIdentifier(), 'channel' => $this->channel, 'filter' => $this->game->getPostDisplayMode()))?>" class="btn btn-default">
-            Voir les participations
+            <?php echo $this->translate('See participants'); ?>
         </a>
         <a href="<?php echo $this->url('frontend/postvote/play', array('id' => $this->game->getIdentifier(), 'channel' => $this->channel))?>" class="btn btn-default">
-            Participer
+            <?php echo $this->translate('Participate'); ?>
         </a>
     </div>
     <!-- BLOCK CONTENT -->
    <form action="" method="post" name="preview_form">
        <div id="content-article">
             <h2>
-                Aperçu de votre message
+                <?php echo $this->translate('Preview of your message'); ?>
             </h2>
             <p>
                 <?php echo $this->game->getForm()->getDescription(); ?>
@@ -76,13 +76,13 @@
             </div>
             <div class="btn-group">
                 <a href="<?php echo $this->url('frontend/postvote/play', array('id' => $this->game->getIdentifier(), 'channel' => $this->channel))?>" class="btn btn-default">
-                    Modifier
+                    <?php echo $this->translate('Modify'); ?>
                 </a>
                 <button type="submit" name="submitPost" value="" class="btn btn-default">
-                    Valider
+                    <?php echo $this->translate('Validate'); ?>
                 </button>
                 <a href="<?php echo $this->url('frontend/postvote/terms', array('id' => $this->game->getIdentifier(), 'channel' => $this->channel))?>" class="btn btn-default">
-                    Règlement
+                    <?php echo $this->translate('Rules'); ?>
                 </a>
             </div>
         </div>

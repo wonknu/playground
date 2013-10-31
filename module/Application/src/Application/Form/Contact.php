@@ -22,11 +22,11 @@ class Contact extends ProvidesEventsForm
         $this->add(array(
             'name' => 'lastname',
             'options' => array(
-                'label' => $translator->translate('Votre Nom', 'application'),
+                'label' => $translator->translate('Your last name', 'playgroundcore'),
             ),
             'attributes' => array(
                 'type' => 'text',
-                'placeholder' => $translator->translate('Votre Nom', 'application'),
+                'placeholder' => $translator->translate('Your last name', 'playgroundcore'),
                 'class' => 'large-input required',
             ),
         ));
@@ -34,11 +34,11 @@ class Contact extends ProvidesEventsForm
         $this->add(array(
             'name' => 'firstname',
             'options' => array(
-                'label' => $translator->translate('Votre Prénom', 'application'),
+                'label' => $translator->translate('Your first name', 'playgroundcore'),
             ),
             'attributes' => array(
                 'type' => 'text',
-                'placeholder' => $translator->translate('Votre Prénom', 'application'),
+                'placeholder' => $translator->translate('Your first name', 'playgroundcore'),
                 'class' => 'large-input required',
             ),
         ));
@@ -46,11 +46,11 @@ class Contact extends ProvidesEventsForm
         $this->add(array(
             'name' => 'email',
             'options' => array(
-                'label' => $translator->translate('Votre Email', 'application'),
+                'label' => $translator->translate('Your email', 'playgroundcore'),
             ),
             'attributes' => array(
                 'type' => 'text',
-                'placeholder' => $translator->translate('Votre Email', 'application'),
+                'placeholder' => $translator->translate('Your email', 'playgroundcore'),
                 'class' => 'large-input required email',
             ),
         ));
@@ -59,15 +59,15 @@ class Contact extends ProvidesEventsForm
                 'type' => 'Zend\Form\Element\Select',
                 'name' => 'object',
                 'options' => array(
-                    'label' => $translator->translate('Objet', 'application'),
+                    'label' => $translator->translate('Objet', 'playgroundcore'),
                     'value_options' => array(
-                                                'technical-pb'	=>	$translator->translate('Je rencontre un problème technique', 'application'),
-                                                'games-questions'	=>	$translator->translate('J\'ai une question sur les jeux', 'application'),
-                                                'no-invit'	=>	$translator->translate('Je n\'ai pas reçu mon lot ou mon invitation', 'application'),
-                                                'comment'	=>	$translator->translate('J\'ai une remarque ou suggestion à formuler', 'application'),
-                                                'other'	=>	$translator->translate('Autre', 'application'),
+                                                'technical-pb'	=>	$translator->translate('I have a technical problem', 'playgroundcore'),
+                                                'games-questions'	=>	$translator->translate('I have a question about games', 'playgroundcore'),
+                                                'no-invit'	=>	$translator->translate('I have not received my lot or my invitation', 'playgroundcore'),
+                                                'comment'	=>	$translator->translate('I have a comment or suggestion', 'playgroundcore'),
+                                                'other'	=>	$translator->translate('Other', 'playgroundcore'),
                                             ),
-                    'empty_option' => $translator->translate('Sélectionner', 'application'),
+                    'empty_option' => $translator->translate('Select', 'playgroundcore'),
                 ),
                 'attributes' => array(
                     'class' => 'required',
@@ -78,16 +78,16 @@ class Contact extends ProvidesEventsForm
                 'type' => 'Zend\Form\Element\Textarea',
                 'name' => 'message',
                 'options' => array(
-                    'label' => $translator->translate('Votre question', 'application'),
+                    'label' => $translator->translate('Your question', 'playgroundcore'),
                 ),
                 'attributes' => array(
-                    'placeholder' => $translator->translate('Votre question', 'application'),
+                    'placeholder' => $translator->translate('Your question', 'playgroundcore'),
                     'class' => 'required',
                 ),
         ));
 
         $submitElement = new Element\Button('submit');
-        $submitElement->setLabel($translator->translate('Envoyer', 'application'))
+        $submitElement->setLabel($translator->translate('Send', 'playgroundcore'))
             ->setAttributes(array(
             'type' => 'submit',
             'class'=> 'btn btn-success'

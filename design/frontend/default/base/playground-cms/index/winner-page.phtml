@@ -42,14 +42,14 @@
 			<div class="span5">
 				<?php if($this->previousid != null):?>
 					<div class="btn btn-success">
-						<a href="<?php echo $this->url('frontend/winner/page', array('id' => $this->previousid, 'channel' => $this->channel)); ?>" class="arrow-left">Article précédent</a>
+						<a href="<?php echo $this->url('frontend/winner/page', array('id' => $this->previousid, 'channel' => $this->channel)); ?>" class="arrow-left"><?php echo $this->translate('Previous post'); ?></a>
 					</div>
 				<?php endif;?>
 			</div>
 			<div class="span4 offset3">
 				<?php if(($this->nextid != null)):?>
 					<div class="btn btn-success ">
-						<a href="<?php echo $this->url('frontend/winner/page', array('id' => $this->nextid, 'channel' => $this->channel)); ?>" class="arrow-right">Article suivant</a>
+						<a href="<?php echo $this->url('frontend/winner/page', array('id' => $this->nextid, 'channel' => $this->channel)); ?>" class="arrow-right"><?php echo $this->translate('Next post'); ?></a>
 					</div>
 				<?php endif; ?>
 			</div>

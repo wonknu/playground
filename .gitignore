@@ -6,3 +6,4 @@ composer.phar
 /public/media/*/*.jpg
 /public/media/*/*.jpeg
 /public/media/*/*.png
+/public

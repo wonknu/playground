@@ -13,10 +13,14 @@
 		<?php if($game->isStarted()):?>
 		<div class="center">
 			<div class="btn btn-default">
-				<a href="<?php echo $this->url('frontend/lottery/play', array('id' => $this->game->getIdentifier(), 'channel' => $this->channel))?>" class="arrow-right">Participer</a>
+				<a href="<?php echo $this->url('frontend/lottery/play', array('id' => $this->game->getIdentifier(), 'channel' => $this->channel))?>" class="arrow-right">
+					<?php echo $this->translate('Participate'); ?>
+				</a>
 			</div>
 		</div>
 		<?php endif;?>
 	</div>
-	<p id="reglement"><a href="<?php echo $this->url('frontend/lottery/terms', array('id' => $this->game->getIdentifier(), 'channel' => $this->channel))?>" target="_blank">Règlement</a></p>
+	<p id="reglement"><a href="<?php echo $this->url('frontend/lottery/terms', array('id' => $this->game->getIdentifier(), 'channel' => $this->channel))?>" target="_blank">
+		<?php echo $this->translate('Rules'); ?>
+	</a></p>
 </div>

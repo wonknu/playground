@@ -11,13 +11,13 @@ $form->setAttribute('id', 'header-login');
         <div class="collapse navbar-collapse navbar-ex1-collapse">
             <ul class="nav navbar-nav">
                 <li class="active up">
-                    <a href="<?php echo $this->url('frontend', array('channel' => $this->channel)) ?>"<?php if($this->pageGames != ''): echo ' class="'.$this->pageGames.'"'; endif; ?>>Home</a>
+                    <a href="<?php echo $this->url('frontend', array('channel' => $this->channel)) ?>"<?php if($this->pageGames != ''): echo ' class="'.$this->pageGames.'"'; endif; ?>><?php echo $this->translate('Home');?></a>
                 </li>
             </ul>
             <ul class="nav navbar-nav right">
                 <li class="dropdown">
                     <a href="#" class="dropdown-toggle" data-toggle="dropdown">
-                        <?php echo $this->translate('Me connecter'); ?> / <?php echo $this->translate('Créer un compte'); ?>
+                        <?php echo $this->translate('Log in'); ?> / <?php echo $this->translate('Create an account'); ?>
                         <b class="caret"></b>
                     </a>
                     <ul class="dropdown-menu">
@@ -35,13 +35,13 @@ $form->setAttribute('id', 'header-login');
                             </div>
                             <div class="txt-center" >
                                 <a href="<?php echo $this->url('frontend/zfcuser/forgotpassword', array('channel' => $this->channel)) ?>">
-                                    Mot de passe oublié ?
+                                    <?php echo $this->translate('Forgot your password?');?>
                                 </a>
                                 <?php echo $this->formButton($form->get('submit')->setAttributes(array('class' => 'btn btn-default'))) ?>
                                 <?php if ($this->enableRegistration) : ?>
                                 	<button class="btn btn-default">
 		                                <a href="<?php echo $this->url('frontend/zfcuser/register', array('channel' => $this->channel)) . ($this->redirect ? '?redirect='.$this->redirect : '') ?>">
-		                                    Créer un compte
+		                                    <?php echo $this->translate('Create an account'); ?>
 		                                </a>
                                 	</button>
                                     <div class="clearfix"></div>

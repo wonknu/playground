@@ -2,7 +2,7 @@
 return array(
 	'assetic_configuration' => array(
 		'modules' => array(
-			'default_playground' => array(
+			'default_base' => array(
 				'root_path' => array(
 					__DIR__ . '/../../../../design/frontend/default/base/assets',
 				),
@@ -48,6 +48,7 @@ return array(
 			            ),
 			            'filters' => array(),
 			        ),
+
                     'frontend_images' => array(
                         'assets' => array(
                             'images/**/*.png',
@@ -56,18 +57,6 @@ return array(
                         'options' => array(
                             'move_raw' => true,
                             'output' => 'frontend',
-                        )
-                    ),
-                    'frontend_fonts' => array(
-                        'assets' => array(
-                            'fonts/**/*.eot',
-                            'fonts/**/*.svg',
-                            'fonts/**/*.ttf',
-                            'fonts/**/*.woff',
-                        ),
-                        'options' => array(
-                            'move_raw' => true,
-                            'output' => 'frontend'
                         )
                     ),
 	                'frontend_css' => array(
@@ -83,9 +72,7 @@ return array(
 		),
         'routes' => array(
             'frontend.*' => array(
-                '@frontend_css',
-                '@head_frontend_js',
-                '@head_frontendplayground_js',
+                '@frontend_css' => '@frontend_css',
             ),
         ),
 	),

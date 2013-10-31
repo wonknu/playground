@@ -1,3 +1,5 @@
+<?php $this->plugin('translate')->setTranslatorTextDomain('playgroundcms');?>
+
 <!-- BLOCK GAME PRICE -->
 <div class="block-game price">
 	<a href="<?php echo $this->url('frontend/winner/page', array('id' => $this->page->getIdentifier(), 'channel' => $this->channel)); ?>"><img class="rounded" src="<?php echo $this->basePath($this->page->getMainImage()); ?>" border="0" alt="<?php echo $this->page->getTitle(); ?>" /></a>
@@ -8,6 +10,6 @@
 			<div><?php echo $this->page->getHeading() ?></div>
 		</div>
 	</div>
-	<div class="readmore"><a href="<?php echo $this->url('frontend/winner/page', array('id' => $this->page->getIdentifier(), 'channel' => $this->channel)); ?>">+ Lire la suite</a></div>
+	<div class="readmore"><a href="<?php echo $this->url('frontend/winner/page', array('id' => $this->page->getIdentifier(), 'channel' => $this->channel)); ?>">+ <?php echo $this->translate('Read more'); ?></a></div>
 </div>
 <!-- END BLOCK GAME PRICE -->

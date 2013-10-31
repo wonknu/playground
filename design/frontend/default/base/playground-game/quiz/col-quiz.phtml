@@ -16,13 +16,13 @@
 		<?php endif;?>
 		<!-- END COLUMNBLOCK2 -->
 		<div id="sidebar-game" class="sd-block">
-			<p class="green"><?php echo $this->translate('Comment participer ?'); ?></p>
+			<p class="green"><?php echo $this->translate('How to participate ?'); ?></p>
 			<div id="reply" class="row">
 				<div class="col-md-2">
 					<img src="<?php echo $this->frontendAssetPath('images/common/btn-reply.png') ?>" alt="" />
 				</div>
 				<div class="col-md-10">
-					<p>Cliquez sur participer</p>
+					<p><?php echo $this->translate('Click to participate'); ?></p>
 				</div>
 			</div>
 			<div id="quiz-question" class="row">
@@ -41,17 +41,17 @@
 				<!-- Pronostic -->
 				<?php if($prediction == true): ?> 
 					<div class="col-md-10 col-prediction">
-						<p>Choisissez votre réponse</p>
+						<p><?php echo $this->translate('Choose your answer'); ?></p>
 					</div>
 				<!-- Condition 0 => sondage -->
 				<?php elseif($game->getVictoryConditions() == 0): ?>
 					<div class="col-md-10 col-novictory">
-						<p>Répondez aux questions posées</p>
+						<p><?php echo $this->translate('Answer the questions'); ?></p>
 					</div>
 				<!-- Condition > 0 -->
 				<?php else : ?>
 					<div class="col-md-10">
-						<p>Répondez correctement aux questions posées</p>
+						<p><?php echo $this->translate('Correctly answer the questions'); ?></p>
 					</div>
 				<?php endif; ?>
 			</div>
@@ -62,17 +62,17 @@
 				<!-- Pronostic -->
 				<?php if($prediction == true): ?>
 					<div class="col-md-10 col-prediction">
-						<p>Lorsque les réponses seront connues, si vous avez trouvé suffisamment de bonnes réponses, votre participation au tirage au sort sera prise en compte! Vous pouvez déjà cumuler plus de chances pour le tirage au sort en invitant vos amis à jouer</p>
+						<p><?php echo $this->translate('Pronostic message'); ?></p>
 					</div>
 				<!-- 0 ou 100 => sondage ou 100% de bonnes réponses -->
 				<?php elseif($game->getVictoryConditions() == 0 || $game->getVictoryConditions() == 100): ?>
 					<div class="col-md-10 col-novictory">
-						<p>Votre participation au tirage au sort sera prise en compte! Vous pourrez cumuler plus de chances en invitant vos amis à jouer</p>
+						<p><?php echo $this->translate('Your participation in the draw will be taken into account!'); ?> <?php echo $this->translate('You can earn more chances by inviting your friends to play'); ?></p>
 					</div>
 				<!-- 0 < Condition < 100 -->
 				<?php else: ?>
 					<div class="col-md-10">
-						<p>Si vous trouvez suffisamment de bonnes réponses, votre participation au tirage au sort sera prise en compte! Vous pourrez cumuler plus de chances en invitant vos amis à jouer</p>
+						<p><?php echo $this->translate('If you find enough good answers, your participation in the draw will be taken into account!');?> <?php echo $this->translate('You can earn more chances by inviting your friends to play'); ?></p>
 					</div>
 				<?php endif; ?>
 			</div>

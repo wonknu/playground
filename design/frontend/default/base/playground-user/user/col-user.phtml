@@ -1,4 +1,4 @@
-<div id="sidebar-user" class="col-md-4 sidebar">
+0<div id="sidebar-user" class="col-md-4 sidebar">
 	<?php if($this->zfcUserIdentity()): ?>
         <?php $rank =  $this->rankWidget($this->zfcUserIdentity()->getId()); ?>
 		<div id="user" class="row">
@@ -25,7 +25,7 @@
             </div>
             <div class="col-md-12 clearfix btn-wrapper">
                 <a class="btn btn-default" href="<?php echo $this->url('frontend/zfcuser/profile', array('channel' => $this->channel)) ?>#avatarfile">
-                    Changer votre photo de profil
+                    <?php echo $this->translate('Change your profile picture'); ?>
                 </a>
             </div>
 		</div>
@@ -36,7 +36,7 @@
 			<div class="col-md-12">
 				<p>
 					<span id="mypoints">
-					    Vous avez<br/>
+					    <?php echo $this->translate('You have'); ?><br/>
 					    <span>
 					        <?php echo number_format($rank['points'], 0, ',', ' ' ); ?> points
 					    </span>
@@ -45,80 +45,90 @@
 					<span class="small">
 					    <?php echo $rank['rank'];?>
 					    <sup>
-					        <?php echo ($rank['rank'] == 1)? 'ère' : 'ème'; ?>
+					        <?php 
+								if($rank['rank'] == 1){
+									echo $this->translate('first_place');
+								}elseif($rank['rank'] == 2){
+									echo $this->translate('second_place');
+								}elseif($rank['rank'] == 2){
+									echo $this->translate('third_place');
+								}else{
+									echo $this->translate('other_place');
+								}
+							?>
 					    </sup> 
 					    position
 					</span>
 					<br/>
 					<a href="<?php echo $this->url('frontend/reward/leaderboard', array('period'=>'general','channel' => $this->channel)) ?>">
-					    Voir le classement
+					    <?php echo $this->translate('See the overall'); ?>
 					</a>
 				</p>
 			</div>
 			<p id="more-points" class="col-md-12">
 			    <a class="btn btn-default" href="<?php echo $this->url('frontend/cms', array('id' => 'comment-ca-marche','channel' => $this->channel)); ?>">
-			        Comment gagner plus de points ?
+			        <?php echo $this->translate('How to earn more points?'); ?>
 			    </a>
 			</p>
 		</div>
 		<div id="gerer" class="sb-block" >
 			<p>
-			    Gérer votre compte
+			    <?php echo $this->translate('Manage your account'); ?>
 			</p>
 			<ul>
 				<li>
 					<img src="<?php echo $this->frontendAssetPath('images/user/icon-money-black.png') ?>" alt="" />
 					<a href="<?php echo $this->url('frontend/badges', array('channel' => $this->channel)) ?>">
-					    Mes badges et mes points
+					    <?php echo $this->translate('Badges and points'); ?>
 					</a>
 				</li>
 				<li>
 					<img src="<?php echo $this->frontendAssetPath('images/user/icon-calendar-black.png') ?>" alt="" />
 					<a href="<?php echo $this->url('frontend/activity', array('channel' => $this->channel)) ?>">
-					    Mon activité
+					    <?php echo $this->translate('My activity'); ?>
 					</a>
 				</li>
 				<li>
 					<img src="<?php echo $this->frontendAssetPath('images/user/icon-cog-black.png') ?>" alt="" />
 					<a href="<?php echo $this->url('frontend/zfcuser/profile', array('channel' => $this->channel)) ?>">
-					    Modifier mes informations
+					    <?php echo $this->translate('Change my informations'); ?>
 					</a>
 				</li>
 				<li>
 					<img class="icon-news" src="<?php echo $this->frontendAssetPath('images/header/icon-news.png') ?>" alt="" />
 					<a href="<?php echo $this->url('frontend/zfcuser/newsletter', array('channel' => $this->channel)) ?>">
-					    Gérer mes newletters
+					    <?php echo $this->translate('Manage my newslettes'); ?>
 					</a>
 				</li>
 				<li>
 					<img src="<?php echo $this->frontendAssetPath('images/user/icon-users-black.png') ?>" alt="" />
 					<a href="<?php echo $this->url('frontend/sponsorfriends', array('channel' => $this->channel)) ?>">
-					    Parrainer mes amis
+					    <?php echo $this->translate('Sponsor my friends'); ?>
 					</a>
 				</li>
 			</ul>
 		</div>
 		<div id="howto" class="sb-block">
 			<p>
-			    Comment ça marche ?
+			    <?php echo $this->translate('How it works ?'); ?>
 			</p>
 			<ul>
 				<li>
 					<img src="<?php echo $this->frontendAssetPath('images/user/icon-money-black.png') ?>" alt="" />
 					<a href="<?php echo $this->url('frontend/cms', array('id' => 'comment-ca-marche', 'channel' => $this->channel)); ?>">
-					    Les badges et les points
+					    <?php echo $this->translate('Badges and points'); ?>
 					</a>
 				</li>
 				<li>
 					<img src="<?php echo $this->frontendAssetPath('images/user/icon-calendar-black.png') ?>" alt="" />
 					<a href="<?php echo $this->url('frontend/faq', array('channel' => $this->channel)) ?>">
-					    F.A.Q
+					    <?php echo $this->translate('F.A.Q'); ?>
 					</a>
 				</li>
 				<li>
 					<img src="<?php echo $this->frontendAssetPath('images/user/icon-contact-black.png') ?>" alt="" />
 					<a href="<?php echo $this->url('frontend/contact', array('channel' => $this->channel)) ?>">
-					    Contactez-nous
+					    <?php echo $this->translate('Contact us'); ?>
 					</a>
 				</li>
 			</ul>
@@ -127,7 +137,7 @@
 			<ul>
 				<li>
 					<a class="btn btn-default" href="<?php echo $this->url('frontend/zfcuser/logout', array('channel' => $this->channel)) ?>">
-					    Déconnexion
+					    <?php echo $this->translate('Logout'); ?>
 					</a>
 				</li>
 			</ul>
@@ -135,19 +145,19 @@
 	<?php else:?>
 		<div id="howto" class="sb-block">
 			<p class="green green-star">
-			    Comment ça marche ?
+			    <?php echo $this->translate('How it works ?'); ?>
 			</p>
 			<ul>
 				<li>
 					<img src="<?php echo $this->frontendAssetPath('images/user/icon-money-black.png') ?>" alt="" />
 					<a href="<?php echo $this->url('frontend/cms', array('id' => 'comment-ca-marche', 'channel' => $this->channel)); ?>">
-					    Les badges et les points
+					    <?php echo $this->translate('Badges and points'); ?>
 					</a>
 				</li>
 				<li>
 					<img src="<?php echo $this->frontendAssetPath('images/user/icon-calendar-black.png') ?>" alt="" />
 					<a href="<?php echo $this->url('frontend/faq', array('channel' => $this->channel)) ?>">
-					    F.A.Q
+					    <?php echo $this->translate('F.A.Q'); ?>
 					</a>
 				</li>
 				<!-- <li>
@@ -157,7 +167,7 @@
 				<li>
 					<img src="<?php echo $this->frontendAssetPath('images/user/icon-contact-black.png') ?>" alt="" />
 					<a href="<?php echo $this->url('frontend/contact', array('channel' => $this->channel)) ?>">
-					    Contactez-nous
+					    <?php echo $this->translate('Contact us'); ?>
 					</a>
 				</li>
 			</ul>
