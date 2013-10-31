@@ -125,6 +125,12 @@ $(function ()
     /**************************** Game - Quizz */
     /**** Navigation - Mécanique */
 	$('.game-quiz .page').first().addClass('active');
+	if($('.game-quiz .page.active audio').size() > 0) {
+		var firstQuestionAudio = $('.game-quiz .page.active audio').get(0);
+		if($(firstQuestionAudio).attr('value')) {
+			firstQuestionAudio.play();
+		}
+	}
 	$('.end').hide();
 	if($('.page:first').hasClass('active')){
 		$('.previous').hide();
@@ -135,8 +141,19 @@ $(function ()
 	}
 	$('#next').click(function() {
 		var idfirst = $('.game-quiz .page.active').attr('id');
+		if($('.game-quiz .page.active audio').size() > 0) {
+			var questionAudio = $('.game-quiz .page.active audio').get(0);
+			questionAudio.pause();
+			questionAudio.currentTime = 0;
+		}
 		$('#'+idfirst).removeClass('active');
 		$('#'+idfirst).next('.page').addClass('active');
+		if($('.game-quiz .page.active audio').size() > 0) {
+			var nextQuestionAudio = $('.game-quiz .page.active audio').get(0);
+			if($(nextQuestionAudio).attr('value')) {
+				nextQuestionAudio.play();
+			}
+		}
 		if($('.page').last().hasClass('active')){
 			$('.next').hide();
 			$('.end').show();
@@ -145,14 +162,35 @@ $(function ()
 	});
 	$('#previous').click(function() {
 		var idfirst = $('.game-quiz .page.active').attr('id');
+		if($('.game-quiz .page.active audio').size() > 0) {
+			$('.game-quiz .page.active audio').get(0).pause();
+			$('.game-quiz .page.active audio').get(0).currentTime = 0;
+		}
 		$('#'+idfirst).removeClass('active');
 		$('#'+idfirst).prev('.page').addClass('active');
+		if($('.game-quiz .page.active audio').size() > 0) {
+			var prevQuestionAudio = $('.game-quiz .page.active audio').get(0);
+			if($(prevQuestionAudio).attr('value')) {
+				prevQuestionAudio.play();
+			}
+		}
 		if($('.page:first').hasClass('active')){
 			$('.previous').hide();
 		}
 		$('.next').show();
 		$('.end').hide();
 	});
+	
+	if($('#dz-root').size() > 0) {
+
+		 $('audio').each( function() {
+			 var loadSong = $(this).attr('id'),
+			 self = this;
+			 DZ.api('/track/'+loadSong+'', function(response) {
+				 $('<source src=' + response.preview + ' >').appendTo($(self));
+			 });
+		 });
+	}
 	
 	/**** Timer */
 	$(document).ready(function ()
