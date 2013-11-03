@@ -79,7 +79,7 @@ class IndexController extends AbstractActionController
 
         if (is_array($items)) {
             $paginator = new \Zend\Paginator\Paginator(new \Zend\Paginator\Adapter\ArrayAdapter($items));
-            $paginator->setItemCountPerPage(7);
+            $paginator->setItemCountPerPage(2);
             $paginator->setCurrentPageNumber($this->getEvent()->getRouteMatch()->getParam('p'));
         } else {
             $paginator = $items;
@@ -96,11 +96,6 @@ class IndexController extends AbstractActionController
         $this->layout()->setVariables(
             array(
                 'sliderItems'	=> $sliderItems,
-                /*'adserving'       => array(
-                    'cat1' => 'playground',
-                    'cat2' => 'homepage',
-                    'cat3' => ''
-                )*/
             )
         );
 
