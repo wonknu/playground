@@ -79,7 +79,7 @@ class IndexController extends AbstractActionController
 
         if (is_array($items)) {
             $paginator = new \Zend\Paginator\Paginator(new \Zend\Paginator\Adapter\ArrayAdapter($items));
-            $paginator->setItemCountPerPage(2);
+            $paginator->setItemCountPerPage(7);
             $paginator->setCurrentPageNumber($this->getEvent()->getRouteMatch()->getParam('p'));
         } else {
             $paginator = $items;
