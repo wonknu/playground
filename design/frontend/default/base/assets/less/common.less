@@ -28,39 +28,222 @@ ul {
   margin: 0 auto;
 }
 
+#containerpage{
+	padding: 65px 0 0 0;
+	background-color: #f7f7f7;
+	
+	#top-promo{
+		width: 100%;
+		margin:0 0 40px 0;
+	}
+	
+	.title-main{
+		font-family: @futura;
+		font-size: 30px;
+		line-height: 32px;
+		padding: 0 42px;
+		margin: 0 0 30px 0;
+	}
+	
+	.breadcrumb{
+		display:none;
+	}
+	
+	.row{
+		margin:0;
+		
+		h1{
+			border: none;
+			padding: 0;
+			margin: 0;
+			font-family: @futura;
+			font-size: 30px;
+			line-height: 40px;
+			padding: 0 0 0 40px;
+			margin:0 0 30px 0;
+		}
+		
+		.main-content{
+			.welcome{
+				width:100%;
+				
+				
+				.block-game{
+					margin:0;
+					.game-infos{
+						width: 100%;
+						float: left;
+						margin: 0;
+						padding: 20px 0 0px 40px;
+						
+						.left{
+							float:left;
+						}
+						
+						.social-share{
+							float:right;
+							width: auto;
+						}
+						
+						.instantwin,.lottery,.postvote,.quiz{
+							margin: 0 5px 10px 0;
+							float: left;
+							padding:2px 0 2px 30px;
+							font-family: @futura;
+							font-size: 12px;
+							line-height: 14px;
+							background:url('../images/common/sprite-desc.png') no-repeat left -24px transparent;
+						}
+						.postvote{
+							background:url('../images/common/sprite-desc.png') no-repeat left -72px transparent;
+						}
+						
+						.logo-partner{
+							margin:0;
+						}
+					}
+				}
+				
+				#content-article{
+					width:100%;
+					float:left;
+					margin: 20px 0;
+					
+					.welcome-block{
+						//display:none;
+						font-family: @futura;
+						font-size: 14px;
+						line-height: 20px;
+						margin: 0 0 20px 0;
+						padding: 0 0 0 38px;
+						
+						p{
+						
+							img{
+								width:100% !important;
+								height:auto !important;
+							}
+						}
+					}
+					.center{
+						float: right;
+						.btn-default{
+							padding: 0;
+							border: 0;
+							background: transparent;
+							a{
+							
+								.left,.right{
+									width:20px;
+									height:57px;
+									float:left;
+									text-indent:-9999px;
+									background:url('../images/common/sprite-participate.png') no-repeat left bottom transparent;
+								}
+								.right{
+									background:url('../images/common/sprite-participate.png') no-repeat left top transparent;
+								}
+								.center{
+									float:left;
+									background-color:@pg-orange;
+									padding: 0 10px;
+									height: 57px;
+									font-family: @futura;
+									font-size: 18px;
+									line-height: 57px;
+									text-transform:uppercase;
+									color:@pg-white;
+								}
+							}
+							&:active{
+					      		box-shadow:none;
+					      	}
+						}
+					}
+				}
+				#reglement,#participants{
+					text-align: right;
+					margin: 5px 0 0 15px;
+					a{
+						color:@pg-black;
+						font-family: @futura;
+						font-size: 12px;
+						line-height: 14px;
+						text-decoration:underline;
+						background: transparent;
+						border: none;
+						padding: 0;
+						
+						&:active{
+				      		box-shadow:none;
+				      	}
+					}
+				}
+			}
+		}
+		
+	}
+}
 #content.row {
   margin: 0;
 }
 
-.sidebar {
-  padding: 30px 20px;
-  .sb-block {
+.sidebar,#sidebar-game {
+  padding: 0 0 30px 20px;
+  
+  .sb-block,.sd-block {
+  	display: inline-block;
+  	margin: 0 0 55px 0;
     width: 100%;
-    padding: 20px 0;
-    border-top: 15px solid @pg-grey-light;
-    text-align: center;
+    //padding: 20px 0;
+    border-top: 1px solid @pg-orange;
+
     &:first-child {
       border-top: none;
     }
+    img{
+      float:left;
+      margin:0 18px 0 0;
+    }
     h5,
     h5 a {
-      color: @pg-grey-dark;
+      float:left;
+      font-family: @futura;
+	  font-size:16px;
+	  line-height:18px;
+      color: @pg-black;
     }
     .sb-content {
-      padding: 10px 0;
+      width: 100%;
+      float: left;
+      padding: 10px 0 0 0;
+      margin:0 0 0 0;
+
       a {
         color: @pg-black;
       }
+      
       // list with picto
       ul.links-list {
+      width: 94%;
+      margin:0;
         li {
+          background:url('../images/common/puce-sb-block.png') no-repeat left top transparent;
           text-align: left;
           margin-bottom: 2px;
-          font-size: 12px;
-          line-height: 20px;
+          font-family: @futura;
+	  	  font-size:14px;
+	  	  line-height:20px;
           color: @pg-black;
-          min-height: 48px;
+          //min-height: 48px;
           clear: both;
+          padding: 0 0 0 20px;
+          margin: 10px 0 0 0;
+          
+          &:first-child{
+          	margin:0;
+          }
+          
           img {
             border: none;
             float: left;
@@ -69,7 +252,7 @@ ul {
           a.sb-picto-link {
             display: block; 
             width: 100%;
-            height: 48px;
+            //height: 48px;
             &:hover {
               text-decoration: none;
             }
@@ -78,6 +261,7 @@ ul {
       }
     }
     &.newsletter-connect {
+      display:none;
       .btn-gray-dark {
         margin: 5px 0; 
       }
@@ -86,6 +270,7 @@ ul {
       }
     }
     &.tonnes-cadeaux {
+      display:none;
       .accroche {
         margin: 10px 0 20px;
         font-weight: bold;
@@ -95,22 +280,87 @@ ul {
       }
     }
     &.fb-box {
+      display:none;
+      
       .fb-like-box,
       .fb_iframe_widget>span,
       .fb-like-box iframe { 
         width: 100% !important; 
       }
     }
+    &.participate{
+    	border-top: 1px solid @pg-orange;
+    }
+    &.activities{
+    	.liste{
+    		float: left;
+			width: 100%;
+			padding: 0 20px;
+			margin: 10px 0 0 0;
+			
+			li{
+				width:100%;
+				margin:15px 0 0 0;
+				font-family: @futura;
+		  	    font-size:15px;
+		  	    line-height:20px;
+				
+				.name{
+					color:@pg-orange;
+					text-transform:uppercase;
+				}
+				
+				&:first-child{
+					margin:0;
+				}
+			}
+    	}
+    }
+
+	.link{
+		&.how-works,&.ranking{
+			color: @pg-white;
+			background-color: @pg-orange;
+			padding: 12px 10px;
+			float: left;
+			margin: 25px 13% 0;
+		}
+		&.ranking{
+		margin:25px 20% 0;
+		}
+	}
     &.ranking {
-      .btn-group {
-        margin: 0 5%;
+
+      .btn-group{
+      	margin: 0 5%;
         width: 90%;
-        margin-bottom: 20px;
+        margin-bottom: 10px;
+      	border-bottom: 1px solid @pg-grey-normal;
+	      .btn{
+	      	font-family: @futura;
+			font-size:14px;
+			line-height:20px;
+	      	border:none;
+	      	border-radius:0;
+	      	box-shadow: none;
+			padding: 7px 0;
+			text-transform: none;
+			background-color:transparent;
+	      	&.active{
+	      		color: @pg-white;
+	      		background-color:@pg-grey-normal;
+	      		box-shadow:none;
+	      	}
+	      }
       }
       .list {
+      	margin: 0 5%;
+        width: 90%;
         text-align: left;
+        
         li.row {
           margin: 0;
+          padding-top:0;
           > div {
             float: left;
             &.position {
@@ -129,12 +379,82 @@ ul {
           &.current {
             margin-top: 20px;
             padding: 10px;
-            background-color: @pg-grey-light;
+            //background-color: @pg-grey-light;
+          }
+          &.week{
+          	margin:0;
+          	border-bottom: 1px solid @pg-grey-normal;
+          	
+          	.position{
+          		&.global{
+          		width: 90%;
+          			li{
+          				background:url('../images/common/classement.png') no-repeat left top transparent;
+          				padding: 6px 0 6px 34px;
+          				margin:8px 0 0 0;
+          				font-family: @futura;
+						font-size:20px;
+						line-height:24px;
+						
+						.pseudo{
+							font-size:14px;
+							text-transform:uppercase;
+						}
+						.point{
+							&.number{
+								color:@pg-white;
+								background-color:@pg-orange;
+								font-size:16px;
+								line-height:28px;
+								-webkit-border-radius: 5px;
+								-moz-border-radius: 5px;
+								border-radius: 5px;
+								padding: 0 10px;
+								float:right;
+							}
+						}
+          				
+          				&:first-child{
+          					margin:0;
+          				}
+          				&:nth-child(2){
+          					background-position:left -40px;
+          				}
+          				&:last-child{
+          					background-position:left -78px;
+          				}
+          			}
+          		}
+          		
+          		&.you{
+          			margin: 35px 0 0 0;
+          			text-align: center;
+          			font-family: @futura;
+					font-size:14px;
+					line-height:20px;
+							
+          			.point{
+						&.number{
+							color:@pg-white;
+							background-color:@pg-orange;
+							font-size:16px;
+							line-height:28px;
+							-webkit-border-radius: 5px;
+							-moz-border-radius: 5px;
+							border-radius: 5px;
+							padding: 0 10px;
+							float:right;
+							margin: 0 25px 0 0;
+						}
+					}
+          		}
+          	}
           }
         }
       }
     }
     &.news-feed {
+    display:none;
       .row {
         margin: 0 0 20px;
         text-align: left;
@@ -174,28 +494,248 @@ ul {
     }
   }
 }
+.game-sidebar{
+	margin: 70px 0 0 0;
+}
 #sidebar-user{
-  #user{
-    padding-bottom: 20px;
-  }
-  #point{
-    .icon-reward{
-      text-align: center;
-    }
-  }
+	padding:0 0 0 20px;
+  
+	#user{
+		position:relative;
+		height:114px;
+		background-color:#f8ecd2;
+		-webkit-border-top-left-radius: 20px;
+		-webkit-border-top-right-radius: 20px;
+		-moz-border-radius-topleft: 20px;
+		-moz-border-radius-topright: 20px;
+		border-top-left-radius: 20px;
+		border-top-right-radius: 20px;
+		border-bottom:1px solid #b8614e;
+		
+		.avatar{
+			position:absolute;
+			top:0;
+			background: url('../images/common/medal.png') no-repeat 74px top transparent;
+			img{
+				margin: 64px 0 0 0;
+				width: 35%;
+				-webkit-border-radius: 50px;
+				-moz-border-radius: 50px;
+				border-radius: 50px;
+				border: 5px solid @pg-orange;
+				background-color: @pg-white;
+			}
+		}
+	}
+	#name{
+		background-color:@pg-orange;
+		padding: 58px 0 25px 0;
+		
+		#username{
+			font-family: @futura;
+			font-size:24px;
+			line-height:26px;
+			text-align:center;
+			color:@pg-black;
+		}
+		
+		#point{
+			float:left;
+			padding: 0 58px;
+			
+			span,a{
+				float: left;
+				width:100%;
+				font-family: @futura;
+				font-size:14px;
+				line-height:24px;
+				color:@pg-black;
+			}
+			
+			a{
+				text-decoration: underline;
+			}
+		}
+	}
+	
+	#gerer{
+		margin: 0 0 20px 0;
+		
+		#button{
+			padding:0;
+			float:left;
+			border:1px solid #bf5749;
+			border-left:none;
+			border-right:none;
+			
+			.manage-account{
+				background: url('../images/common/sprite-manage-account.png') no-repeat center 6px #bf5749;
+				text-indent: -9999px;
+				padding: 12px 0;
+			}
+			.btn-wrapper{
+				background:none;
+				padding:0;
+				text-indent: -9999px;
+				
+				a{
+					width: 100%;
+					background: transparent;
+					border: none;
+					background-position: center bottom;
+					padding: 12px 0;
+					border-radius: 0;
+					background: url('../images/common/sprite-manage-account.png') no-repeat center -33px @pg-orange;
+					
+					&:active{
+						box-shadow: none;
+					}
+					&:hover{
+						background-color:#bf5749;
+					}
+				}
+			}
+		}
+		
+		#manage{
+			float:left;
+			padding: 20px 12px 15px 12px;
+			border:1px solid #e6e6e3;
+			border-top:none;
+			
+			li{
+				margin:10px 0 0 0;
+				a{
+					font-family: @futura;
+					font-size:12px;
+					line-height:14px;
+					color:@pg-black;
+					
+					&.btn{
+						padding: 0;
+						border: none;
+						background: transparent;
+						
+						&:active{
+							box-shadow: none;
+						}
+					}
+				}
+				
+				&:first-child{
+					margin:0;
+				}
+			}
+		}
+	}
   .avatar,
   .username,
   .btn-wrapper{
     text-align: center;
   }
-}
+}/*sidebar user*/
 
 /* content */
 .block-game{
   position: relative;
   width: 100%;
   .inline-block();
-  padding-bottom: 20px;
+  padding:0;
+  margin: 0 0 36px 0;
+  //height: 404px;
+  
+  .icon-bloc-game{
+	position: absolute;
+	top: 0;
+	left: 40px;
+	width: 61px;
+	height: 72px;
+	
+	&.instantwin,&.lottery{
+		background: url('../images/common/sprite-bloc-game.png') no-repeat 0 top transparent;
+	}
+	&.postvote{
+		background: url('../images/common/sprite-bloc-game.png') no-repeat 0 -77px transparent;
+	}
+  }
+  &.price{
+  	a{
+  		width: 100%;
+		float: left;
+		
+		img{
+			width: 100%;
+		}
+  	}
+  	
+  	.game-price-content{
+  		float: left;
+		width: 100%;
+		background-color:@pg-orange;
+		height: 126px;
+		padding: 20px 17px 5px;
+		
+		.logo-star{display:none;}
+		
+		.txt{
+			
+			h2{
+				margin:0 0 15px 0 !important;
+				float: left;
+				width: 70%;
+				margin: 0;
+				padding: 0;
+				text-align: left;
+				text-shadow: none;
+				font-family: @futura;
+				font-size: 14px;
+				line-height: 16px;
+				color:@pg-white;
+			}
+			
+			div{
+				float: left;
+				width: 70%;
+				p{
+					color:@pg-white;
+					font-family: @futura;
+					font-size: 14px;
+					line-height: 16px;
+				}
+			}
+		}
+  	}
+  	
+  	.readmore{
+	  	position: absolute;
+		bottom: 0;
+		right: 0;
+		width: 28%;
+		height: 126px;
+		
+		a{
+			font-family: @futura;
+			font-size:18px;
+			line-height:32px;
+			color:@pg-white;
+			text-transform:uppercase;
+			width:100%;
+			height:100%;
+			background: url('../images/common/bt-play.png') no-repeat 0 top transparent;
+			padding: 48px 0 48px 35px;
+			
+			&:hover{
+				color:@pg-white;
+				text-decoration:none;
+			}
+		}
+		
+		&:active{
+			box-shadow: none;
+		}
+  	}
+  }
+  
   &.no-image{
     display: block;
     .img-content{
@@ -208,33 +748,138 @@ ul {
   }
   .img-content{
     position: relative;
-    padding: 5px;
-    border:1px solid @pg-black;
+    height:100%;
+    
     img{
       display: block;
       max-width:100%;
     }
   }
   .dark-overlay{
-    width: 100%;
-    padding: 0 5%;
-    margin: 0;
-    position: absolute;
-    bottom: 0;
-    left: 0;
+    background-color: #d95f49;
+	//position: absolute;
+	//left: 0!important;
+	width: 100%;
+	//bottom: 0;
+	z-index: 10;
+	color: #fff;
+	text-align: center;
+	text-shadow: 0 1px 2px rgba(0,0,0,0.6);
+	padding: 0!important;
+	//height: 126px;
+	margin:0;
+	
+	h2{
+		margin: 0;
+		padding: 0;
+		text-align: left;
+		text-shadow: none;
+		font-family: @futura;
+		font-size: 14px;
+		line-height: 16px;
+	}
+	.col-md-2{
+		.btn-default{
+			padding: 0;
+			margin: 0;
+			text-shadow: none;
+			background: none;
+			border: none
+		}
+	}
   }
   .logo-sponsor{
+  	display:none;
     position: absolute;
     top: 20px;
     left: 20px;
   }
-  h2 {
+  .col-md-12{
+  	padding:0;
+  }
+  
+  .wrapper-game{
+  	width: 72%;
+	float: left;
+	padding: 20px 17px 5px;
+	
+	h2 {
+	width:100%;
     color:@pg-white;
     text-transform: uppercase;
     font-size: 14px;
+    text-transform: none;
+	}
+	
+	.game-infos{
+		margin: 5px 0 10px;
+		padding: 0;
+		text-align: left;
+		text-shadow: none;
+		float:left;
+		
+		.desc{
+			float:left;
+		  	font-family: @futura;
+			font-size:16px;
+			line-height:20px;
+		  	text-align: left;
+			text-shadow: none;
+			margin:10px 0 9px;
+			padding: 0 0 0 30px;
+			
+			&.lottery,&.instantwin{
+				background:url('../images/common/sprite-desc.png') no-repeat left top transparent;
+			}
+			&.postvote{
+				background:url('../images/common/sprite-desc.png') no-repeat left -48px transparent;
+			}
+		}
+	}
+  }
+  
+  .button-play{
+  	width: 28%;
+	float: right;
+	height: 126px;
+	
+	.button-wrap{
+	    width: 100%;
+		height: 100%;
+	  	background:url('../images/common/bt-play.png') no-repeat 0 top transparent;
+	  	
+	  	.btn{
+	  		width: 100%;
+			height: 100%;
+			padding: 45px 0;
+			
+			a{
+				font-family: @futura;
+				font-size:30px;
+				line-height:32px;
+				color:@pg-white;
+				text-transform:uppercase;
+				text-shadow: none;
+				
+				&:hover{
+					color:@pg-white;
+					text-decoration:none;
+				}
+			}
+			
+			&:active{
+				box-shadow: none;
+			}
+	  	}
+	  }
   }
   .btn-default{
     margin-top: 15px;
+    font-family: @futura;
+	font-size:30px;
+	line-height:32px;
+	color:@pg-white;
+	text-transform:uppercase;
   }
   .stamp{
     position: absolute;
@@ -252,6 +897,7 @@ ul {
     display: inline-block;
     width: 20px;
     height: 20px;
+    margin: 10px 0 0 5px;
     img{
       width: 100%;
       height: auto;
@@ -316,7 +962,11 @@ form[name="preview_form"]{
 
 /* homepage carousel */
 #homepage-carousel{
+  width: 100%;
+  float: left;
+  height: 100%;
   margin: 20px 0;
+  
   .carousel-caption{
     padding-bottom: 50px;
   }
@@ -634,3 +1284,499 @@ form[name="preview_form"]{
     width: 100%;
   }
 }
+
+
+.main-content{
+	padding:0 20px 0 0;
+	
+	#faq{
+		padding: 0 0 0 40px;
+		
+		h1{
+			padding:0;
+			margin:0 0 50px 0;
+		}
+		h3{
+			font-family:@futura;
+			font-size:14px;
+			line-height:20px;
+			margin: 0px 0 5px 28px;
+			float: left;
+			width: 95%;
+			
+			a{
+				float: left;
+				width: 100%;
+				padding: 0 0 0 20px;
+				background:url('../images/common/puce-sb-block-bk.png') no-repeat left center transparent;
+				color:@pg-black;
+				
+				&:hover{
+					text-decoration:none;
+					color:@pg-orange;
+					background:url('../images/common/puce-sb-block.png') no-repeat left center transparent;
+				}
+				p{
+					margin:0;
+				}
+			}
+		}
+		.content-block{
+			float: left;
+			width: 95%;
+			margin: 0 0 30px 28px;
+			border:1px solid #e6e6e3;
+			background-color:f2f2f2;
+			padding:20px;
+			
+			p{
+				font-family:@futura;
+				font-size:14px;
+				line-height:20px;
+				margin:20px 0 0 0;
+				
+				&:first-child{
+					margin:0;
+				}
+			}
+		}
+	}
+	/*faq*/
+	
+	#contact-us{
+		padding: 0 0 0 40px;
+		
+		h1{
+			padding:0;
+			margin:0 0 20px 0;
+		}
+		
+		.wrap-form{
+			border:1px solid #e6e6e3;
+			background-color:f2f2f2;
+			padding:20px;
+			
+			h2{
+				font-family:@futura;
+				font-size:14px;
+				line-height:20px;
+				padding: 0 0 0 20px;
+				background:url('../images/common/puce-sb-block.png') no-repeat left center transparent;
+				color:@pg-orange;
+			}
+			
+			form{
+				#contact-inner{
+					.row{
+						margin: 0 0 0 60px;
+						
+						.block-right{
+							padding:0;
+							margin:0 0 15px 0;
+							
+							&.lastname,&.firstname{
+								width: 140px;
+							}
+							&.firstname{
+								margin:0 0 35px 0;
+							}
+							&.email{
+								width: 180px;
+							}
+							input{
+								width:100%;
+								border-radius: 0;
+								border: 1px solid #e6e6e3;
+								background-color:@pg-white;
+								padding: 6px;
+								height: 30px;
+								font-family:@futura;
+								font-size:12px;
+								line-height:14px;
+							}
+							&.contact-select{
+								margin:0;
+								width:180px;
+								.selector{
+									
+									span{
+										display:none;
+									}
+									select{
+										width:100%;
+										border-radius: 0;
+										border: 1px solid #e6e6e3;
+										background-color: #e6e6e3;
+										padding: 6px;
+										height: 30px;
+										font-family:@futura;
+										font-size:12px;
+										line-height:14px;
+									}
+								}
+							}
+							&.contact-textarea{
+								textarea{
+									width:100%;
+									border-radius: 0;
+									border: 1px solid #e6e6e3;
+									background-color:@pg-white;
+									padding: 12px;
+									height: 125px;
+									font-family:@futura;
+									font-size:12px;
+									line-height:14px;
+									resize: none;
+								}
+							}
+						}
+					}
+					#btn-send{
+						width: 81%;
+						padding:0;
+						
+						div{
+							padding:0;
+							
+							.btn-default{
+								padding: 0;
+								border: none;
+								border-bottom:2px solid #25967b;
+								color: @pg-white;
+								font-family:@futura;
+								font-size:14px;
+								line-height:16px;
+								text-transform:uppercase;
+								background-color:@pg-green;
+								padding:12px 32px;
+							}
+						}
+					}
+				}
+			}
+		}
+	}/*contact us*/
+	
+	#account-modify{
+		padding: 0 0 0 40px;
+		
+		h1{
+			padding:0;
+			margin:0 0 20px 0;
+		}
+		
+		#wrap-account{
+			border:1px solid #e6e6e3;
+			background-color:#f2f2f2;
+			padding:0px;
+			
+			#update-login{
+				padding:20px;
+				
+				.update-login-block{
+					h3{
+						font-family:@futura;
+						font-size:24px;
+						line-height:26px;
+						color:@pg-grey-normal;
+						margin:0 0 15px 0;
+					}
+					.desc-form{
+						font-family:@futura;
+						font-size:14px;
+						line-height:16px;
+						margin: 0 0 15px 20px;
+					}
+					
+					form{
+						border:none;
+						margin: 0 0 0 20px;
+						padding:0;
+						
+						.row{
+							margin: 0 0 8px 0;
+							.col-md-4{
+								padding:0;
+								text-align: right;
+								font-family:@futura;
+								font-size:14px;
+								line-height:16px;
+								color:@pg-black;
+								margin: 6px 0 0 0;
+								
+								p{
+									margin:0;
+								}
+							}
+							.col-md-6{
+								input{
+									width:100%;
+									border-radius: 0;
+									border: 1px solid #e6e6e3;
+									background-color:@pg-white;
+									padding: 6px;
+									height: 30px;
+									font-family:@futura;
+									font-size:12px;
+									line-height:14px;
+								}
+								&.credential{
+									width: 27%;
+								}
+							}
+						}
+						.wrapper-submit{
+							padding:0;
+						}
+					}
+				}
+			}
+			
+			form{
+				&.validate{
+					border-top:1px solid #e6e6e3;
+					padding:20px;
+					
+					#update-adresse{
+						h3{
+							font-family:@futura;
+							font-size:24px;
+							line-height:26px;
+							color:@pg-grey-normal;
+							margin:0 0 15px 0;
+						}
+						.desc-form{
+							font-family:@futura;
+							font-size:14px;
+							line-height:16px;
+							margin: 0 0 15px 20px;
+							color:@pg-orange;
+							background:url('../images/common/puce-sb-block.png') no-repeat left top transparent;
+							padding:0 0 0 15px;
+						}
+						.row{
+							margin: 0 0 8px 0;
+							.col-md-2{
+								padding:0;
+								.orange-points{
+									padding:8px 0 8px 34px;
+									background: url('../images/common/classement.png') no-repeat left top transparent;
+									color:@pg-yellow;
+									font-family:@futura;
+									font-size:12px;
+									line-height:14px;
+								}
+							}
+							.col-md-4{
+								padding:0;
+								text-align: right;
+								font-family:@futura;
+								font-size:12px;
+								line-height:16px;
+								color:@pg-black;
+								margin: 6px 0 0 0;
+								
+								p{
+									margin:0;
+								}
+							}
+							.col-md-6{
+								input{
+									width:100%;
+									border-radius: 0;
+									border: 1px solid #e6e6e3;
+									background-color:@pg-white;
+									padding: 6px;
+									height: 30px;
+									font-family:@futura;
+									font-size:12px;
+									line-height:14px;
+								}
+								&.credential{
+									width: 27%;
+								}
+								.uploader{
+									.filename,.action{
+										display:none;
+									}
+								}
+								label{
+									padding: 0;
+									width: 119px;
+									float:left;
+									.radio{
+										margin: 0 5px 0 0;
+										float:left;
+										span{
+											float:left;
+											input{
+												width: auto;
+												margin: 0;
+												height: 20px;
+											}
+										}
+									}
+								}
+								.selector{
+									width:100% !important;
+									select{
+										width:100%;
+										border-radius: 0;
+										border: 1px solid #e6e6e3;
+										background-color: @pg-white;
+										padding: 6px;
+										height: 30px;
+										font-family:@futura;
+										font-size:12px;
+										line-height:14px;
+									}
+								}
+							}
+						}
+						.wrapper-submit{
+							padding:0;
+						}
+					}
+				}
+			}
+		}
+		.wrapper-submit{
+			.btn-default{
+				padding: 0;
+				border: none;
+				border-bottom:2px solid #25967b;
+				color: @pg-white;
+				font-family:@futura;
+				font-size:14px;
+				line-height:16px;
+				text-transform:uppercase;
+				background-color:@pg-green;
+				padding:12px 32px;
+			}
+			
+			&.delete{
+				.btn-default{
+					border-bottom:2px solid #b93d30;
+					background-color:@pg-orange;
+				}
+			}
+		}
+	}/*account modify*/
+	
+	#delete-account{
+		margin: 30px 0;
+		border: 1px solid #e6e6e3;
+		background-color: #f2f2f2;
+		padding:20px;
+		
+		h3{
+			font-family:@futura;
+			font-size:24px;
+			line-height:26px;
+			color:@pg-grey-normal;
+			margin:0 0 15px 0;
+		}
+		form{
+			border:none;
+			margin: 0 0 0 20px;
+			
+			.row{
+				margin: 0 0 8px 0;
+				.col-md-4{
+					padding:0;
+					text-align: right;
+					font-family:@futura;
+					font-size:14px;
+					line-height:16px;
+					color:@pg-black;
+					margin: 6px 0 0 0;
+					
+					p{
+						margin:0;
+					}
+				}
+				.col-md-6{
+					input{
+						width:100%;
+						border-radius: 0;
+						border: 1px solid #e6e6e3;
+						background-color:@pg-white;
+						padding: 6px;
+						height: 30px;
+						font-family:@futura;
+						font-size:12px;
+						line-height:14px;
+					}
+					&.credential{
+						width: 27%;
+					}
+				}
+			}
+			.wrapper-submit{
+				padding:0;
+			}
+		}
+	}
+	/* delete account*/
+	
+	.game-quiz{
+		.img-content{
+			.dark-overlay{
+				&.row{
+					background: transparent;
+					margin: 0 0 0 40px !important;
+					width: 93.5%;
+					
+					h2{
+						font-family:@futura;
+						font-size:12px;
+						line-height:14px;
+					}
+				}
+			}
+		}
+	}
+	/* game quiz*/
+}
+.social-share{
+  	float: left;
+	width: 100%;
+	margin:0;
+  	li{
+  		float:left;
+  		margin:0 0 0 8px;
+  		
+  		&:first-child{
+  			margin:0;
+  		}
+  		
+  		.link{
+  			-webkit-border-radius: 50%;
+			-moz-border-radius: 50%;
+			border-radius: 50%;
+			width:35px;
+			height:35px;
+			float: left;
+			text-indent: -9999px;
+  			&.fb{
+  				background:url('../images/common/icon-social.png') no-repeat 12px center #262626;
+				
+				&:hover{
+					background-color:#3b5999;
+				}
+  			}
+  			&.twitter{
+  				background:url('../images/common/icon-social.png') no-repeat -29px center #262626;
+  				&:hover{
+					background-color:#59a7d8;
+				}
+  			}
+  			&.google{
+  				background:url('../images/common/icon-social.png') no-repeat -72px center #262626;
+  				&:hover{
+					background-color:#E61414;
+				}
+  			}
+  		}
+  	}
+ }
