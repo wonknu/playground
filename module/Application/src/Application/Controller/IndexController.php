@@ -96,11 +96,6 @@ class IndexController extends AbstractActionController
         $this->layout()->setVariables(
             array(
                 'sliderItems'	=> $sliderItems,
-                /*'adserving'       => array(
-                    'cat1' => 'playground',
-                    'cat2' => 'homepage',
-                    'cat3' => ''
-                )*/
             )
         );
 
