@@ -9,27 +9,49 @@ $form->prepare();
 ?>
 
 <?php echo $this->form()->openTag($form) ?>
-    <dl class="zend_form">
-    <?php foreach ($form as $element): ?>
-        <?php if (!$element instanceof Zend\Form\Element\Button && !$element instanceof Zend\Form\Element\Hidden): ?>
-            <dt><?php echo $this->formLabel($element) ?></dt>
-        <?php endif ?>
-        <?php if ($element instanceof Zend\Form\Element\Button): ?>
-            <dd><?php echo $this->formButton($element) ?></dd>
-        <?php elseif ($element instanceof Zend\Form\Element\Captcha): ?>
-            <dd><?php echo $this->formCaptcha($element) . $this->formElementErrors($element) ?></dd>
-        <?php elseif ($element instanceof Zend\Form\Element\Select): ?>
-            <dd><?php echo $this->formSelect($element) . $this->formElementErrors($element) ?></dd>
-        <?php elseif ($element instanceof Zend\Form\Element\Checkbox): ?>
-            <dd><?php echo $this->formCheckbox($element) . $this->formElementErrors($element) ?></dd>
-        <?php elseif ($element instanceof Zend\Form\Element\Textarea): ?>
-            <dd><?php echo $this->formtextarea($element) . $this->formElementErrors($element) ?></dd>
+<?php echo $this->form()->openTag($form) ?>
+<?php $form->get('submit')->setLabel($this->translate('Validate')); ?>
+<?php echo $this->formButton($form->get('submit')) ?>
+<div class="tab-pane active" id="general">
+    <div>
+        <div class="label-input">
+        <?php echo $this->formHidden($form->get('id')); ?>
+        </div>
+
+        <div class="label-input">
+        <?php echo $this->formLabel($form->get('title')); ?>
+        <?php echo $this->formInput($form->get('title')); ?>
+        <?php echo $this->formElementErrors($form->get('title')) ?>
+        </div>
+
+        <div class="label-input">
+        <?php echo $this->formLabel($form->get('identifier')); ?>
+        <?php echo $this->formInput($form->get('identifier')); ?>
+        <?php echo $this->formElementErrors($form->get('identifier')) ?>
+        </div>
+        
+        <div class="label-input">
+            <?php echo $this->formLabel($form->get('is_active')); ?>
+            <?php echo $this->formSelect($form->get('is_active')); ?>
+            <?php echo $this->formElementErrors($form->get('is_active')) ?>
+		</div>
+		
+		<div class="label-input">
+            <?php echo $this->formLabel($form->get('on_call')); ?>
+            <?php echo $this->formCheckbox($form->get('on_call')); ?>
+            <?php echo $this->formElementErrors($form->get('on_call')) ?>
+		</div>
+		
+		<div class="label-input ckeditor">
+            <?php echo $this->formLabel($form->get('content')); ?>
+            <?php echo $this->formTextArea($form->get('content')); ?>
+            <?php echo $this->formElementErrors($form->get('content')); ?>
             <?php $this->QgCKEditor(
                 'content',
                     array(
                     	'BasePath' => $this->adminAssetPath('js/lib/ckeditor'),
-                    	'Width' => "100%",
-                        'Height' => "340",
+                    	'Width' => "50%",
+                        'Height' => "100",
                         'filebrowserBrowseUrl' => '/elfinder', // eg. 'includes/elFinder/elfinder.html'
                         'uiColor' => '#9AB8F3',
                         //'Color' => "#000",
@@ -45,9 +67,8 @@ $form->prepare();
                     )
                 );
             ?>
-        <?php else: ?>
-            <dd><?php echo $this->formInput($element) . $this->formElementErrors($element) ?></dd>
-        <?php endif ?>
-    <?php endforeach ?>
-    </dl>
+    	</div>
+
+    </div>
+</div>
 <?php echo $this->form()->closeTag() ?>
