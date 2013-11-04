@@ -165,7 +165,7 @@
     	    			<div class="points">(<?php echo number_format($entry['points'], 0, ',', ' ' ); ?> points)</div>
     				</li>
     			<?php $i++;endforeach;?>
-    
+
     			<?php $i=1;foreach($leaderboardWeek as $entry):?>
     				<li class="row week rank<?php echo $i?>">
                         <div class="rank"><?php echo $i ?></div>
@@ -190,7 +190,7 @@
     	    			<div class="points">(<?php echo number_format($entry['points'], 0, ',', ' ' );?> points)</div>
     				</li>
     			<?php $i++;endforeach;?>
-    
+
         		<?php if($this->zfcUserIdentity()): ?>
         			<?php $rank =  $this->rankWidget($this->zfcUserIdentity()->getId());?>
     	    		<li class="row general current">
@@ -210,7 +210,7 @@
 						    <?php echo number_format($rank['points'], 0, ',', ' ' );?> points<br />
 							<?php echo $rank['rank']; ?>
 							<sup>
-							<?php 
+							<?php
 								if($rank == 1){
 									echo $this->translate('first_place');
 								}elseif($rank == 2){
@@ -240,7 +240,7 @@
     	    					<span class="point number">500</span>
     	    				</li>
     	    			</ul>
-    					<div class="position you">&gt; <span class="number ranking">12</span>. vous <span class="point number">150</span></div> 
+    					<div class="position you">&gt; <span class="number ranking">12</span>. vous <span class="point number">150</span></div>
     				</li>
     			<?php endif; ?>
         	</ul>
@@ -248,29 +248,16 @@
     </div>
 
     <!-- BLOC ACTIVITES RECENTES -->
+    <?php if (count($achievements) > 0): ?>
     <div class="sb-block activities">
     	<img src="/frontend/images/common/icon-activities.png" alt="classement">
     	<h5>
-    	    <a href="#">Activit&eacute; r&eacute;centes</a>
+    	    <a href="#"><?php echo $this->translate('Recent activity'); ?></a>
     	</h5>
     	<ul class="liste">
+    	   <?php foreach($achievements as $achievement):?>
     		<li>
-    			<span class="name">Admin</span> a obtenu le badge Le joueur Bronze
-    		</li>
-    		<li>
-    			<span class="name">Jeremy L</span> a obtenu le badge Le joueur Argent
-    		</li>
-    	</ul>
-    </div>
-    <?php if (count($achievements) > 0): ?>
-	<div class="sb-block activities">
-		<h5><?php echo $this->translate('Recent activity'); ?></h5>
-		<div class="sb-content">
-    		<ul class="list">
-        		<?php foreach($achievements as $achievement):?>
-    			<li>
-    				<div class="avatar">
-    					<img src="<?php
+    			<img src="<?php
     						if($achievement->getUser()->getAvatar()) :
     							echo $this->basePath($achievement->getUser()->getAvatar());
     						elseif($achievement->getUser()->getTitle() && $achievement->getUser()->getTitle() == 'M') :
@@ -279,20 +266,18 @@
     							echo $this->frontendAssetPath('images/user/no-avatar-small-f.png');
     						endif;
     					?>" width="33" height="33" border="0" alt="avatar" />
-    				</div>
-    				<div class="infos">
-    					<span class="name">
-    						<?php if($achievement->getUser()->getUsername()) :
-    							echo $achievement->getUser()->getUsername();
-    						else :
+    			<span class="name">
+    			     <?php if($achievement->getUser()->getUsername()) :
+    				    	   echo $achievement->getUser()->getUsername();
+    					   else :
     							echo $achievement->getUser()->getFirstname().' '.substr($achievement->getUser()->getLastname(), 0, 1).'.';
-    						endif; ?>
-    					</span> <?php echo $this->translate('received the badge'); ?> <span class="badgename"><?php echo $achievement->getLabel() . " " . ucfirst(strtolower($achievement->getLevelLabel()));?></span></div>
-    			</li>
-    			<?php endforeach;?>
-    		</ul>
-		</div>
-	</div>
+    						endif;
+    				?>
+    			</span> <?php echo $this->translate('received the badge'); ?> <?php echo $achievement->getLabel() . " " . ucfirst(strtolower($achievement->getLevelLabel()));?>
+    		</li>
+    		<?php endforeach;?>
+    	</ul>
+    </div>
 	<?php endif; ?>
 	<!-- END BLOC ACTIVITES RECENTES -->
 
@@ -317,7 +302,7 @@
         		<div class="news-one row">
         			<p class="head-news">A la une</p>
         			<a href="<?php echo $item->getLink(); ?>" target="_blank">
-        				<img src="<?php echo $item->getEnclosure()->url; ?>" alt="actualité à la une : <?php echo $item->getTitle(); ?>" />
+        				<img src="<?php echo $item->getEnclosure()->url; ?>" alt="actualitï¿½ ï¿½ la une : <?php echo $item->getTitle(); ?>" />
         				<div class="title-news"><?php echo $item->getTitle(); ?></div>
         				<div class="content-news"><?php echo $item->getDescription(); ?></div>
         			</a>
@@ -325,13 +310,13 @@
         		<?php endif;?>
         		<?php if($i==2) :?>
         		<div class="news-list row">
-        			<p class="head-news">Dans l’actu</p>
+        			<p class="head-news">Dans lï¿½actu</p>
         			<ul>
         		<?php endif;?>
         		<?php if($i>=2):?>
         				<li <?php if($i&1) : echo 'class="right"'; endif; ?>>
         					<a href="<?php echo $item->getLink(); ?>" target="_blank">
-        						<img src="<?php echo $item->getEnclosure()->url; ?>" height="63" border="0" alt="actualité : <?php echo $item->getTitle(); ?>" />
+        						<img src="<?php echo $item->getEnclosure()->url; ?>" height="63" border="0" alt="actualitï¿½ : <?php echo $item->getTitle(); ?>" />
         						<div class="content-news"><?php echo $item->getTitle(); ?></div>
         					</a>
         				</li>
