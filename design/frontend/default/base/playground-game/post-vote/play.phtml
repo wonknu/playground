@@ -7,7 +7,7 @@ $form->setAttribute('action', $this->url('frontend/postvote/play', array('id' =>
 
 <?php $totalQuestions = count($this->questions);?>
 <!-- GAME QUIZ - FERME QUESTIONS -->
-<div class="row game-postvote play">
+<div class="row game-postvote play wrap-game">
 	<h1>
 	    <?php echo $this->game->getTitle(); ?>
 	</h1>
@@ -37,14 +37,11 @@ $form->setAttribute('action', $this->url('frontend/postvote/play', array('id' =>
 	<!-- END BLOCK GAME START -->
 	<!-- Content -->
 	<div class="btn-group">
-        <a href="<?php echo $this->url('frontend/postvote', array('id' => $this->game->getIdentifier(), 'channel' => $this->channel))?>" class="btn btn-default" >
-            <?php echo $this->translate('Home'); ?>
+		<a href="<?php echo $this->url('frontend/postvote/play', array('id' => $this->game->getIdentifier(), 'channel' => $this->channel))?>" class="btn btn-default" >
+            <span class="left">left</span><span class="center"><?php echo $this->translate('Participate'); ?></span><span class="right">right</span>
         </a>
-        <a href="<?php echo $this->url('frontend/postvote/list', array('id' => $this->game->getIdentifier(), 'channel' => $this->channel, 'filter' => $this->game->getPostDisplayMode()))?>" class="btn btn-default" >
+        <a href="<?php echo $this->url('frontend/postvote/list', array('id' => $this->game->getIdentifier(), 'channel' => $this->channel, 'filter' => $this->game->getPostDisplayMode()))?>" class="btn btn-default participate" >
             <?php echo $this->translate('See participants'); ?>
-        </a>
-        <a href="<?php echo $this->url('frontend/postvote/play', array('id' => $this->game->getIdentifier(), 'channel' => $this->channel))?>" class="btn btn-default" >
-            <?php echo $this->translate('Participate'); ?>
         </a>
     </div>
 	<div id="content-article">
@@ -54,8 +51,8 @@ $form->setAttribute('action', $this->url('frontend/postvote/play', array('id' =>
         <p>
             <?php echo $this->game->getForm()->getDescription(); ?>
         </p>
-		<div>
-			<div>
+		<div class="content-postvote">
+			<div class="wrapper">
 				<?php
 				echo $this->form()->openTag($form);
 	            foreach ($this->form as $element) :
