@@ -412,11 +412,15 @@ h1 {
   text-align: right;
 }
 .tab-pane .label-input.heading label,
-.facebook-admin .label-input.heading label {
+.facebook-admin .label-input.heading label,
+.tab-pane .label-input.ckeditor label,
+.facebook-admin .label-input.ckeditor label {
   vertical-align: top;
 }
 .tab-pane .label-input #cke_block_heading,
-.facebook-admin .label-input #cke_block_heading {
+.facebook-admin .label-input #cke_block_heading,
+.tab-pane .label-input #cke_content,
+.facebook-admin .label-input.content label {
   display: inline-block;
 }
 .tab-pane #cke_welcomeBlock,
