@@ -22,7 +22,7 @@ return array(
 							'output' => 'zfcadmin/',
 						)
 					),
-				    
+
 				    /**
 				     * CKEDITOR
 				     */
