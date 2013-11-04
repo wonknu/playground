@@ -20,13 +20,15 @@ if (isset($fm[0]))
             <th></th>
         </tr>
         <?php foreach ($leaderboardTypes as $leaderboardType) : ?>
-            <tr>
-                <th><?php echo $leaderboardType->getName(); ?></th>
-                <th>
-                    <a href="<?php echo $this->url('admin/leaderboardtype/edit', array('leaderboardId' => $leaderboardType->getId()));?>"><?php echo $this->translate('Editer');?></a>  |
-                    <a href="<?php echo $this->url('admin/leaderboardtype/delete', array('leaderboardId' => $leaderboardType->getId()));?>"><?php echo $this->translate('Supprimer');?></a>
-                </th>
-            </tr>
+            <?php if($leaderboardType->getName() != \PlaygroundReward\Entity\LeaderboardType::LEADERBOARD_TYPE_DEFAULT) : ?>
+                <tr>
+                    <th><?php echo $leaderboardType->getName(); ?></th>
+                    <th>
+                        <a href="<?php echo $this->url('admin/leaderboardtype/edit', array('leaderboardId' => $leaderboardType->getId()));?>"><?php echo $this->translate('Editer');?></a>  |
+                        <a href="<?php echo $this->url('admin/leaderboardtype/delete', array('leaderboardId' => $leaderboardType->getId()));?>"><?php echo $this->translate('Supprimer');?></a>
+                    </th>
+                </tr>
+            <?php endif; ?>
         <?php endforeach; ?>
     </thead>
     <tbody>
