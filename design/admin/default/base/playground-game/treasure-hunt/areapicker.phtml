@@ -6,12 +6,9 @@
         <meta name="description" content="HTML5 area picker" />
         
         <!-- CSSs -->
-        <?php echo $this->headLink()->prependStylesheet($this->adminAssetPath() . '/css/areapicker/style.min.css?v=1.0') ?>
+        <?php echo $this->headLink() ?>
         
-        <?php echo $this->headScript()->appendFile($this->adminAssetPath() . '/js/areapicker/app.js')
-        							  ->prependFile($this->adminAssetPath() . '/js/areapicker/config.js')
-                                      ->prependFile($this->adminAssetPath() . '/js/areapicker/selection.js')
-        							  ->prependFile($this->adminAssetPath() . '/js/lib/easyxdm/easyxdm.min.js') ?>
+        <?php echo $this->headScript() ?>
                                       
     </head>
     <body>

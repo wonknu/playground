@@ -19,7 +19,7 @@
 		<div class="center">
 			<div class="btn-group btn-default">
 	            <?php if($game->isStarted()):?>
-	            <a href="<?php echo $this->url('frontend/postvote/play', array('id' => $this->game->getIdentifier(), 'channel' => $this->channel))?>"  class="btn btn-default">
+	            <a href="<?php echo $this->url('frontend/postvote/play', array('id' => $this->game->getIdentifier(), 'channel' => $this->channel))?>"  class="btn btn-default"<?php if ($this->isCtaActive) { echo ' id="cta-play"'; } ?>>
 	                <span class="left">left</span><span class="center"><?php echo $this->translate('Participate'); ?></span><span class="right">right</span>
 	            </a>
 	            <?php endif;?>
