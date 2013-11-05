@@ -5,10 +5,11 @@
         <title>HTML5 area picker</title>
         <meta name="description" content="HTML5 area picker" />
         
-        <!-- CSSs -->
-        <?php echo $this->headLink() ?>
-        
-        <?php echo $this->headScript() ?>
+<?php
+	echo $this->plugin('HeadLink');
+    echo $this->plugin('HeadStyle');
+    echo $this->plugin('HeadScript');
+?>
                                       
     </head>
     <body>
