@@ -47,20 +47,20 @@
 	<!-- sort leader board -->
 	<div id="sort-leaderboard" class="row-fluid orange-dot-double">
 		<div class="span2">
-			<div class="btn btn-inverse<?php if($this->period == 'general'):?> active<?php endif;?>">
-				<a href="<?php echo $this->url('frontend/reward/leaderboard', array('period'=>'general', 'channel' => $this->channel)); ?>"><?php echo $this->translate('General');?></a>
+			<div class="btn btn-inverse active">
+				<a href="<?php echo $this->url('frontend/reward/leaderboard', array('channel' => $this->channel)); ?>"><?php echo $this->translate('General');?></a>
 			</div>
 		</div>
 		<div class="span3">
 			<select name="filter-leaderboard" id="filter-leaderboard">
 				<option value="">Sélectionner</option>
 				<?php foreach ($filters as $leaderboardType) : ?>
-					<option value="<?php echo $this->url('frontend/reward/leaderboard',array('period' => $this->period, 'channel' => $this->channel, 'filter' => $leaderboardType->getName())) ?>" <?php echo ($this->filter == $leaderboardType->getName())? 'selected' : '';?>><?php echo $this->translate($leaderboardType->getName());?></option>
+					<option value="<?php echo $this->url('frontend/reward/leaderboard',array('channel' => $this->channel, 'filter' => $leaderboardType->getName())) ?>" <?php echo ($this->filter == $leaderboardType->getName())? 'selected' : '';?>><?php echo $this->translate($leaderboardType->getName());?></option>
 				<?php endforeach; ?>
 			</select>
 		</div>
 		<div class="span4 search-leaderboard">
-			<form action="<?php echo $this->url('frontend/reward/leaderboard', array('period'=>'general', 'channel' => $this->channel, 'filter' => $this->filter)); ?>" method="GET" class="row-fluid">
+			<form action="<?php echo $this->url('frontend/reward/leaderboard', array('channel' => $this->channel, 'filter' => $this->filter)); ?>" method="GET" class="row-fluid">
 			<div class="span10">
 				<input type="text" name="name" id="" placeholder="<?php echo $this->translate('Search');?>" value="<?php echo $this->search?>"/>
 			</div>
@@ -163,4 +163,4 @@
 
 </div>
 
-<?php echo $this->paginationControl($this->leaderboard, 'Sliding', 'playground-reward/index/pagination.phtml', array('url' => 'frontend/reward/leaderboard', 'period'=> $this->period, 'filter' => $this->filter)); ?>
+<?php echo $this->paginationControl($this->leaderboard, 'Sliding', 'playground-reward/index/pagination.phtml', array('url' => 'frontend/reward/leaderboard','filter' => $this->filter)); ?>
