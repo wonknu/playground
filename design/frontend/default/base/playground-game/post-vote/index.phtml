@@ -16,21 +16,24 @@
 		<div class="welcome-block<?php if($this->layout()->facebooktemplate): echo ' fb-target'; endif ?>">
 		    <?php echo $this->game->getWelcomeBlock(); ?>
 		</div>
-		<div class="btn-group">
-            <a href="<?php echo $this->url('frontend/postvote/list', array('id' => $this->game->getIdentifier(), 'filter' => $this->game->getPostDisplayMode(), 'channel' => $this->channel))?>" class="btn btn-default">
-                Voir les participants
-            </a>
-            <?php if($game->isStarted()):?>
-            <a href="<?php echo $this->url('frontend/postvote/play', array('id' => $this->game->getIdentifier(), 'channel' => $this->channel))?>"  class="btn btn-default">
-                Participer
-            </a>
-            <?php endif;?>
-            <a href="<?php echo $this->url('frontend/postvote/terms', array('id' => $this->game->getIdentifier(), 'channel' => $this->channel))?>" target="_blank" class="btn btn-default">
-               Règlement
-            </a>
+		<div class="center">
+			<div class="btn-group btn-default">
+	            <?php if($game->isStarted()):?>
+	            <a href="<?php echo $this->url('frontend/postvote/play', array('id' => $this->game->getIdentifier(), 'channel' => $this->channel))?>"  class="btn btn-default"<?php if ($this->isCtaActive) { echo ' id="cta-play"'; } ?>>
+	                <span class="left">left</span><span class="center"><?php echo $this->translate('Participate'); ?></span><span class="right">right</span>
+	            </a>
+	            <?php endif;?>
+	        </div>
+	        <p id="participants">
+		        <a href="<?php echo $this->url('frontend/postvote/list', array('id' => $this->game->getIdentifier(), 'filter' => $this->game->getPostDisplayMode(), 'channel' => $this->channel))?>" class="btn btn-default">
+		        	<?php echo $this->translate('See participants'); ?>
+		       	</a>
+	       	</p>
+	        <p id="reglement">
+		        <a href="<?php echo $this->url('frontend/postvote/terms', array('id' => $this->game->getIdentifier(), 'channel' => $this->channel))?>" target="_blank" class="btn btn-default">
+					 <?php echo $this->translate('Rules'); ?>
+				</a>
+			</p>
         </div>
 	</div>
-	<p id="reglement">
-        
-	</p>
 </div>

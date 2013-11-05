@@ -1,34 +1,34 @@
-<?php $this->plugin('translate')->setTranslatorTextDomain('application');// Pour le texte ?>
+<?php $this->plugin('translate')->setTranslatorTextDomain('playgrounddesign');// Pour le texte ?>
 
 
 <!-- USER ACTIVITY -->
 <div id="user-activity">
 	<div>
-		<h1>Mon activité</h1>
+		<h1><?php echo $this->translate('My activity'); ?></h1>
 		<div>
 			<div class="row">
 				<p class="col-md-6">
-				    <b>Filtrer l’historique par type d’action :</b>
+				    <b><?php echo $this->translate('Filter history by type of action'); ?> :</b>
 				</p>
 				<div class="col-md-6">
 					<select name="filter-activity" id="filter-activity" class="select">
 						<option value="">
-						    Selectionnez
+						    <?php echo $this->translate('Select'); ?>
 						</option>
 						<option value="<?php echo $this->url('frontend/activity', array('channel' => $this->channel)) ?>">
-						    Vue d'ensemble
+						    <?php echo $this->translate('Overall picture'); ?>
 						</option>
 						<option value="<?php echo $this->url('frontend/activity', array('channel' => $this->channel)) ?>/game">
-						    Participations
+						    <?php echo $this->translate('Participations'); ?>
 						</option>
 						<option value="<?php echo $this->url('frontend/activity', array('channel' => $this->channel)) ?>/user">
-						    Mon compte
+						    <?php echo $this->translate('My account'); ?>
 						</option>
 						<option value="<?php echo $this->url('frontend/activity', array('channel' => $this->channel)) ?>/social">
-						    Invitations et parrainage
+						    <?php echo $this->translate('Invitations and sponsorship'); ?>
 						</option>
 						<option value="<?php echo $this->url('frontend/activity', array('channel' => $this->channel)) ?>/badges">
-						    Badges
+						    <?php echo $this->translate('Badges'); ?>
 						</option>
 					</select>
 				</div>
@@ -80,6 +80,6 @@
 	<?php $i++; endforeach;?>
 </div>
 <?php if($i < $this->total): ?>
-	<div id="more-activity" class="row more"><a href="<?php echo $this->url('frontend/activity', array('channel' => $this->channel)). '/' . $this->filter ;?>" data-count="2" data-total="<?php echo $total; ?>">+ Plus d'actus</a></div>
+	<div id="more-activity" class="row more"><a href="<?php echo $this->url('frontend/activity', array('channel' => $this->channel)). '/' . $this->filter ;?>" data-count="2" data-total="<?php echo $total; ?>">+ <?php echo $this->translate('More news'); ?></a></div>
 <?php endif; ?>
 <!-- END USER ACTIVITY -->

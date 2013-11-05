@@ -110,6 +110,31 @@ $form->prepare();
         	<img src="<?php echo $this->basePath($form->get('fbPageTabImage')->getValue()); ?>" />
         <?php endif;?>
     </div>
+    <div class="label-input">
+    <?php echo $this->formLabel($form->get('fbFanGate')); ?>
+    <?php echo $this->formTextarea($form->get('fbFanGate')) . $this->formElementErrors($form->get('fbFanGate')) ?>
+    <?php $this->QgCKEditor(
+        'fbFanGate',
+            array(
+                'BasePath' => $this->libAssetPath('js/ckeditor'),
+                'Width' => "100%",
+                'Height' => "340",
+                'filebrowserBrowseUrl' => '/elfinder', // eg. 'includes/elFinder/elfinder.html'
+                'uiColor' => '#9AB8F3',
+                //'Color' => "#000",
+                'Toolbar'=> array(
+                     array('Source','Maximize'),
+                     array('Templates','Styles','Format'),
+                     array('Bold','Italic','Underline','Subscript','Superscript'),
+                     array('NumberedList','BulletedList','Outdent','Indent'),
+                     array('JustifyLeft','JustifyCenter','JustifyRight'),
+                     array('Link','Unlink'),
+                     array('Image','Table')
+                 )
+            )
+        );
+    ?>
+    </div>
 </div>
 
 <div class="tab-pane" id="platform">
@@ -198,7 +223,7 @@ $form->prepare();
         <?php $this->QgCKEditor(
             'columnBlock1',
                 array(
-                	'BasePath' => $this->adminAssetPath('js/lib/ckeditor'),
+                	'BasePath' => $this->libAssetPath('js/ckeditor'),
                 	'Width' => "50%",
                     'Height' => "100",
                     'filebrowserBrowseUrl' => '/elfinder', // eg. 'includes/elFinder/elfinder.html'
@@ -222,7 +247,7 @@ $form->prepare();
         <?php $this->QgCKEditor(
             'columnBlock2',
                 array(
-                	'BasePath' => $this->adminAssetPath('js/lib/ckeditor'),
+                	'BasePath' => $this->libAssetPath('js/ckeditor'),
                 	'Width' => "50%",
                     'Height' => "100",
                     'filebrowserBrowseUrl' => '/elfinder', // eg. 'includes/elFinder/elfinder.html'
@@ -245,7 +270,7 @@ $form->prepare();
         <?php $this->QgCKEditor(
             'columnBlock3',
                 array(
-                	'BasePath' => $this->adminAssetPath('js/lib/ckeditor'),
+                	'BasePath' => $this->libAssetPath('js/ckeditor'),
                 	'Width' => "50%",
                     'Height' => "100",
                     'filebrowserBrowseUrl' => '/elfinder', // eg. 'includes/elFinder/elfinder.html'
@@ -315,7 +340,7 @@ $form->prepare();
     <?php $this->QgCKEditor(
         'welcomeBlock',
             array(
-            	'BasePath' => $this->adminAssetPath('js/lib/ckeditor'),
+            	'BasePath' => $this->libAssetPath('js/ckeditor'),
             	'Width' => "100%",
                 'Height' => "340",
                 'filebrowserBrowseUrl' => '/elfinder', // eg. 'includes/elFinder/elfinder.html'
@@ -346,7 +371,7 @@ $form->prepare();
     <?php $this->QgCKEditor(
         'termsBlock',
             array(
-            	'BasePath' => $this->adminAssetPath('js/lib/ckeditor'),
+            	'BasePath' => $this->libAssetPath('js/ckeditor'),
             	'Width' => "100%",
                 'Height' => "340",
                 'filebrowserBrowseUrl' => '/elfinder', // eg. 'includes/elFinder/elfinder.html'
@@ -372,7 +397,7 @@ $form->prepare();
     <?php $this->QgCKEditor(
         'conditionsBlock',
             array(
-                'BasePath' => $this->adminAssetPath('js/lib/ckeditor'),
+                'BasePath' => $this->libAssetPath('js/ckeditor'),
                 'Width' => "100%",
                 'Height' => "340",
                 'filebrowserBrowseUrl' => '/elfinder', // eg. 'includes/elFinder/elfinder.html'

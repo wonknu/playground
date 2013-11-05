@@ -39,17 +39,17 @@
 																		<table width="450" cellpadding="0" cellspacing="0" border="0">
 																			<tr height="32">
 																				<td height="32" width="450" style="font-size:18px;">
-																					<font face="Arial" color="#FFFFFF" style="background-color:#8DC63F;padding-left:5px;padding-top:5px;padding-bottom:5px;padding-right:5px;">Bonjour <?php echo $this->userFirstName ?>,</font>
+																					<font face="Arial" color="#FFFFFF" style="background-color:#8DC63F;padding-left:5px;padding-top:5px;padding-bottom:5px;padding-right:5px;"><?php echo $this->translate('Good morning'); ?> <?php echo $this->userFirstName ?>,</font>
 																				</td>
 																			</tr>
 																			<tr height="96">
 																				<td height="96" width="450" style="font-size:14px;">
-																					<font face="Arial" color="#565656">Vous vous &ecirc;tes inscrit(e) à <b>Playground</b> et nous vous en remercions.<br/><br/>Finaliser d&egrave;s &agrave; pr&eacute;sent votre inscription et tenter de gagner plein de cadeaux!</font>
+																					<font face="Arial" color="#565656"><?php echo $this->translate('You registered to <b> Playground </ b> and we thank you'); ?>.<br/><br/><?php echo $this->translate('Finalize your registration now and try to win a lot of gifts!'); ?></font>
 																				</td>
 																			</tr>
 																			<tr height="77">
 																				<td height="77" width="450" style="font-size:22px;" align="center">
-																					<a href="<?php echo $this->serverUrl($this->url('frontend/zfcuser/verification',array('channel' => $this->channel)).'?token=' .$this->record->getRequestKey()); ?>" style="text-decoration:none;"><font face="Arial" color="#FFFFFF" style="background-color:#F0AB25;padding-left:15px;padding-top:10px;padding-bottom:10px;padding-right:15px;"><b>	&gt; Valider l'inscription</b></font></a>
+																					<a href="<?php echo $this->serverUrl($this->url('frontend/zfcuser/verification',array('channel' => $this->channel)).'?token=' .$this->record->getRequestKey()); ?>" style="text-decoration:none;"><font face="Arial" color="#FFFFFF" style="background-color:#F0AB25;padding-left:15px;padding-top:10px;padding-bottom:10px;padding-right:15px;"><b>	&gt; <?php echo $this->translate('Validate registration'); ?></b></font></a>
 																				</td>
 																			</tr>
 																			<tr height="21">
@@ -59,7 +59,7 @@
 																			</tr>
 																			<tr height="70">
 																				<td height="70" width="450" style="font-size:12px;background-color:#f3f3f3;padding-left:20px;padding-top:10px;padding-bottom:10px;padding-right:20px;" align="center">
-																					<font face="Arial" color="#272727">Si ce lien ne s'affiche pas correctement, <br/>copiez-collez cette URL dans votre navigateur :<br/><?php echo $this->serverUrl($this->url('frontend/zfcuser/verification',array('channel' => $this->channel)).'?token=' .$this->record->getRequestKey()); ?></font>
+																					<font face="Arial" color="#272727"><?php echo $this->translate('If this link does not display correctly, <br/> copy and paste this URL into your browser');?> :<br/><?php echo $this->serverUrl($this->url('frontend/zfcuser/verification',array('channel' => $this->channel)).'?token=' .$this->record->getRequestKey()); ?></font>
 																				</td>
 																			</tr>
 																			<tr height="62">
@@ -69,7 +69,7 @@
 																			</tr>
 																			<tr height="70">
 																				<td height="70" width="450" style="font-size:14px;" align="center">
-																					<font face="Arial" color="#565656"><b>Merci et &agrave; tr&egrave;s vite sur Playground !</b><br/>L&apos;&eacute;quipe Playground</font>
+																					<font face="Arial" color="#565656"><b><?php echo $this->translate('Thank you and see you soon on Playground!'); ?></b><br/><?php echo $this->translate('Playground team'); ?></font>
 																				</td>
 																			</tr>
 																			<tr height="20">
@@ -89,7 +89,7 @@
 																											<img border="0" src="<?php echo $this->url('frontend', array('channel' => $this->channel), array('force_canonical' => true)). 'images/content/email/email9.jpg';?>" alt="" height="38" width="34"/>
 																										</td>
 																										<td height="38" width="174" style="font-size:14px">
-																											<a href="http://facebook.com/playground/" style="color:#3B5A99;"><font face="Arial" color="#3B5A99">Suivez-nous sur Facebook</font></a>
+																											<a href="http://facebook.com/playground/" style="color:#3B5A99;"><font face="Arial" color="#3B5A99"><?php echo $this->translate('Follow us on Facebook'); ?></font></a>
 																										</td>
 																									</tr>
 																								</table>

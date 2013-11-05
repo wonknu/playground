@@ -10,6 +10,7 @@ $form->prepare();
 
 <?php echo $this->form()->openTag($form) ?>
 <?php echo $this->formButton($form->get('submit')->setLabel($this->translate('Validate'))); ?>
+<div id="dz-root"></div>
 <div id="content" class="tabbable tabs-left">
     <ul id="tabs" class="nav nav-tabs" data-tabs="tabs">
         <li class="active"><a href="#general" data-toggle="tab"><?php echo $this->translate('General'); ?></a></li>
@@ -41,7 +42,7 @@ $form->prepare();
             <?php $this->QgCKEditor(
                 'question',
                     array(
-                    	'BasePath' => $this->basePath('js/lib/ckeditor'),
+                    	'BasePath' => $this->basePath('zfcadmin/js/lib/ckeditor'),
                     	'Width' => "450",
                         'Height' => "100",
                         //'Color' => "#000",
@@ -62,7 +63,7 @@ $form->prepare();
                 <?php $this->QgCKEditor(
                     'hint',
                         array(
-                        	'BasePath' => $this->basePath('js/lib/ckeditor'),
+                        	'BasePath' => $this->basePath('zfcadmin/js/lib/ckeditor'),
                         	'Width' => "450",
                             'Height' => "100",
                             //'Color' => "#000",
@@ -99,6 +100,16 @@ $form->prepare();
             <?php if($form->get('image')->getValue() != ''):?>
             	<img src="<?php echo $this->basePath($form->get('image')->getValue()); ?>" />
             <?php endif;?>
+            
+            <div class="control-group">
+                <label class="control-label" for="search_sound">Audio</label>
+                <div class="controls">
+                    <input id="search_sound" name="search_sound" type="text" placeholder="Search music on Deezer">
+                </div>
+            </div>
+            
+             <?php echo $this->formHidden($form->get('audio')); ?>
+             <?php echo $this->formHidden($form->get('autoplay')); ?>
 
         </div>
         <div class="tab-pane" id="answers">
@@ -140,10 +151,10 @@ $form->prepare();
     }
 
 
-    $('#answer_entry button').live('click',function(){
+    /*$('#answer_entry button').live('click',function(){
     	$(this).parent().parent().empty();
     	return false;
-    });
+    });*/
 
 
 

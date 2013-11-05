@@ -5,21 +5,18 @@
         <title>HTML5 area picker</title>
         <meta name="description" content="HTML5 area picker" />
         
-        <!-- CSSs -->
-        <?php echo $this->headLink()->prependStylesheet($this->basePath() . '/css/areapicker/style.min.css?v=1.0') ?>
-        
-        <?php echo $this->headScript()->prependFile($this->basePath() . '/js/areapicker/app.js')
-        							  ->prependFile($this->basePath() . '/js/areapicker/config.js')
-                                      ->prependFile($this->basePath() . '/js/areapicker/selection.js')
-                                      ->prependFile($this->basePath() . '/js/jquery.min.js')
-        							  ->prependFile($this->basePath() . '/js/lib/easyxdm/easyxdm.min.js') ?>
+<?php
+	echo $this->plugin('HeadLink');
+    echo $this->plugin('HeadStyle');
+    echo $this->plugin('HeadScript');
+?>
                                       
     </head>
     <body>
         
         <section id="menu-wrapper">
-            <a href="#" id="prev-step" class="btn btn-default" title="Selected an area">&lt; PREV</a>
-            <a href="#" id="next-step" class="btn btn-default" title="Selected an area">NEXT &gt;</a>
+            <a href="#" id="prev-step" class="btn" title="Selected an area">&lt; PREV</a>
+            <a href="#" id="next-step" class="btn" title="Selected an area">NEXT &gt;</a>
         </section>
         
         <section id="iframe-wrapper">
@@ -33,9 +30,9 @@
                 
                 <div id="tip1">
                     <label>Cross domain file url into your domain</label>
-                    <input type="text" name="iframe-xdm" id="iframe-xdm" value="http://senseo.local/cors.html" placeholder="http://" />
+                    <input type="text" name="iframe-xdm" id="iframe-xdm" value="http://pmagento.local/cors.html" placeholder="http://" />
                     <label>Domain url</label>
-                    <input type="text" name="iframe-url" value="http://senseo.local/" id="iframe-url" placeholder="http://" />
+                    <input type="text" name="iframe-url" value="http://pmagento.local/" id="iframe-url" placeholder="http://" />
                 </div>
                 
                 <div id="tip2">

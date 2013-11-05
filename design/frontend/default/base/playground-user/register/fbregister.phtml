@@ -2,12 +2,12 @@
 
 <div>
 	<?php echo $this->header();?>
-	<p id="cta">Jouez !</p>
+	<p id="cta"><?php echo $this->translate('Play');?> !</p>
 	<div id="fb-play">
-		<p class="btn btn-success"><a href="<?php echo $this->url('frontend/instantwin',array('id' => 'tour-de-france', 'channel' => $this->channel)) ?>">Jouez</a></p>
+		<p class="btn btn-success"><a href="<?php echo $this->url('frontend/instantwin',array('id' => 'tour-de-france', 'channel' => $this->channel)) ?>"><?php echo $this->translate('Play');?></a></p>
 	</div>
 	<div id="alert-auth">
 		<div id="close-button"></div>
-		<p>Vous devez accepter l'application pour jouer</p>
+		<p><?php echo $this->translate('You must accept the application to play');?></p>
 	</div>
 </div>

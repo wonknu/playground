@@ -35,7 +35,7 @@ $(function(){
     
     /**************************** Colonne droite */
 	/**** Leaderboard */
-	$('.ranking ul .general').hide();
+	/*$('.ranking ul .general').hide();
 	$('.ranking .general').click(function(e){
 	    e.preventDefault();
 		$(this).addClass('active');
@@ -51,7 +51,7 @@ $(function(){
 		$('.ranking ul .general').hide();
 		$('.ranking ul .week').show();
 		return false;
-	});
+	});*/
 	
 	
     /**************************** Page Gagnant */
@@ -118,5 +118,11 @@ $(function(){
             PIE.attach(this);
         });
     };*/
-	
+	var currentYear = new Date().getFullYear();
+	$('input[type="datetime"]').datepicker({
+		changeMonth: true,
+		changeYear: true,
+		//minDate: new Date(1900, 1 - 1, 1)
+		yearRange: (currentYear - 100) + ':' + currentYear
+    });
 });

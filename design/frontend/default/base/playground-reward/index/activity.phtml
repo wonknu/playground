@@ -1,0 +1,70 @@
+<<<<<<< HEAD
+<?php $this->plugin('translate')->setTranslatorTextDomain('playgroundreward');// Pour le texte ?>
+=======
+<?php $this->plugin('translate')->setTranslatorTextDomain('playgrounddesign');// Pour le texte ?>
+>>>>>>> PLAYGROUND-346: Trad thème base (répertoire application)
+
+
+<!-- USER ACTIVITY -->
+<div id="user-activity" class="row-fluid">
+				
+	<div class="row-fluid">
+<<<<<<< HEAD
+		<h1 class="span5"><?php echo $this->translate('My activity'); ?></h1>
+=======
+		<h1 class="span5"><?php echo $this->translate('My activity'); ?>11</h1>
+>>>>>>> PLAYGROUND-346: Trad thème base (répertoire application)
+		<div class="filter span7">
+			<div class="row-fluid">
+				<p class="span7"><b><?php echo $this->translate('Filter history by type of action'); ?> :</b></p>
+				<div class="span5">
+					<select name="filter-activity" id="filter-activity" class="select">
+						<option value=""><?php echo $this->translate('Select'); ?></option>
+						<option value="<?php echo $this->url('frontend/activity', array('channel' => $this->channel)) ?>"><?php echo $this->translate('Overall picture'); ?></option>
+						<?php foreach ($filters  as $filter) : ?>
+							<option value="<?php echo $this->url('frontend/activity', array('channel' => $this->channel)).'/'.$filter->getCode()?>"><?php echo $this->translate($filter->getLabel()); ?></option>
+						<?php endforeach; ?>
+					</select>
+				</div>
+			</div>
+		</div>
+	</div>
+	
+	<?php $i=0; foreach($this->stories as $story): ?>
+	<div id="list-activity" class="row-fluid orange-dot-top">
+		<div class="span10">
+			<!-- @todo : avoir des templates par type de telling -->
+			<?php //echo $story['openGraphMapping']; ?>
+			A <?php echo $story['created_at']->format('d-m-Y H:i:s') ?>, <?php echo $this->translate($story['label']); ?>
+				<?php 
+				foreach ($story['object'] as $type => $values) :
+					echo $type."<br />";
+					if(is_array($values)) {
+					foreach ($values as $key => $value) :
+						if(is_array($value)) {
+							foreach ($value as $k => $v) {
+								echo $k.":".$v."<br />";
+							}
+						} else {
+							echo $key.":".$value."<br />";	
+						}
+						
+					endforeach;
+					} else {
+						echo $value;
+					}
+
+					echo "<br/>";
+				endforeach;
+				?>
+		
+			<?php echo $story['points']?> points 
+
+		</div>
+	</div>
+	<?php  $i++; endforeach;?>
+</div>
+<?php if($i < $this->total): ?>
+	<div id="more-activity" class="row-fluid more"><a href="<?php echo $this->url('frontend/activity', array('channel' => $this->channel)). '/' . $this->filter ;?>" data-count="2" data-total="<?php echo $total; ?>">+ <?php echo $this->translate('More news'); ?></a></div>
+<?php endif; ?>
+<!-- END USER ACTIVITY -->

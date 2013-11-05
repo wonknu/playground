@@ -65,19 +65,26 @@
   }
   .navbar-nav {
     &.right{
+      padding: 5px 0;
+      margin: 0 0 -5px 0;
       position: absolute;
 	  bottom: 0;
 	  right: 0;
+	  background-color: #202020;
       
       li{
       
       	&:first-child{
-      		display:none;
+      		margin:0 10px 0 10px;
+      		a{
+      			padding:0;
+      		}
       	}
       	a{
-	      	font-family: @futura-medium;
-			font-size:12px;
+	      	font-family: @futura;
+			font-size:13px;
 			line-height:20px;
+			padding:4px 20px;
 			
       		&:hover{
       		background:none;
@@ -86,6 +93,20 @@
       		
       		.badge{
       			display:none;
+      		}
+      		
+      		.caret{
+      			border-top-color: #d95f49;
+				border-bottom-color: #d95f49;
+				border-width: 9px 6px 0;
+				border-bottom-width: 0;
+      		}
+      		
+      		&:hover,a:focus{
+      			.caret{
+      			border-top-color: #d95f49;
+				border-bottom-color: #d95f49;
+      			}
       		}
       	}
       	&.user-info.points{
@@ -102,9 +123,10 @@
       }
     }
     > li{
-    margin:0 0 0 10px;
+    font-size: 13px;
+    margin:0 10px 0 0;
     
-    &:first-child{
+    &:last-child{
     	margin:0;
     }
       line-height: 35px;
@@ -113,7 +135,7 @@
         padding-top: 0;
         padding-bottom: 0;
         line-height: 35px;
-        font-family: @futura-medium;
+        font-family: @futura;
         
         &:hover{
 	        background-color: @pg-orange;
@@ -136,8 +158,8 @@
     }
     .dropdown-menu{
       width: 188px;
-      margin: 4px 0 0 0;
-      left:-145px;
+      margin: 8px 0 0 0;
+      left:-78px;
       border: none;
 	  background-color: #242424;
 	  border-radius: 0;
@@ -151,7 +173,7 @@
       	color:@pg-white;
         padding:3px 15px 3px 15px;
         text-align: right;
-        font-family: @futura-medium;
+        font-family: @futura;
         font-size:12px;
         line-height:31px;
         
@@ -231,7 +253,7 @@
   }
   .account-options{
     .dropdown-toggle{
-      .sprite-it(24px, 100%, 0, 5px);
+      //.sprite-it(24px, 100%, 0, 5px);
       padding-left: 30px;
     }
   }

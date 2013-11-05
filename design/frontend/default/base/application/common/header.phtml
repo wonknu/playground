@@ -1,3 +1,5 @@
+<?php $this->plugin('translate')->setTranslatorTextDomain('playgrounddesign');// Pour le texte ?>
+
 <?php $badges =  $this->userBadges();?>
 
 <?php $baseUrl = $this->url('frontend', array('channel' => $this->channel), array('force_canonical' => true)); ?>
@@ -29,8 +31,8 @@
                     <img src="<?php echo $this->frontendAssetPath('images/common/logo-white.png')?>" alt="logo" />
                 </a>
             </div>
-            <div class="col-md-5 hook-title" >La première plateforme de jeux open source !</div>
-            <?php if(!$this->zfcUserIdentity()): ?>
+            <div class="col-md-5 hook-title" ><?php echo $this->translate('The first open source platform games!'); ?></div>
+        <?php if(!$this->zfcUserIdentity()): ?>
             <?php echo $this->userLoginWidget(array('redirect' => $this->url('frontend', array('channel' => $this->channel)),'enableRegistration' => true)); ?>
         <?php else: ?>
 		<div class="barnav row">
@@ -39,11 +41,11 @@
 	                <ul class="nav navbar-nav">
 	                    <li class="active up">
 	                        <a href="<?php echo $this->url('frontend/jeuxconcours', array('channel' => $this->channel)) ?>"
-	                            <?php if($this->pageGames != ''): echo ' class="'.$this->pageGames.'"'; endif; ?>>Jeux concours</a>
+	                            <?php if($this->pageGames != ''): echo ' class="'.$this->pageGames.'"'; endif; ?>><?php echo $this->translate('Contests'); ?></a>
 	                    </li>
 	                    <li class="up">
 	                        <a href="<?php echo $this->url('frontend/winner', array('channel' => $this->channel)) ?>"
-	                            <?php if($this->pageWinners != ''): echo ' class="'.$this->pageWinners.'"'; endif; ?>>Les gagnants</a>
+	                            <?php if($this->pageWinners != ''): echo ' class="'.$this->pageWinners.'"'; endif; ?>><?php echo $this->translate('Winners'); ?></a>
 	                    </li>
 	                </ul>
 	                <ul class="nav navbar-nav right">
@@ -63,43 +65,43 @@
 	                    </li>
 	                    <li class="dropdown account-options">
 	                        <a href="#" class="dropdown-toggle" data-toggle="dropdown">
-	                            <b class="caret"></b>
+	                             <?php echo $this->translate('My account'); ?><b class="caret"></b>
 	                        </a>                   
 	                        <ul class="dropdown-menu">
 	                            <li id="first-item">
 	                                <a href="<?php echo $this->url('frontend/badges', array('channel' => $this->channel));?>" class="badges-points">
 	                                    <span class="sprite-icon"></span>
-	                                    Mes badges et mes points
+	                                    <?php echo $this->translate('Badges and points'); ?>
 	                                </a>
 	                            </li>
 	                            <li>
 	                                <a href="<?php echo $this->url('frontend/activity', array('channel' => $this->channel));?>" class="activity">
 	                                    <span class="sprite-icon"></span>
-	                                    Mon activité
+	                                    <?php echo $this->translate('My activity'); ?>
 	                                </a>
 	                            </li>
 	                            <li>
 	                                <a href="<?php echo $this->url('frontend/zfcuser/profile', array('channel' => $this->channel));?>" class="profile">
 	                                    <span class="sprite-icon"></span>
-	                                    Modifier mes informations
+	                                    <?php echo $this->translate('Change my informations'); ?>
 	                                </a>
 	                            </li>
 	                            <li>
 	                                <a href="<?php echo $this->url('frontend/zfcuser/newsletter', array('channel' => $this->channel));?>" class="newsletter">
 	                                    <span class="sprite-icon"></span>
-	                                    Gérer mes newletters
+	                                    <?php echo $this->translate('Manage my newletters'); ?>
 	                                </a>
 	                            </li>
 	                            <li>
 	                                <a href="<?php echo $this->url('frontend/sponsorfriends', array('channel' => $this->channel)); ?>" class="sponsorfriends">
 	                                    <span class="sprite-icon"></span>
-	                                    Parrainer mes amis
+	                                    <?php echo $this->translate('Sponsor my friends'); ?>
 	                                </a>
 	                            </li>
 	                            <li id="last-item">
 	                                <a href="<?php echo $this->url('frontend/zfcuser/logout', array('channel' => $this->channel)) ?>" class="logout">
 	                                    <span class="sprite-icon"></span>
-	                                    Déconnexion
+	                                    <?php echo $this->translate('Logout'); ?>
 	                                </a>
 	                            </li>
 	                        </ul>
@@ -107,43 +109,30 @@
 	                    <li class="dropdown">
 	                        <a href="#" class="dropdown-toggle" data-toggle="dropdown">
 	                        <!-- <a href="<?php echo $this->url('frontend/badges', array('channel' => $this->channel)) ?>" class="dropdown-toggle" data-toggle="dropdown"> -->
-	                            Vos badges <span class="badge"><?php echo count($badges);?></span>
+	                            <?php echo $this->translate('Badges'); ?> <span class="badge"><?php echo count($badges);?></span>
 	                            <b class="caret"></b>
 	                        </a>
 	                        <!-- menu slide badge -->
 	                        <ul class="dropdown-menu">
-	                            <?php $i=0;foreach($badges as $badge):?>
-	                                <?php if($i>3) break;?>
-	                                <?php
-	                                $badgeColor = '';
-	                                if($badge['level']>=3){
-	                                    $badgeColor = "gold-";
-	                                }elseif($badge['level']==2){
-	                                    $badgeColor = "silver-";
-	                                }elseif($badge['level']==1){
-	                                    $badgeColor = "bronze-";
-	                                }
-	                                ?>
-	                                <li class="slot-badge">
-	                                    <img src="<?php echo $this->frontendAssetPath('images/badges/'. strtolower($badgeColor) . $badge['category'] . '.png')?>" alt="badge <?php echo $badge['label'];?>" width="33" height="34" />
-	                                </li>
-	                            <?php $i++;endforeach;?>
-	                            <?php if($i==0): ?>
-	                            <li class="slot-badge">
-	                                <img src="<?php echo $this-> frontendAssetPath('images/badges/default.png')?>" alt="badge default" width="33" height="34" />
-	                            </li>
-	                            <?php for($i;$i<=2;$i++):?>
-	                                <li class="slot-badge"></li>
-	                            <?php endfor;?>
-	                            <?php else: ?>
-	                                <?php for($i;$i<=3;$i++):?>
-	                                    <li class="slot-badge"></li>
-	                                <?php endfor;?>
-	                            <?php endif; ?>
-	                            <li>
-	                                <a href="<?php echo $this->url('frontend/badges', array('channel' => $this->channel)) ?>">Tous les badges</a>
-	                            </li>
-	                        </ul>
+                                <div id="container-badge">
+                                    <?php $i=0;foreach($badges as $badge): ?>
+                                        <?php if($badge['reward']): ?>
+                                            <?php if($badge['reward']->getHide() == false) : ?>
+                                                <?php if($i<4): ?>                                        
+                                                    <li <?php if ($i===0):?>id="first-item"<?php elseif($i===3):?>id="last-item"<?php endif;?>>
+                                                        <?php if($badge['reward']->getImage()): ?>
+                                                            <img src="/<?php echo $badge['reward']->getImage();?>" alt="/<?php echo $badge['reward']->getImage(); ?>" width="33" height="34"  />
+                                                        <?php else: ?>
+                                                            <img  src="<?php echo $this->frontendAssetPath('images/badges/big-default.png')?>" alt="" width="33" height="34" />
+                                                        <?php endif; ?>
+                                                    </li>
+                                                <?php endif; $i++; ?>
+                                            <?php endif; ?>
+                                        <?php endif; ?>
+                                    <?php endforeach;?>
+                                </div>
+                                <p><a href="<?php echo $this->url('frontend/badges', array('channel' => $this->channel)) ?>">Tous les badges</a></p>
+                            </ul>
 	                    </li>
 	                    <li class="user-info points">
 	                        <a href="<?php echo $this->url('frontend/badges', array('channel' => $this->channel)) ?>#title-point">

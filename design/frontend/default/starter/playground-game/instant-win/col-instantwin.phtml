@@ -9,7 +9,7 @@
 		<?php endif; ?>
 		<!-- END COLUMNBLOCK1 -->
 		<!-- ADSERVING SIDEBAR -->
-		<?php echo $this->partial('application/index/partial/col-adserving.phtml', array('cat2' => 'game', 'cat3' => '&EASTgameid='.$this->game->getId(), 'channel' => $this->channel)); ?>
+		<?php echo //$this->partial('application/index/partial/col-adserving.phtml', array('cat2' => 'game', 'cat3' => '&EASTgameid='.$this->game->getId(), 'channel' => $this->channel)); ?>
 		<!-- END ADSERVING SIDEBAR -->
 		<!-- COLUMNBLOCK2 (if not null) -->
 		<?php if($this->game->getColumnBlock2() != ''):?>
@@ -27,7 +27,7 @@
     	<?php endif; ?>
 		<div id="sidebar-game" class="sd-block">
 			<p>
-			    <?php echo $this->translate('Comment participer ?'); ?>
+			    <?php echo $this->translate('How to participate ?'); ?>
 			</p>
 			<div id="reply" class="row">
 				<div class="col-md-2">
@@ -35,7 +35,7 @@
 				</div>
 				<div class="col-md-10">
 					<p>
-					    Cliquez sur participer
+					    <?php echo $this->translate('Click to participate'); ?>
 					</p>
 				</div>
 			</div>
@@ -44,7 +44,7 @@
 					<img src="<?php echo $this->frontendAssetPath('images/common/btn-scratch.png') ?>" alt="" />
 				</div>
 				<div class="col-md-10">
-					<p>Grattez et découvrez immédiatement si vous avez gagné !</p>
+					<p><?php echo $this->translate('Scratch and discover immediately if you won !'); ?></p>
 				</div>
 			</div>
 			<div id="ecusson" class="row">
@@ -52,7 +52,7 @@
 					<img src="<?php echo $this->frontendAssetPath('images/common/btn-ecusson.png') ?>" alt="" />
 				</div>
 				<div class="col-md-10">
-					<p>Invitez vos amis pour gagner des points Playground </p>
+					<p><?php echo $this->translate('Invite your friends to earn points Playground'); ?> </p>
 				</div>
 			</div>
 		</div>

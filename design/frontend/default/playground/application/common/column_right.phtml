@@ -1,6 +1,5 @@
 <?php $achievements    = $this->activityWidget();?>
 <?php $leaderboard     = $this->leaderboardWidget();?>
-<?php $leaderboardWeek = $this->leaderboardWidget('','week');?>
 <?php $baseUrl         = $this->url('frontend', array('channel' => $this->channel), array('force_canonical' => true)); ?>
 
 <div class="sidebar col-md-4">
@@ -135,8 +134,7 @@
     	</h5>
     	<div class="sb-content">
         	<div class="btn-group btn-group-justified">
-        		<a href="#" class="btn btn-gray-dark up week active">Cette semaine</a>
-        		<a href="#" class="btn btn-gray-dark up general">Général</a>
+        		<a href="#" class="btn btn-gray-dark up general active">Général</a>
         	</div>
         	<ul class="list">
         	    <?php $i=1;foreach($leaderboard as $entry):?>
@@ -144,7 +142,7 @@
     				    <div class="rank"><?php echo $i ?></div>
     					<div class="avatar">
     						<?php if($entry['avatar']): ?>
-    							<img src="<?php echo $this->basePath($entry['avatar'])?>" alt="<?php echo $entry['firstname']; ?> <?php echo $entry['lastname']; ?>" />
+    							<img src="<?php echo $this->basePath($entry['avatar'])?>" alt="<?php echo $entry['firstname']; ?> <?php echo $entry['lastname']; ?>"  width="33" height="33" border="0" />
     						<?php elseif($entry['title'] && $entry['title'] == 'M') : ?>
     							<img src="<?php echo $this->frontendAssetPath('images/user/no-avatar-small-h.png'); ?>" alt="<?php echo $entry['firstname']; ?> <?php echo $entry['lastname']; ?>" width="33" height="33" border="0" />
     						<?php else : ?>
@@ -161,31 +159,6 @@
     	    				?>
     	    			</div>
     	    			<div class="points">(<?php echo number_format($entry['points'], 0, ',', ' ' ); ?> points)</div>
-    				</li>
-    			<?php $i++;endforeach;?>
-    
-    			<?php $i=1;foreach($leaderboardWeek as $entry):?>
-    				<li class="row week rank<?php echo $i?>">
-                        <div class="rank"><?php echo $i ?></div>
-    					<div class="avatar">
-    						<?php if($entry['avatar']): ?>
-    							<img src="<?php echo $this->basePath($entry['avatar'])?>" width="33" height="33" border="0" alt="<?php echo $entry['firstname']; ?> <?php echo $entry['lastname']; ?>" />
-    						<?php elseif($entry['title'] && $entry['title'] == 'M') : ?>
-    							<img src="<?php echo $this->frontendAssetPath('images/user/no-avatar-small-h.png'); ?>" alt="<?php echo $entry['firstname']; ?> <?php echo $entry['lastname']; ?>" width="33" height="33" border="0" />
-    						<?php else : ?>
-    							<img src="<?php echo $this->frontendAssetPath('images/user/no-avatar-small-f.png'); ?>" alt="<?php echo $entry['firstname']; ?> <?php echo $entry['lastname']; ?>" width="33" height="33" border="0" />
-    						<?php endif; ?>
-    					</div>
-    	    			<div class="name">
-    	    				<?php
-    	    				if($entry['username']):
-    	    					echo $entry['username'];
-    						else :
-    							echo $entry['firstname'].' '.substr($entry['lastname'], 0, 1).'.';
-    						endif;
-    	    				?>
-    	    			</div>
-    	    			<div class="points">(<?php echo number_format($entry['points'], 0, ',', ' ' );?> points)</div>
     				</li>
     			<?php $i++;endforeach;?>
     
@@ -304,7 +277,9 @@
         		<?php if($i>=2):?>
         				<li <?php if($i&1) : echo 'class="right"'; endif; ?>>
         					<a href="<?php echo $item->getLink(); ?>" target="_blank">
-        						<img src="<?php echo $item->getEnclosure()->url; ?>" height="63" border="0" alt="actualité : <?php echo $item->getTitle(); ?>" />
+                                <?php if($item->getEnclosure()) : ?>
+        					       <img src="<?php echo $item->getEnclosure()->url; ?>" height="63" border="0" alt="actualité : <?php echo $item->getTitle(); ?>" />
+                                <?php endif; ?>
         						<div class="content-news"><?php echo $item->getTitle(); ?></div>
         					</a>
         				</li>

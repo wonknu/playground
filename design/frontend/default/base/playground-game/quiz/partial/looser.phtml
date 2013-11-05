@@ -9,8 +9,8 @@
 			<p class="already-play"><?php echo $this->flashMessages[0];?></p>
 	    <?php endif;?>
         <p id="valid-text">
-            <?php echo $this->userCorrectAnswers ?>/<?php echo $this->maxCorrectAnswers?> bonnes réponses. <br/>
-            Merci d'avoir joué, malheureusement vous n'avez pas les bonnes réponses...<br/>
+            <?php echo $this->userCorrectAnswers ?>/<?php echo $this->maxCorrectAnswers?> <?php echo $this->translate('good answers'); ?>. <br/>
+            <?php echo $this->translate('Thank you for playing, unfortunately you do not have the right answers'); ?>...<br/>
 	    </p>
 	</div>
 </div>
