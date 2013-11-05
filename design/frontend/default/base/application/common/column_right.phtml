@@ -145,7 +145,7 @@
     				    <div class="rank"><?php echo $i ?></div>
     					<div class="avatar">
     						<?php if($entry['avatar']): ?>
-    							<img src="<?php echo $this->basePath($entry['avatar'])?>" alt="<?php echo $entry['firstname']; ?> <?php echo $entry['lastname']; ?>"  width="33" height="33" />
+    							<img src="<?php echo $this->basePath($entry['avatar'])?>" alt="<?php echo $entry['firstname']; ?> <?php echo $entry['lastname']; ?>"  width="33" height="33" border="0" />
     						<?php elseif($entry['title'] && $entry['title'] == 'M') : ?>
     							<img src="<?php echo $this->frontendAssetPath('images/user/no-avatar-small-h.png'); ?>" alt="<?php echo $entry['firstname']; ?> <?php echo $entry['lastname']; ?>" width="33" height="33" border="0" />
     						<?php else : ?>
@@ -198,7 +198,6 @@
 							</sup> position
 						</div>
     				</li>
-    				<?php $rank =  $this->rankWidget($this->zfcUserIdentity()->getId(), 'week');?>
     			<?php endif; ?>
         	</ul>
     	</div>
