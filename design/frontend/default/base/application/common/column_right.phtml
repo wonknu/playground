@@ -2,7 +2,6 @@
 
 <?php $achievements    = $this->activityWidget();?>
 <?php $leaderboard     = $this->leaderboardWidget();?>
-<?php $leaderboardWeek = $this->leaderboardWidget('','week');?>
 <?php $baseUrl         = $this->url('frontend', array('channel' => $this->channel), array('force_canonical' => true)); ?>
 
 <div class="sidebar col-md-4">
@@ -137,8 +136,8 @@
     	</h5>
     	<div class="sb-content">
         	<div class="btn-group btn-group-justified">
-        		<a href="#" class="btn btn-default up week active"><?php echo $this->translate('This week'); ?></a>
-        		<a href="#" class="btn btn-default up general"><?php echo $this->translate('General'); ?></a>
+        		<!--<a href="#" class="btn btn-default up week active"><?php // echo $this->translate('This week'); ?></a> -->
+        		<a href="#" class="btn btn-default up general active"><?php echo $this->translate('General'); ?></a>
         	</div>
         	<ul class="list">
         	    <?php $i=1;foreach($leaderboard as $entry):?>
@@ -146,7 +145,7 @@
     				    <div class="rank"><?php echo $i ?></div>
     					<div class="avatar">
     						<?php if($entry['avatar']): ?>
-    							<img src="<?php echo $this->basePath($entry['avatar'])?>" alt="<?php echo $entry['firstname']; ?> <?php echo $entry['lastname']; ?>" />
+    							<img src="<?php echo $this->basePath($entry['avatar'])?>" alt="<?php echo $entry['firstname']; ?> <?php echo $entry['lastname']; ?>"  width="33" height="33" border="0" />
     						<?php elseif($entry['title'] && $entry['title'] == 'M') : ?>
     							<img src="<?php echo $this->frontendAssetPath('images/user/no-avatar-small-h.png'); ?>" alt="<?php echo $entry['firstname']; ?> <?php echo $entry['lastname']; ?>" width="33" height="33" border="0" />
     						<?php else : ?>
@@ -163,31 +162,6 @@
     	    				?>
     	    			</div>
     	    			<div class="points">(<?php echo number_format($entry['points'], 0, ',', ' ' ); ?> points)</div>
-    				</li>
-    			<?php $i++;endforeach;?>
-
-    			<?php $i=1;foreach($leaderboardWeek as $entry):?>
-    				<li class="row week rank<?php echo $i?>">
-                        <div class="rank"><?php echo $i ?></div>
-    					<div class="avatar">
-    						<?php if($entry['avatar']): ?>
-    							<img src="<?php echo $this->basePath($entry['avatar'])?>" width="33" height="33" border="0" alt="<?php echo $entry['firstname']; ?> <?php echo $entry['lastname']; ?>" />
-    						<?php elseif($entry['title'] && $entry['title'] == 'M') : ?>
-    							<img src="<?php echo $this->frontendAssetPath('images/user/no-avatar-small-h.png'); ?>" alt="<?php echo $entry['firstname']; ?> <?php echo $entry['lastname']; ?>" width="33" height="33" border="0" />
-    						<?php else : ?>
-    							<img src="<?php echo $this->frontendAssetPath('images/user/no-avatar-small-f.png'); ?>" alt="<?php echo $entry['firstname']; ?> <?php echo $entry['lastname']; ?>" width="33" height="33" border="0" />
-    						<?php endif; ?>
-    					</div>
-    	    			<div class="name">
-    	    				<?php
-    	    				if($entry['username']):
-    	    					echo $entry['username'];
-    						else :
-    							echo $entry['firstname'].' '.substr($entry['lastname'], 0, 1).'.';
-    						endif;
-    	    				?>
-    	    			</div>
-    	    			<div class="points">(<?php echo number_format($entry['points'], 0, ',', ' ' );?> points)</div>
     				</li>
     			<?php $i++;endforeach;?>
 
@@ -211,11 +185,11 @@
 							<?php echo $rank['rank']; ?>
 							<sup>
 							<?php
-								if($rank == 1){
+								if($rank['rank'] == 1){
 									echo $this->translate('first_place');
-								}elseif($rank == 2){
+								}elseif($rank['rank'] == 2){
 									echo $this->translate('second_place');
-								}elseif($rank == 2){
+								}elseif($rank['rank'] == 3){
 									echo $this->translate('third_place');
 								}else{
 									echo $this->translate('other_place');
@@ -223,24 +197,6 @@
 							?>
 							</sup> position
 						</div>
-    				</li>
-    				<?php $rank =  $this->rankWidget($this->zfcUserIdentity()->getId(), 'week');?>
-    	    		<li class="row week current">
-    	    			<ul class="position global">
-    	    				<li>1.
-    	    					<span class="pseudo">Admin</span>
-    	    					<span class="point number">2757</span>
-    	    				</li>
-    	    				<li>2.
-    	    					<span class="pseudo">Greg B</span>
-    	    					<span class="point number">550</span>
-    	    				</li>
-    	    				<li>3.
-    	    					<span class="pseudo">Greb B</span>
-    	    					<span class="point number">500</span>
-    	    				</li>
-    	    			</ul>
-    					<div class="position you">&gt; <span class="number ranking">12</span>. vous <span class="point number">150</span></div>
     				</li>
     			<?php endif; ?>
         	</ul>

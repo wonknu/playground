@@ -105,6 +105,7 @@ return array(
                 array('controller' => 'PlaygroundCore\Controller\Formgen',         'roles' => array('admin')),
                 array('controller' => 'PlaygroundDesign\Controller\Dashboard',     'roles' => array('admin')),
                 array('controller' => 'playgroundrewardadmin',                     'roles' => array('admin')),
+                array('controller' => 'playgroundleaderboardadmin',                'roles' => array('admin')),
                 array('controller' => 'playgroundcmsadmindynablock',               'roles' => array('admin')),
                 array('controller' => 'playgroundcmsadminblock',                   'roles' => array('admin')),
                 array('controller' => 'playgroundcmsadminpage',                    'roles' => array('admin')),

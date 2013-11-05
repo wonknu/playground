@@ -21,6 +21,11 @@ $form->prepare();
 	            <?php echo $this->formElementErrors($form->get('story')) ?>
 			</div>
 			<div class="label-input">
+	            <?php echo $this->formLabel($form->get('leaderboardType')); ?>
+	            <?php echo $this->formSelect($form->get('leaderboardType')); ?>
+	            <?php echo $this->formElementErrors($form->get('leaderboardType')) ?>
+			</div>
+			<div class="label-input">
 	            <?php echo $this->formLabel($form->get('points')); ?>
 	            <?php echo $this->formInput($form->get('points')); ?>
 	            <?php echo $this->formElementErrors($form->get('points')) ?>
