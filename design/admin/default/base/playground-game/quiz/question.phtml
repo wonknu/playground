@@ -100,14 +100,14 @@ $form->prepare();
             <?php if($form->get('image')->getValue() != ''):?>
             	<img src="<?php echo $this->basePath($form->get('image')->getValue()); ?>" />
             <?php endif;?>
-            
+
             <div class="control-group">
                 <label class="control-label" for="search_sound">Audio</label>
                 <div class="controls">
                     <input id="search_sound" name="search_sound" type="text" placeholder="Search music on Deezer">
                 </div>
             </div>
-            
+
              <?php echo $this->formHidden($form->get('audio')); ?>
              <?php echo $this->formHidden($form->get('autoplay')); ?>
 
@@ -138,14 +138,27 @@ $form->prepare();
 
     var template = $('#answer_entry > fieldset > span');
     var datatemplate = $('#answer_entry > fieldset > span').data('template');
+    var initialCount = $('#answer_entry textarea').length;
     template.data('template', '<fieldset id="answers__index__">'+datatemplate+'</fieldset>');
+
+    for(i=0;i<initialCount;i++){
+    	var answerName = 'answers['+i+'][answer]';
+        var explanationName = 'answers['+i+'][explanation]';
+    	CKEDITOR.replace(answerName, {"toolbar":[["Source","Maximize"],["Templates","Styles","Format"],["Bold","Italic","Underline","Subscript","Superscript"],["NumberedList","BulletedList","Outdent","Indent"],["JustifyLeft","JustifyCenter","JustifyRight"],["Link","Unlink"],["Image","Table"]],"width":"100%","height":"340","language":"fr","uiColor":"#F7F7F7","stylesSet":"custom_styles:\/lib\/js\/ckeditor-custom\/ckeditor-styles.js","contentsCss":["\/lib\/css\/ckeditor-custom\/ckeditor-css.css"],"templates_files":["\/lib\/js\/ckeditor-custom\/ckeditor-templates.js"],"filebrowserBrowseUrl":"\/elfinder\/ckeditor","filebrowserWindowWidth":"1000","filebrowserWindowHeight":"650"});
+    	CKEDITOR.replace(explanationName, {"toolbar":[["Source","Maximize"],["Templates","Styles","Format"],["Bold","Italic","Underline","Subscript","Superscript"],["NumberedList","BulletedList","Outdent","Indent"],["JustifyLeft","JustifyCenter","JustifyRight"],["Link","Unlink"],["Image","Table"]],"width":"100%","height":"340","language":"fr","uiColor":"#F7F7F7","stylesSet":"custom_styles:\/lib\/js\/ckeditor-custom\/ckeditor-styles.js","contentsCss":["\/lib\/css\/ckeditor-custom\/ckeditor-css.css"],"templates_files":["\/lib\/js\/ckeditor-custom\/ckeditor-templates.js"],"filebrowserBrowseUrl":"\/elfinder\/ckeditor","filebrowserWindowWidth":"1000","filebrowserWindowHeight":"650"});
+    }
 
     function add_answer() {
         var currentCount = $('#answer_entry textarea').length;
         var template = $('#answer_entry > fieldset > span').data('template');
+        var answerName = 'answers['+currentCount+'][answer]';
+        var explanationName = 'answers['+currentCount+'][explanation]';
         template = template.replace(/__index__/g, currentCount);
         $('#answer_entry').append(template);
         $('#answer_entry').append('<hr/>');
+
+        CKEDITOR.replace(answerName, {"toolbar":[["Source","Maximize"],["Templates","Styles","Format"],["Bold","Italic","Underline","Subscript","Superscript"],["NumberedList","BulletedList","Outdent","Indent"],["JustifyLeft","JustifyCenter","JustifyRight"],["Link","Unlink"],["Image","Table"]],"width":"100%","height":"340","language":"fr","uiColor":"#F7F7F7","stylesSet":"custom_styles:\/lib\/js\/ckeditor-custom\/ckeditor-styles.js","contentsCss":["\/lib\/css\/ckeditor-custom\/ckeditor-css.css"],"templates_files":["\/lib\/js\/ckeditor-custom\/ckeditor-templates.js"],"filebrowserBrowseUrl":"\/elfinder\/ckeditor","filebrowserWindowWidth":"1000","filebrowserWindowHeight":"650"});
+        CKEDITOR.replace(explanationName, {"toolbar":[["Source","Maximize"],["Templates","Styles","Format"],["Bold","Italic","Underline","Subscript","Superscript"],["NumberedList","BulletedList","Outdent","Indent"],["JustifyLeft","JustifyCenter","JustifyRight"],["Link","Unlink"],["Image","Table"]],"width":"100%","height":"340","language":"fr","uiColor":"#F7F7F7","stylesSet":"custom_styles:\/lib\/js\/ckeditor-custom\/ckeditor-styles.js","contentsCss":["\/lib\/css\/ckeditor-custom\/ckeditor-css.css"],"templates_files":["\/lib\/js\/ckeditor-custom\/ckeditor-templates.js"],"filebrowserBrowseUrl":"\/elfinder\/ckeditor","filebrowserWindowWidth":"1000","filebrowserWindowHeight":"650"});
 
         return false;
     }
