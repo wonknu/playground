@@ -52,6 +52,35 @@ ul {
 	.row{
 		margin:0;
 		
+		&.posts{
+			margin: 0 0 0 40px;
+			border: 1px solid #e6e6e3;
+			background-color: #f2f2f2;
+			padding:20px;
+			
+			.sliders{
+				.nivoSlider{
+					margin:10px 0 5px 0;
+				}
+			}
+			.alert-link{
+				margin: 25px 0 10px;
+				text-align: left;
+				
+				.btn-default{
+					border: 0;
+					border-bottom: 2px solid #25967b;
+					color: #fff;
+					font-family: 'futura-bk';
+					font-size: 14px;
+					line-height: 16px;
+					text-transform: uppercase;
+					background-color: @pg-green;
+					padding: 12px 32px;
+				}
+			}
+		}
+		
 		h1{
 			border: none;
 			padding: 0;
@@ -142,10 +171,10 @@ ul {
 							font-family: @futura;
 							font-size: 12px;
 							line-height: 14px;
-							background:url('../images/common/sprite-desc.png') no-repeat left -24px transparent;
+							background:url('../images/common/sprite-desc.png') no-repeat left -31px transparent;
 						}
 						.postvote{
-							background:url('../images/common/sprite-desc.png') no-repeat left -72px transparent;
+							background:url('../images/common/sprite-desc.png') no-repeat left -73px transparent;
 						}
 						
 						.logo-partner{
@@ -228,6 +257,9 @@ ul {
 				      		box-shadow:none;
 				      	}
 					}
+				}
+				#reglement{
+					margin:5px 0 15px 15px;
 				}
 			}
 			
@@ -344,7 +376,7 @@ ul {
 					.btn-group{
 						width: 100%;
 						float: left;
-						margin: 20px 0 0 0;
+						margin: 20px 0;
 						
 						#participants{
 							width: 416px;
@@ -1976,8 +2008,28 @@ form[name="preview_form"]{
 					margin: 0 0 10px 0;
 				}
 				form{
+					
+					.win{
+						padding:0;
+						text-align: center;
+						margin: 20px 0;
+						
+						.btn-default{
+							border: 0;
+							border-bottom: 2px solid #25967b;
+							color: @pg-white;
+							font-family: 'futura-bk';
+							font-size: 14px;
+							line-height: 16px;
+							text-transform: uppercase;
+							background-color:@pg-green;
+							padding: 12px 32px;
+						}
+					}
+					
 					.form-group {
 						padding:0;
+						margin: 0 0 10px 0;
 						
 						label{
 							padding: 0;
@@ -2002,6 +2054,13 @@ form[name="preview_form"]{
 								font-family: 'futura-bk';
 								font-size: 12px;
 								line-height: 14px;	
+							}
+							.selector{
+								width:254px !important;
+								
+								span{
+									width:244px !important;
+								}
 							}
 						}
 					}
@@ -2236,9 +2295,13 @@ form[name="preview_form"]{
 							margin:0 0 10px 0;
 							text-transform:none;
 						}
+						.text{
+							margin: 10px 0 0 0;
+						}
 						.row{
 							.avatar{
 								padding:0;
+								margin: 10px 0 0 0;
 							}
 						}
 					}
@@ -2743,7 +2806,7 @@ form[name="preview_form"]{
 				}
   			}
   			&.google{
-  				background:url('../images/common/icon-social.png') no-repeat -78px center #262626;
+  				background:url('../images/common/icon-social.png') no-repeat -76px center #262626;
   				&:hover{
 					background-color:@pg-google;
 				}
