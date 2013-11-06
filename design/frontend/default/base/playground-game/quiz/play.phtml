@@ -7,7 +7,7 @@ $form->setAttribute('action', $this->url('frontend/quiz/play', array('id' => $th
 <?php $totalQuestions = count($this->questions);?>
 <!-- GAME QUIZ - FERME QUESTIONS -->
 <div id="dz-root"></div>
-<div class="game-quiz play">
+<div class="game-quiz play wrap-game">
 	<h1>
 	    <?php echo $this->game->getTitle(); ?>
 	</h1>
@@ -69,42 +69,44 @@ $form->setAttribute('action', $this->url('frontend/quiz/play', array('id' => $th
 				        <?php echo $question->getHint();?>
 				    </div>
     				<?php endif;?>
-    				<?php if($question->getImage()):?>
-        				<div>
-    						<img src="<?php echo $this->basePath($question->getImage())?>" class="question-image" alt="<?php echo $question->getQuestion();?>" />
-        					<div class="answers" >
-        						<?php if ($element instanceof Zend\Form\Element\Radio): ?>
-                                    <?php echo $this->formRadio($element) ?>
-                                <?php elseif ($element instanceof Zend\Form\Element\MultiCheckbox): ?>
-                                    <?php echo $this->formMultiCheckbox($element);?>
-                                <?php elseif ($element instanceof Zend\Form\Element\Textarea): ?>
-                                    <?php echo $this->formTextarea($element); ?>
-                                <?php endif;?>
-                                <div class="explanation">
-                                    <?php foreach ($element->getvalueOptions() as $answerLabel) :?>
-                                        <span><?php echo $this->explanations[$answerLabel]; ?></span>
-                                    <?php endforeach; ?>  
-                                </div>
-                                <?php //echo $this->formElementErrors($element) ?>
-                                <?php if ($element->getMessages()) : echo '<div class="quiz-error">Merci de répondre à la question.</div>'; endif; ?>
-        					</div>
-        				</div>
-    				<?php else:?>
-        				<?php if ($element instanceof Zend\Form\Element\Radio): ?>
-                            <?php echo $this->formRadio($element) ?>
-                        <?php elseif ($element instanceof Zend\Form\Element\MultiCheckbox): ?>
-                            <?php echo $this->formMultiCheckbox($element);?>
-                        <?php elseif ($element instanceof Zend\Form\Element\Textarea): ?>
-                            <?php echo $this->formTextarea($element); ?>
-                        <?php endif;?>
-                        <div class="explanation">
-                            <?php foreach ($element->getvalueOptions() as $answerLabel) :?>
-                                <span><?php echo $this->explanations[$answerLabel]; ?></span>
-                            <?php endforeach; ?>  
-                        </div>                    
-                        <?php //echo $this->formElementErrors($element); ?>
-						<?php if ($element->getMessages()) : echo '<div class="quiz-error">Merci de répondre à la question.</div>'; endif; ?>
-                    <?php endif;?>
+    				<div class="wrap-checker">
+    					<?php if($question->getImage()):?>
+	        				<div>
+	    						<img src="<?php echo $this->basePath($question->getImage())?>" class="question-image" alt="<?php echo $question->getQuestion();?>" />
+	        					<div class="answers" >
+	        						<?php if ($element instanceof Zend\Form\Element\Radio): ?>
+	                                    <?php echo $this->formRadio($element) ?>
+	                                <?php elseif ($element instanceof Zend\Form\Element\MultiCheckbox): ?>
+	                                    <?php echo $this->formMultiCheckbox($element);?>
+	                                <?php elseif ($element instanceof Zend\Form\Element\Textarea): ?>
+	                                    <?php echo $this->formTextarea($element); ?>
+	                                <?php endif;?>
+                                     <div class="explanation">
+                                        <?php foreach ($element->getvalueOptions() as $answerLabel) :?>
+                                            <span><?php echo $this->explanations[$answerLabel]; ?></span>
+                                        <?php endforeach; ?>  
+                                    </div>
+	                                <?php //echo $this->formElementErrors($element) ?>
+	                                <?php if ($element->getMessages()) : echo '<div class="quiz-error">Merci de répondre à la question.</div>'; endif; ?>
+	        					</div>
+	        				</div>
+	    				<?php else:?>
+	        				<?php if ($element instanceof Zend\Form\Element\Radio): ?>
+	                            <?php echo $this->formRadio($element) ?>
+	                        <?php elseif ($element instanceof Zend\Form\Element\MultiCheckbox): ?>
+	                            <?php echo $this->formMultiCheckbox($element);?>
+	                        <?php elseif ($element instanceof Zend\Form\Element\Textarea): ?>
+	                            <?php echo $this->formTextarea($element); ?>
+	                        <?php endif;?>
+                             <div class="explanation">
+                                <?php foreach ($element->getvalueOptions() as $answerLabel) :?>
+                                    <span><?php echo $this->explanations[$answerLabel]; ?></span>
+                                <?php endforeach; ?>  
+                            </div>
+	                        <?php //echo $this->formElementErrors($element); ?>
+							<?php if ($element->getMessages()) : echo '<div class="quiz-error">Merci de répondre à la question.</div>'; endif; ?>
+	                    <?php endif;?>
+    				</div>
                     <?php if($question->getVideo()):?>
                         <div class="video">
         					<iframe width="100%" height="275" src="<?php echo $question->getVideo(); ?>" frameborder="0" allowfullscreen></iframe>

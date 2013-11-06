@@ -21,14 +21,10 @@ if (isset($fm[0]))
     <tr>
         <th><?php echo $this->translate('Page Id'); ?></th>
         <th><?php echo $this->translate('Page Name'); ?></th>
-<<<<<<< HEAD
-        <th><?php echo $this->translate('Disponible'); ?></th>
-=======
         <th><?php echo $this->translate('Available'); ?></th>
         <?php if($this->fbLogged):?>
             <th><?php echo $this->translate('Installed'); ?></th>
         <?php endif;?>
->>>>>>> PLAYGROUND-134: Traduction en_US et fr_FR sur le BO (des jeux à Config)
         <th></th>
     </tr>
     <?php foreach ($this->pages as $page): ?>
@@ -37,17 +33,12 @@ if (isset($fm[0]))
         <tr>
             <td><?php echo $page['pageId'] ?></td>
             <td><a href="<?php echo $page['pageLink'] ?>" target="_blank"><?php echo $page['pageName'] ?></a></td>
-<<<<<<< HEAD
-            <td><?php echo ($page['isAvailable'])? 'Oui':'Non'; ?></td>
-           <td>
-                <a href='<?php echo $editLink ?>'><?php echo $this->translate('Edit'); ?></a>                |
-=======
             <td><?php echo ($page['isAvailable'])? $this->translate('Yes'):$this->translate('No'); ?></td>
            <?php if($this->fbLogged && $this->fbAllowed):?>
                 <td><?php echo ($page['isInstalled'])? $this->translate('Yes'):$this->translate('No'); ?></td>
             <?php endif;?>
             <td>
->>>>>>> PLAYGROUND-134: Traduction en_US et fr_FR sur le BO (des jeux à Config)
+                <a href='<?php echo $editLink ?>'><?php echo $this->translate('Edit'); ?></a>
                 <a href='<?php echo $deleteLink ?>'><?php echo $this->translate('Delete'); ?></a>
             </td>
         </tr>
