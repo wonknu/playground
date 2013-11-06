@@ -3,7 +3,7 @@ $data = array();foreach($this->post->getPostElements() as $element){
     $data[$element->getPosition()] = $element->getValue();
 }
 ?>
-<div class="game-postvote post row">
+<div class="game-postvote wrap-game post row">
 	<h1>
 	    <?php echo $this->game->getTitle(); ?>
 	</h1>
@@ -36,18 +36,14 @@ $data = array();foreach($this->post->getPostElements() as $element){
     <!-- END BLOCK GAME START -->
     <!-- BLOCK CONTENT -->
     <div class="btn-group">
-		<a href="<?php echo $this->url('frontend/postvote', array('id' => $this->game->getIdentifier(), 'channel' => $this->channel))?>" class="btn btn-default">
-            <?php echo $this->translate('Home'); ?>
-        </a>
-		<a href="<?php echo $this->url('frontend/postvote/list', array('id' => $this->game->getIdentifier(), 'channel' => $this->channel, 'filter' => $this->game->getPostDisplayMode()))?>" class="btn btn-default">
-            <?php echo $this->translate('See participants'); ?>
-        </a>
-		</div>
 		<?php if($game->isStarted()):?>
 			<a href="<?php echo $this->url('frontend/postvote/play', array('id' => $this->game->getIdentifier(), 'channel' => $this->channel))?>" class="btn btn-default">
-			    <?php echo $this->translate('Participate'); ?>
+			    <span class="left">left</span><span class="center"><?php echo $this->translate('Participate'); ?></span><span class="right">right</span>
 			</a>
 		<?php endif ?>
+		<a href="<?php echo $this->url('frontend/postvote/list', array('id' => $this->game->getIdentifier(), 'channel' => $this->channel, 'filter' => $this->game->getPostDisplayMode()))?>" class="btn btn-default participate">
+            <?php echo $this->translate('See participants'); ?>
+        </a>
 	</div>
     <!-- BLOCK CONTENT -->
     <div class="row posts">

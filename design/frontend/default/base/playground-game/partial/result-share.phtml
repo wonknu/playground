@@ -24,22 +24,22 @@ if(isset($this->game)) :
 <?php endif; ?>
 <!-- invitations sociales -->
 <div id="invit-social" class="row" >
-	<p class="col-md-3" >
+	<p class="col-md-5" >
 	    <?php echo $this->translate('On social networks'); ?>
 	</p>
-	<ul class="row col-md-5 social-icon">
-		<li class="col-md-1">
-		    <a id="fb-share" href="javascript:void(0)">
+	<ul class="row col-md-6 social-icon">
+		<li class="col-md-3">
+		    <a id="fb-share" href="javascript:void(0)" class="link fb">
 		        <img src="<?php echo $this->frontendAssetPath('images/common/Facebook-24.png'); ?>" alt="" />
 		    </a>
 		</li>
-		<li class="col-md-1">
-		    <a href="https://twitter.com/intent/tweet?text=<?php echo urlencode($twShareMsg); ?>&url=<?php echo urlencode($this->socialLinkUrl); ?>" data-txt="<?php echo $twShareMsg; ?>" target="_blank">
+		<li class="col-md-3">
+		    <a href="https://twitter.com/intent/tweet?text=<?php echo urlencode($twShareMsg); ?>&url=<?php echo urlencode($this->socialLinkUrl); ?>" data-txt="<?php echo $twShareMsg; ?>" target="_blank" class="link twitter">
 		        <img src="<?php echo $this->frontendAssetPath('images/common/Twitter Bird-24.png'); ?>" alt="" />
 		    </a>
 		</li>
-		<li class="col-md-1">
-		    <a id='google-plus' href="https://plus.google.com/share?url=<?php echo urlencode($this->socialLinkUrl); ?>">
+		<li class="col-md-3">
+		    <a id='google-plus' href="https://plus.google.com/share?url=<?php echo urlencode($this->socialLinkUrl); ?>" class="link google-plus">
 		        <img src="<?php echo $this->frontendAssetPath('images/common/Google Plus-24.png'); ?>" alt="Share on Google+"/>
 		    </a>
 		</li>
@@ -49,17 +49,16 @@ if(isset($this->game)) :
 <!-- Par mail -->
 <div id="invit-mail">
 	<div class="row">
-		<div class="col-md-3">
-			<img src="<?php echo $this->frontendAssetPath('images/common/round-mail.png'); ?>" alt="" />
-		</div>
-		<div class="col-md-9">
+		<div class="col-md-5">
 			<p class="text-mail">
 			    <?php echo $this->translate('By mail'); ?>
 			</p>
+		</div>
+		<div class="col-md-6 wrapper-share">
 			<?php if ($this->statusMail === true) : ?>
 				<div id="mail-sended">
 					<p class="a-left">
-					    <?php echo $this->translate('Thanks'); ?>,<br/> <?php echo $this->translate('Your invitations have been sent !'); ?>
+					    <?php echo $this->translate('Thanks'); ?>, <?php echo $this->translate('Your invitations have been sent !'); ?>
 					</p>
 					<div class="btn btn-default more-invit">
 						<?php echo $this->translate('Invite more friends'); ?>
@@ -70,20 +69,21 @@ if(isset($this->game)) :
 				<?php $form = $this->form;?>
 				<?php $form->prepare();?>
                 <?php echo $this->form()->openTag($form) ?>
+                <img src="<?php echo $this->frontendAssetPath('images/common/round-mail.png'); ?>" alt="" class="img-mail" />
                     <div class="row">
-                        <div class="col-md-4">
+                        <div class="col-md-12 wrap-input">
                         	<?php echo $this->formInput($form->get('email1')->setAttributes(array('class' => 'form-control'))); ?>
                             <?php echo $this->formElementErrors($form->get('email1')); ?>
                         </div>
-                        <div class="col-md-4">
+                        <div class="col-md-12 wrap-input">
                             <?php echo $this->formInput($form->get('email2')->setAttributes(array('class' => 'form-control'))); ?>
                             <?php echo $this->formElementErrors($form->get('email2')); ?>
                         </div>
-                        <div class="col-md-4">
+                        <div class="col-md-12 wrap-input">
                             <?php echo $this->formInput($form->get('email3')->setAttributes(array('class' => 'form-control'))); ?>
                             <?php echo $this->formElementErrors($form->get('email3')); ?>
                         </div>
-                        <div class="col-md-3">
+                        <div class="col-md-3 wrap-button">
                             <?php echo $this->formButton($form->get('submit')->setAttributes(array('class' => 'btn btn-default'))) ?>
                         </div>
                     </div>
@@ -95,7 +95,7 @@ if(isset($this->game)) :
 <?php if(isset($this->game)) : ?>
     <!-- terminer -->
     <div id="terminer" class="row" >
-    	<div class="col-md-5">
+    	<div class="col-md-12">
     	    <span class="btn btn-default">
                 <a href="<?php echo $this->url('frontend/' . $this->gameType . '/bounce', array('id' => $this->game->getIdentifier(), 'channel' => $this->channel));?>">
                     <?php echo $this->translate('Finish'); ?>

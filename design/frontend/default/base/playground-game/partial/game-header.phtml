@@ -2,7 +2,6 @@
 <div class="block-game game-play <?php if ($this->basePath($this->game->getMainImage()) == "") echo "no-image"; ?>">
 	<div class="img-content">
 		<img class="rounded" src="<?php echo $this->basePath($this->game->getMainImage()); ?>" />
-		
 		<?php if($this->game->getPartner() && $this->game->getPartner()->getLogo()):?>
 			<div class="logo-sponsor">
 				<img src="<?php echo $this->basePath($this->game->getPartner()->getLogo());?>" alt="<?php echo $this->game->getPartner()->getName();?>" />
@@ -12,7 +11,6 @@
 				<img src="<?php echo $this->frontendAssetPath('images/common/logo-game-start.png')?>" width="83" height="81" border="0" alt="logo" />
 			</div>
 		<?php endif;?>
-		
 	</div>
 	<div class="game-infos">
 		<div class="left">
