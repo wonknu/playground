@@ -1635,13 +1635,16 @@ form[name="preview_form"]{
 							&.contact-select{
 								margin:0;
 								width:180px;
+								
 								.selector{
+									width: 180px !important;
 									
 									span{
-										display:none;
+										width: 169px !important;
 									}
 									select{
 										width:100%;
+										top: 0;
 										border-radius: 0;
 										border: 1px solid #e6e6e3;
 										background-color: #e6e6e3;
@@ -1834,8 +1837,18 @@ form[name="preview_form"]{
 									width: 27%;
 								}
 								.uploader{
+									width: 100%;
+									background: @pg-white;
+									border: 1px solid #e6e6e3;
+									height: 30px;
+									
 									.filename,.action{
-										display:none;
+										font-family:@futura;
+										font-size:12px;
+										line-height:14px;
+										padding: 6px 5px;
+										height: 28px;
+										background: none;
 									}
 								}
 								label{
@@ -1857,7 +1870,12 @@ form[name="preview_form"]{
 								}
 								.selector{
 									width:100% !important;
+									span{
+										display: block;
+										width: 229px !important;
+									}
 									select{
+										top: 0;
 										width:100%;
 										border-radius: 0;
 										border: 1px solid #e6e6e3;
@@ -2570,7 +2588,9 @@ form[name="preview_form"]{
 						margin:38px 0 18px 0;
 						
 						.row{
-							
+							.col-md-5{
+								padding:0;
+							}
 							.text-mail{
 								padding:0;
 								text-align: right;
