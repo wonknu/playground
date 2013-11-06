@@ -62,6 +62,11 @@ $form->setAttribute('action', $this->url('frontend/quiz/play', array('id' => $th
                                 <?php elseif ($element instanceof Zend\Form\Element\Textarea): ?>
                                     <?php echo $this->formTextarea($element); ?>
                                 <?php endif;?>
+                                <div class="explanation">
+                                    <?php foreach ($element->getvalueOptions() as $answerLabel) :?>
+                                        <span><?php echo $this->explanations[$answerLabel]; ?></span>
+                                    <?php endforeach; ?>  
+                                </div>
                                 <?php //echo $this->formElementErrors($element) ?>
                                 <?php if ($element->getMessages()) : echo '<div class="quiz-error">Merci de répondre à la question.</div>'; endif; ?>
                                 </div>
@@ -75,6 +80,11 @@ $form->setAttribute('action', $this->url('frontend/quiz/play', array('id' => $th
                         <?php elseif ($element instanceof Zend\Form\Element\Textarea): ?>
                             <?php echo $this->formTextarea($element); ?>
                         <?php endif;?>
+                        <div class="explanation">
+                            <?php foreach ($element->getvalueOptions() as $answerLabel) :?>
+                                <span><?php echo $this->explanations[$answerLabel]; ?></span>
+                            <?php endforeach; ?>  
+                        </div>
                         <?php //echo $this->formElementErrors($element); ?>
 						<?php if ($element->getMessages()) : echo '<div class="quiz-error">Merci de répondre à la question.</div>'; endif; ?>
                     <?php endif;?>
