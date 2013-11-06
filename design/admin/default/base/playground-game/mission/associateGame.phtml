@@ -29,6 +29,7 @@ $form->prepare();
         </div>
     </div>
 </div>
+<input type="hidden" id="countGame" value="0" name="countGame"/>
 <?php echo $this->form()->closeTag() ?>
 
 <script>
@@ -38,7 +39,9 @@ $form->prepare();
     template.data('template', '<fieldset id="answers__index__">'+datatemplate+'</fieldset>');
 
     function add_game() {
-        var currentCount = $('#conditions_entry input').length;
+        var currentCount = $('#conditions_entry input').length / 2;
+        console.log(currentCount);
+        $('#countGame').attr({value : currentCount});
         var template = $('#conditions_entry > fieldset > span').data('template');
         template = template.replace(/__index__/g, currentCount);
         $('#conditions_entry').append(template);

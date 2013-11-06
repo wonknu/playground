@@ -23,7 +23,7 @@ if (isset($fm[0]))
             <tr>
                 <th><?php echo $mission->getTitle(); ?></th>
                 <th>
-                    <a href="<?php echo $this->url('admin/mission/associate', array('missionId' => $mission->getId()));?>"><?php echo $this->translate('associate game');?></a> |
+                    <a href="<?php echo $this->url('admin/mission/associate', array('missionId' => $mission->getId()));?>"><?php echo $this->translate('Associate game');?></a> |
                     <a href="<?php echo $this->url('admin/mission/edit', array('missionId' => $mission->getId()));?>"><?php echo $this->translate('Editer');?></a>  |
                     <a href="<?php echo $this->url('admin/mission/delete', array('missionId' => $mission->getId()));?>"><?php echo $this->translate('Supprimer');?></a>
                 </th>
