@@ -1,0 +1,35 @@
+<?php $this->plugin('translate')->setTranslatorTextDomain('playgroundgame'); ?>
+<?php
+$fm = $this->flashMessenger()->setNamespace('playgroundgame')->getMessages();
+if (isset($fm[0]))
+{
+    print '<span class=>' . $fm[0] . '</span>';
+}
+?>
+
+<ul class="liste-buttons">
+    <li class="btn btn-default right margin-left10"><a href="<?php echo $this->url('admin/mission/create');?>"><?php echo $this->translate('Add new Mission'); ?></a></li>
+</ul>
+
+<h1><?php echo $this->translate('list Missions'); ?></h1>
+
+<table class="table table-hover table-striped">
+    <thead>
+        <tr>
+            <th><?php echo $this->translate('Title'); ?></th>
+            <th></th>
+        </tr>
+        <?php foreach ($missions as $mission) : ?>
+            <tr>
+                <th><?php echo $mission->getTitle(); ?></th>
+                <th>
+                    <a href="<?php echo $this->url('admin/mission/associate', array('missionId' => $mission->getId()));?>"><?php echo $this->translate('associate game');?></a> |
+                    <a href="<?php echo $this->url('admin/mission/edit', array('missionId' => $mission->getId()));?>"><?php echo $this->translate('Editer');?></a>  |
+                    <a href="<?php echo $this->url('admin/mission/delete', array('missionId' => $mission->getId()));?>"><?php echo $this->translate('Supprimer');?></a>
+                </th>
+            </tr>
+        <?php endforeach; ?>
+    </thead>
+    <tbody>
+    </tbody>
+</table>

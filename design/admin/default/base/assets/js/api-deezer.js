@@ -54,6 +54,9 @@ $(function(){
 
 	    function getAudioInformations(id) {
 	        DZ.api('/track/'+id+'', function(response) {
+	        	if(response.album === undefined) {
+	        		return ;
+	        	}
 	            var divAudioInformations = $('<div>', {
 	                id: 'audio-informations'
 	            });
