@@ -56,6 +56,9 @@ $form->prepare();
         $('select[name=<?php echo "games".$i?>] option[value=<?php echo $missionGame["games"]; ?>]').attr("selected", "selected");
         $('select[name=<?php echo "conditions".$i?>] option[value=<?php echo $missionGame["conditions"]; ?>]').attr("selected", "selected");
         $('input[name=<?php echo "points".$i?>]').attr("value", '<?php echo $missionGame["points"] ; ?>'); 
+        $('button[name=<?php echo "delete".$i?>]').click(function(){
+            $('#answers<?php echo $i?>').html('');
+        });
     </script>
    
 <?php $i++;endforeach; ?>
