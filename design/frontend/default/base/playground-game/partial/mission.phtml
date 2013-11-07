@@ -1,0 +1,64 @@
+Missions
+<?php $firstGame = $mission['games'][0]; ?>
+<?php if($mission['mission']->getHidden() == 1) :?>
+     <?php echo $this->partial('playground-game/partial/game.phtml', array('game' => $firstGame, 'channel' => $this->channel)) ?>
+<?php else : ?>
+<?php $urlFirstGame = $this->url('frontend/' . $firstGame->getClassType(), array('id' => $firstGame->getIdentifier(), 'channel' => $this->channel)); ?>
+<div class="block-game start <?php if ($this->basePath($mission['mission']->getImage()) == "") echo "no-image"; ?>">
+    <div class="img-content">
+        <a href="<?php echo $urlFirstGame; ?>">
+            <?php if ($this->basePath($mission['mission']->getImage()) != "") : ?>
+                <img class="rounded" src="<?php echo $this->basePath($mission['mission']->getImage()); ?>" alt="<?php echo $mission['mission']->getTitle()?>" />
+            <?php endif;?>
+        </a>
+        <div class="icon-bloc-game">&nbsp;</div>
+        
+        <div class="dark-overlay row">
+            <div class="col-md-12">
+                <div class="wrapper-game">
+                    <h2 class="col-md-10">
+                        <a href="<?php echo $urlFirstGame; ?>">
+                            <?php echo $mission['mission']->getTitle()?>
+                        </a>
+                    </h2>
+                    <div class="game-infos">
+                        <div class="desc">
+                            <?php echo $mission['mission']->getDescription()?>
+                        </div>
+                        <div class="games">
+                            <?php $i=1;foreach ($mission['games'] as $game) : ?>
+                                <?php echo $i." : ".$game->getTitle().'<br />'; ?>
+                            <?php $i++;endforeach; ?>
+                        </div>
+                        <?php echo $this->partial(
+                                'playground-game/partial/share.phtml',
+                                array(
+                                    'color' => 'grey',
+                                    'game'=> $firstGame,
+                                    '$this->layout()->channel' => $this->layout()->channel,
+                                    'url'=>$this->url(
+                                        'frontend/' . $firstGame->getClassType(), array('id' => $firstGame->getIdentifier()),
+                                        array(
+                                            'force_canonical' => true
+                                        )
+                                    )
+                                )
+                            );?>
+                    </div>                  
+                </div>
+                <div class="button-play">
+                    <div class="button-wrap">
+                        <div class="btn btn-orange">
+                            <a href="<?php echo $urlFirstGame; ?>" class="arrow-right-big">
+                                <?php echo $this->translate('Play'); ?>
+                            </a>
+                        </div>
+                    </div>
+                
+                </div>
+            </div>
+        </div>
+
+     </div>
+</div>
+<?php endif; ?>
