@@ -16,7 +16,7 @@ $form->prepare();
 
         <div id="conditions">
             <ul class="liste-buttons">
-                <li class="btn-admin"><a href="#" onclick="add_game()"><?php echo $this->translate('Ajouter une réponse'); ?></a></li>
+                <li class="btn-admin"><a href="#" onclick="add_game()"><?php echo $this->translate('Add a game'); ?></a></li>
             </ul>
 
             <div id="conditions_entry" class="control-group">
@@ -24,7 +24,7 @@ $form->prepare();
             </div>
 
             <ul class="liste-buttons">
-                <li class="btn-admin"><a href="#" onclick="add_game()"><?php echo $this->translate('Ajouter une réponse'); ?></a></li>
+                <li class="btn-admin"><a href="#" onclick="add_game()"><?php echo $this->translate('Add a game'); ?></a></li>
             </ul>
         </div>
     </div>
@@ -40,7 +40,6 @@ $form->prepare();
 
     function add_game() {
         var currentCount = $('#conditions_entry input').length / 2;
-        console.log(currentCount);
         $('#countGame').attr({value : currentCount});
         var template = $('#conditions_entry > fieldset > span').data('template');
         template = template.replace(/__index__/g, currentCount);
@@ -49,6 +48,14 @@ $form->prepare();
 
         return false;
     }
-
-
 </script>
+
+<?php $i=0; foreach($this->missionGames as $missionGame) : ?>
+    <script>
+        add_game();
+        $('select[name=<?php echo "games".$i?>] option[value=<?php echo $missionGame["games"]; ?>]').attr("selected", "selected");
+        $('select[name=<?php echo "conditions".$i?>] option[value=<?php echo $missionGame["conditions"]; ?>]').attr("selected", "selected");
+        $('input[name=<?php echo "points".$i?>]').attr("value", '<?php echo $missionGame["points"] ; ?>'); 
+    </script>
+   
+<?php $i++;endforeach; ?>
