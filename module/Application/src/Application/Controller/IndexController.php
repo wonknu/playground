@@ -74,7 +74,7 @@ class IndexController extends AbstractActionController
 
         $layoutViewModel->addChild($slider, 'slider');
 
-        $games = $this->getGameService()->getActiveGamesWithoutGamesInMission();
+        $games = $this->getGameService()->getActiveGames(true, '', '', true);
         $pages = $this->getPageService()->getActivePages();
         $missions = $this->getMissionService()->getActiveMissions();
 
