@@ -34,10 +34,10 @@
 	<!-- END BLOCK GAME START -->
     <!-- BLOCK CONTENT -->
     <div class="btn-group">
-    	<a href="<?php echo $this->url('frontend/postvote/play', array('id' => $this->game->getIdentifier(), 'channel' => $this->channel))?>" class="btn btn-default">
+    	<a href="<?php echo $this->url('frontend/'. $this->game->getClassType() . '/play', array('id' => $this->game->getIdentifier(), 'channel' => $this->channel))?>" class="btn btn-default">
             <span class="left">left</span><span class="center"><?php echo $this->translate('Participate'); ?></span><span class="right">right</span>
         </a>
-        <a href="<?php echo $this->url('frontend/postvote/list', array('id' => $this->game->getIdentifier(), 'channel' => $this->channel, 'filter' => $this->game->getPostDisplayMode()))?>" class="btn btn-default participate">
+        <a href="<?php echo $this->url('frontend/'. $this->game->getClassType() . '/list', array('id' => $this->game->getIdentifier(), 'channel' => $this->channel, 'filter' => $this->game->getPostDisplayMode()))?>" class="btn btn-default participate">
             <?php echo $this->translate('See participants'); ?>
         </a>
     </div>
@@ -72,13 +72,13 @@
                </div>
             </div>
             <div class="btn-group">
-                <a href="<?php echo $this->url('frontend/postvote/play', array('id' => $this->game->getIdentifier(), 'channel' => $this->channel))?>" class="btn btn-default modify">
+                <a href="<?php echo $this->url('frontend/'. $this->game->getClassType() . '/play', array('id' => $this->game->getIdentifier(), 'channel' => $this->channel))?>" class="btn btn-default modify">
                     <?php echo $this->translate('Modify'); ?>
                 </a>
                 <button type="submit" name="submitPost" value="" class="btn btn-default validate">
                     <?php echo $this->translate('Validate'); ?>
                 </button>
-                <a href="<?php echo $this->url('frontend/postvote/terms', array('id' => $this->game->getIdentifier(), 'channel' => $this->channel))?>" class="btn btn-default rules">
+                <a href="<?php echo $this->url('frontend/'. $this->game->getClassType() . '/terms', array('id' => $this->game->getIdentifier(), 'channel' => $this->channel))?>" class="btn btn-default rules">
                     <?php echo $this->translate('Rules'); ?>
                 </a>
             </div>

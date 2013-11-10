@@ -23,13 +23,13 @@
 		</div>
 		<div class="center">
 			<p id="participants">
-		        <a href="<?php echo $this->url('frontend/postvote/list', array('id' => $this->game->getIdentifier(), 'filter' => $this->game->getPostDisplayMode(), 'channel' => $this->channel))?>" class="btn btn-default">
+		        <a href="<?php echo $this->url('frontend/'. $this->game->getClassType() . '/list', array('id' => $this->game->getIdentifier(), 'filter' => $this->game->getPostDisplayMode(), 'channel' => $this->channel))?>" class="btn btn-default">
 		        	<?php echo $this->translate('See participants'); ?>
 		       	</a>
 	       	</p>
 			<div class="btn-group btn-default">
 	            <?php if($game->isStarted()):?>
-	            <a href="<?php echo $this->url('frontend/postvote/play', array('id' => $this->game->getIdentifier(), 'channel' => $this->channel))?>"  class="btn btn-default">
+	            <a href="<?php echo $this->url('frontend/'. $this->game->getClassType() . '/'. $this->game->nextStep('index'), array('id' => $this->game->getIdentifier(), 'channel' => $this->channel))?>"  class="btn btn-default">
 	                <?php echo $this->translate('Participate'); ?>
 	            </a>
 	            <?php endif;?>

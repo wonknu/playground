@@ -6,7 +6,7 @@ $form->setAttribute('action', $this->url('frontend/quiz/play', array('id' => $th
 ?>
 <?php $totalQuestions = count($this->questions);?>
 <!-- GAME QUIZ - FERME QUESTIONS -->
-<?php if($this->state == 'quiz') : ?>
+<?php //if($this->state == 'quiz') : ?>
 <div id="dz-root"></div>
 <div class="game-quiz play wrap-game">
 	<h1>
@@ -39,7 +39,7 @@ $form->setAttribute('action', $this->url('frontend/quiz/play', array('id' => $th
                     <?php endif;?>
                 </h2>
                 <p id="reglement">
-				    <a href="<?php echo $this->url('frontend/quiz/terms', array('id' => $this->game->getIdentifier(), 'channel' => $this->channel))?>" target="_blank">
+				    <a href="<?php echo $this->url('frontend/'. $this->game->getClassType() . '/terms', array('id' => $this->game->getIdentifier(), 'channel' => $this->channel))?>" target="_blank">
 				        Règlement
 				    </a>
 				</p>
@@ -142,10 +142,11 @@ $form->setAttribute('action', $this->url('frontend/quiz/play', array('id' => $th
 		<?php echo $this->form()->closeTag() ?>
 	</div>
 </div>
-<?php else: ?>
-   <?php echo $this->formUser ?>
-<?php endif;?>
+<?php //else: ?>
+   <?php //echo $this->formUser ?>
+<?php //endif;?>
 
+<?php echo $this->formRegister ?>
 <!-- END GAME QUIZ - FERME QUESTIONS-->
 <script type="text/javascript">
     jQuery(document).ready(function ($)
