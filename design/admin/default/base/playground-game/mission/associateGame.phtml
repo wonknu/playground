@@ -6,14 +6,13 @@ $form->prepare();
 //$form->setAttribute('action', $this->url('admin/playgroundgame/quiz-question-add', array('quizId' => $this->quiz_id, 'questionId' => $this->question_id)));
 ?>
 
-<h1><?php echo $this->translate('Associate Game'); ?></h1>
+<h1><?php echo $this->translate('Link games'); ?></h1>
 
 <?php echo $this->form()->openTag($form) ?>
 <?php echo $this->formButton($form->get('submit')->setLabel($this->translate('Validate'))); ?>
 <div id="dz-root"></div>
 <div id="content" class="tabbable tabs-left">
     <div id="my-tab-content" class="tab-content">
-
         <div id="conditions">
             <ul class="liste-buttons">
                 <li class="btn-admin"><a href="#" onclick="add_game()"><?php echo $this->translate('Add a game'); ?></a></li>
