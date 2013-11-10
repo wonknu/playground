@@ -3,8 +3,14 @@
 <?php $twShareMsg = ($this->game->getTwShareMessage()) ? $this->game->getTwShareMessage() : $this->translate('Come play game').' : ' . $game->getTitle() . ' '.$this->translate('of').' Playground '; ?>
 <?php $color = ($this->color) ? $this->color : 'grey'; ?>
 
-<div class="social-share">
-	<a href="#" data-link="<?php echo $this->url; ?>" data-picture="<?php echo $fbShareImg; ?>" data-caption="<?php echo $fbShareMsg; ?>" class="<?php echo $this->color; ?>-fb" target="_blank"></a>
-	<a href="https://twitter.com/intent/tweet?text=<?php echo urlencode($twShareMsg); ?>&url=<?php echo urlencode($this->url); ?>" data-txt="<?php echo $twShareMsg; ?>" data-url="<?php echo $this->url; ?>" class="<?php echo $this->color; ?>-tw shorturl" target="_blank"></a>
-	<a href="https://plus.google.com/share?url=<?php echo urlencode($this->url); ?>" class="<?php echo $this->color; ?>-gl" target="_blank"></a>
-</div>
+<ul class="social-share">
+	<li>
+		<a href="#" data-link="<?php echo $this->url; ?>" data-picture="<?php echo $fbShareImg; ?>" data-caption="<?php echo $fbShareMsg; ?>" class="<?php echo $this->color; ?>-fb link fb" target="_blank"></a>
+	</li>
+	<li>
+		<a href="https://twitter.com/intent/tweet?text=<?php echo urlencode($twShareMsg); ?>&url=<?php echo urlencode($this->url); ?>" data-txt="<?php echo $twShareMsg; ?>" data-url="<?php echo $this->url; ?>" class="<?php echo $this->color; ?>-tw shorturl link twitter" target="_blank"></a>
+	</li>
+	<li>
+		<a href="https://plus.google.com/share?url=<?php echo urlencode($this->url); ?>" class="<?php echo $this->color; ?>-gl link google" target="_blank"></a>
+	</li>
+</ul>
