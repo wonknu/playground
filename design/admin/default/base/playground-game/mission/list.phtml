@@ -25,11 +25,9 @@ if (isset($fm[0]))
             <tr>
                 <th><?php echo $mission->getTitle(); ?></th>
                 <th>
-                     <?php if ($this->missionsHasGames[$mission->getId()] == 0): ?>
-                        <span class="label label-important"><?php echo $this->translate('No'); ?></span>
-                     <?php else : ?>
-                        <span class="label label-success"><?php echo $this->translate('Yes'); ?></span>
-                     <?php endif; ?>   
+                     <?php foreach($mission->getMissionGames() as $missionGame): ?>
+                        <?php echo $missionGame->getGame()->getTitle() . " > ";?>
+                     <?php endforeach;?>  
                 </th>
                 <th>
                      <?php if ($mission->getActive() == 0): ?>
@@ -39,7 +37,6 @@ if (isset($fm[0]))
                      <?php endif; ?>   
                 </th>
                 <th>
-                    <a href="<?php echo $this->url('admin/mission/associate', array('missionId' => $mission->getId()));?>"><?php echo $this->translate('Link games');?></a> |
 
                     <?php if($mission->getActive() == 0): ?>
                         <a href="<?php echo $this->url('admin/mission/activate', array('missionId' => $mission->getId()));?>"><?php echo $this->translate('Activate mission');?></a> |
