@@ -36,9 +36,24 @@ $form->prepare();
 	            <?php echo $this->formElementErrors($form->get('hint')) ?>
 			</div>
 			<div class="label-input">
-	            <?php echo $this->formLabel($form->get('activityStreamText')); ?>
-	            <?php echo $this->formInput($form->get('activityStreamText')); ?>
-	            <?php echo $this->formElementErrors($form->get('activityStreamText')) ?>
+	            <?php echo $this->formLabel($form->get('displayNotification')); ?>
+	            <?php echo $this->formCheckbox($form->get('displayNotification')); ?>
+	            <?php echo $this->formElementErrors($form->get('displayNotification')) ?>
+			</div>
+			<div class="label-input">
+	            <?php echo $this->formLabel($form->get('notification')); ?>
+	            <?php echo $this->formInput($form->get('notification')); ?>
+	            <?php echo $this->formElementErrors($form->get('notification')) ?>
+			</div>
+			<div class="label-input">
+	            <?php echo $this->formLabel($form->get('displayActivityStream')); ?>
+	            <?php echo $this->formCheckbox($form->get('displayActivityStream')); ?>
+	            <?php echo $this->formElementErrors($form->get('displayActivityStream')) ?>
+			</div>
+			<div class="label-input">
+	            <?php echo $this->formLabel($form->get('activityStream')); ?>
+	            <?php echo $this->formInput($form->get('activityStream')); ?>
+	            <?php echo $this->formElementErrors($form->get('activityStream')) ?>
 			</div>
 			<div class="label-input">
 	            <?php echo $this->formLabel($form->get('countLimit')); ?>
