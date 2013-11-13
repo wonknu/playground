@@ -1,0 +1,18 @@
+<?php
+if (isset($this->flashMessages))
+{
+    foreach ($this->flashMessages as $fm) {
+        echo '<span class=>' . $fm . '</span>';
+    }
+}
+?>
+
+<?php if ($this->winner) : ?>
+    <p>Bravo, vous avez gagné !</p>
+    <?php echo $this->form_register ?>
+    <?php if ($this->prize): ?>
+        <p>Votre lot : <?php $this->prize->getTitle() ?></p>
+    <?php endif; ?>
+<?php else : ?>
+    <p>Dommage, vous avez perdu !</p>
+<?php endif; ?>
