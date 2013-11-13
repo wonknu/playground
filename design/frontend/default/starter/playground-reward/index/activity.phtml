@@ -1,9 +1,8 @@
 <?php $this->plugin('translate')->setTranslatorTextDomain('playgroundreward');// Pour le texte ?>
 
-
 <!-- USER ACTIVITY -->
 <div id="user-activity" class="row-fluid">
-				
+
 	<div class="row-fluid">
 		<h1 class="span5"><?php echo $this->translate('My activity'); ?></h1>
 		<div class="filter span7">
@@ -21,14 +20,14 @@
 			</div>
 		</div>
 	</div>
-	
+
 	<?php $i=0; foreach($this->stories as $story): ?>
 	<div id="list-activity" class="row-fluid orange-dot-top">
 		<div class="span10">
 			<!-- @todo : avoir des templates par type de telling -->
 			<?php //echo $story['openGraphMapping']; ?>
 			A <?php echo $story['created_at']->format('d-m-Y H:i:s') ?>, <?php echo $this->translate($story['label']); ?>
-				<?php 
+				<?php
 				foreach ($story['object'] as $type => $values) :
 					echo $type."<br />";
 					if(is_array($values)) {
@@ -38,9 +37,9 @@
 								echo $k.":".$v."<br />";
 							}
 						} else {
-							echo $key.":".$value."<br />";	
+							echo $key.":".$value."<br />";
 						}
-						
+
 					endforeach;
 					} else {
 						echo $value;
@@ -49,8 +48,8 @@
 					echo "<br/>";
 				endforeach;
 				?>
-		
-			<?php echo $story['points']?> points 
+
+			<?php echo $story['points']?> points
 
 		</div>
 	</div>

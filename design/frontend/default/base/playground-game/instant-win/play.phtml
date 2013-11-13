@@ -26,7 +26,7 @@ endif;
 				</div>
 			</div>
 			<!-- contenu form address -->
-			<?php echo $this->form ?>
+			<?php //echo $this->form ?>
 		<?php else:?>
 			<div class="row win">
 				<div class="col-md-1">
@@ -96,7 +96,7 @@ endif;
 	</div>
 	<!-- END BLOCK GAME START -->
 	<div class="next-instant-win-step <?php if($this->winner):?>success<?php endif;?>">
-	    <a class="btn btn-default" href="<?php echo ($this->winner) ? '#': $this->url('frontend/instantwin/result', array('id' => $this->game->getIdentifier(), 'channel' => $this->channel));?>">
+	    <a class="btn btn-default" href="<?php echo ($this->winner) ? '#': $this->url('frontend/'. $this->game->getClassType() . '/'. $this->game->nextStep('play'), array('id' => $this->game->getIdentifier(), 'channel' => $this->channel));?>">
 		    Continuer
 		</a>
 	</div>

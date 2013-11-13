@@ -48,7 +48,7 @@
 			<?php endif;?>
 			<div class="dark-overlay row">
 				<h2 class="col-md-10">
-				    <?php echo $this->translate('Jeu'); ?> <?php echo $this->translate('offered by'); ?> <?php if($this->game->getPartner()): echo $this->game->getPartner()->getName(); else:?>
+				    <?php echo $this->translate('Game offered by'); ?> <?php if($this->game->getPartner()): echo $this->game->getPartner()->getName(); else:?>
                         Playground
 			        <?php endif;?>
 				</h2>
@@ -78,6 +78,31 @@
 					'channel'       => $this->channel,
 					'nextGame'      => $this->nextGame,
 		    )); ?>
+		    <?php if($this->nextGame): ?>
+                <!-- another Game -->
+                <div id="terminer" class="row" >
+                    <div class="col-md-12">
+                        <span class="btn btn-default">
+                            <a href="<?php echo $this->url('frontend/' . $this->nextGame->getClassType(), array('id' => $this->nextGame->getIdentifier(), 'channel' => $this->channel)); ?>">
+                                <?php echo $this->translate('Play an another Game'); ?>
+                            </a>
+                        </span>
+                    </div>
+                </div>
+            <?php else: ?>
+                <?php if(isset($this->game) && $this->game->lastStep() !== 'result') : ?>
+                    <!-- terminer -->
+                    <div id="terminer" class="row" >
+                    	<div class="col-md-12">
+                    	    <span class="btn btn-default">
+                                <a href="<?php echo $this->url('frontend/'. $this->game->getClassType() . '/bounce', array('id' => $this->game->getIdentifier(), 'channel' => $this->channel));?>">
+                                    <?php echo $this->translate('Finish'); ?>
+                                </a>
+                            </span>
+                    	</div>
+                    </div>
+                <?php endif; ?>
+            <?php endif; ?>
 		</div>
 	</div>
 	<!-- END SPONSOR (parrainer) -->

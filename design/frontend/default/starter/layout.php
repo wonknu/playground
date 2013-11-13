@@ -138,6 +138,9 @@ return array(
                                 ),
                                 'registermail' => array(
                                     'layout' => 'layout/1column.phtml'
+                                ),
+                                'address' => array(
+                                    'layout' => 'layout/game-2columns-right.phtml'
                                 )
                             )
                         ),
