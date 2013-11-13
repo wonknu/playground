@@ -35,6 +35,11 @@ $form->prepare();
 	            <?php echo $this->formElementErrors($form->get('active')) ?>
 	        </div>
 	        <div class="label-input">
+	            <?php echo $this->formLabel($form->get('winning')); ?>
+	            <?php echo $this->formSelect($form->get('winning')); ?>
+	            <?php echo $this->formElementErrors($form->get('winning')) ?>
+	        </div>
+	        <div class="label-input">
 		        <?php echo $this->formLabel($form->get('prize')); ?>
 		        <?php echo $this->formSelect($form->get('prize')); ?>
 		        <?php echo $this->formElementErrors($form->get('prize')) ?>
