@@ -1,1 +1,10 @@
+<?php
+if (isset($this->flashMessages))
+{
+    foreach ($this->flashMessages as $fm) {
+        echo '<span class=>' . $fm . '</span>';
+    }
+}
+?>
+
 <?php echo $this->partial('playground-game/partial/result.phtml'); ?>

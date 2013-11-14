@@ -9,95 +9,136 @@ elseif ($playLimitScale == 'year') : $playLimitValue = $this->translate('every y
 else : $playLimitValue = $this->translate('everytime');
 endif;
 ?>
+<?php
+if (isset($this->flashMessages))
+{
+    foreach ($this->flashMessages as $fm) {
+        echo '<span class=>' . $fm . '</span>';
+    }
+}
+?>
+
 <div class="game-instantwin wrap-game row">
 	<h1>
 	    <?php echo $this->game->getTitle(); ?>
 	</h1>
-	<div id="result-instantwin">
-		<?php if($this->winner):?>
-			<div class="row win">
-				<div class="col-md-1">
-					<img src="<?php echo $this->frontendAssetPath('images/common/round-valid.png')?>" alt="" />
-				</div>
-				<div class="col-md-11">
-					<p id="valid-text">
-					    Félicitations, vous avez gagné !
-					</p>
-				</div>
-			</div>
-			<!-- contenu form address -->
-			<?php //echo $this->form ?>
-		<?php else:?>
-			<div class="row win">
-				<div class="col-md-1">
-					<img src="<?php echo $this->frontendAssetPath('images/common/round-wrong.png')?>" alt="" />
-				</div>
-				<div class="col-md-11">
-					<p id="valid-text">
-					    Retentez votre chance dès demain!
-					</p>
-				</div>
-			</div>
-		<?php endif;?>
-	</div>
-	<div id="play-instantwin">
-		<p class="instructions">
-		    <?php echo $this->translate('Scratch'); ?> <?php echo $playLimitValue; ?> <?php echo $this->translate('and find out immediately if you won'); ?> :
-		</p>
-		<!-- BLOCK GAME START -->
-		<div class="block-game game-play">
-			<div class="game-infos">
-    	        <?php if ($this->game->getStartDate() && $this->game->getEndDate()):?>
-    			    <div class="instantwin">
-    			        <?php echo $this->translate('instantwin'); ?> : <?php echo $this->translate('Play'); ?> <?php echo $this->translate('from'); ?> <?php echo strftime("%d %B", $this->game->getStartDate()->format('U'));?> <?php echo $this->translate('to'); ?> 
-    			        <?php echo strftime("%d %B", $this->game->getEndDate()->format('U'));?> <?php echo $this->translate('with'); ?> 
-    			    </div>
-    			<?php elseif ($this->game->getStartDate()):?>
-    			    <div class="instantwin">
-    			        <?php echo $this->translate('instantwin'); ?> : <?php echo $this->translate('Play'); ?> <?php echo $this->translate('after'); ?> <?php echo strftime("%d %B", $this->game->getStartDate()->format('U'));?> <?php echo $this->translate('with'); ?> 
-    			    </div>
-    			<?php elseif ($this->game->getEndDate()):?>
-    			    <div class="instantwin">
-    			        <?php echo $this->translate('instantwin'); ?> : <?php echo $this->translate('Play'); ?> <?php echo $this->translate('up to'); ?> <?php echo strftime("%d %B", $this->game->getEndDate()->format('U'));?> <?php echo $this->translate('with'); ?> 
-    			    </div>
-    			<?php else:?>
-    			    <div class="instantwin">
-    			        <?php echo $this->translate('instantwin'); ?> : <?php echo $this->translate('Play'); ?> <?php echo $this->translate('with'); ?> 
-    			    </div>
-    			<?php endif; ?>
-				<div class="logo-partner">
-					<?php if($this->game->getPartner()):?>
-						<?php if( ($this->game->getPartner()->getLogo() != '') || ($this->game->getPartner()->getSmallLogo() !='')) : ?>
-							<img
-								src="<?php if($this->game->getPartner()->getSmallLogo() !='') : echo $this->basePath($this->game->getPartner()->getSmallLogo());
-											else : echo $this->basePath($this->game->getPartner()->getLogo()); endif;?>"
-								alt="<?php echo $this->game->getPartner()->getName();?>" />
-						<?php else:?>
-							<span>
-							    <?php echo $this->game->getPartner()->getName();?>
-							</span>
-						<?php endif;?>
-					<?php else :?>
-						<img src="<?php echo $this->frontendAssetPath('images/common/logo-game-start.png');?>" alt="Logo" />
-					<?php endif;?>
-				</div>
-			</div>
-			<div class="img-content">
-				<img class="rounded" src="<?php echo $this->basePath($this->game->getScratchcardImage()); ?>" />
-				<div id="wScratchgame" data-percentscratched="" data-scratchover='<?php echo $this->frontendAssetPath('images/games/scratch-over.png')?>' 
-					<?php if($this->winner):?>
-			        	data-scratchthis="<?php echo $this->frontendAssetPath('images/games/scratch-win.png')?>" >
-					<?php else:?>
-			        data-scratchthis="<?php echo $this->frontendAssetPath('images/games/scratch-loose.png')?>" >
-					<?php endif;?>
-				</div>
-			</div>
-		</div>
-	</div>
+	
+    <?php if ($this->game->getOccurrenceType()=='datetime' || $this->over): ?>
+    	<div id="result-instantwin">
+    		<?php if($this->winner):?>
+    			<div class="row win">
+    				<div class="col-md-1">
+    					<img src="<?php echo $this->frontendAssetPath('images/common/round-valid.png')?>" alt="" />
+    				</div>
+    				<div class="col-md-11">
+    					<p id="valid-text">
+    					    Félicitations, vous avez gagné !
+    					</p>
+    				</div>
+    			</div>
+    			<!-- contenu form address -->
+    			<?php if ($this->form_address) : ?>
+    			     <?php echo $this->form_address ?>
+    			<?php endif;?>
+    		<?php else:?>
+    			<div class="row win">
+    				<div class="col-md-1">
+    					<img src="<?php echo $this->frontendAssetPath('images/common/round-wrong.png')?>" alt="" />
+    				</div>
+    				<div class="col-md-11">
+    					<p id="valid-text">
+    					<?php if ($this->game->getOccurrenceType()=='datetime'): ?>
+            		        <?php echo $this->translate('Retentez votre chance dès demain!'); ?> 
+            		    <?php elseif ($this->game->getOccurrenceType()=='code'): ?>
+            		        <?php echo $this->translate('Désolé, vous avez perdu'); ?> 
+            		    <?php endif; ?>
+    					</p>
+    				</div>
+    			</div>
+    		<?php endif;?>
+    	</div>
+    	
+    <?php endif;?>
+    
+    <?php if (!$this->over) :?>
+    	<div id="play-instantwin">
+    		<p class="instructions">
+    		    <?php if ($this->game->getOccurrenceType()=='datetime'): ?>
+    		        <?php echo $this->translate('Scratch'); ?> 
+    		    <?php elseif ($this->game->getOccurrenceType()=='code'): ?>
+    		        <?php echo $this->translate('Submit your code '); ?> 
+    		    <?php endif; ?>
+    		    <?php echo $playLimitValue; ?> <?php echo $this->translate('and find out immediately if you won'); ?> :
+    		</p>
+    		<!-- BLOCK GAME START -->
+    		<div class="block-game game-play">
+    			<div class="game-infos">
+        	        <?php if ($this->game->getStartDate() && $this->game->getEndDate()):?>
+        			    <div class="instantwin">
+        			        <?php echo $this->translate('instantwin'); ?> : <?php echo $this->translate('Play'); ?> <?php echo $this->translate('from'); ?> <?php echo strftime("%d %B", $this->game->getStartDate()->format('U'));?> <?php echo $this->translate('to'); ?> 
+        			        <?php echo strftime("%d %B", $this->game->getEndDate()->format('U'));?> <?php echo $this->translate('with'); ?> 
+        			    </div>
+        			<?php elseif ($this->game->getStartDate()):?>
+        			    <div class="instantwin">
+        			        <?php echo $this->translate('instantwin'); ?> : <?php echo $this->translate('Play'); ?> <?php echo $this->translate('after'); ?> <?php echo strftime("%d %B", $this->game->getStartDate()->format('U'));?> <?php echo $this->translate('with'); ?> 
+        			    </div>
+        			<?php elseif ($this->game->getEndDate()):?>
+        			    <div class="instantwin">
+        			        <?php echo $this->translate('instantwin'); ?> : <?php echo $this->translate('Play'); ?> <?php echo $this->translate('up to'); ?> <?php echo strftime("%d %B", $this->game->getEndDate()->format('U'));?> <?php echo $this->translate('with'); ?> 
+        			    </div>
+        			<?php else:?>
+        			    <div class="instantwin">
+        			        <?php echo $this->translate('instantwin'); ?> : <?php echo $this->translate('Play'); ?> <?php echo $this->translate('with'); ?> 
+        			    </div>
+        			<?php endif; ?>
+    				<div class="logo-partner">
+    					<?php if($this->game->getPartner()):?>
+    						<?php if( ($this->game->getPartner()->getLogo() != '') || ($this->game->getPartner()->getSmallLogo() !='')) : ?>
+    							<img
+    								src="<?php if($this->game->getPartner()->getSmallLogo() !='') : echo $this->basePath($this->game->getPartner()->getSmallLogo());
+    											else : echo $this->basePath($this->game->getPartner()->getLogo()); endif;?>"
+    								alt="<?php echo $this->game->getPartner()->getName();?>" />
+    						<?php else:?>
+    							<span>
+    							    <?php echo $this->game->getPartner()->getName();?>
+    							</span>
+    						<?php endif;?>
+    					<?php else :?>
+    						<img src="<?php echo $this->frontendAssetPath('images/common/logo-game-start.png');?>" alt="Logo" />
+    					<?php endif;?>
+    				</div>
+    			</div>
+    			<div class="img-content">
+    				<img class="rounded" src="<?php echo $this->basePath($this->game->getScratchcardImage()); ?>" />
+    				<?php if ($this->game->getOccurrenceType()=='datetime'): ?>
+        				<div id="wScratchgame" data-percentscratched="" data-scratchover='<?php echo $this->frontendAssetPath('images/games/scratch-over.png')?>' 
+        					<?php if($this->winner):?>
+        			        	data-scratchthis="<?php echo $this->frontendAssetPath('images/games/scratch-win.png')?>" >
+        					<?php else:?>
+        			        data-scratchthis="<?php echo $this->frontendAssetPath('images/games/scratch-loose.png')?>" >
+        					<?php endif;?>
+        				</div>
+    				<?php elseif ($this->game->getOccurrenceType()=='code'): ?>
+        				<?php $form->prepare(); ?>
+        	                <?php echo $this->form()->openTag($form); ?>
+        					<?php echo $this->formLabel($form->get('code-input')) ;?>
+        					<?php echo $this->formInput($form->get('code-input')); ?>
+        					<?php echo $this->formSubmit($form->get('submit')); ?>
+        				<?php echo $this->form()->closeTag($form); ?>
+        			<?php endif; ?>
+    			</div>
+    		</div>
+    	</div>
+    
+    <?php endif;?>
+   
 	<!-- END BLOCK GAME START -->
-	<div class="next-instant-win-step <?php if($this->winner):?>success<?php endif;?>">
-	    <a class="btn btn-default" href="<?php echo ($this->winner) ? '#': $this->url('frontend/'. $this->game->getClassType() . '/'. $this->game->nextStep('play'), array('id' => $this->game->getIdentifier(), 'channel' => $this->channel));?>">
-		    Continuer
-		</a>
-	</div>
+	
+	 <?php if ($this->game->getOccurrenceType()=='datetime' || $this->over): ?>
+    	<div class="next-instant-win-step <?php if($this->winner):?>success<?php endif;?>">
+    	    <a class="btn btn-default" href="<?php echo ($this->winner) ? '#': $this->url('frontend/'. $this->game->getClassType() . '/'. $this->game->nextStep('play'), array('id' => $this->game->getIdentifier(), 'channel' => $this->channel));?>">
+    		    Continuer
+    		</a>
+    	</div>
+	<?php endif; ?>
 </div>

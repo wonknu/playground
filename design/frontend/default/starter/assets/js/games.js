@@ -5,9 +5,15 @@ $(function ()
 	{
 		$(this).attr('target', '_blank');
 	}); 
-    
+	
+	$('#play-instantwin').show();
+	$('#result-instantwin').show();
+	$('.next-instant-win-step .btn').show();
+	
 	// Game : Instant win - scratch game
 	if($("#wScratchgame").size() > 0){
+		$('#result-instantwin').hide();
+		$('.next-instant-win-step .btn').hide();
 		var $scratchGame = $("#wScratchgame");
 		$scratchGame.wScratchPad({
 	    	image 		: $scratchGame.attr('data-scratchthis'),
