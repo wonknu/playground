@@ -68,34 +68,66 @@ $form->setAttribute('action', $this->url('frontend/quiz/play', array('id' => $th
     						<img src="<?php echo $this->basePath($question->getImage())?>" class="question-image" alt="<?php echo $question->getQuestion();?>" />
         					<div class="answers" >
         						<?php if ($element instanceof Zend\Form\Element\Radio): ?>
-                                    <?php echo $this->formRadio($element) ?>
+                                    <?php // echo $this->formRadio($element, null, false) ?>
+                                    <?php $attributes = $element->getAttributes(); ?>
+                                    <?php foreach ($element->getValueOptions() as $k => $option) : ?>
+                                        <label>
+                                            <input type="radio" value="<?php echo $k ?>" name="<?php echo $attributes['name']; ?>">
+                                            <?php echo $option ?>
+                                        </label>
+                                    <?php endforeach; ?> 
                                 <?php elseif ($element instanceof Zend\Form\Element\MultiCheckbox): ?>
-                                    <?php echo $this->formMultiCheckbox($element);?>
+                                    <?php //echo $this->formMultiCheckbox($element);?>
+                                    <?php $attributes = $element->getAttributes(); ?>
+                                    <?php foreach ($element->getValueOptions() as $k => $option) : ?>
+                                        <label>
+                                            <input type="checkbox" value="<?php echo $k ?>" name="<?php echo $attributes['name']; ?>">
+                                            <?php echo $option ?>
+                                        </label>
+                                    <?php endforeach; ?> 
                                 <?php elseif ($element instanceof Zend\Form\Element\Textarea): ?>
                                     <?php echo $this->formTextarea($element); ?>
                                 <?php endif;?>
-                                <div class="explanation">
+                                <?php if ( ! $element instanceof Zend\Form\Element\Textarea): ?>
+                                <!-- <div class="explanation">
                                     <?php foreach ($element->getvalueOptions() as $answerLabel) :?>
                                         <span><?php echo $this->explanations[$answerLabel]; ?></span>
                                     <?php endforeach; ?>  
-                                </div>
+                                </div> -->
+                                <?php endif;?>
                                 <?php //echo $this->formElementErrors($element) ?>
                                 <?php if ($element->getMessages()) : echo '<div class="quiz-error">Merci de répondre à la question.</div>'; endif; ?>
         					</div>
         				</div>
     				<?php else:?>
         				<?php if ($element instanceof Zend\Form\Element\Radio): ?>
-                            <?php echo $this->formRadio($element) ?>
+                            <?php // echo $this->formRadio($element, null, false) ?>
+                            <?php $attributes = $element->getAttributes(); ?>
+                            <?php foreach ($element->getValueOptions() as $k => $option) : ?>
+                                <label>
+                                    <input type="radio" value="<?php echo $k ?>" name="<?php echo $attributes['name']; ?>">
+                                    <?php echo $option ?>
+                                </label>
+                            <?php endforeach; ?> 
                         <?php elseif ($element instanceof Zend\Form\Element\MultiCheckbox): ?>
-                            <?php echo $this->formMultiCheckbox($element);?>
+                            <?php //echo $this->formMultiCheckbox($element);?>
+                            <?php $attributes = $element->getAttributes(); ?>
+                            <?php foreach ($element->getValueOptions() as $k => $option) : ?>
+                                <label>
+                                    <input type="checkbox" value="<?php echo $k ?>" name="<?php echo $attributes['name']; ?>">
+                                    <?php echo $option ?>
+                                </label>
+                            <?php endforeach; ?> 
                         <?php elseif ($element instanceof Zend\Form\Element\Textarea): ?>
                             <?php echo $this->formTextarea($element); ?>
                         <?php endif;?>
-                        <div class="explanation">
+                        <?php if ( ! $element instanceof Zend\Form\Element\Textarea): ?>
+                        <!-- <div class="explanation">
                             <?php foreach ($element->getvalueOptions() as $answerLabel) :?>
                                 <span><?php echo $this->explanations[$answerLabel]; ?></span>
                             <?php endforeach; ?>  
-                        </div>
+                        </div> -->
+                        <?php endif;?>
                         <?php //echo $this->formElementErrors($element); ?>
 						<?php if ($element->getMessages()) : echo '<div class="quiz-error">Merci de répondre à la question.</div>'; endif; ?>
                     <?php endif;?>
