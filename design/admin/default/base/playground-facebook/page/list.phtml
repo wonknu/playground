@@ -21,10 +21,6 @@ if (isset($fm[0]))
     <tr>
         <th><?php echo $this->translate('Page Id'); ?></th>
         <th><?php echo $this->translate('Page Name'); ?></th>
-        <th><?php echo $this->translate('Available'); ?></th>
-        <?php if($this->fbLogged):?>
-            <th><?php echo $this->translate('Installed'); ?></th>
-        <?php endif;?>
         <th></th>
     </tr>
     <?php foreach ($this->pages as $page): ?>
@@ -32,11 +28,9 @@ if (isset($fm[0]))
         <?php $deleteLink = $this->url('admin/facebook/page/remove', array('pageId' => $page['id']));?>
         <tr>
             <td><?php echo $page['pageId'] ?></td>
-            <td><a href="<?php echo $page['pageLink'] ?>" target="_blank"><?php echo $page['pageName'] ?></a></td>
-            <td><?php echo ($page['isAvailable'])? $this->translate('Yes'):$this->translate('No'); ?></td>
-           <?php if($this->fbLogged && $this->fbAllowed):?>
-                <td><?php echo ($page['isInstalled'])? $this->translate('Yes'):$this->translate('No'); ?></td>
-            <?php endif;?>
+            <td><a href="<?php echo $page['pageLink'] ?>" target="_blank"><?php echo $page['pageName'] ?><br/>
+                <img src="https://graph.facebook.com/<?php echo $page['pageId']?>/picture?type=large"/></a></td>
+            <td></td>
             <td>
                 <a href='<?php echo $editLink ?>'><?php echo $this->translate('Edit'); ?></a>
                 <a href='<?php echo $deleteLink ?>'><?php echo $this->translate('Delete'); ?></a>
