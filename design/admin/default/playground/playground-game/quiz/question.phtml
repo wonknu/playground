@@ -48,7 +48,7 @@ $form->prepare();
             <?php $this->QgCKEditor(
                 'question',
                     array(
-                    	'BasePath' => $this->adminAssetPath('js/lib/ckeditor'),
+                    	'BasePath' => $this->libAssetPath('js/ckeditor'),
                     	'Width' => "450",
                         'Height' => "100",
                         //'Color' => "#000",
@@ -71,7 +71,7 @@ $form->prepare();
                 <?php $this->QgCKEditor(
                     'hint',
                         array(
-                        	'BasePath' => $this->adminAssetPath('js/lib/ckeditor'),
+                        	'BasePath' => $this->libAssetPath('js/ckeditor'),
                         	'Width' => "450",
                             'Height' => "100",
                             //'Color' => "#000",

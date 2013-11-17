@@ -8,26 +8,26 @@ if (isset($fm[0]))
 }
 ?>
 <ul class="liste-buttons">
-	<li class="btn-admin"><a href="<?php echo $this->url('admin/facebook/app/create');?>"><?php echo $this->translate('Ajouter une Appli Facebook'); ?></a></li>
+	<li class="btn-admin"><a href="<?php echo $this->url('admin/facebook/app/create');?>"><?php echo $this->translate('Add facebook application'); ?></a></li>
 </ul>
 
-<h1>Liste de vos applis Facebook</h1>
+<h1><?php echo $this->translate('Your facebook applications'); ?></h1>
 
 <?php if(!$this->fbLogged):?>
-    Vous n'êtes pas loggé à Facebook ou vous ne possédez pas les droits d'administration sur les applis et pages gérées ici.
-    Pour pouvoir profiter de l'ensemble des fonctionnalités de la plateforme : <a href="<?php echo $this->fbLoginUrl ?>">Connectez-vous à Facebook en donnant les droits d'administration à la plateforme</a>
+	<?php echo $this->translate('Facebook admin page message'); ?>
+    <a href="<?php echo $this->fbLoginUrl ?>"><?php echo $this->translate('Facebook admin page link'); ?></a>
 <?php endif;?>
 <table class="table">
     <tr>
         <th><?php echo $this->translate('App Id'); ?></th>
-        <th><?php echo $this->translate('Nom'); ?></th>
+        <th><?php echo $this->translate('Name'); ?></th>
         <!--th><?php //echo $this->translate('Icône'); ?></th>
         <th><?php //echo $this->translate('Logo'); ?></th-->
-        <th><?php echo $this->translate('Disponible'); ?></th>
-        <th><?php echo $this->translate('Contenu'); ?></th>
+        <th><?php echo $this->translate('Available'); ?></th>
+        <th><?php echo $this->translate('Content'); ?></th>
         <?php if($this->fbLogged):?>
-            <th><?php echo $this->translate('Installée'); ?></th>
-            <th><?php echo $this->translate('Titre'); ?></th>
+            <th><?php echo $this->translate('Installed'); ?></th>
+            <th><?php echo $this->translate('Title'); ?></th>
             <th><?php echo $this->translate('Logo'); ?></th>
         <?php endif;?>
         <th></th>
@@ -42,10 +42,10 @@ if (isset($fm[0]))
             <td><a href="<?php echo $app['link'] ?>" target="_blank"><?php echo $app['name'] ?></a></td>
             <!--td><img src="<?php //echo $app['icon_url'] ?>"/></td>
             <td><img src="<?php //echo $app['logo_url'] ?>"/></td-->
-            <td><?php echo ($app['is_available'])? 'Oui':'Non'; ?></td>
+            <td><?php echo ($app['is_available'])? $this->translate('Yes'):$this->translate('No'); ?></td>
             <td><?php echo $app['source_type'] . ' - ' . $app['source_title'] ?></td>
             <?php if($this->fbLogged && $this->fbAllowed):?>
-                <td><?php echo ($app['is_installed'])? 'Oui':'Non'; ?></td>
+                <td><?php echo ($app['is_installed'])? $this->translate('Yes'):$this->translate('No'); ?></td>
                 <td><a href="<?php echo $app['link']?>" target="_blank"><?php echo (isset($app['custom_name']))? $app['custom_name']:''; ?></a></td>
                 <td><?php if(isset($app['custom_image_url'])):?><img src="<?php echo $app['custom_image_url']; ?>"/><?php endif;?></td>
             <?php endif;?>
@@ -53,7 +53,7 @@ if (isset($fm[0]))
                 <?php if($this->fbAllowed):?>
                     <?php if(!$app['is_installed'] && !$app['is_available']):?>
                     <?php     if($app['has_pages']):?>
-                        <a href='<?php echo $installLink ?>'><?php echo $this->translate('Install on').' '.$app['pages_number'].' '.$this->translate('page(s)'); ?></a>
+                        <a href='<?php echo $installLink ?>'><?php echo $this->translate('Install on Facebook page').' '.$app['pages_number'].' '.$this->translate('page(s)'); ?></a>
                     <?php     else:?>
                         <a href='<?php echo $editLink ?>'><?php echo $this->translate('Choose FB page(s)'); ?></a>
                     <?php     endif;?>
@@ -61,7 +61,7 @@ if (isset($fm[0]))
                     <?php endif;?>
                     <?php if($app['is_installed']): ?>
                     <?php     if($app['has_pages']):?>
-                        <a href='<?php echo $uninstallLink ?>'><?php echo $this->translate('Uninstall from').' '.$app['pages_number'].' '.$this->translate('page(s)'); ?></a>
+                        <a href='<?php echo $uninstallLink ?>'><?php echo $this->translate('Uninstall from Facebook page').' '.$app['pages_number'].' '.$this->translate('page(s)'); ?></a>
                         |
                     <?php     endif;?>
                     <?php endif;?>
@@ -73,7 +73,7 @@ if (isset($fm[0]))
 </table>
 
 <ul class="liste-buttons bottom">
-	<li class="btn-admin bottom"><a href="<?php echo $this->url('admin/facebook/app/create');?>"><?php echo $this->translate('Ajouter une Appli Facebook'); ?></a></li>
+	<li class="btn-admin bottom"><a href="<?php echo $this->url('admin/facebook/app/create');?>"><?php echo $this->translate('Add facebook application'); ?></a></li>
 </ul>
 
 <?php //echo $this->paginationControl($this->apps, 'Sliding', 'playground-facebook/admin/pagination_applist.phtml'); ?>

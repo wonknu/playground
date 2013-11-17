@@ -2,12 +2,12 @@
 <?php
 $form = $this->form;
 $form->prepare();
-$form->setAttribute('action', $this->url('frontend/postvote/play', array('id' => $this->game->getIdentifier(), 'channel' => $this->channel)));
+$form->setAttribute('action', $this->url('frontend/'. $this->game->getClassType() . '/play', array('id' => $this->game->getIdentifier(), 'channel' => $this->channel)));
 ?>
 
 <?php $totalQuestions = count($this->questions);?>
 <!-- GAME QUIZ - FERME QUESTIONS -->
-<div class="row game-postvote play">
+<div class="row game-postvote play wrap-game">
 	<h1>
 	    <?php echo $this->game->getTitle(); ?>
 	</h1>
@@ -29,7 +29,7 @@ $form->setAttribute('action', $this->url('frontend/postvote/play', array('id' =>
 			
 			<div class="dark-overlay row">
 				<h2 class="col-md-10">
-				    <?php echo $this->translate('Post & Vote'); ?> offert par <?php if($this->game->getPartner()): echo $this->game->getPartner()->getName(); else:?>Playground<?php endif;?>
+				    <?php echo $this->translate('Post & Vote'); ?> <?php echo $this->translate('offered by'); ?> <?php if($this->game->getPartner()): echo $this->game->getPartner()->getName(); else:?>Playground<?php endif;?>
 				</h2>
 			</div>
 		</div>
@@ -37,14 +37,11 @@ $form->setAttribute('action', $this->url('frontend/postvote/play', array('id' =>
 	<!-- END BLOCK GAME START -->
 	<!-- Content -->
 	<div class="btn-group">
-        <a href="<?php echo $this->url('frontend/postvote', array('id' => $this->game->getIdentifier(), 'channel' => $this->channel))?>" class="btn btn-default" >
-            Accueil
+		<a href="<?php echo $this->url('frontend/'. $this->game->getClassType() . '/play', array('id' => $this->game->getIdentifier(), 'channel' => $this->channel))?>" class="btn btn-default" >
+            <span class="left">left</span><span class="center"><?php echo $this->translate('Participate'); ?></span><span class="right">right</span>
         </a>
-        <a href="<?php echo $this->url('frontend/postvote/list', array('id' => $this->game->getIdentifier(), 'channel' => $this->channel, 'filter' => $this->game->getPostDisplayMode()))?>" class="btn btn-default" >
-            Voir les participations
-        </a>
-        <a href="<?php echo $this->url('frontend/postvote/play', array('id' => $this->game->getIdentifier(), 'channel' => $this->channel))?>" class="btn btn-default" >
-            Participer
+        <a href="<?php echo $this->url('frontend/'. $this->game->getClassType() . '/list', array('id' => $this->game->getIdentifier(), 'channel' => $this->channel, 'filter' => $this->game->getPostDisplayMode()))?>" class="btn btn-default participate" >
+            <?php echo $this->translate('See participants'); ?>
         </a>
     </div>
 	<div id="content-article">
@@ -54,8 +51,8 @@ $form->setAttribute('action', $this->url('frontend/postvote/play', array('id' =>
         <p>
             <?php echo $this->game->getForm()->getDescription(); ?>
         </p>
-		<div>
-			<div>
+		<div class="content-postvote">
+			<div class="wrapper">
 				<?php
 				echo $this->form()->openTag($form);
 	            foreach ($this->form as $element) :
@@ -91,12 +88,12 @@ $form->setAttribute('action', $this->url('frontend/postvote/play', array('id' =>
 				               	</div>
 				               <div class="caracteres-restants col-md-11">
 					               <span class="character-left"></span> 
-					               caractères restants
+					               <?php echo $this->translate('remaining characters'); ?>
 					           </div>
 				         </div>
                     <?php elseif ($element instanceof Zend\Form\Element\File): ?>
                         <div class="clearfix"></div>
-	                    <div class="photo-file row" data-url="<?php echo $this->url('frontend/postvote/play/ajaxupload', array('id' => $this->game->getIdentifier(), 'channel' => $this->channel))?>" data-canonical="<?php echo $this->url('frontend', array('channel' => $this->channel), array('force_canonical' => true)) ?>">
+	                    <div class="photo-file row" data-url="<?php echo $this->url('frontend/'. $this->game->getClassType() . '/play/ajaxupload', array('id' => $this->game->getIdentifier(), 'channel' => $this->channel))?>" data-canonical="<?php echo $this->url('frontend', array('channel' => $this->channel), array('force_canonical' => true)) ?>">
 	                    	<label class="col-md-4">
 	    						<b>
 	    						    <?php echo ($element->getLabel()) ? $this->formLabel($element) . ' ' . $requiredContent :''; ?>
@@ -112,7 +109,7 @@ $form->setAttribute('action', $this->url('frontend/postvote/play', array('id' =>
                                     <img class="preview" src="<?php echo $this->basePath($element->getValue());?>"/>
                                     <a href="#"
                                         class="trash"
-                                        data-delete="<?php echo $this->url('frontend/postvote/play/ajaxdelete', array('id' => $this->game->getIdentifier(), 'channel' => $this->channel))?>"
+                                        data-delete="<?php echo $this->url('frontend/'. $this->game->getClassType() . '/play/ajaxdelete', array('id' => $this->game->getIdentifier(), 'channel' => $this->channel))?>"
                                         data-name="<?php echo $element->getName() ?>">
                                         <img src="<?php echo $this->frontendAssetPath('images/common/trash.png');?>" alt="Supprimer" />
                                     </a>
@@ -142,7 +139,7 @@ $form->setAttribute('action', $this->url('frontend/postvote/play', array('id' =>
     	    </div>
     	    <div class="center">
                 <button type="submit" name="submitPost" value="" class="btn btn-default">
-                    Prévisualiser
+                    <?php echo $this->translate('Preview'); ?>
                 </button>
     	    </div>
 			<?php echo $this->form()->closeTag() ?>
@@ -157,7 +154,7 @@ $form->setAttribute('action', $this->url('frontend/postvote/play', array('id' =>
 	           </form>
         </div>
 		<p class="champs-obligatoitres">
-		    *champs obligatoires
+		    * <?php echo $this->translate('required fields'); ?>
 		</p>
 	</div>
 </div>

@@ -9,14 +9,22 @@
 
 	<!-- contenu article -->
 	<div id="content-article" class="row-fluid rounded backgrey">
-		<div class="welcome-block<?php if($this->layout()->facebooktemplate): echo ' fb-target'; endif ?>"><?php echo $this->game->getWelcomeBlock(); ?></div>
-		<?php if($game->isStarted()):?>
+		<div class="welcome-block<?php if($this->layout()->facebooktemplate): echo ' fb-target'; endif ?>">
+		    <?php echo $this->game->getWelcomeBlock(); ?>
+		</div>
+		<?php if($this->game->isStarted()):?>
 		<div class="center">
-			<div class="btn btn-default">
-				<a href="<?php echo $this->url('frontend/lottery/play', array('id' => $this->game->getIdentifier(), 'channel' => $this->channel))?>" class="arrow-right">Participer</a>
+			<div class="btn btn-default"<?php if ($this->isCtaActive) { echo ' id="fb-play"'; } ?>>
+				<a href="<?php echo $this->url('frontend/'. $this->game->getClassType() . '/'. $this->game->nextStep('index'), array('id' => $this->game->getIdentifier(), 'channel' => $this->channel))?>" class="arrow-right">
+					<span class="left">left</span><span class="center"><?php echo $this->translate('Participate'); ?></span><span class="right">right</span>
+				</a>
 			</div>
+			<p id="reglement">
+				<a href="<?php echo $this->url('frontend/'. $this->game->getClassType() . '/terms', array('id' => $this->game->getIdentifier(), 'channel' => $this->channel))?>" target="_blank">
+					<?php echo $this->translate('Rules'); ?>
+				</a>
+			</p>
 		</div>
 		<?php endif;?>
 	</div>
-	<p id="reglement"><a href="<?php echo $this->url('frontend/lottery/terms', array('id' => $this->game->getIdentifier(), 'channel' => $this->channel))?>" target="_blank">Règlement</a></p>
 </div>

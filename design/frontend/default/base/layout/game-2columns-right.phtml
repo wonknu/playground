@@ -14,10 +14,10 @@ $ourView  = $children[0];
 		<div id="container">
 		    <div id="fb-root"></div>
             <div id="content" class="row-fluid">
-                <div id="ad-left"><img src="<?php echo $this->frontendAssetPath('images/adserving/adserving-left.jpg')?>" border="0" /></div>
-                <div id="ad-right"><img src="<?php echo $this->frontendAssetPath('images/adserving/adserving-right.jpg')?>" border="0" /></div>
+                <!-- <div id="ad-left"><img src="<?php //echo $this->frontendAssetPath('images/adserving/adserving-left.jpg')?>" border="0" /></div>
+                <div id="ad-right"><img src="<?php //echo $this->frontendAssetPath('images/adserving/adserving-right.jpg')?>" border="0" /></div> -->
                 <?php echo $this->header(array('channel' => $this->channel));?>
-                <div id="ad-mega-banner"><img src="<?php echo $this->frontendAssetPath('images/adserving/adserving-mega-banner.jpg')?>" border="0" /></div>
+                <!-- <div id="ad-mega-banner"><img src="<?php //echo $this->frontendAssetPath('images/adserving/adserving-mega-banner.jpg')?>" border="0" /></div> -->
                 <?php if (isset($ourView->flashMessages) && count($ourView->flashMessages)) : ?>
                 <ul class="flashMessages">
                     <?php foreach ($ourView->flashMessages as $fMessage) : ?>
@@ -25,9 +25,9 @@ $ourView  = $children[0];
                     <?php endforeach; ?>
                 </ul>
                 <?php endif; ?>
-                <div id="random-game" class="shadow">
-                	<div class="row-fluid">
-                		<div class="span8">
+                <div id="containerpage" >
+                	<div class="row">
+                		<div class="main-content col-md-8">
                 			<?php echo $this->content; ?>
                 		</div>
                 		<?php echo $this->column_right; ?>

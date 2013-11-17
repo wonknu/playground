@@ -1,6 +1,6 @@
 <?php $this->plugin('translate')->setTranslatorTextDomain('playgroundgame');// Pour le texte ?>
 
-<div class="span4 mobile sidebar game-sidebar">
+<div class="span4 mobile sidebar game-sidebar col-md-4">
 	<div class="row-fluid">
 
 		<!-- COLUMNBLOCK1 (if not null) -->
@@ -31,24 +31,17 @@
     	<?php //endif; ?>
 
 
-		<div id="sidebar-game" class="sd-block">
-			<p class="green"><?php echo $this->translate('Comment participer ?'); ?></p>
-			<div id="reply" class="row-fluid">
-				<div class="span2">
-					<img src="<?php echo $this->frontendAssetPath('images/common/btn-reply.png') ?>" alt="" />
-				</div>
-				<div class="span10">
-					<p>Cliquez sur participer</p>
-				</div>
-			</div>
-			<div id="ecusson" class="row-fluid">
-				<div class="span2">
-					<img src="<?php echo $this->frontendAssetPath('images/common/btn-ecusson.png') ?>" alt="" />
-				</div>
-				<div class="span10">
-					<p>Votre participation au tirage au sort sera prise en compte !<br/>
-					Vous pourrez cumuler plus de chances en invitant vos amis à jouer</p>
-				</div>
+		<div id="sidebar-game" >
+			<div class="sd-block participate">
+				<img src="<?php echo $this->frontendAssetPath('images/common/icon-participate.png')?>" alt="participate" />
+	            <h5><?php echo $this->translate('How to participate ?'); ?></h5>
+	            <div class="sb-content">
+	            	<ul id="reply" class="row-fluid links-list">
+		            	<li><?php echo $this->translate('Click to participate'); ?></li>
+		            	<li><?php echo $this->translate('Your participation in the draw will be taken into account!'); ?><br/>
+							<?php echo $this->translate('You can earn more chances by inviting your friends to play'); ?></li>
+		            </ul>
+	            </div>
 			</div>
 		</div>
 

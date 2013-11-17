@@ -35,21 +35,23 @@ $(function(){
     
     /**************************** Colonne droite */
 	/**** Leaderboard */
-	$('.ranking ul .general').hide();
-	$('.ranking .filter-bar .general').click(function(){
-		$(this).children().addClass('active');
-		$('.ranking .filter-bar .week a').removeClass('active');
+	/*$('.ranking ul .general').hide();
+	$('.ranking .general').click(function(e){
+	    e.preventDefault();
+		$(this).addClass('active');
+		$('.ranking .week').removeClass('active');
 		$('.ranking ul .week').hide();
 		$('.ranking ul .general').show();
 		return false;
-	})
-	$('.ranking .filter-bar .week').click(function(){
-		$(this).children().addClass('active');
-		$('.ranking .filter-bar .general a').removeClass('active');
+	});
+	$('.ranking .week').click(function(e){
+	    e.preventDefault();
+		$(this).addClass('active');
+		$('.ranking .general ').removeClass('active');
 		$('.ranking ul .general').hide();
 		$('.ranking ul .week').show();
 		return false;
-	})
+	});*/
 	
 	
     /**************************** Page Gagnant */
@@ -116,5 +118,11 @@ $(function(){
             PIE.attach(this);
         });
     };*/
-	
+	var currentYear = new Date().getFullYear();
+	$('input[type="datetime"]').datepicker({
+		changeMonth: true,
+		changeYear: true,
+		//minDate: new Date(1900, 1 - 1, 1)
+		yearRange: (currentYear - 100) + ':' + currentYear
+    });
 });

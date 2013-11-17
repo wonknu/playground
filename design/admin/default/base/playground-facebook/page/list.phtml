@@ -8,20 +8,23 @@ if (isset($fm[0]))
 }
 ?>
 <ul class="liste-buttons">
-	<li class="btn-admin"><a href="<?php echo $this->url('admin/facebook/page/create');?>"><?php echo $this->translate('Ajouter une page Facebook'); ?></a></li>
+	<li class="btn-admin"><a href="<?php echo $this->url('admin/facebook/page/create');?>"><?php echo $this->translate('Add facebook page'); ?></a></li>
 </ul>
 
-<h1>Liste des pages</h1>
+<h1><?php echo $this->translate('Pages list'); ?></h1>
 
 <?php if(!$this->fbLogged):?>
-    Vous n'êtes pas loggé à Facebook ou vous ne possédez pas les droits d'administration sur les pages gérées ici.
-    Pour pouvoir profiter de l'ensemble des fonctionnalités de la plateforme : <a href="<?php echo $this->fbLoginUrl ?>">Connectez-vous à Facebook en donnant les droits d'administration à la plateforme</a>
+   <?php echo $this->translate('Facebook admin page message'); ?>
+    <a href="<?php echo $this->fbLoginUrl ?>"><?php echo $this->translate('Facebook admin page link'); ?></a>
 <?php endif;?>
 <table class="table">
     <tr>
         <th><?php echo $this->translate('Page Id'); ?></th>
         <th><?php echo $this->translate('Page Name'); ?></th>
-        <th><?php echo $this->translate('Disponible'); ?></th>
+        <th><?php echo $this->translate('Available'); ?></th>
+        <?php if($this->fbLogged):?>
+            <th><?php echo $this->translate('Installed'); ?></th>
+        <?php endif;?>
         <th></th>
     </tr>
     <?php foreach ($this->pages as $page): ?>
@@ -30,9 +33,12 @@ if (isset($fm[0]))
         <tr>
             <td><?php echo $page['pageId'] ?></td>
             <td><a href="<?php echo $page['pageLink'] ?>" target="_blank"><?php echo $page['pageName'] ?></a></td>
-            <td><?php echo ($page['isAvailable'])? 'Oui':'Non'; ?></td>
-           <td>
-                <a href='<?php echo $editLink ?>'><?php echo $this->translate('Edit'); ?></a>                |
+            <td><?php echo ($page['isAvailable'])? $this->translate('Yes'):$this->translate('No'); ?></td>
+           <?php if($this->fbLogged && $this->fbAllowed):?>
+                <td><?php echo ($page['isInstalled'])? $this->translate('Yes'):$this->translate('No'); ?></td>
+            <?php endif;?>
+            <td>
+                <a href='<?php echo $editLink ?>'><?php echo $this->translate('Edit'); ?></a>
                 <a href='<?php echo $deleteLink ?>'><?php echo $this->translate('Delete'); ?></a>
             </td>
         </tr>
@@ -40,7 +46,7 @@ if (isset($fm[0]))
 </table>
 
 <ul class="liste-buttons bottom">
-	<li class="btn-admin bottom"><a href="<?php echo $this->url('admin/facebook/page/create');?>"><?php echo $this->translate('Ajouter une page Facebook'); ?></a></li>
+	<li class="btn-admin bottom"><a href="<?php echo $this->url('admin/facebook/page/create');?>"><?php echo $this->translate('Add facebook page'); ?></a></li>
 </ul>
 
 <?php //echo $this->paginationControl($this->apps, 'Sliding', 'playground-facebook/admin/pagination_applist.phtml'); ?>

@@ -28,11 +28,11 @@ $settings = array(
     /**
     * AdServing parameters
     */
-    'adserving' => array(
+    /*'adserving' => array(
         'cat1' => 'playground',
         'cat2' => '',
         'cat3' => ''
-    ),
+    ),*/
 
     /**
     * Social messages
@@ -51,14 +51,16 @@ $settings = array(
 	),
 
 	'ckeditor' => array(
-        'BasePath' =>'zfcadmin/js/lib/ckeditor',
+        'BasePath' =>'lib/js/ckeditor',
         'Width'      => "100%",
         'Height'     => "340",
         'Language'   => 'fr',
         'Color'      => '#F7F7F7',
-        'stylesSet'  => 'custom_styles:/zfcadmin/js/ckeditor-custom/ckeditor-styles.js',
-        'templates_files'  => array('/zfcadmin/js/ckeditor-custom/ckeditor-templates.js'),
-        'contentsCss'  => array('/zfcadmin/css/ckeditor-custom/ckeditor-css.css'),
+        /*
+        'stylesSet'  => 'custom_styles:/lib/js/ckeditor-custom/ckeditor-styles.js',
+        'templates_files'  => array('/lib/js/ckeditor-custom/ckeditor-templates.js'),
+        'contentsCss'  => array('/lib/css/ckeditor-custom/ckeditor-css.css'),
+        */
 
         // Full toolbars
         'Toolbar'    => array(

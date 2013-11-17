@@ -1,6 +1,6 @@
 <?php $this->plugin('translate')->setTranslatorTextDomain('playgroundgame');// Pour le texte ?>
 <!-- GAME QUIZ -->
-<div class="game-quiz row-fluid welcome">
+<div class="game-quiz welcome">
 	<h1><?php echo $this->game->getTitle(); ?></h1>
 
 	<!-- BLOCK GAME START -->
@@ -9,14 +9,20 @@
 
 	<!-- contenu article -->
 	<div id="content-article" class="row-fluid rounded backgrey">
-		<div class="welcome-block<?php if($this->channel === 'facebook'): echo ' fb-target'; endif ?>"><?php echo $this->game->getWelcomeBlock(); ?></div>
+		<div class="welcome-block<?php if($this->layout()->facebooktemplate): echo ' fb-target'; endif ?>"><?php echo $this->game->getWelcomeBlock(); ?></div>
 		<?php if($game->isStarted()):?>
 		<div class="center">
-			<div class="btn btn-warning"><a href="<?php echo $this->url('frontend/quiz/play', array('id' => $this->game->getIdentifier(),'channel' => $this->channel));?>" class="arrow-right"><?php echo $this->translate('Participer'); ?></a></div>
+			<div class="btn btn-default"<?php if ($this->isCtaActive):?> id="fb-play"<?php endif;?>><a href="<?php echo $this->url('frontend/'. $this->game->getClassType() . '/'. $this->game->nextStep('index'), array('id' => $this->game->getIdentifier(),'channel' => $this->channel));?>" class="arrow-right">
+				<span class="left">left</span><span class="center"><?php echo $this->translate('Participate'); ?></span><span class="right">right</span>
+			</a></div>
+			<p id="reglement">
+			    <a data-toggle="modal" href="<?php echo $this->url('frontend/'. $this->game->getClassType() . '/terms', array('id' => $this->game->getIdentifier(), 'channel' => $this->channel))?>" data-target="#reglement">
+			        <?php echo $this->translate('Rules'); ?>
+			    </a>
+			</p>
 		</div>
 		<?php endif;?>
-	</div>
-	<p id="reglement"><a href="<?php echo $this->url('frontend/quiz/terms', array('id' => $this->game->getIdentifier(), 'channel' => $this->channel))?>" target="_blank"><?php echo $this->translate('Règlement'); ?></a></p>
 
+	</div>
 </div>
 <!-- END GAME QUIZ -->

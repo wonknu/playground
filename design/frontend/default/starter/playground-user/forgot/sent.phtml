@@ -2,13 +2,13 @@
 	<div class="container-content span8">
 		<div class="row-fluid">
 		
-			<p class="h2">Mot de passe oublié ?</p>
+			<p class="h2"><?php echo $this->translate('Forgot your password?');?></p>
 		
 			<div id="container-form" class="row-fluid">
 				<?php if($this->statusMail):?>
-					<p>Un mail vous a été envoyé à l'adresse indiquée. Veuillez le consulter pour réactiver votre compte.</p>
+					<p><?php echo $this->translate('An email has been sent to the address indicated. Please refer to reactivate your account');?>.</p>
 				<?php else:?>
-					<p>Ce compte n'existe pas.</p>
+					<p><?php echo $this->translate('That account does not exist');?>.</p>
 				<?php endif;?>
 				<!-- <p><a href="<?php echo $this->url('frontend/zfcuser/login', array('channel' => $this->channel)) ?>">Retour à l'accueil ></a></p> -->
 			</div>

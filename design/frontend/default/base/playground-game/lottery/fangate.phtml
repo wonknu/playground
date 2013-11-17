@@ -1,4 +1,3 @@
 <?php $this->plugin('translate')->setTranslatorTextDomain('playgroundgame');// Pour le texte ?>
-<?php $game = $this->game;?>
 
-<h1>DEVENEZ FAN POUR PARTICIPER</h1>
+<?php echo $this->partial('playground-game/partial/fangate', array('game'=>$this->game, 'channel' => $this->channel));?>

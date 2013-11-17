@@ -1,74 +1,103 @@
 <?php $this->plugin('translate')->setTranslatorTextDomain('playgroundgame');// Pour le texte ?>
 <?php if ($this->game->getStartDate() && $this->game->getEndDate()):?>
-    <?php $play =  'Jouez du ' . strftime("%d %B", $this->game->getStartDate()->format('U')) . ' au ' . strftime("%d %B", $this->game->getEndDate()->format('U')) . ' avec'; ?>
+    <?php $play =  $this->translate('Play').' '.$this->translate('from').' ' . strftime("%d %B", $this->game->getStartDate()->format('U')) . ' '.$this->translate('to').' ' . strftime("%d %B", $this->game->getEndDate()->format('U')) . ' '.$this->translate('with'); ?>
 <?php elseif ($this->game->getStartDate()):?>
-    <?php $play =  'Jouez à partir du ' . strftime("%d %B", $this->game->getStartDate()->format('U')) . ' avec';?>
+    <?php $play =  $this->translate('Play').' '.$this->translate('after').' ' . strftime("%d %B", $this->game->getStartDate()->format('U')) . ' '.$this->translate('with');?>
 <?php elseif ($this->game->getEndDate()):?>
-    <?php $play =  'Jouez jusqu\'au ' . strftime("%d %B", $this->game->getEndDate()->format('U')) . ' avec';?>
+    <?php $play =  $this->translate('Play').' '.$this->translate('up to').' ' . strftime("%d %B", $this->game->getEndDate()->format('U')) . ' '.$this->translate('with');?>
 <?php else:?>
-    <?php $play =  'Jouez avec';?>
+    <?php $play =  $this->translate('Play').' '.$this->translate('with');?>
 <?php endif; ?>
-
 <?php if ($this->game->isOpen()): ?>
 <!-- BLOCK GAME START -->
-<div class="block-game <?php if($this->game->isFinished()):?>over<?php else:?>start<?php endif;?>">
+<div class="block-game <?php if($this->game->isFinished()):?>over<?php else:?>start<?php endif;?> <?php if ($this->basePath($this->game->getMainImage()) == "") echo "no-image"; ?>">
 	<div class="img-content">
-			<a href="<?php echo $this->url('frontend/' . $this->game->getClassType(), array('id' =>$this->game->getIdentifier(), 'channel' => $this->layout()->channel)); ?>">
-				<img class="rounded" src="<?php echo $this->basePath($this->game->getMainImage()); ?>" border="0" alt="<?php echo $this->game->getTitle()?>" />
-			</a>
-		
+		<a href="<?php echo $this->url('frontend/' . $this->game->getClassType(), array('id' =>$this->game->getIdentifier(), 'channel' => $this->layout()->channel)); ?>">
+            <?php if ($this->basePath($this->game->getMainImage()) != "") : ?>
+                <img class="rounded" src="<?php echo $this->basePath($this->game->getMainImage()); ?>" alt="<?php echo $this->game->getTitle()?>" />
+			<?php endif;?>
+		</a>
+		<div class="icon-bloc-game <?php echo $this->game->getClassType();?>">&nbsp;</div>
 		<?php if($this->game->getPartner() && $this->game->getPartner()->getLogo()):?>
 			<div class="logo-sponsor">
-				<img src="<?php echo $this->basePath($this->game->getPartner()->getLogo());?>" border="0" alt="<?php echo $this->game->getPartner()->getName();?>" />
+				<img src="<?php echo $this->basePath($this->game->getPartner()->getLogo());?>" alt="<?php echo $this->game->getPartner()->getName();?>" />
 			</div>
 		<?php else :?>
 			<div class="logo-sponsor">		
-				<img src="<?php echo $this->frontendAssetPath('images/common/logo-game-start.png')?>" width="83" height="81" border="0" alt="logo" />
+				<img src="<?php echo $this->frontendAssetPath('images/common/logo-game-start.png')?>" alt="logo" />
 			</div>
 		<?php endif;?>
 		
-		<div class="dark-overlay row-fluid">
-			<h2 class="span8">
-					<a href="<?php echo $this->url('frontend/' . $this->game->getClassType(), array('id' =>$this->game->getIdentifier(), 'channel' => $this->layout()->channel)); ?>">
-						<?php echo $this->game->getTitle()?>
-					</a>
-			</h2>
-			
-			<?php if($this->game->isStarted()):?>
-			    <div class="btn btn-warning arrow-right"><a href="<?php echo $this->url('frontend/' . $this->game->getClassType(), array('id' =>$this->game->getIdentifier(), 'channel' => $this->layout()->channel)); ?>" class="arrow-right">Jouer</a></div>
-			<?php elseif($this->game->isOpen() && !$this->game->isStarted() ):?>
-			    <div class="btn btn-warning arrow-right"><a href="<?php echo $this->url('frontend/' . $this->game->getClassType(), array('id' =>$this->game->getIdentifier(), 'channel' => $this->layout()->channel)); ?>" class="arrow-right">Bientôt</a></div>
-			<?php endif;?>
+		<div class="dark-overlay row">
+			<div class="col-md-12">
+		        <div class="wrapper-game">
+		        	<h2 class="col-md-10">
+						<a href="<?php echo $this->url('frontend/' . $this->game->getClassType(), array('id' =>$this->game->getIdentifier(), 'channel' => $this->layout()->channel)); ?>">
+							<?php echo $this->game->getTitle()?>
+						</a>
+					</h2>
+			        <div class="game-infos">
+						<div class="desc <?php echo $this->game->getClassType();?>">
+							<?php echo $this->translate($this->game->getClassType());?> : <?php echo $play;?>
+						</div>
+						<div class="logo-partner">
+							<?php if($this->game->getPartner()):?>
+								<?php if($this->game->getPartner()->getSmallLogo()) : ?>
+									<img src="<?php echo $this->basePath($this->game->getPartner()->getSmallLogo()) ?>" alt="<?php echo $this->game->getPartner()->getName();?>" class="logo"/>
+								<?php else:?>
+									<span>
+									    <?php echo $this->game->getPartner()->getName();?>
+									</span>
+								<?php endif;?>
+							<?php else :?>
+								<img src="<?php echo $this->frontendAssetPath('images/common/logo-game-start.png');?>" alt="Logo" class="logo"/>
+							<?php endif;?>
+						</div>
+						<?php if(!$this->game->isFinished()):?>
+							<?php echo $this->partial(
+				                'playground-game/partial/share.phtml',
+				                array(
+				                    'color' => 'grey',
+				                    'game'=>$this->game,
+				                    '$this->layout()->channel' => $this->layout()->channel,
+				                    'url'=>$this->url(
+				                        'frontend/' . $game->getClassType(), array('id' => $this->game->getIdentifier()),
+				                        array(
+				                            'force_canonical' => true
+				                        )
+				                    )
+				                )
+				            );?>
+						<?php endif;?>
+					</div>			        
+		        </div>
+		        <div class="button-play">
+		        	<?php if($game->isStarted()):?>
+			            <div class="button-wrap">
+			                <div class="btn btn-orange">
+			                    <a href="<?php echo $this->url('frontend/' . $game->getClassType(), array('id' => $game->getIdentifier(), 'channel' => $this->channel)) ; ?>" class="arrow-right-big">
+			                        <?php echo $this->translate('Play'); ?>
+			                    </a>
+			                </div>
+			            </div>
+			        <?php elseif($game->isOpen() && !$game->isFinished() ):?>
+			            <div class="button-wrap">
+			                <div class="btn btn-orange">
+			                    <a href="<?php echo $this->url('frontend/' . $game->getClassType(), array('id' => $game->getIdentifier(), 'channel' => $this->channel)) ; ?>" class="arrow-right-big">
+			                        <?php echo $this->translate('Soon'); ?>
+			                    </a>
+			                </div>
+			            </div>
+		        <?php endif;?>
+		        </div>
+		    </div>
 		</div>
+        <?php if($this->game->isFinished()):?>
+            <div class="stamp">
+                <img src="<?php echo $this->frontendAssetPath('images/common/stamp-termine.png')?>" alt="<?php echo $this->translate('game ended'); ?>" />
+            </div>
+        <?php endif;?>
 	</div>
-	
-	<div class="game-infos">
-		<div class="<?php echo $this->game->getClassType();?>">
-			<?php echo $this->translate($this->game->getClassType());?> : <?php echo $play;?>
-		</div>
-		
-		<div class="logo-partner">
-			<?php if($this->game->getPartner()):?>
-				<?php if($this->game->getPartner()->getSmallLogo()) : ?>
-					<img src="<?php echo $this->basePath($this->game->getPartner()->getSmallLogo()) ?>" border="0" alt="<?php echo $this->game->getPartner()->getName();?>" />
-				<?php else:?>
-					<span><?php echo $this->game->getPartner()->getName();?></span>
-				<?php endif;?>
-			<?php else :?>
-				<img src="<?php echo $this->frontendAssetPath('images/common/logo-game-start.png');?>" height="33" border="0" alt="Logo" />
-			<?php endif;?>
-		</div>
-		
-		
-		<?php if(!$this->game->isFinished()):?>
-			<?php echo $this->partial('playground-game/partial/share.phtml', array( 'color' => 'grey', 'game'=>$this->game, '$this->layout()->channel' => $this->layout()->channel, 'url'=>$this->url('frontend/' . $game->getClassType(), array('id' => $this->game->getIdentifier()), array('force_canonical' => true))));?>
-		<?php endif;?>
-		
-	</div>
-	
-    <?php if($this->game->isFinished()):?>
-	    <div class="stamp"><img src="<?php echo $this->frontendAssetPath('images/common/stamp-termine.png')?>" width="156" borde="0" alt="jeu terminé" /></div>
-	<?php endif;?>
-	
-</div><!-- END BLOCK GAME START -->
+</div>
+<!-- END BLOCK GAME START -->
 <?php endif; ?>

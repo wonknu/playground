@@ -1,3 +1,5 @@
+<?php $this->plugin('translate')->setTranslatorTextDomain('playgrounddesign');// Pour le texte ?>
+
 <!-- user sidebar -->
 <div class="span4 sidebar sidebar-left contact">
 	<!-- sidebar user -->
@@ -5,15 +7,15 @@
     	<div id="sidebar-user" class="span9 center">
 	    		
     		<div id="howto">
-    			<p class="green green-star">Comment ça marche ?</p>
+    			<p class="green green-star"><?php echo $this->translate('How it works ?'); ?></p>
     			<ul>
     				<li>
     					<img src="<?php echo $this->frontendAssetPath('images/user/icon-money-black.png') ?>" alt="" />
-    					<a href="<?php echo $this->url('frontend/cms', array('id' => 'comment-ca-marche', 'channel' => $this->channel)); ?>">Les badges et les points</a>
+    					<a href="<?php echo $this->url('frontend/cms', array('id' => 'comment-ca-marche', 'channel' => $this->channel)); ?>"><?php echo $this->translate('Badges and points'); ?></a>
     				</li>
     				<li>
     					<img src="<?php echo $this->frontendAssetPath('images/user/icon-calendar-black.png') ?>" alt="" />
-    					<a href="<?php echo $this->url('frontend/faq', array('channel' => $this->channel)) ?>">F.A.Q</a>
+    					<a href="<?php echo $this->url('frontend/faq', array('channel' => $this->channel)) ?>"><?php echo $this->translate('F.A.Q'); ?></a>
     				</li>
     				<!-- <li>
     					<img src="<?php echo $this->frontendAssetPath('images/user/icon-cog-black.png') ?>" alt="" />
@@ -21,7 +23,7 @@
     				</li> -->
     				<li>
     					<img src="<?php echo $this->frontendAssetPath('images/user/icon-contact-black.png') ?>" alt="" />
-    					<a href="<?php echo $this->url('frontend/contact', array('channel' => $this->channel)) ?>">Contactez-nous</a>
+    					<a href="<?php echo $this->url('frontend/contact', array('channel' => $this->channel)) ?>"><?php echo $this->translate('Contact us'); ?></a>
     				</li>
     			</ul>
     		</div>

@@ -1,17 +1,17 @@
 <?php $this->plugin('translate')->setTranslatorTextDomain('playgroundgame'); ?>
 
 <ul class="liste-buttons">
-	<li class="btn-admin"><a href="<?php echo $this->url('admin/playgroundgame/prize-category-add');?>"><?php echo $this->translate('Ajouter une nouvelle catégorie de gain'); ?></a></li>
+	<li class="btn-admin"><a href="<?php echo $this->url('admin/playgroundgame/prize-category-add');?>"><?php echo $this->translate('Add new gain category'); ?></a></li>
 </ul>
 
-<h1>Liste des catégories de gain</h1>
+<h1><?php echo $this->translate('Gain category list'); ?></h1>
 
 <table class="table">
     <tr>
         <th><?php echo $this->translate('Id'); ?></th>
-        <th><?php echo $this->translate('Titre'); ?></th>
+        <th><?php echo $this->translate('Title'); ?></th>
         <th><?php echo $this->translate('Picto'); ?></th>
-        <th><?php echo $this->translate('Actif'); ?></th>
+        <th><?php echo $this->translate('Active'); ?></th>
         <th></th>
     </tr>
     <?php foreach ($this->categories as $category): ?>
@@ -28,7 +28,7 @@
 </table>
 
 <ul class="liste-buttons bottom">
-	<li class="btn-admin bottom"><a href="<?php echo $this->url('admin/playgroundgame/prize-category-add');?>"><?php echo $this->translate('Ajouter une nouvelle catégorie de gain'); ?></a></li>
+	<li class="btn-admin bottom"><a href="<?php echo $this->url('admin/playgroundgame/prize-category-add');?>"><?php echo $this->translate('Add new gain category'); ?></a></li>
 </ul>
 
 <?php //echo $this->paginationControl($this->partners, 'Sliding', 'playground-partnership/admin/pagination_partnerlist.phtml'); ?>

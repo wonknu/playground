@@ -1,8 +1,6 @@
 <?php $this->plugin('translate')->setTranslatorTextDomain('playgroundgame');// Pour le texte ?>
-
-<div class="span4 mobile sidebar game-sidebar">
-	<div class="row-fluid">
-		
+<div class="sidebar game-sidebar col-md-4">
+	<div>
 		<!-- COLUMNBLOCK1 (if not null) -->
 		<?php if($this->game->getColumnBlock1() != ''):?>
 			<div class="sd-block block-custom">
@@ -10,12 +8,6 @@
 			</div>
 		<?php endif; ?>
 		<!-- END COLUMNBLOCK1 -->
-	
-		<!-- ADSERVING SIDEBAR -->
-
-		<?php //echo $this->partial('application/index/partial/col-adserving.phtml', array('cat2' => 'game', 'cat3' => '&EASTgameid='.$this->game->getId(), 'channel' => $this->channel)); ?>
-		<!-- END ADSERVING SIDEBAR -->
-	
 		<!-- COLUMNBLOCK2 (if not null) -->
 		<?php if($this->game->getColumnBlock2() != ''):?>
 		<div class="sd-block block-custom">
@@ -23,76 +15,50 @@
 		</div>
 		<?php endif;?>
 		<!-- END COLUMNBLOCK2 -->
-		
-		<?php //if(($this->playgroundDynablock('game'.$this->game->getId())) != ''):?>
-	    	<?php //foreach($this->playgroundDynablock('game'.$this->game->getId()) as $block): ?>
-	    		<!-- div class="sd-block ad"><?php //echo $block ?></div-->
-	    	<?php //endforeach; ?>
-    	<?php //endif; ?>
-	
-		<div id="sidebar-game" class="sd-block">
-			<p class="green"><?php echo $this->translate('Comment participer ?'); ?></p>
-			<div id="reply" class="row-fluid">
-				<div class="span2">
-					<img src="<?php echo $this->frontendAssetPath('images/common/btn-reply.png') ?>" alt="" />
+		<div id="sidebar-game" >
+			<div class="sd-block participate">
+				<img src="<?php echo $this->frontendAssetPath('images/common/icon-participate.png')?>" alt="participate" />
+				<h5><?php echo $this->translate('How to participate ?'); ?></h5>
+				<div class="sb-content">
+					<ul id="reply" class="row links-list">
+						<li><?php echo $this->translate('Click to participate'); ?></li>
+						<li>
+							<?php
+								$questions = $this->game->getQuestions();
+								$prediction = false;
+						        foreach ($questions as $q) {
+						            if($q->getPrediction()){
+						                $prediction = true;
+						            }
+						        }
+							?>
+							<!-- Pronostic -->
+							<?php if($prediction == true): ?> 
+								<?php echo $this->translate('Choose your answer'); ?>
+							<!-- Condition 0 => sondage -->
+							<?php elseif($game->getVictoryConditions() == 0): ?>
+								<?php echo $this->translate('Answer the questions'); ?>
+							<!-- Condition > 0 -->
+							<?php else : ?>
+								<?php echo $this->translate('Correctly answer the questions'); ?>
+							<?php endif; ?>
+						</li>
+						<li>
+							<!-- Pronostic -->
+							<?php if($prediction == true): ?>
+								<?php echo $this->translate('Pronostic message'); ?>
+							<!-- 0 ou 100 => sondage ou 100% de bonnes réponses -->
+							<?php elseif($game->getVictoryConditions() == 0 || $game->getVictoryConditions() == 100): ?>
+								<?php echo $this->translate('Your participation in the draw will be taken into account!'); ?> <?php echo $this->translate('You can earn more chances by inviting your friends to play'); ?>
+							<!-- 0 < Condition < 100 -->
+							<?php else: ?>
+								<?php echo $this->translate('If you find enough good answers, your participation in the draw will be taken into account!');?> <?php echo $this->translate('You can earn more chances by inviting your friends to play'); ?>
+							<?php endif; ?>
+						</li>
+					</ul>
 				</div>
-				<div class="span10">
-					<p>Cliquez sur participer</p>
-				</div>
-			</div>
-			<div id="quiz-question" class="row-fluid">
-				<div class="span2">
-					<img src="<?php echo $this->frontendAssetPath('images/common/btn-question.png') ?>" alt="" />
-				</div>
-				<?php
-					$questions = $this->game->getQuestions();
-					$prediction = false;
-			        foreach ($questions as $q) {
-			            if($q->getPrediction()){
-			                $prediction = true;
-			            }
-			        }
-				?>
-				<!-- Pronostic -->
-				<?php if($prediction == true): ?> 
-					<div class="span10 col-prediction">
-						<p>Choisissez votre réponse</p>
-					</div>
-				<!-- Condition 0 => sondage -->
-				<?php elseif($game->getVictoryConditions() == 0): ?>
-					<div class="span10 col-novictory">
-						<p>Répondez aux questions posées</p>
-					</div>
-				<!-- Condition > 0 -->
-				<?php else : ?>
-					<div class="span10">
-						<p>Répondez correctement aux questions posées</p>
-					</div>
-				<?php endif; ?>
-			</div>
-			<div id="ecusson" class="row-fluid">
-				<div class="span2">
-					<img src="<?php echo $this->frontendAssetPath('images/common/btn-ecusson.png') ?>" alt="" />
-				</div>
-				<!-- Pronostic -->
-				<?php if($prediction == true): ?>
-					<div class="span10 col-prediction">
-						<p>Lorsque les réponses seront connues, si vous avez trouvé suffisamment de bonnes réponses, votre participation au tirage au sort sera prise en compte! Vous pouvez déjà cumuler plus de chances pour le tirage au sort en invitant vos amis à jouer</p>
-					</div>
-				<!-- 0 ou 100 => sondage ou 100% de bonnes réponses -->
-				<?php elseif($game->getVictoryConditions() == 0 || $game->getVictoryConditions() == 100): ?>
-					<div class="span10 col-novictory">
-						<p>Votre participation au tirage au sort sera prise en compte! Vous pourrez cumuler plus de chances en invitant vos amis à jouer</p>
-					</div>
-				<!-- 0 < Condition < 100 -->
-				<?php else: ?>
-					<div class="span10">
-						<p>Si vous trouvez suffisamment de bonnes réponses, votre participation au tirage au sort sera prise en compte! Vous pourrez cumuler plus de chances en invitant vos amis à jouer</p>
-					</div>
-				<?php endif; ?>
 			</div>
 		</div>
-		
 		<!-- COLUMNBLOCK3 (if not null) -->
 		<?php if($this->game->getColumnBlock3() != ''):?>
 			<div class="sd-block block-custom">
@@ -100,6 +66,5 @@
 			</div>
 		<?php endif;?>
 		<!-- END COLUMNBLOCK3 -->
-		
 	</div>
 </div>

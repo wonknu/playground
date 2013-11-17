@@ -3,7 +3,7 @@
 <?php $user = $this->user;?>
 <?php $availableGames = $this->availableGames?>
 
-<div class="game-lottery row-fluid recirculation">
+<div class="game-lottery row-fluid recirculation wrap-game">
 	
 	<!-- BOUNCE -->
 	<?php echo $this->partial('playground-game/partial/bounce', array(
@@ -20,10 +20,9 @@
 	<div class="row-fluid other-games">
 		<h2 class="title">
 			<?php if($availableGames): ?>
-				<?php echo $this->translate('Tentez votre chance avec d\'autres jeux'); ?> Playground
+				<?php echo $this->translate('Try your luck with other games'); ?> Playground
 			<?php else: ?>
-				<?php echo $this->translate('Vous avez joué à tous les jeux'); ?> ! <br/>
-				<?php echo $this->translate('Revenez très bientôt'); ?>
+				<?php echo $this->translate('You played all the games'); ?> ! <?php echo $this->translate('Come back soon'); ?>
 			<?php endif; ?>
 		</h2> 
 		<?php $this->partialLoop()->setObjectKey('game')?>
