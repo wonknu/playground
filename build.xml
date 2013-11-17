@@ -153,7 +153,7 @@
 	</target>
 	
 	<target name="phpunit-game">
-		<exec dir="${basedir}/vendor/bin" executable="phpunit" failonerror="true" description="Run unit tests with PHPUnit">  
+		<exec dir="${basedir}/vendor/bin" executable="phpunit" failonerror="false" description="Run unit tests with PHPUnit">  
 			<arg line="-c ${basedir}/vendor/playground/game" />      
 		</exec>
 	</target>
