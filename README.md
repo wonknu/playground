@@ -1,4 +1,4 @@
-Playground [![Develop Branch Build Status](https://secure.travis-ci.org/gregorybesson/playground.png?branch=develop)](http://travis-ci.org/gregorybesson/playground)
+Playground [![Develop Branch Build Status](https://secure.travis-ci.org/gregorybesson/playground.png?branch=develop)](http://travis-ci.org/gregorybesson/playground)[![Scrutinizer Quality Score](https://scrutinizer-ci.com/g/gregorybesson/playground/badges/quality-score.png?s=24a7dd37f55203ba1b7248714440d22c9c787bd5)](https://scrutinizer-ci.com/g/gregorybesson/playground/)
 ==========
 
 Welcome to Playground an Open Source Game Platform tool.
