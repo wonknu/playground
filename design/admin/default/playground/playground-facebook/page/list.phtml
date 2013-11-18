@@ -30,7 +30,7 @@ if (isset($fm[0]))
         <tr>
             <td><?php echo $page['pageId'] ?></td>
             <td><a href="<?php echo $page['pageLink'] ?>" target="_blank"><?php echo $page['pageName'] ?></a></td>
-            <td><?php echo ($page['isAvailable'])? 'Oui':'Non'; ?></td>
+            <td><img src="https://graph.facebook.com/<?php echo $page['id']?>/picture?type=large"/></td>
            <td>
                 <a href='<?php echo $editLink ?>'><?php echo $this->translate('Edit'); ?></a>                |
                 <a href='<?php echo $deleteLink ?>'><?php echo $this->translate('Delete'); ?></a>
