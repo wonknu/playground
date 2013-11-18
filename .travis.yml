@@ -2,8 +2,10 @@ language: php
 php:
     - "5.4"
     - "5.5"
-before_script: composer install
-script: phpunit --configuration vendor/playground/faq/phpunit.xml.dist
+before_script: 
+	- curl -s https://getcomposer.org/installer | php
+	- php composer.phar install
+	- cd vendor/plaground/game
 notifications:
     email:
         on_success: always
