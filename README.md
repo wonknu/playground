@@ -5,7 +5,7 @@ Playground
 [![Scrutinizer Quality Score](https://scrutinizer-ci.com/g/gregorybesson/playground/badges/quality-score.png?s=24a7dd37f55203ba1b7248714440d22c9c787bd5)](https://scrutinizer-ci.com/g/gregorybesson/playground/)
 [![Latest Stable Version](https://poser.pugx.org/playground/playground/v/stable.png)](https://packagist.org/packages/playground/playground)
 [![Dependency Status](https://www.versioneye.com/user/projects/528a9a8f632bac352d00013b/badge.png)](https://www.versioneye.com/user/projects/528a9a8f632bac352d00013b)
-[![Coverage Status](https://coveralls.io/repos/gregorybesson/playground/badge.png?branch=develop)](https://coveralls.io/r/gregorybesson/playground)
+[![Coverage Status](https://coveralls.io/repos/gregorybesson/playground/badge.png)](https://coveralls.io/r/gregorybesson/playground)
 
 Welcome to Playground an Open Source Game Platform tool.
 
