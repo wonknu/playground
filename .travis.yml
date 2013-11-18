@@ -3,9 +3,10 @@ php:
     - "5.4"
     - "5.5"
 before_script: 
-	- curl -s https://getcomposer.org/installer | php
-	- php composer.phar install
-	- cd vendor/plaground/game
+    - curl -s https://getcomposer.org/installer | php
+    - php composer.phar install
+script:
+    - php vendor/bin/phpunit -c vendor/playground/game
 notifications:
     email:
         on_success: always
