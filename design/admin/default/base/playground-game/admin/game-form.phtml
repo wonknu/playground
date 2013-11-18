@@ -116,7 +116,7 @@ $form->prepare();
         <?php $this->QgCKEditor(
         'fbFanGate',
              array(
-                 'BasePath' => $this->adminAssetPath('js/lib/ckeditor'),
+                 'BasePath' => $this->libAssetPath('js/ckeditor'),
                  'Width' => "100%",
                  'Height' => "340",
                  'filebrowserBrowseUrl' => '/elfinder', // eg. 'includes/elFinder/elfinder.html'
@@ -234,7 +234,6 @@ $form->prepare();
                     'filebrowserBrowseUrl' => '/elfinder', // eg. 'includes/elFinder/elfinder.html'
                     'uiColor' => '#9AB8F3',
                     //'Color' => "#000",
-                    'stylesSet' => 'custom_styles:/zfcadmin/js/ckeditor-custom/ckeditor-styles.js',
                     'Toolbar'=> array(
                          array('Source','Maximize'),
                          array('Templates','Styles','Format'),
