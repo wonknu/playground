@@ -1,5 +1,38 @@
 <?php
-echo $this->partial(
-    'playground-game/partial/result.phtml'
-);
+if (isset($this->flashMessages))
+{
+    foreach ($this->flashMessages as $fm) {
+        echo '<span class=>' . $fm . '</span>';
+    }
+}
 ?>
+
+<?php if ($this->occurrence): ?>
+	<div id="result-instantwin">
+		<?php if($this->occurrence->getWinning()):?>
+			<div class="row win">
+				<div class="col-md-1">
+					<img src="<?php echo $this->frontendAssetPath('images/common/round-valid.png')?>" alt="" />
+				</div>
+				<div class="col-md-11">
+					<p id="valid-text">
+					    <?php echo $this->translate(' Félicitations, vous avez gagné !'); ?>
+					</p>
+				</div>
+			</div>
+		<?php else:?>
+			<div class="row win">
+				<div class="col-md-1">
+					<img src="<?php echo $this->frontendAssetPath('images/common/round-wrong.png')?>" alt="" />
+				</div>
+				<div class="col-md-11">
+					<p id="valid-text">
+        		        <?php echo $this->translate('Désolé, vous avez perdu'); ?>
+					</p>
+				</div>
+			</div>
+		<?php endif;?>
+	</div>
+<?php endif;?>
+
+<?php echo $this->partial('playground-game/partial/result.phtml'); ?>

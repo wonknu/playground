@@ -35,7 +35,7 @@ $(function(){
     
     /**************************** Colonne droite */
 	/**** Leaderboard */
-	$('.ranking ul .general').hide();
+	/*$('.ranking ul .general').hide();
 	$('.ranking .general').click(function(e){
 	    e.preventDefault();
 		$(this).addClass('active');
@@ -51,7 +51,7 @@ $(function(){
 		$('.ranking ul .general').hide();
 		$('.ranking ul .week').show();
 		return false;
-	});
+	});*/
 	
 	
     /**************************** Page Gagnant */

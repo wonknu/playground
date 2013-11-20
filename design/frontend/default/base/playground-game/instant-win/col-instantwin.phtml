@@ -1,5 +1,5 @@
 <?php $this->plugin('translate')->setTranslatorTextDomain('playgroundgame'); ?>
-<div class="col-md-4 mobile sidebar game-sidebar col-md-4">
+<div class="col-md-4 mobile sidebar game-sidebar">
 	<div class="row">
 		<!-- COLUMNBLOCK1 (if not null) -->
 		<?php if($this->game->getColumnBlock1() != ''):?>
@@ -32,7 +32,11 @@
 				<div class="sb-content">
 					<ul id="reply" class="row links-list">
 						<li><?php echo $this->translate('Click to participate'); ?></li>
-						<li><?php echo $this->translate('Scratch and discover immediately if you won !'); ?></li>
+						<?php if ($this->game->getOccurrenceType()=='datetime'): ?>
+						  <li><?php echo $this->translate('Scratch and discover immediately if you won !'); ?></li>
+						<?php elseif ($this->game->getOccurrenceType()=='code'): ?>
+						  <li><?php echo $this->translate('Enter your code and discover immediately if you won !'); ?></li>
+						<?php endif;?>
 						<li><?php echo $this->translate('Invite your friends to earn points Playground'); ?></li>
 					</ul>
 				</div>

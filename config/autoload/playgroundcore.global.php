@@ -56,9 +56,11 @@ $settings = array(
         'Height'     => "340",
         'Language'   => 'fr',
         'Color'      => '#F7F7F7',
+        /*
         'stylesSet'  => 'custom_styles:/lib/js/ckeditor-custom/ckeditor-styles.js',
         'templates_files'  => array('/lib/js/ckeditor-custom/ckeditor-templates.js'),
         'contentsCss'  => array('/lib/css/ckeditor-custom/ckeditor-css.css'),
+        */
 
         // Full toolbars
         'Toolbar'    => array(

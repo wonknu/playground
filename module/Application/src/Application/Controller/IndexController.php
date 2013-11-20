@@ -34,7 +34,7 @@ class IndexController extends AbstractActionController
     protected $pageService;
 
     /**
-     * @var gameService
+     * @var rewardService
      */
     protected $rewardService;
 
@@ -47,6 +47,11 @@ class IndexController extends AbstractActionController
      * @var mailService
      */
     protected $mailService;
+
+    /**
+     * @var missionService
+     */
+    protected $missionService;
 
     public function indexAction()
     {
@@ -61,7 +66,7 @@ class IndexController extends AbstractActionController
 
         // I merge both types of articles and sort them in reverse order of their key
         // And as their key is some sort of... date !, It means I sort it in date reverse order ;)
-        $sliderItems = array_merge($sliderGames,$sliderPages);
+        $sliderItems = array_merge($sliderGames, $sliderPages);
 
         krsort($sliderItems);
 
@@ -69,8 +74,9 @@ class IndexController extends AbstractActionController
 
         $layoutViewModel->addChild($slider, 'slider');
 
-        $games = $this->getGameService()->getActiveGames();
+        $games = $this->getGameService()->getActiveGames(true, '', '', true);
         $pages = $this->getPageService()->getActivePages();
+        $missions = $this->getMissionService()->getActiveMissions();
 
         // I merge both types of articles and sort them in reverse order of their key
         // And as their key is some sort of... date !, It means I sort it in date reverse order ;)
@@ -102,6 +108,7 @@ class IndexController extends AbstractActionController
         return new ViewModel(
             array(
                 'items'	=> $paginator,
+                'missions' => $missions,
                )
         );
     }
@@ -307,6 +314,22 @@ class IndexController extends AbstractActionController
     public function setGameService(GameService $gameService)
     {
         $this->gameService = $gameService;
+
+        return $this;
+    }
+
+    public function getMissionService()
+    {
+        if (!$this->missionService) {
+            $this->missionService = $this->getServiceLocator()->get('playgroundgame_mission_service');
+        }
+
+        return $this->missionService;
+    }
+
+     public function setMissionService($missionService)
+    {
+        $this->missionService = $missionService;
 
         return $this;
     }

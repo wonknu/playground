@@ -1,0 +1,23 @@
+language: php
+php:
+    - "5.4"
+    - "5.5"
+before_script: 
+    - curl -s https://getcomposer.org/installer | php
+    - php composer.phar install
+script:
+    - php vendor/bin/phpunit -c vendor/playground/faq
+    - php vendor/bin/phpunit -c vendor/playground/user
+    - php vendor/bin/phpunit -c vendor/playground/facebook
+    - php vendor/bin/phpunit -c vendor/playground/cms
+    - php vendor/bin/phpunit -c vendor/playground/core
+    - php vendor/bin/phpunit -c vendor/playground/design
+    - php vendor/bin/phpunit -c vendor/playground/flow
+    - php vendor/bin/phpunit -c vendor/playground/partnership
+    - php vendor/bin/phpunit -c vendor/playground/reward
+after_script:
+    - php vendor/bin/coveralls
+notifications:
+    email:
+        on_success: always
+        on_failure: always

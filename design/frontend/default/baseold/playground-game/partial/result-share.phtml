@@ -36,7 +36,7 @@ $fbRequestMsg = ($this->game->getFbRequestMessage()) ? $this->game->getFbRequest
 				<p class="orange">Par mail</p>
 				<?php if ($this->statusMail === true) : ?>
 					<div id="mail-sended">
-						<p class="a-left">Merci,<br/> Vos invitations ont bien été envoyées !</p>
+						<p class="a-left">Merci, Vos invitations ont bien été envoyées !</p>
 
 						<div class="btn btn-warning more-invit">
 							Inviter + d'amis
@@ -64,11 +64,28 @@ $fbRequestMsg = ($this->game->getFbRequestMessage()) ? $this->game->getFbRequest
 	</div>
 </div>
 
-<!-- terminer -->
-<div id="terminer" class="row-fluid">
-	<div class="span4 center">
-		<span class="btn btn-warning">
-			<span class="arrow-right"><a href="<?php echo $this->url('frontend/' . $this->gameType.'/bounce', array('id' => $this->game->getIdentifier(), 'channel' => $this->channel));?>"><?php echo $this->translate('Terminer'); ?></a></span>
-		</span>
-	</div>
-</div>
+<?php if($this->nextGame): ?>
+    <!-- another Game -->
+    <div id="terminer" class="row" >
+        <div class="col-md-12">
+            <span class="btn btn-default">
+                <a href="<?php echo $this->url('frontend/' . $this->nextGame->getClassType(), array('id' => $this->nextGame->getIdentifier(), 'channel' => $this->channel)); ?>">
+                    <?php echo $this->translate('Play another Game'); ?>
+                </a>
+            </span>
+        </div>
+    </div>
+<?php else: ?>
+    <?php if(isset($this->game)) : ?>
+        <!-- terminer -->
+        <div id="terminer" class="row" >
+        	<div class="col-md-12">
+        	    <span class="btn btn-default">
+                    <a href="<?php echo $this->url('frontend/' . $this->gameType . '/bounce', array('id' => $this->game->getIdentifier(), 'channel' => $this->channel));?>">
+                        <?php echo $this->translate('Finish'); ?>
+                    </a>
+                </span>
+        	</div>
+        </div>
+    <?php endif; ?>
+<?php endif; ?>

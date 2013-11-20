@@ -6,10 +6,11 @@ if (isset($fm[0]))
 }
 ?>
 <?php $this->plugin('translate')->setTranslatorTextDomain('playgroundgame'); ?>
-<?php $addLink = $this->url('admin/playgroundgame/instantwin-occurrence-add', array('gameId' => $this->gameId)); ?>
 
 <ul class="liste-buttons">
-	<li class="btn-admin"><a href="<?php echo $addLink;?>"><?php echo $this->translate('Add new occurrence'); ?></a></li>
+    <li class="btn-admin"><a href="<?php echo $this->url('admin/playgroundgame/instantwin-occurrence-add', array('gameId' => $this->gameId)) ?>"><?php echo $this->translate('Add new occurrence'); ?></a></li>
+    <li class="btn-admin"><a href="<?php echo $this->url('admin/playgroundgame/instantwin-occurrences-export', array('gameId' => $this->gameId)) ?>"><?php echo $this->translate('Export to csv'); ?></a></li>
+    <li class="btn-admin"><a href="<?php echo $this->url('admin/playgroundgame/instantwin-occurrences-import', array('gameId' => $this->gameId)) ?>"><?php echo $this->translate('Import from csv'); ?></a></li>
 </ul>
 
 <h1><a href="<?php echo $this->url('admin/playgroundgame/edit-instantwin', array('gameId' => $this->gameId)) ?>"><?php echo $this->game->getTitle(); ?></a></h1>
@@ -18,9 +19,9 @@ if (isset($fm[0]))
 
 <table class="table">
     <tr>
-        <!--<th><?php echo $this->translate('Id'); ?></th>-->
+        <!--<th><?php //echo $this->translate('Id'); ?></th>-->
         <th>
-        	<?php echo $this->translate('Date'); ?>
+        	<?php echo $this->translate('Valeur'); ?>
 
         	<?php if($this->filter == 'ASC'): ?>
         	    <a href="<?php echo $this->url('admin/playgroundgame/instantwin-occurrence-list', array('gameId' => $this->gameId, 'filter' => 'DESC')); ?>">
@@ -34,18 +35,22 @@ if (isset($fm[0]))
 
         <th><?php echo $this->translate('Gagnants'); ?></th>
         <th><?php echo $this->translate('Lots'); ?></th>
-        <th></th> 
+        <th><?php echo $this->translate('Etat'); ?></th>
+        <th><?php echo $this->translate('Statut'); ?></th>
         <th></th>
     </tr>
     <?php foreach ($this->occurrences as $occurrence): ?>
         <tr>
-            <!--<td><?php echo $occurrence->getId() ?></td>-->
-            <td><?php echo $occurrence->getOccurrenceDate()->format('d/m/Y H:i') ?></td>
-            <td><?php echo (! $occurrence->getActive())? $occurrence->getUser()->getEmail() :''; ?></td>
+            <!--<td><?php // echo $occurrence->getId() ?></td>-->
+            <td>
+                <?php echo $occurrence->getValue();?>
+            </td>
+            <td><?php echo ($occurrence->getUser())? $occurrence->getUser()->getEmail() :''; ?></td>
             <?php $editLink   = $this->url('admin/playgroundgame/instantwin-occurrence-edit', array('gameId' => $gameId, 'occurrenceId' => $occurrence->getId()));?>
             <?php $deleteLink = $this->url('admin/playgroundgame/instantwin-occurrence-remove', array('occurrenceId' => $occurrence->getId()));?>
             <td><?php echo ($occurrence->getPrize())? $occurrence->getPrize()->getTitle():''; ?></td>
-            <td><?php echo (! $occurrence->getActive())? 'Gagné' :''; ?></td>
+            <td><?php echo (! $occurrence->getActive())? 'Joué' :''; ?></td>
+            <td><?php echo ($occurrence->getWinning())? 'Gagnant' :'Perdant'; ?></td>
             <td>
                 <a href='<?php echo $editLink ?>'><?php echo $this->translate('Edit'); ?></a> | <a href='<?php echo $deleteLink ?>'><?php echo $this->translate('Delete'); ?></a>
             </td>
@@ -53,8 +58,10 @@ if (isset($fm[0]))
     <?php endforeach; ?>
 </table>
 
-<ul class="liste-buttons bottom">
-	<li class="btn-admin bottom"><a href="<?php echo $addLink;?>"><?php echo $this->translate('Add new occurrence'); ?></a></li>
+<ul class="liste-buttons">
+    <li class="btn-admin"><a href="<?php echo $this->url('admin/playgroundgame/instantwin-occurrence-add', array('gameId' => $this->gameId)) ?>"><?php echo $this->translate('Add new occurrence'); ?></a></li>
+    <li class="btn-admin"><a href="<?php echo $this->url('admin/playgroundgame/instantwin-occurrences-export', array('gameId' => $this->gameId)) ?>"><?php echo $this->translate('Export to csv'); ?></a></li>
+    <li class="btn-admin"><a href="<?php echo $this->url('admin/playgroundgame/instantwin-occurrences-import', array('gameId' => $this->gameId)) ?>"><?php echo $this->translate('Import from csv'); ?></a></li>
 </ul>
 
 <?php echo $this->paginationControl($this->occurrences, 'Sliding', 'playground-game/instant-win/pagination_occurencelist', array('gameId' => $this->gameId, 'filter' => $this->filter)); ?>

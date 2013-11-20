@@ -6,10 +6,10 @@ if (isset($fm[0]))
 }
 ?>
 <?php $this->plugin('translate')->setTranslatorTextDomain('playgroundgame'); ?>
-<?php $addLink = $this->url('admin/playgroundgame/treasurehunt-step-add', array('gameId' => $this->gameId)); ?>
+<?php $addLink = $this->url('admin/playgroundgame/treasurehunt-puzzle-add', array('gameId' => $this->gameId)); ?>
 
 <ul class="liste-buttons">
-	<li class="btn-admin"><a href="<?php echo $addLink;?>"><?php echo $this->translate('Add new step'); ?></a></li>
+	<li class="btn-admin"><a href="<?php echo $addLink;?>"><?php echo $this->translate('Add new puzzle'); ?></a></li>
 </ul>
 
 <h1><a href="<?php echo $this->url('admin/playgroundgame/edit-treasurehunt', array('gameId' => $this->gameId)) ?>"><?php echo $this->game->getTitle(); ?></a></h1>
@@ -21,11 +21,11 @@ if (isset($fm[0]))
         <!--<th><?php echo $this->translate('Id'); ?></th>-->
         <th>
         	<?php if($this->filter == 'ASC'): ?>
-        	    <a href="<?php echo $this->url('admin/playgroundgame/treasurehunt-step-list', array('gameId' => $this->gameId, 'filter' => 'DESC')); ?>">
+        	    <a href="<?php echo $this->url('admin/playgroundgame/treasurehunt-puzzle-list', array('gameId' => $this->gameId, 'filter' => 'DESC')); ?>">
         	    	<img src="/images/admin/arrow-down.png" alt="" />
         	    </a>
 			<?php else : ?>
-				<a href="<?php echo $this->url('admin/playgroundgame/treasurehunt-step-list', array('gameId' => $this->gameId, 'filter' => 'ASC')); ?>">
+				<a href="<?php echo $this->url('admin/playgroundgame/treasurehunt-puzzle-list', array('gameId' => $this->gameId, 'filter' => 'ASC')); ?>">
 					<img src="/images/admin/arrow-up.png" alt="" />
 				</a>
         	<?php endif; ?>
@@ -35,12 +35,12 @@ if (isset($fm[0]))
         <th></th>
         <th></th>
     </tr>
-    <?php foreach ($this->steps as $step): ?>
+    <?php foreach ($this->puzzles as $puzzle): ?>
         <tr>
-            <!--<td><?php echo $step->getId() ?></td>-->
+            <!--<td><?php echo $puzzle->getId() ?></td>-->
             <td></td>
-            <?php $editLink   = $this->url('admin/playgroundgame/treasurehunt-step-edit', array('gameId' => $gameId, 'stepId' => $step->getId()));?>
-            <?php $deleteLink = $this->url('admin/playgroundgame/treasurehunt-step-remove', array('stepId' => $step->getId()));?>
+            <?php $editLink   = $this->url('admin/playgroundgame/treasurehunt-puzzle-edit', array('gameId' => $gameId, 'puzzleId' => $puzzle->getId()));?>
+            <?php $deleteLink = $this->url('admin/playgroundgame/treasurehunt-puzzle-remove', array('puzzleId' => $puzzle->getId()));?>
             <td>ok</td>
             <td>ok</td>
             <td>
@@ -51,7 +51,7 @@ if (isset($fm[0]))
 </table>
 
 <ul class="liste-buttons bottom">
-	<li class="btn-admin bottom"><a href="<?php echo $addLink;?>"><?php echo $this->translate('Add new step'); ?></a></li>
+	<li class="btn-admin bottom"><a href="<?php echo $addLink;?>"><?php echo $this->translate('Add new puzzle'); ?></a></li>
 </ul>
 
-<?php echo $this->paginationControl($this->steps, 'Sliding', 'playground-game/treasure-hunt/pagination_steplist', array('gameId' => $this->gameId, 'filter' => $this->filter)); ?>
+<?php echo $this->paginationControl($this->puzzles, 'Sliding', 'playground-game/treasure-hunt/pagination_puzzlelist', array('gameId' => $this->gameId, 'filter' => $this->filter)); ?>

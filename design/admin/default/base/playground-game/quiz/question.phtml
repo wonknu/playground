@@ -42,12 +42,12 @@ $form->prepare();
             <?php $this->QgCKEditor(
                 'question',
                     array(
-                    	'BasePath' => $this->basePath('zfcadmin/js/lib/ckeditor'),
-                    	'Width' => "450",
+                        'BasePath' => $this->libAssetPath('js/ckeditor'),
+                        'Width' => "450",
                         'Height' => "100",
                         //'Color' => "#000",
                         'Toolbar'=> array(
-    	                     array('Bold','Italic','Underline','Link','Unlink'),
+                             array('Bold','Italic','Underline','Link','Unlink'),
                          )
                     )
                 );
@@ -63,15 +63,15 @@ $form->prepare();
                 <?php $this->QgCKEditor(
                     'hint',
                         array(
-                        	'BasePath' => $this->basePath('zfcadmin/js/lib/ckeditor'),
-                        	'Width' => "450",
+                            'BasePath' => $this->libAssetPath('js/ckeditor'),
+                            'Width' => "450",
                             'Height' => "100",
                             //'Color' => "#000",
                             /*'Toolbar'=> array(
-        	                     array('Bold','Italic','Underline','Link','Unlink'),
+                                 array('Bold','Italic','Underline','Link','Unlink'),
                              )*/
-							 'Toolbar'=> array(
-        	                     array('Link','Unlink'),
+                             'Toolbar'=> array(
+                                 array('Link','Unlink'),
                              )
                         )
                     );
@@ -98,32 +98,32 @@ $form->prepare();
                 <div class="controls"><?php echo $this->formFile($form->get('upload_image')); ?></div>
             </div>
             <?php if($form->get('image')->getValue() != ''):?>
-            	<img src="<?php echo $this->basePath($form->get('image')->getValue()); ?>" />
+                <img src="<?php echo $this->basePath($form->get('image')->getValue()); ?>" />
             <?php endif;?>
-            
+
             <div class="control-group">
                 <label class="control-label" for="search_sound">Audio</label>
                 <div class="controls">
                     <input id="search_sound" name="search_sound" type="text" placeholder="Search music on Deezer">
                 </div>
             </div>
-            
+
              <?php echo $this->formHidden($form->get('audio')); ?>
              <?php echo $this->formHidden($form->get('autoplay')); ?>
 
         </div>
         <div class="tab-pane" id="answers">
-			<ul class="liste-buttons">
-				<li class="btn-admin"><a href="#" onclick="add_answer()"><?php echo $this->translate('Ajouter une réponse'); ?></a></li>
-			</ul>
+            <ul class="liste-buttons">
+                <li class="btn-admin"><a href="#" onclick="add_answer()"><?php echo $this->translate('Ajouter une réponse'); ?></a></li>
+            </ul>
 
             <div id="answer_entry" class="control-group">
             <?php echo $this->formCollection($form->get('answers'));?>
             </div>
 
             <ul class="liste-buttons">
-				<li class="btn-admin"><a href="#" onclick="add_answer()"><?php echo $this->translate('Ajouter une réponse'); ?></a></li>
-			</ul>
+                <li class="btn-admin"><a href="#" onclick="add_answer()"><?php echo $this->translate('Ajouter une réponse'); ?></a></li>
+            </ul>
         </div>
     </div>
 </div>
@@ -138,22 +138,35 @@ $form->prepare();
 
     var template = $('#answer_entry > fieldset > span');
     var datatemplate = $('#answer_entry > fieldset > span').data('template');
+    var initialCount = $('#answer_entry textarea').length;
     template.data('template', '<fieldset id="answers__index__">'+datatemplate+'</fieldset>');
+
+    for(i=0;i<initialCount;i++){
+        var answerName = 'answers['+i+'][answer]';
+        var explanationName = 'answers['+i+'][explanation]';
+        CKEDITOR.replace(answerName, {"toolbar":[["Source","Maximize"],["Templates","Styles","Format"],["Bold","Italic","Underline","Subscript","Superscript"],["NumberedList","BulletedList","Outdent","Indent"],["JustifyLeft","JustifyCenter","JustifyRight"],["Link","Unlink"],["Image","Table"]],"width":"100%","height":"340","language":"fr","uiColor":"#F7F7F7","filebrowserBrowseUrl":"\/elfinder\/ckeditor","filebrowserWindowWidth":"1000","filebrowserWindowHeight":"650"});
+        CKEDITOR.replace(explanationName, {"toolbar":[["Source","Maximize"],["Templates","Styles","Format"],["Bold","Italic","Underline","Subscript","Superscript"],["NumberedList","BulletedList","Outdent","Indent"],["JustifyLeft","JustifyCenter","JustifyRight"],["Link","Unlink"],["Image","Table"]],"width":"100%","height":"340","language":"fr","uiColor":"#F7F7F7","filebrowserBrowseUrl":"\/elfinder\/ckeditor","filebrowserWindowWidth":"1000","filebrowserWindowHeight":"650"});
+    }
 
     function add_answer() {
         var currentCount = $('#answer_entry textarea').length;
         var template = $('#answer_entry > fieldset > span').data('template');
+        var answerName = 'answers['+currentCount+'][answer]';
+        var explanationName = 'answers['+currentCount+'][explanation]';
         template = template.replace(/__index__/g, currentCount);
         $('#answer_entry').append(template);
         $('#answer_entry').append('<hr/>');
+
+        CKEDITOR.replace(answerName, {"toolbar":[["Source","Maximize"],["Templates","Styles","Format"],["Bold","Italic","Underline","Subscript","Superscript"],["NumberedList","BulletedList","Outdent","Indent"],["JustifyLeft","JustifyCenter","JustifyRight"],["Link","Unlink"],["Image","Table"]],"width":"100%","height":"340","language":"fr","uiColor":"#F7F7F7","filebrowserBrowseUrl":"\/elfinder\/ckeditor","filebrowserWindowWidth":"1000","filebrowserWindowHeight":"650"});
+        CKEDITOR.replace(explanationName, {"toolbar":[["Source","Maximize"],["Templates","Styles","Format"],["Bold","Italic","Underline","Subscript","Superscript"],["NumberedList","BulletedList","Outdent","Indent"],["JustifyLeft","JustifyCenter","JustifyRight"],["Link","Unlink"],["Image","Table"]],"width":"100%","height":"340","language":"fr","uiColor":"#F7F7F7","filebrowserBrowseUrl":"\/elfinder\/ckeditor","filebrowserWindowWidth":"1000","filebrowserWindowHeight":"650"});
 
         return false;
     }
 
 
     /*$('#answer_entry button').live('click',function(){
-    	$(this).parent().parent().empty();
-    	return false;
+        $(this).parent().parent().empty();
+        return false;
     });*/
 
 

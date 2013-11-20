@@ -1,7 +1,5 @@
-<?php $this->plugin('translate')->setTranslatorTextDomain('playgroundgame');// Pour le texte ?>
-        	
-<!-- VALIDATION JEU TIRAGE AU SORT -->
-<div class="game-lottery result row-fluid">
+<?php $this->plugin('translate')->setTranslatorTextDomain('playgroundgame'); ?>
+<div class="game-<?php echo $this->game->getClassType(); ?> result row-fluid">
 	<h1><?php echo $this->game->getTitle(); ?></h1>
 
 	<div class="backgrey row-fluid">

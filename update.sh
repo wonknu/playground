@@ -5,6 +5,6 @@ then
     ENV="$1"
 fi
 
-git pull origin master
+git pull origin develop
 composer update
 php vendor/doctrine/doctrine-module/bin/doctrine-module.php orm:schema-tool:update --force

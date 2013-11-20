@@ -36,10 +36,67 @@ $form->prepare();
             <?php echo $this->formElementErrors($form->get('hint')) ?>
 		</div>
 		
+        <div class="label-input">
+            <?php echo $this->formLabel($form->get('displayNotification')); ?>
+            <?php echo $this->formCheckbox($form->get('displayNotification')); ?>
+            <?php echo $this->formElementErrors($form->get('displayNotification')) ?>
+		</div>
 		<div class="label-input">
-            <?php echo $this->formLabel($form->get('activityStreamText')); ?>
-            <?php echo $this->formInput($form->get('activityStreamText')); ?>
-            <?php echo $this->formElementErrors($form->get('activityStreamText')) ?>
+            <?php echo $this->formLabel($form->get('notification')); ?>
+            <?php echo $this->formTextarea($form->get('notification')); ?>
+            <?php echo $this->formElementErrors($form->get('notification')) ?>
+            <?php $this->QgCKEditor(
+                'notification',
+                    array(
+                        'BasePath' => $this->libAssetPath('js/ckeditor'),
+                        'Width' => "50%",
+                        'Height' => "150",
+                        'filebrowserBrowseUrl' => '/elfinder', // eg. 'includes/elFinder/elfinder.html'
+                        'uiColor' => '#9AB8F3',
+                        //'Color' => "#000",
+                        'Toolbar'=> array(
+                             array('Source','Maximize'),
+                             array('Templates','Styles','Format'),
+                             array('Bold','Italic','Underline','Subscript','Superscript'),
+                             array('NumberedList','BulletedList','Outdent','Indent'),
+                             array('JustifyLeft','JustifyCenter','JustifyRight'),
+                             array('Link','Unlink'),
+                             array('Image','Table')
+                         )
+                    )
+                );
+            ?>
+		</div>
+		<div class="label-input">
+            <?php echo $this->formLabel($form->get('displayActivityStream')); ?>
+            <?php echo $this->formCheckbox($form->get('displayActivityStream')); ?>
+            <?php echo $this->formElementErrors($form->get('displayActivityStream')) ?>
+		</div>
+		<div class="label-input">
+            <?php echo $this->formLabel($form->get('activityStream')); ?>
+            <?php echo $this->formTextarea($form->get('activityStream')); ?>
+            <?php echo $this->formElementErrors($form->get('activityStream')) ?>
+            <?php $this->QgCKEditor(
+                'activityStream',
+                    array(
+                        'BasePath' => $this->libAssetPath('js/ckeditor'),
+                        'Width' => "50%",
+                        'Height' => "150",
+                        'filebrowserBrowseUrl' => '/elfinder', // eg. 'includes/elFinder/elfinder.html'
+                        'uiColor' => '#9AB8F3',
+                        //'Color' => "#000",
+                        'Toolbar'=> array(
+                             array('Source','Maximize'),
+                             array('Templates','Styles','Format'),
+                             array('Bold','Italic','Underline','Subscript','Superscript'),
+                             array('NumberedList','BulletedList','Outdent','Indent'),
+                             array('JustifyLeft','JustifyCenter','JustifyRight'),
+                             array('Link','Unlink'),
+                             array('Image','Table')
+                         )
+                    )
+                );
+            ?>
 		</div>
 		
 		<div class="label-input">

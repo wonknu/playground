@@ -52,6 +52,35 @@ ul {
 	.row{
 		margin:0;
 		
+		&.posts{
+			margin: 0 0 0 40px;
+			border: 1px solid #e6e6e3;
+			background-color: #f2f2f2;
+			padding:20px;
+			
+			.sliders{
+				.nivoSlider{
+					margin:10px 0 5px 0;
+				}
+			}
+			.alert-link{
+				margin: 25px 0 10px;
+				text-align: left;
+				
+				.btn-default{
+					border: 0;
+					border-bottom: 2px solid #25967b;
+					color: #fff;
+					font-family: 'futura-bk';
+					font-size: 14px;
+					line-height: 16px;
+					text-transform: uppercase;
+					background-color: @pg-green;
+					padding: 12px 32px;
+				}
+			}
+		}
+		
 		h1{
 			border: none;
 			padding: 0;
@@ -67,6 +96,56 @@ ul {
 			.welcome{
 				width:100%;
 				
+				&.game-postvote{
+					
+					#content-article{
+						margin-top:0;
+						
+						.reglement{
+							margin:5px 0 30px 15px;
+						}
+						.center{
+							width: 100%;
+							float: left;
+							margin: 20px 0 0 0;
+							
+							#participants{
+								width: 416px;
+								float:left;
+								background-color:@pg-orange;
+								margin: 0;
+								
+								a{
+									width: 100%;
+									float: left;
+									font-family: @futura;
+									font-size: 30px;
+									line-height: 40px;
+									color:@pg-white;
+									text-shadow: none;
+									text-decoration: none;
+									padding: 42px 40px;
+									text-align: left;
+								}
+							}
+							.btn-group{
+								a{
+									font-family: 'futura-bk';
+									font-size: 26px;
+									line-height: 30px;
+									color: @pg-white;
+									text-transform: uppercase;
+									text-shadow: none;
+									text-decoration: none;
+									padding: 47px 15px 47px 58px;
+									background-size: auto 100% !important;
+									border-radius: 0;
+									background: url('../images/common/bt-play.png') no-repeat right top @pg-orange;
+								}
+							}
+						}
+					}
+				}
 				
 				.block-game{
 					margin:0;
@@ -92,10 +171,10 @@ ul {
 							font-family: @futura;
 							font-size: 12px;
 							line-height: 14px;
-							background:url('../images/common/sprite-desc.png') no-repeat left -24px transparent;
+							background:url('../images/common/sprite-desc.png') no-repeat left -31px transparent;
 						}
 						.postvote{
-							background:url('../images/common/sprite-desc.png') no-repeat left -72px transparent;
+							background:url('../images/common/sprite-desc.png') no-repeat left -73px transparent;
 						}
 						
 						.logo-partner{
@@ -179,7 +258,166 @@ ul {
 				      	}
 					}
 				}
+				#reglement{
+					margin:5px 0 15px 15px;
+				}
 			}
+			
+			.list-participant{
+				&.game-postvote{
+					
+					.search-bar{
+						margin: 0 0 0 40px;
+						
+						.col-md-3{
+							padding:0;
+							
+							.selector{
+								select{
+									font-family: @futura;
+									font-size: 12px;
+									line-height: 14px;
+								}
+							}
+						}
+						
+						form{
+							float: right;
+							width: 220px;
+							border: 1px solid #e6e6e3;
+							background-color: @pg-white;
+							
+							.searchbar{
+								padding:0;
+								
+								input{
+									border-radius: 0;
+									border:none;
+									background:none;
+									padding:0;
+									height: 30px;
+									font-family: 'futura-bk';
+									font-size: 12px;
+									line-height: 14px;
+									padding: 6px;
+								}
+							}
+							.btn-search{
+								padding:0;
+								
+								input{
+									width:36px;
+									outline: none;
+									padding: 5px 8px;
+									border: none;
+									border-radius: 0;
+									text-indent:-9999px;
+									background:url('../images/common/btn-glass-bk.png') no-repeat center center transparent;
+								}
+							}
+						}
+					}
+					
+					.consultation-list-wrap{
+						margin: 15px 0 0 40px;
+						
+						.row{
+							
+							.col-md-10{
+								padding: 0 40px 0 0;
+								
+								.readmore,.alert-link{
+									text-align: right;
+									
+									a{
+										border: 0;
+										border-bottom: 2px solid #25967b;
+										color: #fff;
+										font-family: 'futura-bk';
+										font-size: 14px;
+										line-height: 16px;
+										text-transform: uppercase;
+										background-color: #2ebb9a;
+										padding: 12px 22px;
+									}
+								}
+							}
+							
+							.col-md-2{
+								padding:0;
+								margin: 30px 0 0 0;
+								
+								.nb-votes{
+									text-align: center;
+									position: relative;
+									
+									a{
+										min-width: 79px;
+										height: 82px;
+										width: 100%;
+										background: url("../images/common/round-vote.png") no-repeat center center;
+										position: absolute;
+										top: 0;
+										left: 0;
+									}
+									.already-voted{
+										padding: 90px 0 0 0;
+									}
+									.bn-votes{
+										font-family: 'futura-bk';
+										font-size: 12px;
+										line-height: 14px;
+									}
+								}
+							}
+						}
+					}
+					
+					.btn-group{
+						width: 100%;
+						float: left;
+						margin: 20px 0;
+						
+						#participants{
+							width: 416px;
+							float:left;
+							background-color:@pg-orange;
+							margin: 0;
+							
+							a{
+								width: 100%;
+								float: left;
+								font-family: @futura;
+								font-size: 30px;
+								line-height: 40px;
+								color:@pg-white;
+								text-shadow: none;
+								text-decoration: none;
+								padding: 42px 40px;
+								text-align: left;
+							}
+						}
+						.btn-participate{
+							float: left;
+							
+							a{
+								font-family: 'futura-bk';
+								font-size: 26px;
+								line-height: 30px;
+								color: @pg-white;
+								text-transform: uppercase;
+								text-shadow: none;
+								text-decoration: none;
+								padding: 47px 15px 47px 58px;
+								background-size: auto 100% !important;
+								border-radius: 0;
+								background: url('../images/common/bt-play.png') no-repeat right top @pg-orange;
+							}
+						}
+					}
+				}
+			}
+			/*list-participant*/
 		}
 		
 	}
@@ -323,7 +561,7 @@ ul {
 			background-color: @pg-orange;
 			padding: 12px 10px;
 			float: left;
-			margin: 25px 13% 0;
+			margin: 25px 8% 0;
 		}
 		&.ranking{
 		margin:25px 20% 0;
@@ -801,7 +1039,7 @@ ul {
   .wrapper-game{
   	width: 72%;
 	float: left;
-	padding: 20px 17px 5px;
+	padding: 17px 17px 5px;
 	
 	h2 {
 	width:100%;
@@ -1397,13 +1635,16 @@ form[name="preview_form"]{
 							&.contact-select{
 								margin:0;
 								width:180px;
+								
 								.selector{
+									width: 180px !important;
 									
 									span{
-										display:none;
+										width: 169px !important;
 									}
 									select{
 										width:100%;
+										top: 0;
 										border-radius: 0;
 										border: 1px solid #e6e6e3;
 										background-color: #e6e6e3;
@@ -1596,8 +1837,18 @@ form[name="preview_form"]{
 									width: 27%;
 								}
 								.uploader{
+									width: 100%;
+									background: @pg-white;
+									border: 1px solid #e6e6e3;
+									height: 30px;
+									
 									.filename,.action{
-										display:none;
+										font-family:@futura;
+										font-size:12px;
+										line-height:14px;
+										padding: 6px 5px;
+										height: 28px;
+										background: none;
 									}
 								}
 								label{
@@ -1619,7 +1870,12 @@ form[name="preview_form"]{
 								}
 								.selector{
 									width:100% !important;
+									span{
+										display: block;
+										width: 229px !important;
+									}
 									select{
+										top: 0;
 										width:100%;
 										border-radius: 0;
 										border: 1px solid #e6e6e3;
@@ -1719,24 +1975,821 @@ form[name="preview_form"]{
 	}
 	/* delete account*/
 	
-	.game-quiz{
-		.img-content{
-			.dark-overlay{
-				&.row{
-					background: transparent;
-					margin: 0 0 0 40px !important;
-					width: 93.5%;
+	.wrap-game{
+		min-height: 514px;
+		
+		#play-instantwin{
+			.instructions{
+				margin:0 0 0 40px;
+			}
+			
+			.block-game{
+				.game-infos{
+					margin:0 0 20px 40px;
 					
-					h2{
-						font-family:@futura;
-						font-size:12px;
-						line-height:14px;
+					.instantwin{
+						padding: 0 0 0 30px;
+						background: url('../images/common/sprite-desc.png') no-repeat left -25px transparent;
 					}
 				}
 			}
 		}
+		/*play-instantwin*/
+		
+		.next-instant-win-step{
+			text-align: center;
+			margin: 0 0 40px 0;
+			
+			.btn-default{
+				padding: 0;
+				border: 0;
+				border-bottom: 2px solid #25967b;
+				color: @pg-white;
+				font-family: 'futura-bk';
+				font-size: 14px;
+				line-height: 16px;
+				text-transform: uppercase;
+				background-color:@pg-green;
+				padding: 12px 32px;
+			}
+		}
+		/*next-instant-win-step*/
+		
+		#result-instantwin{
+			
+			#content-article{
+				margin: 20px 0 40px 40px;
+				padding: 20px;
+				
+				p{
+					padding:0;
+					margin: 0 0 10px 0;
+				}
+				form{
+					
+					.win{
+						padding:0;
+						text-align: center;
+						margin: 20px 0;
+						
+						.btn-default{
+							border: 0;
+							border-bottom: 2px solid #25967b;
+							color: @pg-white;
+							font-family: 'futura-bk';
+							font-size: 14px;
+							line-height: 16px;
+							text-transform: uppercase;
+							background-color:@pg-green;
+							padding: 12px 32px;
+						}
+					}
+					
+					.form-group {
+						padding:0;
+						margin: 0 0 10px 0;
+						
+						label{
+							padding: 0;
+							text-align: right;
+							font-family: 'futura-bk';
+							font-size: 14px;
+							line-height: 16px;
+							color: @pg-black;
+							margin: 6px 0 0 0;
+							font-weight: normal;
+						}
+						.block-right{
+							padding: 0 0 0 60px;
+									
+							input{
+								width: 100%;
+								border-radius: 0;
+								border: 1px solid #e6e6e3;
+								background-color: #fff;
+								padding: 6px;
+								height: 30px;
+								font-family: 'futura-bk';
+								font-size: 12px;
+								line-height: 14px;	
+							}
+							.selector{
+								width:254px !important;
+								
+								span{
+									width:244px !important;
+								}
+							}
+						}
+					}
+				}
+			}
+		}
+		/*result-instantwin*/
+		
+		.corrections{
+			margin: 20px 0;
+			padding: 0 0 0 40px;
+			
+			div{
+				ul{
+					.question{
+						margin: 20px 0 0 0;
+						
+						&:first-child{
+							margin:0;
+						}
+						b,p{
+							font-family:@futura;
+							font-size:14px;
+							line-height:16px;
+							margin: 0 0 8px 0;
+							float: left;
+							width: 100%;
+						}
+						p{
+							margin:0;
+						}
+						
+						ul{
+							.response{
+								.your-answer,.right-answer{
+									color:@pg-orange;
+									font-family:@futura;
+									font-size:14px;
+									line-height:16px;
+									font-weight:bold;
+								}
+								.right-answer{
+									color:@pg-green;
+								}
+							}
+						}
+					}
+				}
+			}
+		}
+		.block-game{
+			padding: 0;
+			margin: 0 0 20px 0;
+			
+			&.no-image{
+				.img-content{
+					height: auto;
+					
+					.dark-overlay{
+						margin: 0 0 0 40px !important;
+						width: 100%;
+						
+						.postvote{
+							text-align: left;
+							text-shadow: none;
+							color:@pg-black;
+							background: url('../images/common/sprite-desc.png') no-repeat left -72px transparent;
+							padding: 0 0 0 30px;
+						}
+					}
+				}
+			}
+
+			.img-content{
+				.dark-overlay{
+					&.row{
+						background: transparent;
+						margin: 22px 0 0 40px !important;
+						width: 93.5%;
+						
+						h2{
+							font-family:@futura;
+							font-size:12px;
+							line-height:14px;
+							background:url('../images/games/sprite-deploy-game.png') no-repeat 0 0 transparent;
+							padding:5px 0 5px 30px;
+						}
+						#reglement{
+							float:right;
+							
+							a{
+								text-shadow: none;
+								font-family:@futura;
+								font-size:12px;
+								line-height:14px;
+								text-decoration:underline;
+								color:@pg-black;
+							}
+						}
+					}
+				}
+			}
+		}
+		/* block game */
+		
+		#play-instantwin{
+			.instructions{
+				
+			}
+		}
+		/*play-instantwin*/
+		.btn-group{
+			width:100%;
+			margin: 0 0 30px 0;
+			
+			.btn-default{
+				float:right;
+				padding: 0;
+				border: none;
+				background: transparent;
+				
+				&.participate,&.rules{
+					clear: both;
+					color: #2e2e2e;
+					font-family: 'futura-bk';
+					font-size: 12px;
+					line-height: 14px;
+					text-decoration: underline;
+					background: transparent;
+					border: 0;
+					padding: 0;
+					margin: 5px 0 0 15px;
+				}
+				
+				&.rules{
+					margin:5px 20px 0 0;
+				}
+				
+				&:active{
+					box-shadow: none;
+				}
+				.left,.right{
+					width: 20px;
+					height: 57px;
+					float: left;
+					text-indent: -9999px;
+					background: url('../images/common/sprite-participate.png') no-repeat left bottom transparent;
+				}
+				.center{
+					float: left;
+					background-color: #d95f49;
+					padding: 0 10px;
+					height: 57px;
+					font-family: 'futura-bk';
+					font-size: 18px;
+					line-height: 57px;
+					text-transform: uppercase;
+					color: #fff;
+				}
+				.right{
+					background: url('../images/common/sprite-participate.png') no-repeat left top transparent;
+				}
+				
+				&.modify,&.validate{
+					float:left;
+					padding: 0;
+					border: 0;
+					border-bottom: 2px solid #25967b;
+					color: #fff;
+					font-family: 'futura-bk';
+					font-size: 14px;
+					line-height: 16px;
+					text-transform: uppercase;
+					background-color: @pg-green;
+					padding: 12px 32px;
+					margin: 40px 0 0 20px;
+					border-bottom-right-radius: 4px;
+					border-top-right-radius: 4px;
+				}
+				&.validate{
+					float:right;
+					margin: 40px 20px 0 0;
+					border-radius: 4px;
+				}
+			}
+		}
+		/* btn group*/
+		
+		#content-article{
+			margin:0 0 40px 40px;
+			border:1px solid #e6e6e3;
+			background-color: #f2f2f2;
+			
+			h2{
+				margin: 0;
+				padding:20px;
+			}
+			p{
+				font-family: 'futura-bk';
+				font-size: 16px;
+				line-height: 20px;
+			}
+			
+			.message{
+				margin:0;
+				padding: 0 20px;
+				
+				.posts{
+					.postvote-preview{
+						h2{
+							margin:0;
+							padding:0;
+							font-family: 'futura-bk';
+							font-size: 16px;
+							line-height: 18px;
+							margin: 0 0 15px 0;
+						}
+						
+						h3,p{
+							border-bottom: 1px solid;
+							padding: 0 0 5px 0;
+							margin: 20px 0 10px 0;
+							padding:0;
+							font-family: 'futura-bk';
+							font-size: 12px;
+							line-height: 14px;
+							text-transform:uppercase;
+						}
+						
+						p{
+							border:none;
+							margin:0 0 10px 0;
+							text-transform:none;
+						}
+						.text{
+							margin: 10px 0 0 0;
+						}
+						.row{
+							.avatar{
+								padding:0;
+								margin: 10px 0 0 0;
+							}
+						}
+					}
+				}
+			}
+			
+			form{
+				.page{
+					display:none;
+					float: left;
+					width: 100%;
+					
+					&.active{
+						display:block;
+					}
+					
+					.query-block{
+						padding:0 0 30px 0;
+						width: 100%;
+						float: left;
+						
+						.heading{
+							font-family:@futura;
+							font-size:12px;
+							line-height:20px;
+							color:@pg-orange;
+							padding: 0;
+							text-align: center;
+							text-transform: uppercase;
+						}
+						.question{
+							font-family:@futura;
+							font-size:14px;
+							line-height:20px;
+							text-align: center;
+							margin: 5px 0 18px;
+						}
+						
+						.clue{
+							text-align: center;
+						}
+						.wrap-checker{
+							width: 70%;
+							display: block;
+							margin: 0 auto;
+							
+							label{
+								float:left;
+								display:inline-block;
+								width: 50%;
+								min-height: 40px;
+								
+								.radio{
+									padding: 0 5px 0 0;
+									margin: 5px 5px 15px 0;
+									float: left;
+								}
+							}
+							
+							textarea{
+								width:100%;
+								height: 90px;
+								resize: none;
+							}
+						}
+					}
+				}
+				.center{
+					text-align: center;
+					margin: 0 0 20px 0;
+					
+					.btn-default{
+						padding: 0;
+						border: 0;
+						border-bottom: 2px solid #25967b;
+						color: @pg-white;
+						font-family: 'futura-bk';
+						font-size: 14px;
+						line-height: 16px;
+						text-transform: uppercase;
+						background-color:@pg-green;
+						padding: 12px 32px;
+					}
+				}
+			}
+			
+			.content-postvote{
+				padding: 20px;
+				
+				.wrapper{
+					
+					#postForm{
+						.row{
+							margin: 0 0 8px 0;
+							padding:0;
+							
+							label{
+								padding: 0;
+								text-align: right;
+								font-family: 'futura-bk';
+								font-size: 14px;
+								line-height: 16px;
+								color: #2e2e2e;
+								margin: 6px 0 0 0;
+							}
+							div{
+								padding: 0 0 0 40px;
+								
+								.preview-img{
+									position:reltive;
+									padding: 0;
+								}
+								.preview{
+									margin: 0 0 10px 0;
+								}
+								.trash{
+									top:0;
+									left:0;
+								}
+								
+								input, textarea,.progress,.uploader{
+									width: 100%;
+									border-radius: 0;
+									border: 1px solid #e6e6e3;
+									background-color: #fff;
+									padding: 6px;
+									height: 30px;
+									font-family: 'futura-bk';
+									font-size: 12px;
+									line-height: 14px;
+								}
+								.progress{
+									padding: 0;
+								}
+								textarea{
+									resize:none;
+									height: 100px;
+								}
+								.uploader{
+									
+									width: 100%;
+									height: 40px;
+									background: @pg-white;
+									padding: 0;
+									
+									.form-control{
+										height: 40px;
+									}
+									.filename{
+										font-family: 'futura-bk';
+										font-size: 14px;
+										line-height: 16px;
+										height: 40px;
+										border-right: solid 1px #e6e6e3;
+										padding: 10px 5px;
+									}
+									.action{
+										font-family: 'futura-bk';
+										font-size: 12px;
+										line-height: 14px;
+										border: none;
+										background: transparent;
+										padding: 10px 0;
+										height: 38px;
+									}
+								}
+								
+							}
+							.caracteres-restants{
+								font-family: 'futura-bk';
+								font-size: 12px;
+								line-height: 14px;
+							}
+						}
+					}
+				}
+				
+				.center{
+					margin: 40px 0 0 0;
+					text-align: right;
+					
+					.btn-default{
+						padding: 0;
+						border: 0;
+						border-bottom: 2px solid #25967b;
+						color: #fff;
+						font-family: 'futura-bk';
+						font-size: 14px;
+						line-height: 16px;
+						text-transform: uppercase;
+						background-color: @pg-green;
+						padding: 12px 32px;
+					}
+				}
+			}
+			.champs-obligatoitres{
+				margin: 0 0 20px 20px;
+				font-family: 'futura-bk';
+				font-size: 12px;
+				line-height: 14px;
+			}
+		}
+		
+		&.result{
+			.wrapper-result{
+				margin:0 0 40px 40px;
+				padding:20px;
+				border:1px solid #e6e6e3;
+				background-color: #f2f2f2;
+				
+				#heading{
+					h2{
+						font-family: 'futura-bk';
+						font-size: 14px;
+						line-height: 16px;
+						color: @pg-orange;
+						background: url('../images/common/puce-sb-block.png') no-repeat left top transparent;
+						padding: 0 0 0 20px;
+						margin:0;
+					}
+				}
+				#parrainer{
+					margin: 25px 0 0 0;
+					
+					#invit-social{
+						p{
+							padding:0;
+							text-align: right;
+							text-transform: uppercase;
+							font-family: 'futura-bk';
+							font-size: 14px;
+							line-height: 16px;
+						}
+						
+						.social-icon{
+							padding:0;
+							float: right;
+							
+							li{
+								padding:0;
+								margin: 0 0 0 20px;
+								
+								.link{
+									-webkit-border-radius: 50%;
+									-moz-border-radius: 50%;
+									border-radius: 50%;
+									width: 65px;
+									height: 65px;
+									float: left;
+									text-indent: -9999px;
+									
+									&.fb{
+										background: url('../images/common/icon-social.png') no-repeat 22px center @pg-fb;
+									}
+									&.twitter{
+										background: url('../images/common/icon-social.png') no-repeat -58px center @pg-twitter;
+									}
+									&.google-plus{
+										background: url('../images/common/icon-social.png') no-repeat -145px center @pg-google;
+									}
+								}
+							}
+						}
+					}
+					#invit-mail{
+						margin:38px 0 18px 0;
+						
+						.row{
+							.col-md-5{
+								padding:0;
+							}
+							.text-mail{
+								padding:0;
+								text-align: right;
+								text-transform: uppercase;
+								font-family: 'futura-bk';
+								font-size: 14px;
+								line-height: 16px;
+							}
+							
+							.wrapper-share{
+								padding: 0;
+								margin: 0 0 0 40px;
+								
+								#mail-sended{
+									padding:0;
+									
+									.a-left{
+										text-transform: uppercase;
+										font-family: 'futura-bk';
+										font-size: 14px;
+										line-height: 20px;
+									}
+									.btn-default{
+										float: right;
+										padding: 0;
+										border: 0;
+										border-bottom: 2px solid #25967b;
+										color: #fff;
+										font-family: 'futura-bk';
+										font-size: 14px;
+										line-height: 16px;
+										text-transform: uppercase;
+										background-color: @pg-green;
+										padding: 12px 32px;
+									}
+								}
+								#mail-send{
+									display:block;
+									
+									&.none{
+										display: none;
+									}
+									
+									form{
+										.img-mail{
+											width:12%;
+											float: left;
+										}
+										.row{
+											float: right;
+											width: 75%;
+											
+											.wrap-input{
+												padding:0;
+												margin:0 0 12px 0;
+												
+												input{
+													width: 100%;
+													border-radius: 0;
+													border: 1px solid #e6e6e3;
+													background-color: #fff;
+													padding: 6px;
+													height: 30px;
+													font-family: 'futura-bk';
+													font-size: 12px;
+													line-height: 14px;
+												}
+											}
+											.wrap-button{
+												padding: 0;
+												text-align: right;
+												
+												.btn-default{
+													padding: 0;
+													border: 0;
+													border-bottom: 2px solid #25967b;
+													color: #fff;
+													font-family: 'futura-bk';
+													font-size: 14px;
+													line-height: 16px;
+													text-transform: uppercase;
+													background-color: @pg-green;
+													padding: 12px 32px;
+												}
+											}
+										}
+									}
+								}
+							}
+						}
+					}
+					
+					#terminer{
+						padding:0;
+						margin: 50px 0 0 0;
+						
+						.col-md-12{
+							padding: 0;
+							text-align: center;
+							
+							.btn-default{
+								border: 0;
+								border-bottom: 2px solid #25967b;
+								color: #fff;
+								font-family: 'futura-bk';
+								font-size: 14px;
+								line-height: 16px;
+								text-transform: uppercase;
+								background-color: @pg-green;
+								padding: 12px 32px;
+							}
+						}
+					}
+				}
+			}
+		}
+		/*result*/
+		
+		&.recirculation{
+			min-height: 484px;
+			padding: 0;
+			margin: 70px 0 0 40px;
+			
+			div{
+				font-family: 'futura-bk';
+				font-size: 12px;
+				line-height: 14px;
+				background: url('../images/games/sprite-deploy-game.png') no-repeat 0 0 transparent;
+				padding: 5px 0 5px 30px;
+				
+				&.partenaire-logo,&.col-md-11,&.offer{
+					background:none;
+					padding:0 15px;
+				}
+				&.col-md-11,&.offer{
+					padding:0;
+				}
+				&.offer{
+					text-align: center;
+					
+					.btn-default{
+						margin: 20px 0 0 0;
+						border: 0;
+						border-bottom: 2px solid #25967b;
+						color: #fff;
+						font-family: 'futura-bk';
+						font-size: 14px;
+						line-height: 16px;
+						text-transform: uppercase;
+						background-color: @pg-green;
+						padding: 12px 32px;
+					}
+				}
+			}
+			.feed-news{
+				display:none;
+			}
+			.row{
+				&.partner{
+					padding:0;
+					margin: 15px 0 !important;
+					background: none;
+					
+					.col-md-3{
+						padding:0;
+						background: none;
+						
+						a{
+							float:left;
+							color:@pg-black;
+							font-family: 'futura-bk';
+							font-size: 12px;
+							line-height: 14px;
+									
+							div{
+								background: none;
+							}
+						}
+					}
+				}
+			}
+			.other-games{
+				background: url('../images/common/puce-sb-block.png') no-repeat left top transparent;
+				padding: 0 0 0 20px;
+				margin: 40px 0 0 0;
+				
+				h2{
+					font-family: 'futura-bk';
+					font-size: 14px;
+					line-height: 16px;
+					color:@pg-orange;
+					padding:0;
+				}
+			}
+		}
+		/*recirculation*/
 	}
-	/* game quiz*/
+	/* wrap-game*/
+
 }
 .social-share{
   	float: left;
@@ -1758,23 +2811,24 @@ form[name="preview_form"]{
 			height:35px;
 			float: left;
 			text-indent: -9999px;
+			background-size: auto 60% !important;
   			&.fb{
   				background:url('../images/common/icon-social.png') no-repeat 12px center #262626;
 				
 				&:hover{
-					background-color:#3b5999;
+					background-color:@pg-fb;
 				}
   			}
   			&.twitter{
-  				background:url('../images/common/icon-social.png') no-repeat -29px center #262626;
+  				background:url('../images/common/icon-social.png') no-repeat -32px center #262626;
   				&:hover{
-					background-color:#59a7d8;
+					background-color:@pg-twitter;
 				}
   			}
   			&.google{
-  				background:url('../images/common/icon-social.png') no-repeat -72px center #262626;
+  				background:url('../images/common/icon-social.png') no-repeat -77px center #262626;
   				&:hover{
-					background-color:#E61414;
+					background-color:@pg-google;
 				}
   			}
   		}

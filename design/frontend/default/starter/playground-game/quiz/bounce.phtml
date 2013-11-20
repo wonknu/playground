@@ -3,7 +3,7 @@
 <?php $user = $this->user;?>
 <?php $availableGames = $this->availableGames?>
 
-<div class="game-quiz row-fluid recirculation">
+<div class="game-quiz row-fluid recirculation wrap-game">
 
 	<!-- BOUNCE -->
 	<?php echo $this->partial('playground-game/partial/bounce', array(
@@ -34,6 +34,6 @@
 	<?php } ?>
 	
 	<!-- RSS FEED -->
-	<?php echo $this->partial('playground-game/partial/news-feed', array('rssUrl' => $this->rssUrl, 'channel' => $this->channel)); ?>
+	<?php //echo $this->partial('playground-game/partial/news-feed', array('rssUrl' => $this->rssUrl, 'channel' => $this->channel)); ?>
 
 </div>

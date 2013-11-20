@@ -14,8 +14,9 @@ if (isset($fm[0]))
 <h1><?php echo $this->translate('Your facebook applications'); ?></h1>
 
 <?php if(!$this->fbLogged):?>
-	<?php echo $this->translate('Facebook admin page message'); ?>
-    <a href="<?php echo $this->fbLoginUrl ?>"><?php echo $this->translate('Facebook admin page link'); ?></a>
+<?php echo $this->translate('You\'re not connected to Facebook or you don\'t have enough right to manage these apps and pages.');?><br/>
+<?php echo $this->translate('To manage these apps');?>
+    <a href="<?php echo $this->fbLoginUrl ?>"><?php echo $this->translate('Login to Facebook with page management authorization');?></a>
 <?php endif;?>
 <table class="table">
     <tr>

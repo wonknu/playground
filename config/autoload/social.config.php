@@ -9,7 +9,8 @@ return array(
             'id' => '118474821657382',
             'secret' => 'fde26982baea07cab11881876a45a5fe'
         ),
-        'scope' => 'email,publish_stream,user_birthday,user_location,read_friendlists,user_relationships,user_relationship_details,read_mailbox,user_status,friends_about_me,friends_photos,read_friendlists,offline_access,manage_pages',
+        'scope' => 'email',
+        //'scope' => 'email,publish_stream,user_birthday,user_location,read_friendlists,user_relationships,user_relationship_details,read_mailbox,user_status,friends_about_me,friends_photos,read_friendlists,offline_access,manage_pages',
         'display' => '',
         'contact_list' => false,
         'siteurl' => 'https://developers.facebook.com/apps',
