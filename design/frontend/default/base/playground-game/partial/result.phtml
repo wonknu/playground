@@ -1,9 +1,6 @@
-<?php if(!isset($this->folderUrl)) $this->folderUrl = ""; ?>
 <?php $this->plugin('translate')->setTranslatorTextDomain('playgroundgame'); ?>
 <div class="game-<?php echo $this->game->getClassType(); ?> wrap-game result row">
-	<h1>
-	    <?php echo $this->game->getTitle(); ?>
-	</h1>
+	<h1><?php echo $this->game->getTitle(); ?></h1>
 	<!-- BLOCK GAME START -->
 	<div class="block-game game-play <?php if ($this->basePath($this->game->getSecondImage()) == "") echo "no-image"; ?>">
 		<div class="img-content">
@@ -57,7 +54,7 @@
                     <div class="col-md-12">
                         <span class="btn btn-default">
                             <a href="<?php echo $this->url('frontend/' . $this->nextGame->getClassType(), array('id' => $this->nextGame->getIdentifier(), 'channel' => $this->channel)); ?>">
-                                <?php echo $this->translate('Play an another Game'); ?>
+                                <?php echo $this->translate('Play another Game'); ?>
                             </a>
                         </span>
                     </div>
