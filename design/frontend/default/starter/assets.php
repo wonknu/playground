@@ -19,10 +19,10 @@ return array(
                     ),
 	                'frontend_css' => array(
 	                    'assets' => array(
-	                        'css/base.css'
+	                        'css/starter.css'
 	                    ),
 	                    'options' => array(
-	                        'output' => 'frontend/css/base'
+	                        'output' => 'frontend/css/starter'
 	                    )
 	                ),
                 ),
