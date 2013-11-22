@@ -46,14 +46,16 @@
     <!-- ADSERVING SIDEBAR -->
     <?php //echo $this->partial('application/index/partial/col-adserving.phtml', array('cat1' => $this->cat1, 'cat2' => $this->cat2, 'cat3' => $this->cat3, 'channel' => $this->channel)); ?>
     <!-- END ADSERVING SIDEBAR -->
-
+    
+    <?php if ($this->facebookUrl()): ?>
     <!-- BLOCK FACEBOOK -->
     <div class="sb-block fb-box">
     	<h5><?php echo $this->translate('Join us on Facebook'); ?></h5>
     	<div class="sb-content">
-    	   <div class="fb-like-box" data-href="https://www.facebook.com/Playground.gg" data-width="280" data-height="291" data-show-faces="true" data-stream="false" data-border-color="#eeefef" data-header="false"></div>
+    	   <div class="fb-like-box" data-href="<?php echo $this->facebookUrl(); ?>" data-width="280" data-height="291" data-show-faces="true" data-stream="false" data-border-color="#eeefef" data-header="false"></div>
 	    </div>
     </div><!-- END BLOCK FACEBOOK -->
+    <?php endif; ?>
 
     <!-- BLOCK NEWSLETTER -->
     <!-- <?php if(!$this->zfcUserIdentity()): ?>
