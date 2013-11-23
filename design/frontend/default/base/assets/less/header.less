@@ -1,283 +1,147 @@
 // Common header
-// 
 // --------------------------------------------------
 
+// first reset some bootstrap
+.navbar-default,
+.navbar-collapse {
+  width:100%;
+  background:none;
+  border:none;
+}
+
+// components
+
 // header
-.wrap-header{
-	background-color:#262626;
-  .barnav{
-    margin: 0;
-  }
-}
-
-#header{
+.wrap-header {
+	background-color:@pg-black;
   padding: 20px 0 0 0;
-  > .row{
-  	width:100%;
- 	margin:0;
- 	position: relative;
- 	
-	.col-md-2{
-		position:absolute;
-		top:0;
-		left:0;
-		padding:0;
-		background:url('../images/header/bg-logo-header.jpg') no-repeat center bottom transparent;
-		padding: 0 0 30px 0;
-		
-		a{
-			width:100%;
-			float:left;
-			
-			img{
-				margin: 0 15%;
-			}
-		}
-	}
- 	
-    .hook-title{
-		display:none;
-      color:@pg-black;
-      font-family: @comfortaa-bold;
-      font-size: 24px;
-      padding-top: 20px;
-    }
+  
+  .header {
+    height: 105px;
+    max-width: @site-width;
+    margin: 0 auto;
   }
-}
-#header-login{
-  padding: 10px;
-}
-// Main navigation
-.barnav{
-	float: right;
-	width:83% !important;
-	color:#ffffff;
-	height: 35px;
-	margin: 65px 0 5px 0 !important;
-}
-.navbar-default {
-	width:100%;
-	background: none;
-    border:none;
-  .navbar-collapse{
-    border:none;
-    position: relative;
+  
+  .navbar-brand {
+    padding: 0px 0px 30px 0px;
+    background: url('../images/header/bg-logo-header.png') no-repeat center bottom transparent;
   }
+  
   .navbar-nav {
-    &.right{
-      padding: 5px 0;
-      margin: 0 0 -5px 0;
-      position: absolute;
-	  bottom: 0;
-	  right: 0;
-	  background-color: #202020;
-      
-      li{
-      
-      	&:first-child{
-      		margin:0 10px 0 10px;
-      		a{
-      			padding:0;
-      		}
-      	}
-      	a{
-	      	font-family: @futura;
-			font-size:13px;
-			line-height:20px;
-			padding:4px 20px;
-			
-      		&:hover{
-      		background:none;
-	        color:@pg-white;
-      		}
-      		
-      		.badge{
-      			display:none;
-      		}
-      		
-      		.caret{
-      			border-top-color: #d95f49;
-				border-bottom-color: #d95f49;
-				border-width: 9px 6px 0;
-				border-bottom-width: 0;
-      		}
-      		
-      		&:hover,a:focus{
-      			.caret{
-      			border-top-color: #d95f49;
-				border-bottom-color: #d95f49;
-      			}
-      		}
-      	}
-      	&.user-info.points{
-      	 a{
-      		.badge{
-      			display: inline-block;
-      			border-radius: 0;
-				background: none;
-				color: #fff;
-				font-weight: normal;
-      		}
-      	 }
-      	}
-      }
-    }
-    > li{
+    text-transform: uppercase;
     font-size: 13px;
-    margin:0 10px 0 0;
+    margin: 65px 10px 0 20px;
     
-    &:last-child{
-    	margin:0;
-    }
+    li {
       line-height: 35px;
-      > a{
-        color:@pg-white !important;
-        padding-top: 0;
-        padding-bottom: 0;
+      font-family: @futura;
+      color:@pg-white !important;
+      
+      span {
+        padding: 0px 15px;
+      }
+      
+      a {
+        display: inline-block;
+        padding: 0px 15px;
         line-height: 35px;
-        font-family: @futura;
-        
-        &:hover{
-	        background-color: @pg-orange;
-	        color:@pg-white;
-        }
-      }
-      &.open > a,
-      &.open > a:hover,
-      &.open > a:focus{
-        background-color: transparent;
-      }
-    }
-    > .active {
-      > a,
-      > .open > a,
-      > a:hover{
-        background-color: @pg-orange;
         color:@pg-white;
-      }
-    }
-    .dropdown-menu{
-      width: 188px;
-      margin: 8px 0 0 0;
-      left:-78px;
-      border: none;
-	  background-color: #242424;
-	  border-radius: 0;
-	  -moz-box-shadow: inset 0px 5px 6px 0px #000000;
-	  -webkit-box-shadow: inset 0px 5px 6px 0px #000000;
-	  -o-box-shadow: inset 0px 5px 6px 0px #000000;
-	  box-shadow: inset 0px 5px 6px 0px #000000;
-	  filter:progid:DXImageTransform.Microsoft.Shadow(color=#000000, Direction=180, Strength=6);
-	  
-      a{
-      	color:@pg-white;
-        padding:3px 15px 3px 15px;
-        text-align: right;
-        font-family: @futura;
-        font-size:12px;
-        line-height:31px;
         
-        span{
-          background:none;
-          display:none;
-          /*.sprite-it(16px, 20px, 0, -50px);
-          .inline-block();
-          position: absolute;
-          left: 8px;*/
-        }
         &:hover,
-        &:focus{
-          .caret{
-            color: @pg-black;
-          }
-        }
-        &.badges-points{
-          span{
-            background-position: 0 -50px;
-          }
-        }
-        &.activity{
-          span{
-            background-position: 0 -100px;
-          }
-        }
-        &.profile{
-          span{
-            background-position: 0 -145px;
-          }
-        }
-        &.newsletter{
-          span{
-            background-position: 0 -188px;
-          }
-        }
-        &.sponsorfriends{
-          span{
-            background-position: 0 -235px;
-          }
-        }
-        &.logout{
-          span{
-            background-position: 0 -279px;
-          }
-        }
-        &.btn-gray-dark{
-          float: left;
-          padding: 0 10px;
-          &:hover{
-            text-decoration: none;
-          }
+        &:active,
+        &:focus {
+          color:@pg-white;
+          background-color: @pg-orange;
         }
       }
     }
-    #input-login{
-      text-align: center;
-      input{
-        margin: 2%;
-        width: 96%;
+      
+    &.navbar-right {
+      text-transform: inherit;
+      margin: 70px 10px 0 0;
+      background-color: #202020;
+      height: 30px;
+      
+      .dropdown {
+        background-color:#202020;
+      }
+      
+      li,
+      .dropdown,
+      .dropdown.open {
+        color:@pg-white;
+        font-family: @futura;
+        background-color:#202020;
+        
+        .points,
+        .glyphicon {
+          padding: 0px;
+        }
+        
+        li {
+          background-color: transparent;
+        }
+        
+        a {
+          line-height: 35px;
+          color:@pg-white;
+          background-color: transparent;
+          
+          &:hover,
+          &:active,
+          &:focus {
+            background-color: transparent;
+            color:@pg-white;
+          }
+        }
+      
+        .dropdown-menu {
+          
+          li {
+            
+            a {
+              text-align: center;
+              display: block;
+              font-family: @futura;
+              font-size: 13px;
+              line-height: 20px;
+              padding: 5px;
+              
+              &:hover {
+                text-decoration: underline;
+              }
+            }
+          }
+        }
+      }
+      
+      &:last-child {
+        margin-right: 0px;
       }
     }
-    .btn-success{
-      margin: 0 25px;
-      padding: 7px;
-      float: left;
-      .btn-playground();
-      color: @pg-grey-light !important;
+    
+    .dropdown-menu {
+      padding: 15px;
+      border: 0;
       background-color: @pg-black;
-      &:hover,
-      &.active {
-        color: @pg-white !important;
-        background-color: @pg-grey-dark;
+      border-radius: 0;
+      -moz-box-shadow: inset 0 5px 6px 0 #000;
+      -webkit-box-shadow: inset 0 5px 6px 0 #000;
+      -o-box-shadow: inset 0 5px 6px 0 #000;
+      box-shadow: inset 0 5px 6px 0 #000;
+      
+      li {
+        background-color: transparent;
+        
+        a {
+          text-align: center;
+          display: block;
+          font-family: @futura;
+          font-size: 13px;
+          line-height: 20px;
+          padding: 5px;
+        }
       }
     }
-  }
-  .account-options{
-    .dropdown-toggle{
-      //.sprite-it(24px, 100%, 0, 5px);
-      padding-left: 30px;
-    }
-  }
-  .slot-badge{
-    float:left;
-    width: 20px;
-    height: 20px;
-    margin:0 5px 5px;
-    img{
-      width: 100%;
-      height: 100%;
-      display: block;
-    }
-  }
-}
-
-// breadcrumb
-.breadcrumb{
-  background: none;
-  a{
-    color:@pg-black;
-    font-size: 12px;
-  }
-  > li + li:before{
-    font-size: 10px;
   }
 }

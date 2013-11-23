@@ -1,38 +1,60 @@
 $(function(){
+    'use strict';
+    
+    // NAVIGATION FORM LOGIN
+    var formLogin = {
+        
+        init: function()
+        {
+            this.bindEvents();
+        },
+        
+        bindEvents: function()
+        {
+            $("form#header-login").bind('submit', function(e)
+            {
+                var datas, request;
+                
+                e.preventDefault();
+                
+                $(this).find("input, button");
+                $(".input-login-error").text("");
+                datas = $(this).serialize();
+                
+                $.ajax({
+                    url:  $(this).attr('action'),
+                    type: $(this).attr('method'),
+                    data: datas,
+                    dataType: 'json'
+                })
+                .done(function(response, textStatus, jqXHR)
+                {
+                    if(response.success) {
+                        location.reload();
+                    } else{
+                        $("#input-login-error").text("Le nom d'utilisateur ou le mot de passe saisi est incorrect.");
+                        $("#input-login-error").css('display', 'inline-block');
+                    }
+                })
+                .fail(function()
+                {
+                    console.error("The following error occured: "+ textStatus, errorThrown);
+                });
+                
+                return false;
+            });
+        }
+    };
+    if($("form#header-login").size() > 0) {
+        formLogin.init();
+    }
+    
+    $(".dropdown").click(function ()
+    {
+        $(".navbar-collapse").css('height', 'auto')
+    });
 	
 	/**************************** Login */
-	$("form#header-login").submit(function(event){
-    	event.preventDefault();
-        var $form = $(this);
-        var inputs = $form.find("input, button");
-        $(".input-login-error").text("");
-        var datas = $form.serialize();
-        inputs.prop("disabled", true);
-
-        var request = $.ajax({
-            url:  $(this).attr('action'),
-            type: $(this).attr('method'),
-            data: datas,
-            dataType: 'json',
-        }); 
-
-        request.done(function (response, textStatus, jqXHR){
-            if(response.success){
-            	location.reload();
-            } else{
-                $(".input-login-error").text("Le nom d'utilisateur ou le mot de passe saisi est incorrect.");
-            }
-        });
-
-        request.fail(function (jqXHR, textStatus, errorThrown){
-            console.error("The following error occured: "+ textStatus, errorThrown);
-        });
-
-        request.always(function () {
-            inputs.prop("disabled", false);
-        });
-        return false;
-    });
     
     $("form#register-login").submit(function(event){
     	event.preventDefault();
