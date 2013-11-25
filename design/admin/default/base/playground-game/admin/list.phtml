@@ -84,6 +84,7 @@ if (isset($fm[0]))
                 | <a href='<?php echo $optionLink ?>'><?php echo $optionLinkName ?></a><?php endif;?> 
                 | <a target="_blank" href='<?php echo $this->url('frontend/' . $game->getClassType(), array('id' => $game->getIdentifier(), 'channel' => 'preview'), array('force_canonical' => true));?>'><?php echo $this->translate('Preview'); ?></a> 
                 | <a href='<?php echo $this->url('admin/playgroundgame/set-active', array('gameId' => $game->getId())); ?>'><?php echo $activeString; ?></a>
+                | <a href='<?php echo $this->url('admin/playgroundgame/player-form', array('gameId' => $game->getId())); ?>'><?php echo $this->translate('Create the player form'); ?></a>
             </td>
             <td><?php echo $game->entry; ?></td>
             <td><?php echo count($this->partnerSubscriber($game->getPartner(), false));?></td>

@@ -86,14 +86,16 @@ $(function(){
 
 
     /**************************** Custom style Form */
-    $("select, input[type=radio], input[type=checkbox]").uniform();
+    //$("select, input[type=radio], input[type=checkbox]").uniform();
     
     var dataprofilfile = $('#avatarfile').attr('data-profilfile');
     $('#avatarfile input').attr('size','33');
+    /*
     $("#avatarfile input[type=file]").uniform({
 		fileButtonHtml: 'Parcourir...',
 		fileDefaultHtml: dataprofilfile
 	});
+	*/
 	
 	/**** Sliders par défaut */
 	$('.default-slider img').css('width', '568px');
@@ -118,11 +120,13 @@ $(function(){
             PIE.attach(this);
         });
     };*/
+   if($('input[type="datetime"]').size() > 0) {
 	var currentYear = new Date().getFullYear();
-	$('input[type="datetime"]').datepicker({
-		changeMonth: true,
-		changeYear: true,
-		//minDate: new Date(1900, 1 - 1, 1)
-		yearRange: (currentYear - 100) + ':' + currentYear
-    });
+    	$('input[type="datetime"]').datepicker({
+    		changeMonth: true,
+    		changeYear: true,
+    		//minDate: new Date(1900, 1 - 1, 1)
+    		yearRange: (currentYear - 100) + ':' + currentYear
+        });
+    }
 });

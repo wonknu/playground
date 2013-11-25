@@ -1,15 +1,5 @@
-// Fonts
-// 
+// =Fonts
 // --------------------------------------------------
-
-@path-to-fonts: '../fonts/';
-
-/* Font Comfortaa */
-@path-to-comfortaa: 'Comfortaa/';
-@comfortaa:'Comfortaa-Regular';
-@comfortaa-light:'Comfortaa-Light';
-@comfortaa-bold:'Comfortaa-Bold';
-
 @font-face {
   font-family: @comfortaa;
   src: url('@{path-to-fonts}@{path-to-comfortaa}@{comfortaa}.eot');
@@ -26,6 +16,7 @@
        url('@{path-to-fonts}@{path-to-comfortaa}@{comfortaa-light}.ttf') format('truetype'),
        url('@{path-to-fonts}@{path-to-comfortaa}@{comfortaa-light}.svg#@{comfortaa-light}') format('svg');
 }
+
 @font-face {
   font-family: @comfortaa-bold;
   src: url('@{path-to-fonts}@{path-to-comfortaa}@{comfortaa-bold}.eot');
@@ -34,10 +25,6 @@
        url('@{path-to-fonts}@{path-to-comfortaa}@{comfortaa-bold}.ttf') format('truetype'),
        url('@{path-to-fonts}@{path-to-comfortaa}@{comfortaa-bold}.svg#@{comfortaa-bold}') format('svg');
 }
-
-/* Font Futura */
-@path-to-futura: 'futura/';
-@futura:'futura-bk';
 
 @font-face {
   font-family: @futura;

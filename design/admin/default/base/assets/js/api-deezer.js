@@ -80,7 +80,7 @@ $(function(){
 				
 				var autoPlay = $('<input>', {
 					id: 'check-autoplay',
-					type: 'checkbox',
+					type: 'checkbox'
 				});
 				
 				if(isAutoplay) {

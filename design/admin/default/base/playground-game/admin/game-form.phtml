@@ -74,6 +74,11 @@ $form->prepare();
         <?php echo $this->formSelect($form->get('playBonus')); ?>
         <?php echo $this->formElementErrors($form->get('playBonus')) ?>
 	</div>
+	<div class="label-input checkbox">
+        <?php echo $this->formLabel($form->get('anonymousAllowed')); ?>
+        <?php echo $this->formCheckbox($form->get('anonymousAllowed')); ?>
+        <?php echo $this->formElementErrors($form->get('anonymousAllowed')) ?>
+	</div>
 </div>
 
 <div class="tab-pane" id="facebook">
@@ -107,7 +112,9 @@ $form->prepare();
         <?php echo $this->formFile($form->get('uploadFbPageTabImage')); ?>
 	    <p class="recommandation">Taille recommandée : 111x74 pixels</p>
         <?php if($form->get('fbPageTabImage')->getValue() != ''):?>
-        	<img src="<?php echo $this->basePath($form->get('fbPageTabImage')->getValue()); ?>" />
+        	<img src="<?php echo $this->basePath($form->get('fbPageTabImage')->getValue()); ?>" class="delete_fb_tab_upload"/>
+        	<input id="delete_fb_tab_upload" name="delete_image" type="button" value="Supprimer l'image">
+	    	<?php echo $this->formHidden($form->get('deleteFbPageTabImage')); ?>
         <?php endif;?>
     </div>
     <div class="label-input">
@@ -182,7 +189,9 @@ $form->prepare();
 	    <?php echo $this->formFile($form->get('uploadFbShareImage')); ?>
 	    <p class="recommandation">Taille recommandée : 75x75 pixels</p>
 	    <?php if($form->get('fbShareImage')->getValue() != ''):?>
-	    	<img src="<?php echo $this->basePath($form->get('fbShareImage')->getValue()); ?>" />
+	    	<img src="<?php echo $this->basePath($form->get('fbShareImage')->getValue()); ?>" class="delete_fb_share_upload"/>
+	    	<input id="delete_fb_share_upload" name="delete_image" type="button" value="Supprimer l'image">
+	    	<?php echo $this->formHidden($form->get('deleteFbShareImage')); ?>
 	    <?php endif;?>
     </div>
 	<div class="label-input twshare-msg">
@@ -197,18 +206,27 @@ $form->prepare();
         <?php echo $this->formInput($form->get('steps')); ?>
         <?php echo $this->formElementErrors($form->get('steps')); ?>
 	</div>
+	<div class="label-input">
+        <?php echo $this->formLabel($form->get('stepsViews')); ?>
+        <?php echo $this->formInput($form->get('stepsViews')); ?>
+        <?php echo $this->formElementErrors($form->get('stepsViews')); ?>
+	</div>
 	<div class="label-input file">
 	    <?php echo $this->formLabel($form->get('uploadMainImage')); ?>
 	    <?php echo $this->formFile($form->get('uploadMainImage')); ?>
 	    <?php if($form->get('mainImage')->getValue() != ''):?>
-	    	<img src="<?php echo $this->basePath($form->get('mainImage')->getValue()); ?>" />
+	    	<img src="<?php echo $this->basePath($form->get('mainImage')->getValue()); ?>" class="delete_primary_image"/>
+	    	<input id="delete_primary_image" name="delete_image" type="button" value="Supprimer l'image">
+	    	<?php echo $this->formHidden($form->get('deleteMainImage')); ?>
 	    <?php endif;?>
     </div>
 	<div class="label-input file">
 	    <?php echo $this->formLabel($form->get('uploadSecondImage')); ?>
 	    <?php echo $this->formFile($form->get('uploadSecondImage')); ?>
 	    <?php if($form->get('secondImage')->getValue() != ''):?>
-	    	<img src="<?php echo $this->basePath($form->get('secondImage')->getValue()); ?>" />
+	    	<img src="<?php echo $this->basePath($form->get('secondImage')->getValue()); ?>" class="delete_secondary_image"/>
+            <input id="delete_secondary_image" name="delete_image" type="button" value="Supprimer l'image">
+	    	<?php echo $this->formHidden($form->get('deleteSecondImage')); ?>
 	    <?php endif;?>
     </div>
 	<div class="label-input">
@@ -472,6 +490,23 @@ $form->prepare();
         $(document).on('click','#prize_entry button',function(){
         	$(this).parent().empty();
         	return false;
+        });
+
+        $('#delete_primary_image').on('click', function() {
+        	$('.delete_main_image').val(true);
+            $('.delete_primary_image').remove();
+        });
+        $('#delete_secondary_image').on('click', function() {
+        	$('.delete_second_image').val(true);
+            $('.delete_secondary_image').remove();
+        });
+        $('#delete_fb_tab_upload').on('click', function() {
+        	$('.delete_fb_page_tab_image').val(true);
+        	$('.delete_fb_tab_upload').remove();
+        });
+        $('#delete_fb_share_upload').on('click', function() {
+        	$('.delete_fb_share_image').val(true);
+        	$('.delete_fb_share_upload').remove();
         });
     });
 </script>

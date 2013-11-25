@@ -98,7 +98,11 @@ $form->prepare();
                 <div class="controls"><?php echo $this->formFile($form->get('upload_image')); ?></div>
             </div>
             <?php if($form->get('image')->getValue() != ''):?>
-                <img src="<?php echo $this->basePath($form->get('image')->getValue()); ?>" />
+                <img src="<?php echo $this->basePath($form->get('image')->getValue()); ?>"  class="image_uploaded"/>
+                <div class="controls">
+                    <input id="delete_image" name="delete_image" type="button" value="Supprimer l'image">
+                    <?php echo $this->formHidden($form->get('delete_image')); ?>
+                </div>
             <?php endif;?>
 
             <div class="control-group">
@@ -132,6 +136,12 @@ $form->prepare();
     jQuery(document).ready(function ($) {
         $('#tabs').tab();
         $('.datepicker').datepicker();
+
+        // TODO : Placer ce JS dans un fichier JS
+        $('#delete_image').on('click', function() {
+            $('.delete_image').val(true);
+            $('.image_uploaded').remove();
+        });
     });
 </script>
 <script>
@@ -163,12 +173,8 @@ $form->prepare();
         return false;
     }
 
-
     /*$('#answer_entry button').live('click',function(){
         $(this).parent().parent().empty();
         return false;
     });*/
-
-
-
 </script>

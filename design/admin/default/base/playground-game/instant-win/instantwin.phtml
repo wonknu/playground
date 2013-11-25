@@ -68,7 +68,9 @@ $form->prepare();
                 <?php echo $this->formLabel($form->get('uploadScratchcardImage')); ?>
                 <?php echo $this->formFile($form->get('uploadScratchcardImage')); ?>
                 <?php if($form->get('scratchcardImage')->getValue() != ''):?>
-                    <img src="<?php echo $this->basePath($form->get('scratchcardImage')->getValue()); ?>" />
+                    <img src="<?php echo $this->basePath($form->get('scratchcardImage')->getValue()); ?>" class="scratch_image_upload"/>
+                    <input id="delete_scratch_image" name="delete_image" type="button" value="Supprimer l'image">
+	    	        <?php echo $this->formHidden($form->get('deleteScratchcardImage')); ?>
                 <?php endif;?>
             </div>
     </div>
@@ -103,6 +105,11 @@ $form->prepare();
         
         $('#occurrenceType').change(function() {
             updateForm();
+        });
+
+        $('#delete_scratch_image').on('click', function() {
+        	$('.delete_scratch_image').val(true);
+        	$('.scratch_image_upload').remove();
         });
 
 
