@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 Playground 
 ==========
 
@@ -74,4 +75,17 @@ Once done, don't forget to update your hosts file (Windows file : \Windows\Syste
 
     127.0.0.1	playground.local
 
+=======
+PlaygroundGame
+=========
+
+The Game module : This module currently propose 4 types of games:
+
+- Post & Vote
+- Sweepstakes
+- Instant Win
+- Quiz
+
+And has been conceived to give you the ability to create almost any type of games !
+>>>>>>> d8fa553bf327381a58818d357b64d901793e2e43
 
