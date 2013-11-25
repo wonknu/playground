@@ -16,6 +16,7 @@ return array(
                             'js/lib/bootstrap-datepicker.js',
                             'js/lib/jquery.validate.min.js',
                             'js/lib/wScratchPad.js',
+                            'js/lib/jquery.timer.js',
                         ),
                         'filters' => array(),
                         'options' => array(
@@ -26,7 +27,7 @@ return array(
                     'head_frontend_js' => array(
                         'assets' => array(
                             'loader.js'      => 'js/loader.js',
-                            //'popin.js'      => 'js/popin.js',
+                            'popin.js'       => 'js/popin.js',
                             'functions.js'   => 'js/functions.js',
                             'script.js'      => 'js/script.js',
                             'users.js'       => 'js/users.js',
