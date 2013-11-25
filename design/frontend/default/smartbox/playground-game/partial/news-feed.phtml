@@ -1,0 +1,74 @@
+<?php $this->plugin('translate')->setTranslatorTextDomain('playgroundgame'); ?>
+<?php 
+	try {
+	    $channel = \Zend\Feed\Reader\Reader::import($this->rssUrl);
+	} catch (Exception $e){
+	    $channel = array();
+	}
+?>
+<?php if(count($channel) > 0):?>
+<div class="feed-news"> 
+	<h2 class="title">
+	    <?php echo $this->translate('Actu on'); ?> Playground
+	</h2>
+	<?php $i = 1; foreach ($channel as $item) : ?>
+		<?php if($i>5):?>
+		    <?php break;?>
+		<?php endif;?>
+		<?php if($i==1):?>
+		<div class="row">
+		<?php endif; ?>
+			<?php if($i==1):?>
+			<div class="col-md-8">
+				<a class="link-feed" href="<?php echo $item->getLink(); ?>" target="_blank">
+					<?php if($item->getEnclosure()) : ?>
+					<img class="image-feed" src="<?php echo $item->getEnclosure()->url; ?>" alt="actualité : <?php echo $item->getTitle(); ?>" />
+					<?php endif ?>
+					<div class="title-news">
+					    <?php echo $item->getTitle(); ?>
+					</div>
+				</a>
+			</div>
+			<?php endif; ?>
+    		<?php if($i==2) :?>
+			<div class="col-md-4">
+				<a class="link-feed" href="<?php echo $item->getLink(); ?>" target="_blank">
+					<?php if($item->getEnclosure()) : ?>
+					<img class="image-feed" src="<?php echo $item->getEnclosure()->url; ?>" alt="actualité : <?php echo $item->getTitle(); ?>" />
+					<?php endif ?>
+					<div class="title-news">
+					    <?php echo $item->getTitle(); ?>
+					</div>
+					<div class="content-news">
+					    <?php echo $item->getDescription(); ?>
+					</div>
+				</a>
+			</div>
+			<?php endif;?>
+		<?php if($i==2):?>
+		</div>
+		<?php endif; ?>
+		<?php if($i==3):?>
+		<div class="row">
+		<?php endif; ?>
+		<?php if($i>=3):?>
+			<div class="col-md-4">
+				<a class="link-feed" href="<?php echo $item->getLink(); ?>" target="_blank">
+					<?php if($item->getEnclosure()) : ?>
+					<img class="image-feed" src="<?php echo $item->getEnclosure()->url; ?>" alt="actualité : <?php echo $item->getTitle(); ?>" />
+					<?php endif ?>
+					<div class="title-news">
+					    <?php echo $item->getTitle(); ?>
+					</div>
+					<div class="content-news">
+					    <?php echo $item->getDescription(); ?>
+					</div>
+				</a>
+			</div>
+		<?php if($i==5):?>
+		</div>
+		<?php endif; ?>
+		<?php endif;?>
+	<?php $i++; endforeach; ?>
+</div>
+<?php endif;?>

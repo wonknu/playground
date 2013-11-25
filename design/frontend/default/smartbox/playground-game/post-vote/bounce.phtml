@@ -1,0 +1,34 @@
+<?php
+$this->plugin('translate')->setTranslatorTextDomain('playgroundgame');
+$game = $this->game;
+$user = $this->user;
+$availableGames = $this->availableGames
+?>
+<div class="game-postvote recirculation row">
+	<!-- BOUNCE -->
+	<?php echo $this->partial('playground-game/partial/bounce', array(
+		'game' => $game,
+		'user' => $user,
+		'gameType' => 'Ce post &amp; vote',
+		'facebooktemplate' => $this->layout()->facebooktemplate,
+		'channel' => $this->channel,
+		'isSubscriber' => $this->partnerSubscriber($game->getPartner(), $user) )
+	);?>
+	<!-- OTHER GAMES -->
+	<?php if(!$this->layout()->facebooktemplate) : ?>
+	<div class="row other-games">
+		<h2 class="title">
+			<?php if($availableGames): ?>
+				<?php echo $this->translate('Try your luck with other games'); ?> Playground
+			<?php else: ?>
+				<?php echo $this->translate('You played all the games'); ?> ! <br/>
+				<?php echo $this->translate('Come back soon'); ?>
+			<?php endif; ?>
+		</h2>
+		<?php $this->partialLoop()->setObjectKey('game')?>
+		<?php echo $this->partialLoop('playground-game/partial/game.phtml', $availableGames) ?>
+	</div>
+	<?php endif; ?>
+	<!-- RSS FEED -->
+	<?php echo $this->partial('playground-game/partial/news-feed', array('rssUrl' => $this->rssUrl, 'channel' => $this->channel)); ?>
+</div>

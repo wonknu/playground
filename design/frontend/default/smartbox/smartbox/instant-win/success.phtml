@@ -1,0 +1,37 @@
+<?php $this->plugin('translate')->setTranslatorTextDomain('playgroundgame'); ?>
+<?php $game = $this->game;?>
+<?php $user = $this->user;?>
+<?php $availableGames = $this->availableGames?>
+<div class="game-instantwin result row">
+    <?php echo $this->partial('playground-game/partial/game-header', array('game'=>$this->game, 'channel' => $this->channel));?>
+    <div id="result-instantwin">
+        <div class="star-center"></div>
+        <div class="row win">
+            <div class="col-md-12">
+                <div class="result-head"></div>
+                <div class="result-content">
+                    <p class="thanks">Merci pour votre participation.</p>
+                    <p class="instructions">
+                        Un e-voucher donnant accès à votre expérience<br/>
+                        vous sera envoyé à l’adresse mail indiquée, d’ici le 30 janvier.
+                    </p>
+                    <div class="smartbox-offers">
+                        <a href="http://www.smartbox.com/fr" target="_blank">
+                            <img src="<?php echo $this->frontendAssetPath('images/smartbox/box.png')?>" />
+                            <span class="box-gifts">Retrouvez nos expériences dans</span>
+                            <span class="box-gifts2">nos coffrets cadeaux</span>
+                        </a>
+                        <div class="arrow-left"></div>
+                        <div class="arrow-right"></div>
+                    </div>
+                    <div class="box">
+                        <img src="<?php echo $this->frontendAssetPath('images/smartbox/logo-smartbox-box.png')?>" alt="Smartbox" title="Smartbox" />
+                    </div>
+                    <div class="star-left"></div>
+                    <div class="star-right"></div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <?php echo $this->partial('playground-game/partial/game-footer', array('game'=>$this->game, 'channel' => $this->channel));?>
+</div>

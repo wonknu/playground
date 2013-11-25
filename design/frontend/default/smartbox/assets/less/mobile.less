@@ -1,0 +1,122 @@
+// Responsive mobile
+// 
+// --------------------------------------------------
+
+// ---- responsive mobile max width under 480px
+@media only screen and (max-width: 480px){
+  h2{
+    font-size:24px;
+  }
+  .game-header{
+    .star-right{
+      background:none;
+    }
+    .baseline{
+      span{
+        margin-right:30px;
+      }
+    }
+    .welcome-block{
+      h2{
+        min-width:275px;
+        width:92%;
+        text-align:center;
+      }
+      p{
+        min-width:275px;
+        width:92%;
+        text-align:center;
+      }
+    }
+  }
+  .block-game{
+    .star-center{
+      background:none;
+    }
+    .img-content{
+      padding:10px 0 0;
+    }
+    .game-infos{
+      text-align:center;
+      .part{
+        width:92%;
+        &.win{
+          float:none;
+          margin-bottom:5px;
+        }
+        &.lose{
+          float:none;
+        }
+      }
+    }
+    .form-number{
+      width:92%;
+    }
+    .desc{
+      width:100%;
+    }
+    .desc{
+      width:90%;
+    }
+  }
+  #result-instantwin{
+    .row{
+      .prize-img{
+        img{
+          width:90%;
+        }
+      }
+      &.lose{
+        .smartbox-offers{
+          height:auto;
+          padding-bottom:5px;
+          a{
+            display:block;
+            text-align:center;
+            img{
+              position:relative;
+              left:0;
+            }
+          }
+          .box-gifts{
+            padding:0;
+            margin-left:0;
+          }
+          .box-gifts2{
+            margin-left:0;
+            margin-bottom:5px;
+          }
+          .arrow-left,
+          .arrow-right{
+            top:50%;
+            margin-top:-14px;
+          }
+        }
+      }
+    }
+    .coordinates{
+      .win{
+        text-align:center;
+        float:none;
+        margin:5px 0 0;
+      }
+      #annotation{
+        position:relative;
+        left:0;
+        text-align:center;
+        width:100%;
+        bottom:0;
+      }
+    }
+  }
+  .game-footer{
+    .star-right{
+      background:none;
+    }
+  }
+}
+
+// ---- responsive mobile max width under 320px
+@media only screen and (max-width: 320px){
+  
+}

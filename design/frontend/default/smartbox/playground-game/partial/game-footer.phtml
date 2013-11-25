@@ -1,0 +1,27 @@
+<?php $this->plugin('translate')->setTranslatorTextDomain('playgroundgame');// Pour le texte ?>
+
+<div class="game-footer <?php if ($this->basePath($this->game->getMainImage()) == "") echo "no-image"; ?>">
+	<!-- Logo -->
+	<a href="http://www.smartbox.com/fr" target="_blank" class="smartbox-site">
+	   <img src="<?php echo $this->frontendAssetPath('images/smartbox/logo-smartbox.png')?>" alt="Smartbox" title="Smartbox" />
+	</a>
+	
+	<!-- Partner logo -->
+	<?php if($this->game->getPartner() && $this->game->getPartner()->getLogo()):?>
+        <a href="<?php echo $this->game->getPartner()->getWebsite();?>" target="_blank" class="logo-sponsor">
+            <img src="<?php echo $this->basePath($this->game->getPartner()->getLogo());?>" alt="<?php echo $this->game->getPartner()->getName();?>" title="<?php echo $this->game->getPartner()->getName();?>" />
+        </a>
+    <?php endif;?>
+    
+    <!-- Links -->
+    <div class="terms-links">
+        <a href="<?php echo $this->url('frontend/instantwin/terms', array('id' => $this->game->getIdentifier(), 'channel' => $this->channel))?>" id="link-terms">
+            <?php echo $this->translate('Règlement'); ?>
+        </a> - 
+        <a href="<?php echo $this->url('frontend/instantwin/conditions', array('id' => $this->game->getIdentifier(), 'channel' => $this->channel))?>" id="link-conditions">
+            <?php echo $this->translate('Mentions légales'); ?>
+        </a>
+    </div>
+    <div class="star-left"></div>
+    <div class="star-right"></div>
+</div>

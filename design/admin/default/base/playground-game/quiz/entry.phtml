@@ -17,6 +17,7 @@ if (isset($fm[0]))
 <?php if($this->game->getDrawAuto()): ?>
 | <a href='<?php echo $drawLink ?>'>Tirage au sort automatique</a>
 <?php endif;?>
+<?php if (!$this->game->getAnonymousAllowed()) : ?>
 <table class="table">
     <tr>
         <th><?php echo $this->translate('Id'); ?></th>
@@ -45,4 +46,26 @@ if (isset($fm[0]))
         </tr>
     <?php endforeach; ?>
 </table>
+<?php else : ?>
+<table class="table">
+    <?php $entryData = json_decode(current($this->entries->getCurrentItems())->getPlayerData()); ?>
+    <tr>
+        <?php foreach ($entryData as $key => $attrib): ?>
+            <th><?php echo $key ?></th>
+        <?php endforeach; ?>
+        <th><?php echo $this->translate('A gagné'); ?></th>
+        <th><?php echo $this->translate('Gagnant TAS'); ?></th>
+    </tr>
+     <?php foreach ($this->entries as $entry): ?>
+     <?php $entryData = json_decode($entry->getPlayerData()); ?>
+    <tr>
+        <?php foreach ($entryData as $key => $attrib): ?>
+            <th><?php echo $attrib ?></th>
+        <?php endforeach; ?>
+            <td><?php echo $entry->getWinner(); ?></td>
+            <td><?php echo $entry->getWinner()?></td>
+    </tr>
+    <?php endforeach; ?>
+</table>
+<?php endif; ?>
 <?php echo (count($this->entries)>1)?$this->paginationControl($this->entries, 'Sliding', 'playground-game/admin/pagination_entrylist', array('classType' => $this->game->getClassType()  ,'gameId' => $this->gameId)):''; ?>

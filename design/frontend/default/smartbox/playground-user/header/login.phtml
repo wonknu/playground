@@ -1,0 +1,60 @@
+<?php $this->plugin('translate')->setTranslatorTextDomain('playgrounduser');// Pour le texte ?>
+<?php
+$form = $this->loginForm;
+$form->prepare();
+$form->setAttribute('action', $this->url('frontend/zfcuser/ajaxlogin',array('channel' => $this->channel)));
+$form->setAttribute('method', 'post');
+$form->setAttribute('id', 'header-login');
+?>
+<div class="barnav row">
+    <nav class="navbar navbar-default" role="navigation">
+        <div class="collapse navbar-collapse navbar-ex1-collapse">
+            <ul class="nav navbar-nav">
+                <li class="active up">
+                    <a href="<?php echo $this->url('frontend', array('channel' => $this->channel)) ?>"<?php if($this->pageGames != ''): echo ' class="'.$this->pageGames.'"'; endif; ?>><?php echo $this->translate('Home');?></a>
+                </li>
+            </ul>
+            <ul class="nav navbar-nav right">
+                <li class="dropdown">
+                    <a href="#" class="dropdown-toggle" data-toggle="dropdown">
+                        <?php echo $this->translate('Log in'); ?> / <?php echo $this->translate('Create an account'); ?>
+                        <b class="caret"></b>
+                    </a>
+                    <ul class="dropdown-menu">
+                        <li class="dropdown">
+                            <?php echo $this->form()->openTag($form) ?>
+                            <div>
+                                <div id="input-login" class="">
+                                    <div class="input-login-error"></div>
+                                    <?php echo $this->formInput($form->get('identity')->setAttributes(array('class' => 'form-control'))) ?>
+                                    <?php echo $this->formInput($form->get('credential')->setAttributes(array('class' => 'form-control'))) ?>
+                                    <?php if ($this->redirect): ?>
+                                        <input type="hidden" name="redirect" value="<?php echo $this->redirect ?>" />
+                                    <?php endif ?>
+                                </div>
+                            </div>
+                            <div class="txt-center" >
+                                <a href="<?php echo $this->url('frontend/zfcuser/forgotpassword', array('channel' => $this->channel)) ?>">
+                                    <?php echo $this->translate('Forgot your password?');?>
+                                </a>
+                                <?php echo $this->formButton($form->get('submit')->setAttributes(array('class' => 'btn btn-default'))) ?>
+                                <?php if ($this->enableRegistration) : ?>
+                                	<button class="btn btn-default">
+		                                <a href="<?php echo $this->url('frontend/zfcuser/register', array('channel' => $this->channel)) . ($this->redirect ? '?redirect='.$this->redirect : '') ?>">
+		                                    <?php echo $this->translate('Create an account'); ?>
+		                                </a>
+                                	</button>
+                                    <div class="clearfix"></div>
+                                    <a href="<?php echo $this->url('frontend/zfcuser/register',array('socialnetwork' => 'facebook', 'channel' => $this->channel)) . ($this->redirect ? '?redirect='.$this->redirect : '');?>" class="fbconnect-header">
+                                       <img src="<?php echo $this->frontendAssetPath('images/header/fb-connect.png') ?>" alt="Facebook Connect" />
+                                    </a>
+                                <?php endif; ?>
+                            </div>
+                            <?php echo $this->form()->closeTag() ?>
+                        </li>
+                    </ul>
+                </li>
+            </ul>
+        </div>
+    </nav>
+</div>

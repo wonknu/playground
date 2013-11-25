@@ -1,0 +1,35 @@
+<?php $this->plugin('translate')->setTranslatorTextDomain('playgroundgame');// Pour le texte ?>
+<div class="game-instantwin welcome">
+	
+	<?php echo $this->partial('playground-game/partial/game-header', array('game'=>$this->game, 'channel' => $this->channel));?>
+	
+	<div class="block-game game-play <?php if ($this->basePath($this->game->getMainImage()) == "") echo "no-image"; ?>">
+	    <div class="star-center"></div>
+        <div class="img-content">
+            <img class="rounded" src="<?php echo $this->basePath($this->game->getMainImage()); ?>" />
+        </div>
+        <div class="game-infos">
+            <div class="win part">
+                <div class="question">Votre ticket est <strong>gagnant</strong> ?</div>
+                <div class="choice">Découvrez vite votre gain !</div>
+            </div>
+            <div class="lose part">
+                <div class="question">Votre ticket est <strong>perdant</strong> ?</div>
+                <div class="choice">Nous vous offrons une 2<sup>ème</sup> chance</div>
+            </div>
+        </div>
+        <div class="form-number">
+            <?php if($game->isStarted()):?>
+                <?php if($game->getTermsOptin()):?>
+                    <?php echo $this->translate('I accept the rules'); ?>
+                <?php endif;?>
+                <a href="<?php echo $this->url('frontend/instantwin/play', array('id' => $this->game->getIdentifier(), 'channel' => $this->channel))?>">
+                    <?php echo $this->translate('Participate'); ?>
+                </a>
+            <?php endif;?>
+        </div>
+        <p class="desc">Et découvrez votre expérience...</p>
+    </div>
+
+	<?php echo $this->partial('playground-game/partial/game-footer', array('game'=>$this->game, 'channel' => $this->channel));?>
+</div>

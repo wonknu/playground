@@ -1,0 +1,139 @@
+<?php $this->plugin('translate')->setTranslatorTextDomain('playgroundgame');// Pour le texte ?>
+<?php
+$form = $this->form;
+$form->prepare();
+$form->setAttribute('action', $this->url('frontend/quiz/play', array('id' => $this->game->getIdentifier(), 'channel' => $this->channel)));
+?>
+<?php $totalQuestions = count($this->questions);?>
+<!-- GAME QUIZ - FERME QUESTIONS -->
+<div class="game-quiz play">
+	<h1>
+	    <?php echo $this->game->getTitle(); ?>
+	</h1>
+	<!-- BLOCK GAME START -->
+	<div class="block-game game-play <?php if ($this->basePath($this->game->getSecondImage()) == "") echo "no-image"; ?>">
+		<div class="img-content">
+			<img class="rounded" src="<?php echo $this->basePath($this->game->getSecondImage()); ?>" border="0" />
+			<?php if($this->game->getPartner()):?>
+				<?php if($this->game->getPartner()->getLogo()) : ?>
+					<div class="logo-sponsor">
+						<img src="<?php echo $this->basePath($this->game->getPartner()->getLogo());?>" border="0" alt="<?php echo $this->game->getPartner()->getName();?>" />
+					</div>
+				<?php endif;?>
+			<?php else :?>
+				<div class="logo-sponsor">		
+					<img src="<?php echo $this->frontendAssetPath('images/common/logo-game-start.png')?>" alt="logo" />
+				</div>
+			<?php endif;?>
+			<div class="dark-overlay row">
+    			<h2 class="col-md-10">
+                    <?php echo $this->translate('Quiz'); ?> 
+                    <?php echo $this->translate('offered by'); ?> 
+                    <?php
+                    if($this->game->getPartner()): echo $this->game->getPartner()->getName();
+                    else:
+                    ?>
+                    Playground
+                    <?php endif;?>
+                </h2>
+            </div>
+		</div>
+	</div>
+	<!-- END BLOCK GAME START -->
+	<!-- Content -->
+	<div id="content-article">
+		<?php echo $this->form()->openTag($form) ?>
+		<?php $i=0;foreach ($form as $groupFieldset): ?>
+	        <div class="page" id="<?php echo $groupFieldset->getName()?>">
+                <?php foreach ($groupFieldset as $element): ?>
+                <?php $question = $this->questions[$i];?>
+    			<div class="query-block">
+    				<div class="heading">
+                        Question <?php echo $i+1; ?>
+                    </div>
+    				<div class="orange-dot"></div>
+    				<div class="question<?php if($this->layout()->facebooktemplate): echo ' fb-target'; endif ?>">
+    				    <?php echo $question->getQuestion();?>
+    				</div>
+    				<?php if($question->getHint()):?>
+				    <div class="clue<?php if($this->layout()->facebooktemplate): echo ' fb-target'; endif ?>">
+				        <span>
+				            <?php echo $this->translate('Indication'); ?> : 
+				        </span>
+				        <?php echo $question->getHint();?>
+				    </div>
+    				<?php endif;?>
+    				<?php if($question->getImage()):?>
+        				<div>
+    						<img src="<?php echo $this->basePath($question->getImage())?>" class="question-image" alt="<?php echo $question->getQuestion();?>" />
+        					<div class="answers" >
+        						<?php if ($element instanceof Zend\Form\Element\Radio): ?>
+                                    <?php echo $this->formRadio($element) ?>
+                                <?php elseif ($element instanceof Zend\Form\Element\MultiCheckbox): ?>
+                                    <?php echo $this->formMultiCheckbox($element);?>
+                                <?php elseif ($element instanceof Zend\Form\Element\Textarea): ?>
+                                    <?php echo $this->formTextarea($element); ?>
+                                <?php endif;?>
+                                <?php //echo $this->formElementErrors($element) ?>
+                                <?php if ($element->getMessages()) : echo '<div class="quiz-error">Merci de répondre à la question.</div>'; endif; ?>
+        					</div>
+        				</div>
+    				<?php else:?>
+        				<?php if ($element instanceof Zend\Form\Element\Radio): ?>
+                            <?php echo $this->formRadio($element) ?>
+                        <?php elseif ($element instanceof Zend\Form\Element\MultiCheckbox): ?>
+                            <?php echo $this->formMultiCheckbox($element);?>
+                        <?php elseif ($element instanceof Zend\Form\Element\Textarea): ?>
+                            <?php echo $this->formTextarea($element); ?>
+                        <?php endif;?>
+                        <?php //echo $this->formElementErrors($element); ?>
+						<?php if ($element->getMessages()) : echo '<div class="quiz-error">Merci de répondre à la question.</div>'; endif; ?>
+                    <?php endif;?>
+                    <?php if($question->getVideo()):?>
+                        <div class="video">
+        					<iframe width="100%" height="275" src="<?php echo $question->getVideo(); ?>" frameborder="0" allowfullscreen></iframe>
+        				</div>
+                    <?php endif;?>
+    			</div>
+    		    <?php ++$i;endforeach;?>
+            </div>
+		<?php endforeach;?>
+		<div class="center">
+			<?php if($this->game->getTimer() && $this->game->getTimerDuration() > 0):?>
+	            <div class="timer">
+	                <?php echo $this->game->getTimerDuration() * 100;?>
+	            </div>
+	        <?php endif;?>
+	   </div>
+		<div class="center">
+            <div class="btn btn-default previous">
+                <a id="previous" href="#content-article" class="arrow-left">
+                    <?php echo $this->translate('Previous questions'); ?>
+                </a>
+            </div>
+            <div class="btn btn-default next">
+                <a id="next" href="#content-article" class="arrow-right">
+                    <?php echo $this->translate('Next questions'); ?>
+                </a>
+            </div>
+	    </div>
+	    <div class="center mobile">
+            <button type="submit" name="submitForm" value="" class="btn btn-default end">
+                Valider mes réponses
+            </button>
+	    </div>
+		<?php echo $this->form()->closeTag() ?>
+	</div>
+	<p id="reglement">
+	    <a href="<?php echo $this->url('frontend/quiz/terms', array('id' => $this->game->getIdentifier(), 'channel' => $this->channel))?>" target="_blank">
+	        Règlement
+	    </a>
+	</p>
+</div>
+<!-- END GAME QUIZ - FERME QUESTIONS-->
+<script type="text/javascript">
+    jQuery(document).ready(function ($)
+    {
+        $('#tabs').tab();
+    });
+</script>

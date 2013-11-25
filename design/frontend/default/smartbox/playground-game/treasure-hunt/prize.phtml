@@ -1,0 +1,10 @@
+<?php $this->plugin('translate')->setTranslatorTextDomain('playgroundgame');// Pour le texte ?>
+
+<div id="terms" class="game-instantwin row-fluid">
+	<h1><?php echo $this->translate('Lot');?></h1>
+
+	<?php echo $this->translate('Here is the page of a particular lot !!');?>
+
+	<?php echo $this->prize->getTitle();?>
+
+</div>

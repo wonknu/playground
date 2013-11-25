@@ -1,0 +1,24 @@
+// Fonts
+// 
+// --------------------------------------------------
+
+@path-to-fonts: "../../frontend/fonts/";
+
+/* Font Helvetica Neue LT Pro Bold */
+@path-to-helvetica-bold: "helveticaneueltpro-bd/";
+@helvetica-bold: "helveticaneueltpro-bd";
+
+@font-face {
+    font-family: @helvetica-bold;
+    src: url('@{path-to-fonts}@{path-to-helvetica-bold}@{helvetica-bold}.eot');
+    src: url('@{path-to-fonts}@{path-to-helvetica-bold}@{helvetica-bold}.eot?#iefix') format('embedded-opentype'),
+         url('@{path-to-fonts}@{path-to-helvetica-bold}@{helvetica-bold}.woff') format('woff'),
+         url('@{path-to-fonts}@{path-to-helvetica-bold}@{helvetica-bold}.ttf') format('truetype'),
+         url('@{path-to-fonts}@{path-to-helvetica-bold}@{helvetica-bold}.svg#@{helvetica-bold}') format('svg');
+    font-weight: bold;
+    font-style: normal;
+
+}
+
+/* Font Arial */
+@arial: Arial, Helvetica, sans-serif;
