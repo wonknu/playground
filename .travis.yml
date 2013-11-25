@@ -15,7 +15,6 @@ script:
     - php vendor/bin/phpunit -c vendor/playground/flow
     - php vendor/bin/phpunit -c vendor/playground/partnership
     - php vendor/bin/phpunit -c vendor/playground/reward
-    - php vendor/bin/phpunit -c vendor/playground/game
 after_script:
     - php vendor/bin/coveralls
 notifications:
