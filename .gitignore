@@ -5,3 +5,6 @@
 composer.phar
 /public
 /build/coverage/
+/.buildpath
+/build
+/tests/data/*
