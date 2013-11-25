@@ -74,6 +74,11 @@ $form->prepare();
         <?php echo $this->formSelect($form->get('playBonus')); ?>
         <?php echo $this->formElementErrors($form->get('playBonus')) ?>
 	</div>
+	<div class="label-input checkbox">
+        <?php echo $this->formLabel($form->get('anonymousAllowed')); ?>
+        <?php echo $this->formCheckbox($form->get('anonymousAllowed')); ?>
+        <?php echo $this->formElementErrors($form->get('anonymousAllowed')) ?>
+	</div>
 </div>
 
 <div class="tab-pane" id="facebook">
@@ -200,6 +205,11 @@ $form->prepare();
         <?php echo $this->formLabel($form->get('steps')); ?>
         <?php echo $this->formInput($form->get('steps')); ?>
         <?php echo $this->formElementErrors($form->get('steps')); ?>
+	</div>
+	<div class="label-input">
+        <?php echo $this->formLabel($form->get('stepsViews')); ?>
+        <?php echo $this->formInput($form->get('stepsViews')); ?>
+        <?php echo $this->formElementErrors($form->get('stepsViews')); ?>
 	</div>
 	<div class="label-input file">
 	    <?php echo $this->formLabel($form->get('uploadMainImage')); ?>
