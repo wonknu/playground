@@ -28,14 +28,14 @@
 	</div>
 	<!-- END BLOCK GAME START -->
 	<!-- BLOCK CONTENT -->
-	<div class="btn-group">
-	    <a href="<?php echo $this->url('frontend/postvote', array('id' => $this->game->getIdentifier(), 'channel' => $this->channel))?>" class="btn btn-default">
+	<div class="row text-center">
+	    <a href="<?php echo $this->url('frontend/postvote', array('id' => $this->game->getIdentifier(), 'channel' => $this->channel))?>" class="btn btn-default btn-green">
 	        <?php echo $this->translate('Home'); ?>
 	    </a>
-	    <a href="<?php echo $this->url('frontend/postvote/list', array('id' => $this->game->getIdentifier(), 'channel' => $this->channel, 'filter' => $this->game->getPostDisplayMode()))?>" class="btn btn-default">
+	    <a href="<?php echo $this->url('frontend/postvote/list', array('id' => $this->game->getIdentifier(), 'channel' => $this->channel, 'filter' => $this->game->getPostDisplayMode()))?>" class="btn btn-default btn-green">
 	        <?php echo $this->translate('See participants'); ?>
 	    </a>
-	    <a href="<?php echo $this->url('frontend/postvote/play', array('id' => $this->game->getIdentifier(), 'channel' => $this->channel))?>" class="btn btn-default">
+	    <a href="<?php echo $this->url('frontend/postvote/play', array('id' => $this->game->getIdentifier(), 'channel' => $this->channel))?>" class="btn btn-default btn-green">
 	        <?php echo $this->translate('Participate'); ?>
         </a>
     </div>

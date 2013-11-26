@@ -6,61 +6,35 @@
 	<h1>
 	    <?php echo $this->game->getTitle(); ?>
 	</h1>
-	<!-- BLOCK GAME START -->
-	<div class="block-game game-play <?php if ($this->basePath($this->game->getSecondImage()) == "") echo "no-image"; ?>">
-		<img class="img-responsive" src="<?php echo $this->basePath($this->game->getSecondImage()); ?>" border="0" />
-		<?php if($this->game->getPartner()):?>
-			<?php if( ($this->game->getPartner()->getLogo() != '')) : ?>
-				<div class="logo-sponsor">
-					<img src="<?php echo $this->basePath($this->game->getPartner()->getLogo());?>" width="120" border="0" alt="<?php echo $this->game->getPartner()->getName();?>" />
-				</div>
-			<?php endif;?>
-		<?php else :?>
-			<div class="logo-sponsor">
-				<img src="<?php echo $this->frontendAssetPath('images/common/logo-game-start.png')?>" width="83" height="81" border="0" alt="logo" />
-			</div>
-		<?php endif;?>
-        <div class="col-md-12 clearfix">
-            <h2 class="col-xs-10">
-			    <?php echo $this->translate('Post & Vote'); ?> <?php echo $this->translate('offered by'); ?> <?php if($this->game->getPartner()): echo $this->game->getPartner()->getName(); else:?>
-			        Playground
-		        <?php endif;?>
-			</h2>
-            <a id="rules" class="col-xs-2" href="<?php echo $this->url('frontend/'. $this->game->getClassType() . '/terms', array('id' => $this->game->getIdentifier(), 'channel' => $this->channel))?>" target="_blank">
-                <?php echo $this->translate('Rules'); ?>
-            </a>
-		</div>
-	</div>
+	
+    <?php echo $this->partial('playground-game/partial/game-header', array('game'=>$this->game, 'channel' => $this->channel));?>
+    
     <div id="content-article" class="content-game clearfix">
 	<!-- END BLOCK GAME START -->
         <form action="" method="post" name="preview_form" class="page form-preview">
-            <div id="content-article">
-                <h2>
+            <div>
+                <h2 class="col-md-12">
                     <?php echo $this->translate('Preview of your message'); ?>
                 </h2>
                 <p>
                     <?php echo $this->game->getForm()->getDescription(); ?>
                 </p>
-                <div class="message">
-                    <div class="posts">
-        				<div class="postvote-preview">
-                       		<?php echo $this->partial('playground-game/post-vote/templates/' . $this->game->getTemplate(), array('data'=>$data, 'post'=>$this->post, 'channel' => $this->channel));?>
-        					<div class="row">
-        					    <div class="avatar col-md-5">
-        					    	<?php if($this->post->getUser()->getAvatar()):?>
-        						        <img class="img-responsive" src="<?php echo $this->basePath($this->post->getUser()->getAvatar()) ?>" alt="<?php echo $this->post->getUser()->getFirstname(); ?> <?php echo $this->post->getUser()->getLastname(); ?>" />
-        						    <?php else:?>
-        					    		<?php if($this->post->getUser()->getTitle() && $this->post->getUser()->getTitle() == 'M'): ?>
-        					        		<img class="img-responsive" src="<?php echo $this->frontendAssetPath('images/user/no-avatar-small-h.png'); ?>" alt="no avatar" />
-        					    		<?php else: ?>
-        					    			<img class="img-responsive" src="<?php echo $this->frontendAssetPath('images/user/no-avatar-small-f.png'); ?>" alt="no avatar" />
-        					    		<?php endif; ?>
-        						    <?php endif;?>
-        						    <?php echo $this->post->getUser()->getUsername(); ?>
-        					    </div>
-        					</div>
-                   		</div>
-                   </div>
+                <div class="col-md-12">
+    				<div class="postvote-preview">
+                   		<?php echo $this->partial('playground-game/post-vote/templates/' . $this->game->getTemplate(), array('data'=>$data, 'post'=>$this->post, 'channel' => $this->channel));?>
+    					<div class="avatar">
+					    	<?php if($this->post->getUser()->getAvatar()):?>
+						        <img class="img-responsive" src="<?php echo $this->basePath($this->post->getUser()->getAvatar()) ?>" alt="<?php echo $this->post->getUser()->getFirstname(); ?> <?php echo $this->post->getUser()->getLastname(); ?>" />
+						    <?php else:?>
+					    		<?php if($this->post->getUser()->getTitle() && $this->post->getUser()->getTitle() == 'M'): ?>
+					        		<img class="img-responsive" src="<?php echo $this->frontendAssetPath('images/user/no-avatar-small-h.png'); ?>" alt="no avatar" />
+					    		<?php else: ?>
+					    			<img class="img-responsive" src="<?php echo $this->frontendAssetPath('images/user/no-avatar-small-f.png'); ?>" alt="no avatar" />
+					    		<?php endif; ?>
+						    <?php endif;?>
+						    <?php echo $this->post->getUser()->getUsername(); ?>
+					    </div>
+               		</div>
                 </div>
                 
                 <div class="col-md-12 text-center clearfix">
@@ -70,14 +44,18 @@
                     <button type="submit" name="submitPost" value="" class="btn btn-default btn-green validate">
                         <?php echo $this->translate('Validate'); ?>
                     </button>
-                    <a class="btn btn-default btn-green" href="<?php echo $this->url('frontend/'. $this->game->getClassType() . '/terms', array('id' => $this->game->getIdentifier(), 'channel' => $this->channel))?>" class="btn btn-default rules">
-                        <?php echo $this->translate('Rules'); ?>
-                    </a>
-                    <a class="btn btn-default btn-green" href="<?php echo $this->url('frontend/'. $this->game->getClassType() . '/list', array('id' => $this->game->getIdentifier(), 'channel' => $this->channel, 'filter' => $this->game->getPostDisplayMode()))?>" class="btn btn-default participate">
-                        <?php echo $this->translate('See participants'); ?>
-                    </a>
                 </div>
             </div>
         </form>
+    </div>
+            
+    <div class="clearfix">
+        <div class="btn btn-default btn-arrow-right">
+            <a href="<?php echo $this->url('frontend/'. $this->game->getClassType() . '/list', array('id' => $this->game->getIdentifier(), 'filter' => $this->game->getPostDisplayMode(), 'channel' => $this->channel))?>">
+                <span class="left">left</span>
+                <span class="center"><?php echo $this->translate('See participants'); ?></span>
+                <span class="right">right</span>
+            </a>
+        </div>
     </div>
 </div>

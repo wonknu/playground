@@ -13,29 +13,43 @@
 		<?php endif;?>
 	</div>
 	<div class="game-infos">
-		<?php if ($this->game->getStartDate() && $this->game->getEndDate()):?>
-		    <div class="<?php echo $this->game->getClassType();?>"><?php echo $this->translate($this->game->getClassType());?> : <?php echo $this->translate('Play'); ?> <?php echo $this->translate('from'); ?> <?php echo strftime("%d %B", $this->game->getStartDate()->format('U'));?> <?php echo $this->translate('to'); ?> <?php echo strftime("%d %B", $this->game->getEndDate()->format('U'));?> <?php echo $this->translate('with'); ?> </div>
-		<?php elseif ($this->game->getStartDate()):?>
-		    <div class="<?php echo $this->game->getClassType();?>"><?php echo $this->translate($this->game->getClassType());?> : <?php echo $this->translate('Play'); ?> <?php echo $this->translate('after'); ?> <?php echo strftime("%d %B", $this->game->getStartDate()->format('U'));?> <?php echo $this->translate('with'); ?> </div>
-		<?php elseif ($this->game->getEndDate()):?>
-		    <div class="<?php echo $this->game->getClassType();?>"><?php echo $this->translate($this->game->getClassType());?> : <?php echo $this->translate('Play'); ?> <?php echo $this->translate('up to'); ?> <?php echo strftime("%d %B", $this->game->getEndDate()->format('U'));?> <?php echo $this->translate('with'); ?> </div>
-		<?php else:?>
-		    <div class="<?php echo $this->game->getClassType();?>"><?php echo $this->translate($this->game->getClassType());?> : <?php echo $this->translate('Play'); ?> <?php echo $this->translate('with'); ?> </div>
-		<?php endif; ?>
-		
-		<div class="logo-partner">
-			<?php if($this->game->getPartner()):?>
-				<?php if($this->game->getPartner()->getSmallLogo()) : ?>
-					<img src="<?php echo $this->basePath($this->game->getPartner()->getSmallLogo());?>" border="0" alt="<?php echo $this->game->getPartner()->getName();?>" />
-				<?php else:?>
-					<span><?php echo $this->game->getPartner()->getName();?></span>
-				<?php endif;?>
-			<?php else :?>
-				<img src="<?php echo $this->frontendAssetPath('images/common/logo-game-start.png');?>" height="33" border="0" alt="Logo" />
-			<?php endif;?>
-		</div>
-		
-		<?php echo $this->partial('playground-game/partial/share.phtml', array( 'color' => 'grey', 'game'=>$this->game,'url'=>$this->url('frontend/' . $game->getClassType(), array('id' => $this->game->getIdentifier(), 'channel' => $this->channel), array('force_canonical' => true))));?>
+        <div class="row">
+            <div class="col-sm-8">
+		  <?php if ($this->game->getStartDate() && $this->game->getEndDate()):?>
+    		    <div class="game-title <?php echo $this->game->getClassType();?>"><?php echo $this->translate($this->game->getClassType());?> : <?php echo $this->translate('Play'); ?> <?php echo $this->translate('from'); ?> <?php echo strftime("%d %B", $this->game->getStartDate()->format('U'));?> <?php echo $this->translate('to'); ?> <?php echo strftime("%d %B", $this->game->getEndDate()->format('U'));?> <?php echo $this->translate('with'); ?> </div>
+    		<?php elseif ($this->game->getStartDate()):?>
+    		    <div class="game-title <?php echo $this->game->getClassType();?>"><?php echo $this->translate($this->game->getClassType());?> : <?php echo $this->translate('Play'); ?> <?php echo $this->translate('after'); ?> <?php echo strftime("%d %B", $this->game->getStartDate()->format('U'));?> <?php echo $this->translate('with'); ?> </div>
+    		<?php elseif ($this->game->getEndDate()):?>
+    		    <div class="game-title <?php echo $this->game->getClassType();?>"><?php echo $this->translate($this->game->getClassType());?> : <?php echo $this->translate('Play'); ?> <?php echo $this->translate('up to'); ?> <?php echo strftime("%d %B", $this->game->getEndDate()->format('U'));?> <?php echo $this->translate('with'); ?> </div>
+    		<?php else:?>
+    		    <div class="game-title <?php echo $this->game->getClassType();?>"><?php echo $this->translate($this->game->getClassType());?> : <?php echo $this->translate('Play'); ?> <?php echo $this->translate('with'); ?> </div>
+		  <?php endif; ?>
+            
+                <div class="logo-partner">
+                    <?php if($this->game->getPartner()):?>
+                        <?php if($this->game->getPartner()->getSmallLogo()) : ?>
+                            <img src="<?php echo $this->basePath($this->game->getPartner()->getSmallLogo());?>" border="0" alt="<?php echo $this->game->getPartner()->getName();?>" />
+                        <?php else:?>
+                            <span><?php echo $this->game->getPartner()->getName();?></span>
+                        <?php endif;?>
+                    <?php else :?>
+                        <img src="<?php echo $this->frontendAssetPath('images/common/logo-game-start.png');?>" height="33" border="0" alt="Logo" />
+                    <?php endif;?>
+                </div>
+            </div>
+            <div class="col-sm-4">
+                <?php echo $this->partial('playground-game/partial/share.phtml', array( 'color' => 'grey', 'game'=>$this->game,'url'=>$this->url('frontend/' . $game->getClassType(), array('id' => $this->game->getIdentifier(), 'channel' => $this->channel), array('force_canonical' => true))));?>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-xs-12">
+                <a id="rules" href="<?php echo $this->url('frontend/'. $this->game->getClassType() . '/terms', array('id' => $this->game->getIdentifier(), 'channel' => $this->channel))?>" target="_blank">
+                    <?php echo $this->translate('Rules'); ?>
+                </a>
+            </div>
+        </div>
+        <div class="col-md-12 row">
 
+        </div>
 	</div>
 </div>

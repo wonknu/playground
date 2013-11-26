@@ -1,5 +1,9 @@
 // Game
 // --------------------------------------------------
+#content-article {
+  margin-bottom: 50px;
+}
+
 .welcome-block {
   
   img {
@@ -23,6 +27,10 @@
 .game-infos {
   padding-top: 20px;
   
+  .game-title {
+    display: inline-block;
+  }
+  
   .logo-partner {
     display: inline-block;
     width: 20px;
@@ -34,17 +42,18 @@
       height: auto;
     }
   }
-}
-
-#rules {
-  color:@pg-black;
-  font-family: @futura;
-  font-size: 12px;
-  line-height: 14px;
-  text-decoration: underline;
-  background: transparent;
-  border: none;
-  padding: 0;
+  
+  #rules {
+    color:@pg-black;
+    font-family: @futura;
+    font-size: 12px;
+    text-decoration: underline;
+    background: transparent;
+    border: none;
+    padding: 0;
+    line-height: 32px;
+    display: inline-block;
+  }
 }
 
 .game-play {
@@ -57,28 +66,13 @@
     background: url('../images/games/sprite-deploy-game.png') no-repeat 0 0 transparent;
     padding: 0px;
   }
-  
-  #rules {
-    text-align: right;
-    position: absolute;
-    top: 20px;
-    right: 0px;
-  }
 }
 
 .content-game {
   margin-top: 20px;
   
-  .share-text {
-    font-family: @futura;
-    font-size: 14px;
-    line-height: 16px;
-    color: @pg-orange;
-    background: url('../images/common/puce-sb-block.png') no-repeat left 20px transparent;
-    padding: 20px 0 20px 20px;
-  }
-  
   .page {
+    margin-bottom: 20px;
     padding-bottom: 20px;
     border: 1px solid #e6e6e3;
     background-color: #f2f2f2;
@@ -105,64 +99,6 @@
     .wrap-checker {
       font-family: @futura;
       text-align: center;
-    }
-  }
-  
-  .invite-social,
-  .invit-mail {
-    
-    p {
-      padding: 0;
-      text-transform: uppercase;
-      font-family: @futura;
-      font-size: 14px;
-      line-height: 16px;
-    }
-    
-    .img-mail {
-      display: none;
-    }
-    
-    input {
-      width: 100%;
-      border-radius: 0;
-      border: 1px solid #e6e6e3;
-      background-color: #fff;
-      padding: 6px;
-      height: 30px;
-      font-family: 'futura-bk';
-      font-size: 12px;
-      line-height: 14px;
-      margin: 0 0 12px 0;
-    }
-    
-    .social-icon {
-      padding:0;
-      
-      li {
-        padding:0;
-        margin: 0 0 0 20px;
-        
-        .link {
-          -webkit-border-radius: 50%;
-          -moz-border-radius: 50%;
-          border-radius: 50%;
-          width: 65px;
-          height: 65px;
-          float: left;
-          text-indent: -9999px;
-          
-          &.fb {
-            background: url('../images/common/icon-social.png') no-repeat 22px center @pg-fb;
-          }
-          &.twitter {
-            background: url('../images/common/icon-social.png') no-repeat -58px center @pg-twitter;
-          }
-          &.google-plus {
-            background: url('../images/common/icon-social.png') no-repeat -145px center @pg-google;
-          }
-        }
-      }
     }
   }
 }
