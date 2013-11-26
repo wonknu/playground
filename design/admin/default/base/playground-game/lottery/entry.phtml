@@ -1,5 +1,7 @@
 <?php $this->plugin('translate')->setTranslatorTextDomain('playgroundgame');// Pour le texte ?>
+<?php $locale= $this->plugin('translate')->getTranslator()->getLocale(); ?>
 <?php $downloadLink = $this->url('admin/'. $this->game->getClassType() .'/download', array('gameId' => $this->game->getId()));?>
+<?php $drawLink = $this->url('admin/'. $this->game->getClassType() .'/draw', array('gameId' => $this->game->getId()));?>
 <?php
 /*$fm = $this->flashMessenger()->setNamespace('playgroundgame')->getMessages();
 if (isset($fm[0]))
@@ -7,11 +9,14 @@ if (isset($fm[0]))
     print '<span class=>' . $fm[0] . '</span>';
 }*/
 ?>
-<h1><a href="<?php echo $this->url('admin/playgroundgame/edit-instantwin', array('gameId' => $this->gameId)) ?>"><?php echo $this->game->getTitle(); ?></a></h1>
+<h1><a href="<?php echo $this->url('admin/playgroundgame/edit-lottery', array('gameId' => $this->gameId)) ?>"><?php echo $this->game->getTitle(); ?></a></h1>
 
 <h3><?php echo $this->translate('Liste des Participants'); ?></h3>
 
 <a href='<?php echo $downloadLink ?>'>Export CSV</a>
+<?php if($this->game->getDrawAuto()): ?>
+  |  <a href='<?php echo $drawLink ?>'>Tirage au sort automatique</a>
+<?php endif; ?>
 <table class="table">
     <tr>
         <?php if (!$this->game->getAnonymousAllowed()) : ?>
@@ -52,7 +57,7 @@ if (isset($fm[0]))
             <?php //$editLink = $this->url('admin/playgroundgame/edit', array('gameId' => $game->getId()));?>
             <?php //$deleteLink = $this->url('admin/playgroundgame/remove', array('gameId' => $game->getId()));?>
 
-            <td><?php echo $entry->getCreatedAt()->format('Y-m-d H:i:s')?></td>
+            <td><?php echo $this->dateFormat($entry->getCreatedAt(), IntlDateFormatter::LONG, IntlDateFormatter::MEDIUM, $locale); ?></td>
         </tr>
     <?php endforeach; ?>
 </table>
