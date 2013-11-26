@@ -8,23 +8,41 @@
     <!-- END BLOCK GAME START -->
 
 	<!-- contenu article -->
-	<div id="content-article" class="row-fluid rounded backgrey">
+    <div id="content-article" class="lottery">
 		<div class="welcome-block<?php if($this->layout()->facebooktemplate): echo ' fb-target'; endif ?>">
 		    <?php echo $this->game->getWelcomeBlock(); ?>
 		</div>
 		<?php if($this->game->isStarted()):?>
-		<div class="center">
-			<div class="btn btn-default"<?php if ($this->isCtaActive) { echo ' id="fb-play"'; } ?>>
-				<a href="<?php echo $this->url('frontend/'. $this->game->getClassType() . '/'. $this->game->nextStep('index'), array('id' => $this->game->getIdentifier(), 'channel' => $this->channel))?>" class="arrow-right">
-					<span class="left">left</span><span class="center"><?php echo $this->translate('Participate'); ?></span><span class="right">right</span>
-				</a>
-			</div>
-			<p id="reglement">
-				<a href="<?php echo $this->url('frontend/'. $this->game->getClassType() . '/terms', array('id' => $this->game->getIdentifier(), 'channel' => $this->channel))?>" target="_blank">
-					<?php echo $this->translate('Rules'); ?>
-				</a>
-			</p>
-		</div>
+        <div class="col-md-12 clearfix">
+    		<div class="btn btn-default btn-arrow-right"<?php if ($this->isCtaActive) { echo ' id="fb-play"'; } ?>>
+    			<a href="<?php echo $this->url('frontend/'. $this->game->getClassType() . '/'. $this->game->nextStep('index'), array('id' => $this->game->getIdentifier(), 'channel' => $this->channel))?>" class="arrow-right">
+    				<span class="left">left</span>
+    				<span class="center"><?php echo $this->translate('Participate'); ?></span>
+    				<span class="right">right</span>
+    			</a>
+            </div>
+        </div>
+        <div class="col-md-12 text-right">
+			<a id="rules" href="<?php echo $this->url('frontend/'. $this->game->getClassType() . '/terms', array('id' => $this->game->getIdentifier(), 'channel' => $this->channel))?>" target="_blank">
+				<?php echo $this->translate('Rules'); ?>
+			</a>
+        </div>
 		<?php endif;?>
 	</div>
 </div>
+
+<!-- POPIN RULES -->
+<div class="modal fade" id="rules-popin" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-body"></div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-default" data-dismiss="modal"><?php echo $this->translate('Close'); ?></button>
+            </div>
+        </div><!-- /.modal-content -->
+    </div><!-- /.modal-dialog -->
+</div><!-- /.modal -->
+<div id="rules-popin">
+    <div class="modal-body"></div>
+</div>
+<!-- POPIN RULES -->

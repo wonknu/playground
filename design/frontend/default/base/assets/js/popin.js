@@ -1,9 +1,10 @@
-$(function(){
-	$('#reglement a').on('click', function ()
+$(function()
+{
+	$('#rules').on('click', function ()
 	{
-        $('#reglement-popin .modal-body').load($(this).attr('href') + ' #terms', function ()
+        $('.modal-body', '#rules-popin').load($(this).attr('href') + ' #terms', function ()
         {
-            $('#reglement-popin').modal();
+            $('#rules-popin').modal();
         });
 		return false;
 	});
