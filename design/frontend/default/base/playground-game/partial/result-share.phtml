@@ -23,8 +23,8 @@ if(isset($this->game)) :
     </div>
 <?php endif; ?>
 <!-- invitations sociales -->
-<div id="invit-social" class="row" >
-	<p class="col-md-5" >
+<div class="invite-social clearfix">
+	<p class="col-md-5 text-right">
 	    <?php echo $this->translate('On social networks'); ?>
 	</p>
 	<ul class="row col-md-6 social-icon">
@@ -43,13 +43,12 @@ if(isset($this->game)) :
 		        <img src="<?php echo $this->frontendAssetPath('images/common/Google Plus-24.png'); ?>" alt="Share on Google+"/>
 		    </a>
 		</li>
-		<li class="clearfix"></li>
 	</ul>
 </div>
 <!-- Par mail -->
-<div id="invit-mail">
+<div class="invit-mail clearfix">
 	<div class="row">
-		<div class="col-md-5">
+		<div class="col-md-5 text-right">
 			<p class="text-mail">
 			    <?php echo $this->translate('By mail'); ?>
 			</p>
@@ -70,23 +69,18 @@ if(isset($this->game)) :
 				<?php $form->prepare();?>
                 <?php echo $this->form()->openTag($form) ?>
                 <img src="<?php echo $this->frontendAssetPath('images/common/round-mail.png'); ?>" alt="" class="img-mail" />
-                    <div class="row">
-                        <div class="col-md-12 wrap-input">
-                        	<?php echo $this->formInput($form->get('email1')->setAttributes(array('class' => 'form-control'))); ?>
-                            <?php echo $this->formElementErrors($form->get('email1')); ?>
-                        </div>
-                        <div class="col-md-12 wrap-input">
-                            <?php echo $this->formInput($form->get('email2')->setAttributes(array('class' => 'form-control'))); ?>
-                            <?php echo $this->formElementErrors($form->get('email2')); ?>
-                        </div>
-                        <div class="col-md-12 wrap-input">
-                            <?php echo $this->formInput($form->get('email3')->setAttributes(array('class' => 'form-control'))); ?>
-                            <?php echo $this->formElementErrors($form->get('email3')); ?>
-                        </div>
-                        <div class="col-md-3 wrap-button">
-                            <?php echo $this->formButton($form->get('submit')->setAttributes(array('class' => 'btn btn-default'))) ?>
-                        </div>
-                    </div>
+                
+            	<?php echo $this->formInput($form->get('email1')->setAttributes(array('class' => 'form-control'))); ?>
+                <?php echo $this->formElementErrors($form->get('email1')); ?>
+                
+                <?php echo $this->formInput($form->get('email2')->setAttributes(array('class' => 'form-control'))); ?>
+                <?php echo $this->formElementErrors($form->get('email2')); ?>
+                
+                <?php echo $this->formInput($form->get('email3')->setAttributes(array('class' => 'form-control'))); ?>
+                <?php echo $this->formElementErrors($form->get('email3')); ?>
+                
+                <?php echo $this->formButton($form->get('submit')->setAttributes(array('class' => 'btn btn-default btn-green'))) ?>
+                
 				<?php echo $this->form()->closeTag() ?>
 			</div>
 		</div>
