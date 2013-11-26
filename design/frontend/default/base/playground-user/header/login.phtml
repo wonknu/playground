@@ -56,8 +56,7 @@ $form->setAttribute('id', 'header-login');
                 <!--a href="<?php echo $this->url('frontend/zfcuser/register',array('socialnetwork' => 'facebook', 'channel' => $this->channel)) . ($this->redirect ? '?redirect='.$this->redirect : '');?>" class="fbconnect-header">
                    <img src="<?php echo $this->frontendAssetPath('images/header/fb-connect.png') ?>" alt="Facebook Connect" />
                 </a-->
-                <fb:login-button width="100%" max-rows="1"></fb:login-button>
-               <input class="btn btn-primary btn-block" type="button" id="sign-in-google" value="Sign In with Facebook">
+                <a href="<?php echo $this->url('frontend/zfcuser/register',array('socialnetwork' => 'facebook', 'channel' => $this->channel)) . ($this->redirect ? '?redirect='.$this->redirect : '');?>" class="btn btn-primary" id="sign-in-google">Sign In with Facebook</a>
             </li>
          </ul>
   </li>

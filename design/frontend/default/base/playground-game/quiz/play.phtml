@@ -12,37 +12,8 @@ $form->setAttribute('action', $this->url('frontend/quiz/play', array('id' => $th
 	<h1>
 	    <?php echo $this->game->getTitle(); ?>
 	</h1>
-	<!-- BLOCK GAME START -->
-	<div class="block-game game-play clearfix<?php if ($this->basePath($this->game->getSecondImage()) == "") echo " no-image"; ?>">
-		<img class="img-responsive" src="<?php echo $this->basePath($this->game->getSecondImage()); ?>" border="0" />
-		<?php if($this->game->getPartner()):?>
-			<?php if($this->game->getPartner()->getLogo()) : ?>
-			<div class="logo-sponsor">
-				<img src="<?php echo $this->basePath($this->game->getPartner()->getLogo());?>" border="0" alt="<?php echo $this->game->getPartner()->getName();?>" />
-			</div>
-			<?php endif;?>
-		<?php else :?>
-			<div class="logo-sponsor">		
-				<img src="<?php echo $this->frontendAssetPath('images/common/logo-game-start.png')?>" alt="logo" />
-			</div>
-		<?php endif;?>
-        <div class="col-md-12">
-			<h2 class="col-xs-10">
-                <?php echo $this->translate('Quiz'); ?> 
-                <?php echo $this->translate('offered by'); ?> 
-                <?php
-                if($this->game->getPartner()): echo $this->game->getPartner()->getName();
-                else:
-                ?>
-                Playground
-                <?php endif;?>
-            </h2>
-		    <a id="rules" class="col-xs-2" href="<?php echo $this->url('frontend/'. $this->game->getClassType() . '/terms', array('id' => $this->game->getIdentifier(), 'channel' => $this->channel))?>" target="_blank">
-		        <?php echo $this->translate('Rules'); ?>
-		    </a>
-        </div>
-	</div>
-	<!-- END BLOCK GAME START -->
+	
+    <?php echo $this->partial('playground-game/partial/game-header', array('game'=>$this->game, 'channel' => $this->channel));?>
 	
 	<!-- Content -->
 	<div id="content-article" class="content-game clearfix">

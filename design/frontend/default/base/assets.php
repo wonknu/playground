@@ -36,7 +36,7 @@ return array(
                         ),
                         'filters' => array(),
                         'options' => array(
-                            'output' => 'frontend/js/head_main',
+                            'output' => 'frontend/js/head_main.js',
                         ),
                     ),
                     

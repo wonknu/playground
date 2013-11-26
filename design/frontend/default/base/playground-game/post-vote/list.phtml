@@ -1,32 +1,11 @@
 <?php $this->plugin('translate')->setTranslatorTextDomain('playgroundgame'); ?>
-<div class="game-postvote list-participant row wrap-game">
+<div class="game-postvote list-participant wrap-game">
 	<h1>
 	    <?php echo $this->game->getTitle(); ?>
 	</h1>
-	<!-- BLOCK GAME START -->
-	<div class="block-game game-play <?php if ($this->basePath($this->game->getSecondImage()) == "") echo "no-image"; ?>">
-		<div class="img-content">
-			<img class="rounded" src="<?php echo $this->basePath($this->game->getSecondImage()); ?>" />
-			<?php if($this->game->getPartner()):?>
-				<?php if( ($this->game->getPartner()->getLogo() != '')) : ?>
-					<div class="logo-sponsor">
-						<img src="<?php echo $this->basePath($this->game->getPartner()->getLogo());?>" alt="<?php echo $this->game->getPartner()->getName();?>" />
-					</div>
-				<?php endif;?>
-			<?php else :?>
-				<div class="logo-sponsor">
-					<img src="<?php echo $this->frontendAssetPath('images/common/logo-game-start.png')?>" alt="logo" />
-				</div>
-			<?php endif;?>
-
-			<div class="dark-overlay row">
-				<h2 class="col-md-12">
-				    <?php echo $this->translate('Post & Vote'); ?> <?php echo $this->translate('offered by'); ?> <?php if($this->game->getPartner()): echo $this->game->getPartner()->getName(); else:?>Playground<?php endif;?>
-				</h2>
-			</div>
-		</div>
-	</div>
-	<!-- END BLOCK GAME START -->
+	
+    <?php echo $this->partial('playground-game/partial/game-header', array('game'=>$this->game, 'channel' => $this->channel));?>
+    
 	<!-- BLOCK CONTENT -->
 	<div class="row search-bar">
         <div class="col-md-3">
@@ -203,17 +182,22 @@
             </div>
         <?php endforeach; ?>
 	 </div>
-	 <div class="btn-group">
-	 	<div id="participants">
-	 		<a href="<?php echo $this->url('frontend/'. $this->game->getClassType() . '/list', array('id' => $this->game->getIdentifier(), 'channel' => $this->channel, 'filter' => $this->game->getPostDisplayMode()))?>" class="btn btn-default">
-		        <?php echo $this->translate('See participants'); ?>
-		    </a>
-	 	</div>
-	 	<div class="btn-participate">
-		 	<a href="<?php echo $this->url('frontend/'. $this->game->getClassType() . '/play', array('id' => $this->game->getIdentifier(), 'channel' => $this->channel))?>" class="btn btn-default">
-		        <?php echo $this->translate('Participate'); ?>
-	        </a>
-	 	</div>
+            
+    <div class="row">
+        <div class="btn btn-default btn-arrow-right"<?php if ($this->isCtaActive):?> id="fb-play"<?php endif;?>>
+            <a href="<?php echo $this->url('frontend/'. $this->game->getClassType() . '/list', array('id' => $this->game->getIdentifier(), 'channel' => $this->channel, 'filter' => $this->game->getPostDisplayMode()))?>" class="arrow-right">
+                <span class="left">left</span>
+                <span class="center"><?php echo $this->translate('Participate'); ?></span>
+                <span class="right">right</span>
+            </a>
+        </div>
+        <div class="btn btn-default btn-arrow-right">
+            <a href="<?php echo $this->url('frontend/'. $this->game->getClassType() . '/play', array('id' => $this->game->getIdentifier(), 'channel' => $this->channel))?>" class="arrow-right">
+                <span class="left">left</span>
+                <span class="center"><?php echo $this->translate('See participants'); ?></span>
+                <span class="right">right</span>
+            </a>
+        </div>
     </div>
 	<?php
     	echo $this->paginationControl(
