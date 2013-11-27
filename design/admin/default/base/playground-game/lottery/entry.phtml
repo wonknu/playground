@@ -49,7 +49,7 @@ if (isset($fm[0]))
             <?php if ($entry->getPlayerData()) : ?>
                 <?php $entryData = json_decode($entry->getPlayerData()); ?>
                 <?php foreach ($entryData as $key => $attrib): ?>
-                    <th><?php echo $attrib ?></th>
+                    <td><?php if (is_array($attrib)) {echo implode(', ', $attrib); } else { echo $attrib; } ?></td>
                 <?php endforeach; ?>
             <?php endif; ?>
             <td><?php echo $entry->getWinner(); ?></td>
