@@ -8,29 +8,30 @@ $(function ()
     
 	$('#play-instantwin').show();
 	$('#result-instantwin').show();
-	$('.next-instant-win-step .btn').show();
+	$('#next-instant-win-step').show();
 	
 	// Game : Instant win - scratch game
 	if($("#wScratchgame").size() > 0){
 		$('#result-instantwin').hide();
-		$('.next-instant-win-step .btn').hide();
+		$('#next-instant-win-step').hide();
 		var $scratchGame = $("#wScratchgame");
 		$scratchGame.wScratchPad({
 	    	image 		: $scratchGame.attr('data-scratchthis'),
 	    	image2 		: $scratchGame.attr('data-scratchover'),
 	    	color 		: '#FFF',
 			overlay 	: 'none',
-			width : 211,
-			height : 166,
+			width : $('#scratch-area ').width(),
+			height : $('#scratch-area ').height(),
 			size : 15,
 	        scratchMove: function (e, percent)
 	        {
 	        	$scratchGame.attr('data-percentscratched', percent);
 	        	if(percent > 70){ // Has been scratched enough to end the game
 	        		$scratchGame.wScratchPad('clear');
-	        		$('.next-instant-win-step .btn').show().one('click', function (e)
+	        		$('#next-instant-win-step').show().one('click', function (e)
 	        		{
 	        			e.preventDefault();
+	        			$(this).hide();
 						$('#play-instantwin').hide();
 						$('html, body').animate({ scrollTop: 0 }, 0);
 						$('#result-instantwin').fadeIn();

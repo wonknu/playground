@@ -11,31 +11,7 @@ $form->setAttribute('action', $this->url('frontend/'. $this->game->getClassType(
 	<h1>
 	    <?php echo $this->game->getTitle(); ?>
 	</h1>
-	<!-- BLOCK GAME START -->
-	<div class="block-game game-play <?php if ($this->basePath($this->game->getSecondImage()) == "") echo "no-image"; ?>">
-		<img class="img-responsive" src="<?php echo $this->basePath($this->game->getSecondImage()); ?>" />
-		<?php if($this->game->getPartner()):?>
-			<?php if( ($this->game->getPartner()->getLogo() != '')) : ?>
-			<div class="logo-sponsor">
-				<img src="<?php echo $this->basePath($this->game->getPartner()->getLogo());?>" alt="<?php echo $this->game->getPartner()->getName();?>" />
-			</div>
-			<?php endif;?>
-		<?php else :?>
-			<div class="logo-sponsor">		
-				<img src="<?php echo $this->frontendAssetPath('images/common/logo-game-start.png')?>" alt="logo" />
-			</div>
-		<?php endif;?>
-		
-        <div class="col-md-12">
-            <h2 class="col-xs-10">
-			    <?php echo $this->translate('Post & Vote'); ?> <?php echo $this->translate('offered by'); ?> <?php if($this->game->getPartner()): echo $this->game->getPartner()->getName(); else:?>Playground<?php endif;?>
-			</h2>
-            <a id="rules" class="col-xs-2" href="<?php echo $this->url('frontend/'. $this->game->getClassType() . '/terms', array('id' => $this->game->getIdentifier(), 'channel' => $this->channel))?>" target="_blank">
-                <?php echo $this->translate('Rules'); ?>
-            </a>
-		</div>
-	</div>
-	<!-- END BLOCK GAME START -->
+    <?php echo $this->partial('playground-game/partial/game-header', array('game'=>$this->game, 'channel' => $this->channel));?>
 	<!-- Content -->
 	<div id="content-article" class="content-game clearfix">
         <div class="col-md-12">
@@ -71,7 +47,7 @@ $form->setAttribute('action', $this->url('frontend/'. $this->game->getClassType(
                             ?>
     						<?php echo $this->formElementErrors($element) ?>
 		               	</div>
-		               <div class="caracteres-restants col-md-11">
+		               <div class="text-right col-md-11">
 			               <span class="character-left"></span> 
 			               <?php echo $this->translate('remaining characters'); ?>
 			           </div>
@@ -103,14 +79,6 @@ $form->setAttribute('action', $this->url('frontend/'. $this->game->getClassType(
                                     </div>
                                 </div>
                             <div class="wrap-progress">
-	                            <!-- <div class="progress">
-	    							<div class="bar rounded"></div>
-	                            </div>
-	                            <span class="percent">
-	                                <p>
-	                                    <b>0%</b>
-	                                </p>
-	                            </span> -->
                             </div>
                             <?php echo $this->formFile($element); ?>
                             <?php echo $this->formElementErrors($element) ?>
@@ -122,16 +90,10 @@ $form->setAttribute('action', $this->url('frontend/'. $this->game->getClassType(
                 * <?php echo $this->translate('required fields'); ?>
             </p>
         
-            <div class="col-md-12 text-center clearfix">
+            <div class="row text-center">
                 <button type="submit" name="submitPost" value="" class="btn btn-default btn-green">
                     <?php echo $this->translate('Preview'); ?>
                 </button>
-                <a class="btn btn-default btn-green" href="<?php echo $this->url('frontend/'. $this->game->getClassType() . '/play', array('id' => $this->game->getIdentifier(), 'channel' => $this->channel))?>">
-                    <?php echo $this->translate('Participate'); ?>
-                </a>
-                <a class="btn btn-default btn-green" href="<?php echo $this->url('frontend/'. $this->game->getClassType() . '/list', array('id' => $this->game->getIdentifier(), 'channel' => $this->channel, 'filter' => $this->game->getPostDisplayMode()))?>" class="btn btn-default participate" >
-                    <?php echo $this->translate('See participants'); ?>
-                </a>
             </div>
         
             <?php echo $this->form()->closeTag() ?>
@@ -145,6 +107,16 @@ $form->setAttribute('action', $this->url('frontend/'. $this->game->getClassType(
                style="display:none;" >
                </form>
 	    </div>
+                
+        <div class="clearfix">
+            <div class="btn btn-default btn-arrow-right">
+                <a href="<?php echo $this->url('frontend/'. $this->game->getClassType() . '/list', array('id' => $this->game->getIdentifier(), 'filter' => $this->game->getPostDisplayMode(), 'channel' => $this->channel))?>">
+                    <span class="left">left</span>
+                    <span class="center"><?php echo $this->translate('See participants'); ?></span>
+                    <span class="right">right</span>
+                </a>
+            </div>
+        </div>
 	</div>
 </div>
 <!-- END GAME QUIZ - FERME QUESTIONS-->
