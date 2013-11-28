@@ -100,20 +100,20 @@ $form->prepare();
             <?php if($form->get('image')->getValue() != ''):?>
                 <img src="<?php echo $this->basePath($form->get('image')->getValue()); ?>"  class="image_uploaded"/>
                 <div class="controls">
-                    <input id="delete_image" name="delete_image" type="button" value="Supprimer l'image">
+                    <input id="delete_image" name="delete_image" type="button" value="<?php echo $this->translate('Supprimer l\'image'); ?>">
                     <?php echo $this->formHidden($form->get('delete_image')); ?>
                 </div>
             <?php endif;?>
 
             <div class="control-group">
-                <label class="control-label" for="search_sound">Audio</label>
+                <label class="control-label" for="search_sound"><?php echo $this->translate('Audio'); ?></label>
                 <div class="controls">
                     <input id="search_sound" name="search_sound" type="text" placeholder="Search music on Deezer">
                 </div>
             </div>
             <?php if($form->get('audio')->getValue() != ''):?>
                 <div class="controls">
-                    <input id="delete_audio" name="delete_audio_button" type="button" value="Supprimer la musique">
+                    <input id="delete_audio" name="delete_audio_button" type="button" value="<?php echo $this->translate('Supprimer la musique'); ?>">
                 </div>
             <?php endif; ?>
 
