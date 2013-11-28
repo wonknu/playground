@@ -238,6 +238,22 @@ $form->prepare();
 	    <?php echo $this->formLabel($form->get('uploadStylesheet')); ?>
 	    <?php echo $this->formFile($form->get('uploadStylesheet')); ?>
     </div>
+	<div class="label-input file">
+	    <?php echo $this->formLabel($form->get('emailWinner')); ?>
+	    <?php echo $this->formSelect($form->get('emailWinner')); ?>
+    </div>
+    <div class="label-input file" id="winnerEmailContentField">
+	    <?php echo $this->formLabel($form->get('winnerEmailContent')); ?>
+	    <?php echo $this->formTextArea($form->get('winnerEmailContent')); ?>
+    </div>
+	<div class="label-input file">
+	    <?php echo $this->formLabel($form->get('emailLooser')); ?>
+	    <?php echo $this->formSelect($form->get('emailLooser')); ?>
+    </div>
+    <div class="label-input file" id="looserEmailContentField">
+	    <?php echo $this->formLabel($form->get('looserEmailContent')); ?>
+	    <?php echo $this->formTextArea($form->get('looserEmailContent')); ?>
+    </div>
 </div>
 
 <div class="tab-pane" id="column">
@@ -373,7 +389,7 @@ $form->prepare();
             <?php echo $this->formButton($element->get('remove')); ?>
             <hr/>
         </fieldset>
-        <?php endforeach;?>        
+        <?php endforeach;?>
 
 
         <span data-template='<fieldset><input type="hidden" name="prizes[__index__][id]" value=""/><div class="label-input"><label>Titre</label><input name="prizes[__index__][title]" type="text" placeholder="Titre" value=""/></div><div class="label-input"><label>Lien</label><input name="prizes[__index__][identifier]" type="text" value=""/></div>
@@ -508,5 +524,33 @@ $form->prepare();
         	$('.delete_fb_share_image').val(true);
         	$('.delete_fb_share_upload').remove();
         });
+
+        var updateEmailWinnerField = function() {
+            if ($('#emailWinner').val() == 1){
+                $('#winnerEmailContentField').show();
+            } else {
+                $('#winnerEmailContentField').hide();
+            }
+        }
+
+        $('#emailWinner').change(function() {
+        	updateEmailWinnerField();
+        });
+
+        updateEmailWinnerField();
+
+        var updateEmailLooserField = function() {
+            if ($('#emailLooser').val() == 1 ){
+                $('#looserEmailContentField').show();
+            } else {
+                $('#looserEmailContentField').hide();
+            }
+        }
+
+        $('#emailLooser').change(function() {
+        	updateEmailLooserField();
+        });
+
+        updateEmailLooserField();
     });
 </script>
