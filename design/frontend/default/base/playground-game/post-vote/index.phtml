@@ -1,39 +1,33 @@
 <?php $this->plugin('translate')->setTranslatorTextDomain('playgroundgame'); ?>
-<div class="game-postvote welcome">
-	<h1>
-	    <?php echo $this->game->getTitle(); ?>
-	</h1>
-	<!-- BLOCK GAME START -->
-    <?php echo $this->partial('playground-game/partial/game-header', array('game'=>$this->game, 'channel' => $this->channel));?>
-    <!-- END BLOCK GAME START -->
-	<!-- contenu article -->
-	<div id="content-article" class="row">
-		<p id="reglement">
-	        <a href="<?php echo $this->url('frontend/postvote/terms', array('id' => $this->game->getIdentifier(), 'channel' => $this->channel))?>" target="_blank" class="btn btn-default">
-				 <?php echo $this->translate('Rules'); ?>
-			</a>
-		</p>
-		<?php if(count($this->flashMessages)>0):?>
-			<p class="already-play">
-			    <?php echo $this->flashMessages[0];?>
-			</p>
-	    <?php endif;?>
-		<div class="welcome-block<?php if($this->layout()->facebooktemplate): echo ' fb-target'; endif ?>">
-		    <?php echo $this->game->getWelcomeBlock(); ?>
-		</div>
-		<div class="center">
-			<p id="participants">
-		        <a href="<?php echo $this->url('frontend/'. $this->game->getClassType() . '/list', array('id' => $this->game->getIdentifier(), 'filter' => $this->game->getPostDisplayMode(), 'channel' => $this->channel))?>" class="btn btn-default">
-		        	<?php echo $this->translate('See participants'); ?>
-		       	</a>
-	       	</p>
-			<div class="btn-group btn-default">
-	            <?php if($game->isStarted()):?>
-	            <a href="<?php echo $this->url('frontend/'. $this->game->getClassType() . '/'. $this->game->nextStep('index'), array('id' => $this->game->getIdentifier(), 'channel' => $this->channel))?>"  class="btn btn-default">
-	                <?php echo $this->translate('Participate'); ?>
-	            </a>
-	            <?php endif;?>
-	        </div>
+<h1>
+    <?php echo $this->game->getTitle(); ?>
+</h1>
+<!-- BLOCK GAME START -->
+<?php echo $this->partial('playground-game/partial/game-header', array('game'=>$this->game, 'channel' => $this->channel));?>
+<!-- END BLOCK GAME START -->
+
+<!-- contenu article -->
+<div id="content-article" class="post-vote">
+    <div class="welcome-block<?php if($this->layout()->facebooktemplate): echo ' fb-target'; endif ?>"><?php echo $this->game->getWelcomeBlock(); ?></div>
+    <div class="clearfix">
+        <div class="btn btn-default btn-arrow-right"<?php if ($this->isCtaActive):?> id="fb-play"<?php endif;?>>
+            <a href="<?php echo $this->url('frontend/'. $this->game->getClassType() . '/'. $this->game->nextStep('index'), array('id' => $this->game->getIdentifier(), 'channel' => $this->channel))?>" class="arrow-right">
+                <span class="left">left</span>
+                <span class="center"><?php echo $this->translate('Participate'); ?></span>
+                <span class="right">right</span>
+            </a>
         </div>
-	</div>
+        <div class="btn btn-default btn-arrow-right">
+            <a href="<?php echo $this->url('frontend/'. $this->game->getClassType() . '/list', array('id' => $this->game->getIdentifier(), 'filter' => $this->game->getPostDisplayMode(), 'channel' => $this->channel))?>">
+                <span class="left">left</span>
+                <span class="center"><?php echo $this->translate('See participants'); ?></span>
+                <span class="right">right</span>
+            </a>
+        </div>
+    </div>
+	<?php if(count($this->flashMessages)>0):?>
+	<p class="already-play">
+	    <?php echo $this->flashMessages[0];?>
+	</p>
+    <?php endif;?>
 </div>

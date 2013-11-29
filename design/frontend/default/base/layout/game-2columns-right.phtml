@@ -37,5 +37,21 @@ $ourView  = $children[0];
             </div>
         </div>
         <?php echo $this->inlineScript() ?>
+
+        <!-- POPIN RULES -->
+        <div class="modal fade" id="rules-popin" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+            <div class="modal-dialog">
+                <div class="modal-content">
+                    <div class="modal-body"></div>
+                    <div class="modal-footer">
+                        <button type="button" class="btn btn-default" data-dismiss="modal"><?php echo $this->translate('Close'); ?></button>
+                    </div>
+                </div><!-- /.modal-content -->
+            </div><!-- /.modal-dialog -->
+        </div><!-- /.modal -->
+        <div id="rules-popin">
+            <div class="modal-body"></div>
+        </div>
+        <!-- POPIN RULES -->
     </body>
 </html>

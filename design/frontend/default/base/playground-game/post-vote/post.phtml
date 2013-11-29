@@ -3,52 +3,19 @@ $data = array();foreach($this->post->getPostElements() as $element){
     $data[$element->getPosition()] = $element->getValue();
 }
 ?>
-<div class="game-postvote wrap-game post row">
+<div class="game-postvote play wrap-game">
 	<h1>
 	    <?php echo $this->game->getTitle(); ?>
 	</h1>
-	<!-- BLOCK GAME START -->
-	<div class="block-game game-play <?php if ($this->basePath($this->game->getSecondImage()) == "") echo "no-image"; ?>">
-		<div class="img-content">
-			<img class="rounded" src="<?php echo $this->basePath($this->game->getSecondImage()); ?>" />
-			<?php if($this->game->getPartner()):?>
-				<?php if( ($this->game->getPartner()->getLogo() != '')) : ?>
-					<div class="logo-sponsor">
-						<img src="<?php echo $this->basePath($this->game->getPartner()->getLogo());?>" alt="<?php echo $this->game->getPartner()->getName();?>" />
-					</div>
-				<?php endif;?>
-			<?php else :?>
-				<div class="logo-sponsor">		
-					<img src="<?php echo $this->frontendAssetPath('images/common/logo-game-start.png')?>" alt="logo" />
-				</div>
-			<?php endif;?>
-			<div class="dark-overlay row">
-				<div class="postvote">
-				    <?php echo $this->translate('Post & Vote'); ?>
-				        <?php echo $this->translate('offered by'); ?> 
-			        <?php if($this->game->getPartner()): echo $this->game->getPartner()->getName(); else:?>
-				        Playground
-			        <?php endif;?>
-				</div>
-			</div>
-		</div>
-	</div>
-    <!-- END BLOCK GAME START -->
+	
+    <?php echo $this->partial('playground-game/partial/game-header', array('game'=>$this->game, 'channel' => $this->channel));?>
+    
     <!-- BLOCK CONTENT -->
-    <div class="btn-group">
-		<?php if($game->isStarted()):?>
-			<a href="<?php echo $this->url('frontend/postvote/play', array('id' => $this->game->getIdentifier(), 'channel' => $this->channel))?>" class="btn btn-default">
-			    <span class="left">left</span><span class="center"><?php echo $this->translate('Participate'); ?></span><span class="right">right</span>
-			</a>
-		<?php endif ?>
-		<a href="<?php echo $this->url('frontend/postvote/list', array('id' => $this->game->getIdentifier(), 'channel' => $this->channel, 'filter' => $this->game->getPostDisplayMode()))?>" class="btn btn-default participate">
-            <?php echo $this->translate('See participants'); ?>
-        </a>
-	</div>
+    <div id="content-article" class="content-game clearfix">
     <!-- BLOCK CONTENT -->
-    <div class="row posts">
-        <div class="col-md-10">
-            <div class="row rounded backgrey">
+        <div class="col-md-1"></div>
+        <div class="page col-md-12 clearfix">
+            <div class="col-md-10">
             	<?php if(count($this->flashMessages)>0):?>
 					<p class="already-play"><?php echo $this->flashMessages[0]; ?></p>
 			    <?php
@@ -81,86 +48,104 @@ $data = array();foreach($this->post->getPostElements() as $element){
                         )
                     );
 				?>
-       		</div>
-       		<?php if($game->isStarted()):?>
-	       		<?php if($this->statusMail && ($post->getId() == $this->reportId )) : ?>
-					<p class="report-result"><?php echo $this->translate('Thank you for reporting'); ?>.</p>
-				<?php else : ?>
-		       		<?php $formModeration = $this->formModeration; ?>
-					<?php $formModeration->prepare(); ?>
-		       		<?php echo $this->form()->openTag($formModeration); ?>
-						<?php echo $this->formInput($formModeration->get('moderation')->setAttributes(array('class' => 'form-control'))); ?>
-						<input type="hidden" name="link" value="<?php echo $this->url('frontend/postvote/post', array('id' => $this->game->getIdentifier(), 'channel' => $this->channel, 'post' => $post->getId()))?>" />
-						<input type="hidden" name="reportid" value="<?php echo $post->getId() ?>" />
-						<p class="alert-link">
-						    <a href="#" class="btn btn-default">
-						        <?php echo $this->translate('Report'); ?>
-						    </a>
-						</p>
-					<?php echo $this->form()->closeTag($formModeration) ?>
-				<?php endif; ?>
-			<?php endif ?>
-       </div>
-       <?php if($game->isStarted()):?>
-       <div class="col-md-2">
-           <?php 
-                $form = $this->form;
-                $form->setAttribute(
-                    'action',
-                    $this->url('frontend/postvote/post',
-                        array(
-                            'id' => $this->game->getIdentifier(),
-                            'channel' => $this->channel,
-                            'post' => $post->getId()
+            </div>
+           <?php if($game->isStarted()):?>
+           <div class="col-md-2">
+               <?php 
+                    $form = $this->form;
+                    $form->setAttribute(
+                        'action',
+                        $this->url('frontend/postvote/post',
+                            array(
+                                'id' => $this->game->getIdentifier(),
+                                'channel' => $this->channel,
+                                'post' => $post->getId()
+                            )
                         )
-                    )
-                );
-                $form->prepare();
-                echo $this->form()->openTag($form);
-            ?>
-            <?php if(!$this->zfcUserIdentity() &&  $this->game->getVoteAnonymous() && ! $this->voted ): ?>
-                <div class="vote">
-                    <?php echo $this->formRow($form->get('captcha')); ?>
-                </div>
-            <?php elseif(!$this->zfcUserIdentity() && ! $this->game->getVoteAnonymous()):?>
-                <div class="vote">
-                    <a href="<?php echo $this->url('frontend/zfcuser/register', array('channel' => $this->channel)) . '?redirect=' . $this->url('frontend/postvote/post', array('id' => $this->game->getIdentifier(), 'channel' => $this->channel, 'post' => $this->post->getId())) ?>"> 
-                        <?php echo $this->translate('You must be registered to vote'); ?>
-                    </a>
-                </div>
-            <?php endif ?>
-            <?php if ($this->post->getStatus() == 2) : ?>
-	            <div class="row <?php if($this->zfcUserIdentity()): ?>logged<?php endif ?> nb-votes<?php echo ($this->voted)?'-check':'';?>">
-	            	<?php if($this->alreadyVoted) : ?>
-	            	    <div class="already-voted">
-	            	        <?php echo $this->alreadyVoted; ?>
-	            	    </div>
-	            	<?php endif; ?>
-	                <?php if($this->voted):?>
-	                    <img src="<?php echo $this->frontendAssetPath('images/common/icon-check.png');?>" />
-	                <?php elseif($this->zfcUserIdentity() ||  $this->game->getVoteAnonymous()):?>
-	                    <input type="image" src="<?php echo $this->frontendAssetPath('images/common/round-vote.png');?>" alt="<?php echo $this->translate('Vote'); ?>">
-	                <?php elseif(! $this->game->getVoteAnonymous()):?>
-	                    <a href="<?php echo $this->url('frontend/zfcuser/register', array('channel' => $this->channel)) . '?redirect=' . $this->url('frontend/postvote/post', array('id' => $this->game->getIdentifier(), 'channel' => $this->channel, 'post' => $this->post->getId())) ?>">
-	                       <img src="<?php echo $this->frontendAssetPath('images/common/round-vote.png');?>" />
-                        </a>
-	                <?php endif;?>
-	                <div class="bn-votes text-warning">
-	                    <span class="nb-post-vote-number">
-	                        <?php echo count($this->post->getVotes())?>
-	                    </span> 
-	                    <?php echo (count($this->post->getVotes()) > 1) ? 'votes' : 'vote'; ?>
+                    );
+                    $form->prepare();
+                    echo $this->form()->openTag($form);
+                ?>
+                <?php if(!$this->zfcUserIdentity() &&  $this->game->getVoteAnonymous() && ! $this->voted ): ?>
+                    <div class="vote">
+                        <?php echo $this->formRow($form->get('captcha')); ?>
                     </div>
-	            </div>
+                <?php elseif(!$this->zfcUserIdentity() && ! $this->game->getVoteAnonymous()):?>
+                    <div class="vote">
+                        <a href="<?php echo $this->url('frontend/zfcuser/register', array('channel' => $this->channel)) . '?redirect=' . $this->url('frontend/postvote/post', array('id' => $this->game->getIdentifier(), 'channel' => $this->channel, 'post' => $this->post->getId())) ?>"> 
+                            <?php echo $this->translate('You must be registered to vote'); ?>
+                        </a>
+                    </div>
+                <?php endif ?>
+                <?php if ($this->post->getStatus() == 2) : ?>
+    	            <div class="<?php if($this->zfcUserIdentity()): ?>logged<?php endif ?> nb-votes<?php echo ($this->voted)?'-check':'';?> text-center">
+    	            	<?php if($this->alreadyVoted) : ?>
+    	            	    <div class="already-voted">
+    	            	        <?php echo $this->alreadyVoted; ?>
+    	            	    </div>
+    	            	<?php endif; ?>
+    	                <?php if($this->voted):?>
+    	                    <img src="<?php echo $this->frontendAssetPath('images/common/icon-check.png');?>" />
+    	                <?php elseif($this->zfcUserIdentity() ||  $this->game->getVoteAnonymous()):?>
+    	                    <input type="image" src="<?php echo $this->frontendAssetPath('images/common/round-vote.png');?>" alt="<?php echo $this->translate('Vote'); ?>">
+    	                <?php elseif(! $this->game->getVoteAnonymous()):?>
+    	                    <a href="<?php echo $this->url('frontend/zfcuser/register', array('channel' => $this->channel)) . '?redirect=' . $this->url('frontend/postvote/post', array('id' => $this->game->getIdentifier(), 'channel' => $this->channel, 'post' => $this->post->getId())) ?>">
+    	                       <img src="<?php echo $this->frontendAssetPath('images/common/round-vote.png');?>" />
+                            </a>
+    	                <?php endif;?>
+    	                <div class="bn-votes text-warning text-center">
+    	                    <span class="nb-post-vote-number">
+    	                        <?php echo count($this->post->getVotes())?>
+    	                    </span> 
+    	                    <?php echo (count($this->post->getVotes()) > 1) ? 'votes' : 'vote'; ?>
+                        </div>
+    	            </div>
+                <?php endif ?>
+                <?php echo $this->form()->closeTag();?>
+            </div>
+            <div class="col-md-12 text-center">
+            <?php if($game->isStarted()):?>
+                <?php if($this->statusMail && ($post->getId() == $this->reportId )) : ?>
+                    <p class="report-result"><?php echo $this->translate('Thank you for reporting'); ?>.</p>
+                <?php else : ?>
+                    <?php $formModeration = $this->formModeration; ?>
+                    <?php $formModeration->prepare(); ?>
+                    <?php echo $this->form()->openTag($formModeration); ?>
+                        <?php echo $this->formInput($formModeration->get('moderation')->setAttributes(array('class' => 'form-control'))); ?>
+                        <input type="hidden" name="link" value="<?php echo $this->url('frontend/postvote/post', array('id' => $this->game->getIdentifier(), 'channel' => $this->channel, 'post' => $post->getId()))?>" />
+                        <input type="hidden" name="reportid" value="<?php echo $post->getId() ?>" />
+                        <a href="#" class="btn btn-default btn-green alert-link">
+                            <?php echo $this->translate('Report'); ?>
+                        </a>
+                    <?php echo $this->form()->closeTag($formModeration) ?>
+                <?php endif; ?>
             <?php endif ?>
-            <?php echo $this->form()->closeTag();?>
-        </div>
-        <div class="col-md-12 humain">
-            <?php if(!$this->zfcUserIdentity()): ?>
-                <span class="text-error">*</span> 
-                <?php echo $this->translate('To take into account your vote, we Verifer that you are a human being');?>' ;-)
+           </div>
+            <div class="col-md-12 humain">
+                <?php if(!$this->zfcUserIdentity()): ?>
+                    <span class="text-error">*</span> 
+                    <?php echo $this->translate('To take into account your vote, we Verifer that you are a human being');?>' ;-)
+                <?php endif ?>
+            </div>
             <?php endif ?>
         </div>
-        <?php endif ?>
+        <div class="col-md-1"></div>
+    </div>
+            
+    <div class="clearfix">
+        <div class="btn btn-default btn-arrow-right"<?php if ($this->isCtaActive):?> id="fb-play"<?php endif;?>>
+            <a href="<?php echo $this->url('frontend/postvote/play', array('id' => $this->game->getIdentifier(), 'channel' => $this->channel))?>" class="arrow-right">
+                <span class="left">left</span>
+                <span class="center"><?php echo $this->translate('Participate'); ?></span>
+                <span class="right">right</span>
+            </a>
+        </div>
+        <div class="btn btn-default btn-arrow-right">
+            <a href="<?php echo $this->url('frontend/postvote/list', array('id' => $this->game->getIdentifier(), 'channel' => $this->channel, 'filter' => $this->game->getPostDisplayMode()))?>" class="arrow-right">
+                <span class="left">left</span>
+                <span class="center"><?php echo $this->translate('See participants'); ?></span>
+                <span class="right">right</span>
+            </a>
+        </div>
     </div>
 </div>

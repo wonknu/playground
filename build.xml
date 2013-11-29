@@ -2,22 +2,19 @@
 
 <project name="PLAYGROUND" default="build">
 	<target name="build" depends="prepare,composer,phpcs-ci,phpmd-ci,phpcpd,lint,docblox,phpunit-core,phpunit-application,phpunit-cms,phpunit-facebook,phpunit-faq,phpunit-flow,phpunit-game,phpunit-partnership,phpunit-reward,phpunit-user,phpcb,coverage-checker" />
-
+	
 	<target name="build-parallel" depends="prepare,tools-parallel" />
 	
 	<target name="phpunit" depends="phpunit-core,phpunit-application,phpunit-cms,phpunit-facebook,phpunit-faq,phpunit-flow,phpunit-game,phpunit-partnership,phpunit-reward,phpunit-user,phpunit-design" />
 	
 	<target name="tools-parallel" description="Run tools in parallel">
-		<parallel threadCount="1">
-			<sequential>
-			<antcall target="composer" />
+		<antcall target="composer" />
+		<parallel threadCount="6">
 			<antcall target="phpmd-ci" />
-			</sequential>
 			<antcall target="phpcpd" />
 			<antcall target="phpcs-ci" />
 			<antcall target="lint" />
 			<antcall target="docblox" />
-			<sequential>
 			<antcall target="phpunit-core" />
 			<antcall target="phpunit-application" />
 			<antcall target="phpunit-cms" />
@@ -29,18 +26,15 @@
 			<antcall target="phpunit-reward" />
 			<antcall target="phpunit-user" />
 			<antcall target="phpunit-design" />
-			<antcall target="coverage-checker" />
-			</sequential>
 		</parallel>
+		<antcall target="coverage-checker" />
 	</target>
-
 	<target name="clean" description="Cleanup build artifacts">
 		<delete dir="${basedir}/build/api" />
 		<delete dir="${basedir}/build/code-browser" />
 		<delete dir="${basedir}/build/coverage" />
 		<delete dir="${basedir}/build/logs" />
 	</target>
-
 	<target name="prepare" depends="clean" description="Prepare for build">
 		<mkdir dir="${basedir}/build/api" />
 		<mkdir dir="${basedir}/build/code-browser" />
@@ -48,22 +42,16 @@
 		<mkdir dir="${basedir}/build/logs" />
 		<mkdir dir="${basedir}/build/pdepend" />
 	</target>
-	
 	<target name="composer" description="Installing dependencies">
-    	     <exec executable="composer" failonerror="true">
-      		<arg value="update" />
-    	     </exec>
-        </target>
-	
-		<!--target name="phpmd"
-		description="Perform project mess detection using PHPMD and print human readable output. Intended for usage on the command line before committing.">
-		<exec executable="phpmd">
-			<arg path="${basedir}/module" />
-			<arg value="text" />
-			<arg value="${basedir}/build/phpmd.xml" />
+		<exec executable="composer" failonerror="true">
+			<arg value="update" />
 		</exec>
-	</target-->
-
+	</target>
+	<!-- target name="phpmd" description="Perform project mess detection using 
+		PHPMD and print human readable output. Intended for usage on the command 
+		line before committing."> <exec executable="phpmd"> <arg path="${basedir}/module" 
+		/> <arg value="text" /> <arg value="${basedir}/build/phpmd.xml" /> </exec> 
+	</target -->
 	<target name="phpmd-ci"
 		description="Perform project mess detection using PHPMD creating a log file for the continuous integration server">
 		<exec executable="phpmd">
@@ -73,8 +61,7 @@
 			<arg value="--reportfile" />
 			<arg value="${basedir}/build/logs/pmd.xml" />
 		</exec>
-	</target> 
-
+	</target>
 	<target name="phpcs-ci"
 		description="Find coding standard violations using PHP_CodeSniffer creating a log file for the continuous integration server">
 		<exec executable="phpcs" output="/dev/null">
@@ -85,7 +72,6 @@
 			<arg path="${basedir}/module" />
 		</exec>
 	</target>
-	
 	<target name="phpcpd" description="Find duplicate code using PHPCPD">
 		<exec executable="phpcpd">
 			<arg value="--log-pmd" />
@@ -93,16 +79,14 @@
 			<arg path="${basedir}/module" />
 		</exec>
 	</target>
-	
 	<target name="lint" description="Perform syntax check of sourcecode files">
 		<apply executable="php" failonerror="false" error="${basedir}/build/logs/phperr.check">
-			<arg value="-l" />  
+			<arg value="-l" />
 			<fileset dir="${basedir}/module">
 				<include name="**/*.php" />
 			</fileset>
 		</apply>
 	</target>
-	
 	<target name="docblox" depends="prepare"
 		description="Generate API documentation using DocBlox">
 		<exec executable="docblox" failonerror="false">
@@ -113,89 +97,74 @@
 			<arg line="--title '${ant.project.name}'" />
 		</exec>
 	</target>
-	
-	
-
-    <target name="phpunit-core">
+	<target name="phpunit-core">
 		<exec dir="${basedir}/vendor/bin" executable="phpunit" failonerror="true" description="Run unit tests with PHPUnit">
-			<arg line="-c ${basedir}/vendor/playground/core" />     
+			<arg line="-c ${basedir}/vendor/playground/core" />
 		</exec>
-    </target>
-	
+	</target>
 	<target name="phpunit-application">
 		<exec dir="${basedir}/vendor/bin" executable="phpunit" failonerror="true" description="Run unit tests with PHPUnit">
-			<arg line="-c ${basedir}/module/Application" />   
+			<arg line="-c ${basedir}/module/Application" />
 		</exec>
 	</target>
-	
 	<target name="phpunit-cms">
 		<exec dir="${basedir}/vendor/bin" executable="phpunit" failonerror="true" description="Run unit tests with PHPUnit">
-			<arg line="-c ${basedir}/vendor/playground/cms" />    
+			<arg line="-c ${basedir}/vendor/playground/cms" />
 		</exec>
 	</target>
-	
 	<target name="phpunit-facebook">
-		<exec dir="${basedir}/vendor/bin" executable="phpunit" failonerror="true" description="Run unit tests with PHPUnit"> 
-			<arg line="-c ${basedir}/vendor/playground/facebook" />     
+		<exec dir="${basedir}/vendor/bin" executable="phpunit" failonerror="true" description="Run unit tests with PHPUnit">
+			<arg line="-c ${basedir}/vendor/playground/facebook" />
 		</exec>
 	</target>
-	
 	<target name="phpunit-faq">
-		<exec dir="${basedir}/vendor/bin" executable="phpunit" failonerror="true" description="Run unit tests with PHPUnit"> 
+		<exec dir="${basedir}/vendor/bin" executable="phpunit" failonerror="true" description="Run unit tests with PHPUnit">
 			<arg line="-c ${basedir}/vendor/playground/faq" />
 		</exec>
 	</target>
-	
 	<target name="phpunit-flow">
-		<exec dir="${basedir}/vendor/bin" executable="phpunit" failonerror="true" description="Run unit tests with PHPUnit"> 
-			<arg line="-c ${basedir}/vendor/playground/flow" />  
+		<exec dir="${basedir}/vendor/bin" executable="phpunit" failonerror="true" description="Run unit tests with PHPUnit">
+			<arg line="-c ${basedir}/vendor/playground/flow" />
 		</exec>
 	</target>
-	
 	<target name="phpunit-game">
-		<exec dir="${basedir}/vendor/bin" executable="phpunit" failonerror="true" description="Run unit tests with PHPUnit">  
-			<arg line="-c ${basedir}/vendor/playground/game" />      
+		<exec dir="${basedir}/vendor/bin" executable="phpunit" failonerror="true" description="Run unit tests with PHPUnit">
+			<arg line="-c ${basedir}/vendor/playground/game" />
 		</exec>
 	</target>
-	
 	<target name="phpunit-partnership">
-		<exec dir="${basedir}/vendor/bin" executable="phpunit" failonerror="true" description="Run unit tests with PHPUnit">  
-			<arg line="-c ${basedir}/vendor/playground/partnership" />     
+		<exec dir="${basedir}/vendor/bin" executable="phpunit" failonerror="true" description="Run unit tests with PHPUnit">
+			<arg line="-c ${basedir}/vendor/playground/partnership" />
 		</exec>
 	</target>
-	
 	<target name="phpunit-reward">
-		<exec dir="${basedir}/vendor/bin" executable="phpunit" failonerror="true" description="Run unit tests with PHPUnit">   
-			<arg line="-c ${basedir}/vendor/playground/reward" />   
+		<exec dir="${basedir}/vendor/bin" executable="phpunit" failonerror="true" description="Run unit tests with PHPUnit">
+			<arg line="-c ${basedir}/vendor/playground/reward" />
 		</exec>
 	</target>
-	
 	<target name="phpunit-user">
-		<exec dir="${basedir}/vendor/bin" executable="phpunit" failonerror="true" description="Run unit tests with PHPUnit">  
-			<arg line="-c ${basedir}/vendor/playground/user" />     
+		<exec dir="${basedir}/vendor/bin" executable="phpunit" failonerror="true" description="Run unit tests with PHPUnit">
+			<arg line="-c ${basedir}/vendor/playground/user" />
 		</exec>
 	</target>
 	<target name="phpunit-design">
-		<exec dir="${basedir}/vendor/bin" executable="phpunit" failonerror="true" description="Run unit tests with PHPUnit">  
-			<arg line="-c ${basedir}/vendor/playground/design" />     
+		<exec dir="${basedir}/vendor/bin" executable="phpunit" failonerror="true" description="Run unit tests with PHPUnit">
+			<arg line="-c ${basedir}/vendor/playground/design" />
 		</exec>
 	</target>
-		
 	<target name="phpcb" description="Aggregate tool output with PHP_CodeBrowser">
-	     <exec executable="phpcb">
-	         <arg value="--log" />
-	         <arg path="${basedir}/build/logs" />
-	         <arg value="--source" />
-	         <arg path="${basedir}/module" />
-	         <arg value="--output" />
-	         <arg path="${basedir}/build/code-browser" />
-	     </exec>
+		<exec executable="phpcb">
+			<arg value="--log" />
+			<arg path="${basedir}/build/logs" />
+			<arg value="--source" />
+			<arg path="${basedir}/module" />
+			<arg value="--output" />
+			<arg path="${basedir}/build/code-browser" />
+		</exec>
 	</target>
-	
 	<target name="coverage-checker" depends="phpunit-core">
 		<exec dir="/usr/bin" executable="php" failonerror="true" description="check unit test coverage percentage">
-			<arg line="${basedir}/build/coverage-checker.php" />   
+			<arg line="${basedir}/build/coverage-checker.php" />
 		</exec>
-    </target>
-
+	</target>
 </project>

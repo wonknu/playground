@@ -14,11 +14,19 @@ if (isset($fm[0]))
 <a href='<?php echo $downloadLink ?>'>Export CSV</a>
 <table class="table">
     <tr>
-        <th><?php echo $this->translate('Id'); ?></th>
-        <th><?php echo $this->translate('Pseudo'); ?></th>
-        <th><?php echo $this->translate('Nom'); ?></th>
-        <th><?php echo $this->translate('Prenom'); ?></th>
-        <th><?php echo $this->translate('E-mail'); ?></th>
+        <?php if (!$this->game->getAnonymousAllowed()) : ?>
+            <th><?php echo $this->translate('Id'); ?></th>
+            <th><?php echo $this->translate('Pseudo'); ?></th>
+            <th><?php echo $this->translate('Nom'); ?></th>
+            <th><?php echo $this->translate('Prenom'); ?></th>
+            <th><?php echo $this->translate('E-mail'); ?></th>
+        <?php endif;?>
+        <?php if (current($this->entries->getCurrentItems()) && current($this->entries->getCurrentItems())->getPlayerData()) : ?>
+            <?php $entryData = json_decode(current($this->entries->getCurrentItems())->getPlayerData()); ?>
+            <?php foreach ($entryData as $key => $attrib): ?>
+                <th><?php echo $key ?></th>
+            <?php endforeach; ?>
+        <?php endif; ?>
         <th><?php echo $this->translate('Modération'); ?></th>
         <th><?php echo $this->translate('Nombre de votes'); ?></th>
         <th></th>
@@ -26,11 +34,19 @@ if (isset($fm[0]))
     </tr>
     <?php foreach ($this->posts as $post): ?>
         <tr>
-            <td><?php echo $post->getUser()->getId(); ?></td>
-            <td><?php echo $post->getUser()->getUsername(); ?></td>
-            <td><?php echo $post->getUser()->getLastname(); ?></td>
-            <td><?php echo $post->getUser()->getFirstname(); ?></td>
-            <td><?php echo $post->getUser()->getEmail(); ?></td>
+            <?php if (!$this->game->getAnonymousAllowed()) : ?>
+                <td><?php echo $post->getUser()->getId(); ?></td>
+                <td><?php echo $post->getUser()->getUsername(); ?></td>
+                <td><?php echo $post->getUser()->getLastname(); ?></td>
+                <td><?php echo $post->getUser()->getFirstname(); ?></td>
+                <td><?php echo $post->getUser()->getEmail(); ?></td>
+            <?php endif; ?>
+            <?php if ($post->getEntry()->getPlayerData()) : ?>
+                <?php $entryData = json_decode($post->getEntry()->getPlayerData()); ?>
+                <?php foreach ($entryData as $key => $attrib): ?>
+                    <td><?php if (is_array($attrib)) {echo implode(', ', $attrib); } else { echo $attrib; } ?></td>
+                <?php endforeach; ?>
+            <?php endif; ?>
             <td>
             <?php if($post->getStatus() == 0): ?>
                 En cours de création
