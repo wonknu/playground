@@ -41,6 +41,11 @@ $form->prepare();
 	            <?php echo $this->formElementErrors($form->get('displayNotification')) ?>
 			</div>
 			<div class="label-input">
+	            <?php echo $this->formLabel($form->get('widget')); ?>
+	            <?php echo $this->formSelect($form->get('widget')); ?>
+	            <?php echo $this->formElementErrors($form->get('widget')) ?>
+			</div>
+			<div class="label-input">
 	            <?php echo $this->formLabel($form->get('notification')); ?>
 	            <?php echo $this->formTextarea($form->get('notification')); ?>
 	            <?php echo $this->formElementErrors($form->get('notification')) ?>

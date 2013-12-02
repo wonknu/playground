@@ -1,0 +1,37 @@
+<?php $this->plugin('translate')->setTranslatorTextDomain('playgroundflow'); ?>
+<?php
+$fm = $this->flashMessenger()->setNamespace('playgroundflow')->getMessages();
+if (isset($fm[0]))
+{
+    print '<span class=>' . $fm[0] . '</span>';
+}
+?>
+<?php $addLink = $this->url('admin/playgroundflow/widget/create', array('widgetId' => 0)); ?>
+
+<ul class="liste-buttons">
+	<li class="btn-admin"><a href="<?php echo $addLink;?>"><?php echo $this->translate('Add new widget'); ?></a></li>
+</ul>
+
+<h1><?php echo $this->translate('widgets list'); ?></h1>
+
+<table class="table">
+    <tr>
+        <th><?php echo $this->translate('Title'); ?></th>
+        <th><?php echo $this->translate('Anchor'); ?></th>
+        <th></th>
+    </tr>
+    <?php foreach ($this->widgets as $widget): ?>
+    	<?php $editLink = $this->url('admin/playgroundflow/widget/edit', array('widgetId' => $widget->getId()));?>
+    	<?php $deleteLink = $this->url('admin/playgroundflow/widget/remove', array('widgetId' => $widget->getId()));?>
+    	<?php $optionLink = '';//$this->url('admin/playgroundflow/widget/attribute', array('widgetId' => $widget->getId())); ?>
+        <tr>
+            <td><?php echo $widget->getTitle() ?></td>
+            <td><?php echo $widget->getAnchor() ?></td>
+            <td>
+                <a href='<?php echo $editLink ?>'><?php echo $this->translate('Edit'); ?></a> | <a href='<?php echo $deleteLink ?>'><?php echo $this->translate('Delete'); ?></a><?php if($optionLink != ''):?> | <a href='<?php echo $optionLink ?>'><?php echo $this->translate('Add options'); ?></a><?php endif;?>
+            </td>
+        </tr>
+    <?php endforeach; ?>
+</table>
+
+<?php echo $this->paginationControl($this->widgets, 'Sliding', 'playground-flow/widget/pagination_widgetlist'); ?>
