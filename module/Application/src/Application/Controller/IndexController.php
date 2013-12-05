@@ -128,8 +128,7 @@ class IndexController extends AbstractActionController
         $topic 		 = "Parrainage depuis l'espace client";
         $statusMail  = null;
         $sg 		 = $this->getGameService();
-        $events 	 = $this->getRewardService()->getEventMapper()->findActivity($this->zfcUserAuthentication()->getIdentity()->getId(),'sponsor');
-
+        
         $form = $this->getServiceLocator()->get('playgroundgame_sharemail_form');
         $form->setAttribute('method', 'post');
 
@@ -162,7 +161,6 @@ class IndexController extends AbstractActionController
         $this->getViewHelper('HeadMeta')->setProperty('og:image', $fbShareImage);
 
         $viewModel = new ViewModel(array(
-            'events'     => $events,
             'statusMail' => $statusMail,
             'form'       => $form,
             'socialLinkUrl'    => $socialLinkUrl,
@@ -282,22 +280,6 @@ class IndexController extends AbstractActionController
     public function setAchievementService($achievementService)
     {
         $this->achievementService = $achievementService;
-
-        return $this;
-    }
-
-    public function getRewardService()
-    {
-        if (!$this->rewardService) {
-            $this->rewardService = $this->getServiceLocator()->get('playgroundreward_event_service');
-        }
-
-        return $this->rewardService;
-    }
-
-    public function setRewardService(GameService $rewardService)
-    {
-        $this->rewardService = $rewardService;
 
         return $this;
     }
