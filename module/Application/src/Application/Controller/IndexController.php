@@ -166,7 +166,6 @@ class IndexController extends AbstractActionController
         $this->getViewHelper('HeadMeta')->setProperty('og:image', $fbShareImage);
         
         $stories = $this->getStoryTellingService()->getStoryTellingMapper()->findWithStoryMappingByUser($user);
-        $total = count($stories);
 
         $activities = array();
 
@@ -192,11 +191,11 @@ class IndexController extends AbstractActionController
 
 
         $viewModel = new ViewModel(array(
-            'activities' => $activities,
-            'statusMail' => $statusMail,
-            'form'       => $form,
-            'socialLinkUrl'    => $socialLinkUrl,
-            'secretKey'		   => $secretKey
+            'activities'    => $activities,
+            'statusMail'    => $statusMail,
+            'form'          => $form,
+            'socialLinkUrl' => $socialLinkUrl,
+            'secretKey'		=> $secretKey
         ));
 
         return $viewModel;
