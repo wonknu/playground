@@ -40,7 +40,7 @@
         <module>
             <name>GAME</name>
             <path>vendor/playground/game</path>
-            <limit>8</limit>
+            <limit>15</limit>
             <mandatory>true</mandatory>
         </module>
         <module>

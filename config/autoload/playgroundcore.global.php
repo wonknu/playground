@@ -87,11 +87,11 @@ $settings = array(
         'QuElFinder'=>array(
             'QuRoots'=>array(
                 'driver'        => 'LocalFileSystem',
-                'path'          =>  'C:\programmation\www\playground\public\uploads\files',
-                'URL'           =>  '/uploads/files/',
+                'path'          =>  'C:\programmation\git\playground\public\media',
+                'URL'           =>  '/media/',
                 'accessControl' => 'access'
             ),
-            'BasePath'=>'/js/lib/elfinder',
+            'BasePath'=>'/js/elfinder',
         ),
 	),
 	'googleAnalytics' => array(
