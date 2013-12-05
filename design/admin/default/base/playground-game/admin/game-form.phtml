@@ -79,6 +79,52 @@ $form->prepare();
         <?php echo $this->formCheckbox($form->get('anonymousAllowed')); ?>
         <?php echo $this->formElementErrors($form->get('anonymousAllowed')) ?>
 	</div>
+	<div class="label-input">
+        <?php echo $this->formLabel($form->get('mailWinner')); ?>
+        <?php echo $this->formSelect($form->get('mailWinner')); ?>
+        <?php echo $this->formElementErrors($form->get('mailWinner')) ?>
+	</div>
+	<div class="label-input">
+        <?php echo $this->formTextarea($form->get('mailWinnerBlock')) . $this->formElementErrors($form->get('mailWinnerBlock')) ?>
+        <?php $this->QgCKEditor(
+            'mailWinnerBlock',
+                array(
+                    'BasePath' => $this->libAssetPath('js/ckeditor'),
+                    'Width' => "99%",
+                    'Height' => "300",
+                    'uiColor' => '#9AB8F3',
+                    'Toolbar'=> array(
+                         array('Bold','Italic','Underline','Subscript','Superscript'),
+                         array('NumberedList','BulletedList','Outdent','Indent'),
+                         array('Link','Unlink'),
+                     )
+                )
+            );
+        ?>
+    </div>
+	<div class="label-input">
+        <?php echo $this->formLabel($form->get('mailLooser')); ?>
+        <?php echo $this->formSelect($form->get('mailLooser')); ?>
+        <?php echo $this->formElementErrors($form->get('mailLooser')) ?>
+	</div>
+	<div class="label-input">
+        <?php echo $this->formTextarea($form->get('mailLooserBlock')) . $this->formElementErrors($form->get('mailLooserBlock')) ?>
+        <?php $this->QgCKEditor(
+            'mailLooserBlock',
+                array(
+                    'BasePath' => $this->libAssetPath('js/ckeditor'),
+                    'Width' => "99%",
+                    'Height' => "300",
+                    'uiColor' => '#9AB8F3',
+                    'Toolbar'=> array(
+                         array('Bold','Italic','Underline','Subscript','Superscript'),
+                         array('NumberedList','BulletedList','Outdent','Indent'),
+                         array('Link','Unlink'),
+                     )
+                )
+            );
+        ?>
+    </div>
 </div>
 
 <div class="tab-pane" id="facebook">
@@ -373,7 +419,7 @@ $form->prepare();
             <?php echo $this->formButton($element->get('remove')); ?>
             <hr/>
         </fieldset>
-        <?php endforeach;?>        
+        <?php endforeach;?>
 
 
         <span data-template='<fieldset><input type="hidden" name="prizes[__index__][id]" value=""/><div class="label-input"><label>Titre</label><input name="prizes[__index__][title]" type="text" placeholder="Titre" value=""/></div><div class="label-input"><label>Lien</label><input name="prizes[__index__][identifier]" type="text" value=""/></div>
