@@ -1,4 +1,6 @@
 <?php
+$twShareMsg = $this->translate('Come play games Playground');
+
 if(isset($this->game)) :
     $this->plugin('translate')->setTranslatorTextDomain('playgroundgame');
     $defaultMsg = (isset($this->userTimer['timer'])) ?
