@@ -26,5 +26,40 @@ $fbRequestMsg = $this->translate('Come play games Playground');
         <?php echo $this->partial('playground-game/partial/result-share'); ?>
 		<!-- //END SPONSOR (parrainer) -->
 	</div>
+	<div id="activity-story">
+		<?php $i=0; foreach($this->activities as $story): ?>
+		<div id="list-activity" class="row-fluid orange-dot-top">
+			<div class="span10">
+				<!-- @todo : avoir des templates par type de telling -->
+				<?php //echo $story['openGraphMapping']; ?>
+				A <?php echo $story['created_at']->format('d-m-Y H:i:s') ?>, <?php echo $this->translate($story['label']); ?>
+					<?php
+					foreach ($story['object'] as $type => $values) :
+						echo $type."<br />";
+						if(is_array($values)) {
+						foreach ($values as $key => $value) :
+							if(is_array($value)) {
+								foreach ($value as $k => $v) {
+									echo $k.":".$v."<br />";
+								}
+							} else {
+								echo $key.":".$value."<br />";
+							}
+
+						endforeach;
+						} else {
+							echo $value;
+						}
+
+						echo "<br/>";
+					endforeach;
+					?>
+
+				<?php echo $story['points']?> points
+
+			</div>
+		</div>
+		<?php  $i++; endforeach;?>
+	</div>
 </div>
 <!-- END SPONSOR (parrainer amis) (user page) -->
