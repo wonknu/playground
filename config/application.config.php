@@ -23,6 +23,7 @@ return array(
         'PlaygroundFacebook',
     	'PlaygroundFlow',
     	'PlaygroundStats',
+        'PlaygroundTranslate',
    		'Application',
     ),
     'module_listener_options' => array(
