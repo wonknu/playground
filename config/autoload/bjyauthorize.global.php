@@ -84,6 +84,7 @@ return array(
                 array('controller' => 'playgroundfloweasyxdm',                     'roles' => array('guest', 'user')),
                 array('controller' => 'AsseticBundle\Controller\Console',          'roles' => array('guest', 'user')),
                 array('controller' => 'DoctrineModule\Controller\Cli',             'roles' => array('guest', 'user')),
+                array('controller' => 'webservice_controller',                     'roles' => array('guest', 'user')),
 
 
                 // Admin area
@@ -121,6 +122,10 @@ return array(
                 array('controller' => 'adminstats',                                'roles' => array('admin')),
                 array('controller' => 'PlaygroundDesign\Controller\CompanyAdmin',  'roles' => array('admin')),
                 array('controller' => 'PlaygroundDesign\Controller\ThemeAdmin',    'roles' => array('admin')),
+                array('controller' => 'admin_controller',                          'roles' => array('admin')),
+                array('controller' => 'code_admin_controller',                     'roles' => array('admin')),
+                array('controller' => 'location_admin_controller',                 'roles' => array('admin')),
+                array('controller' => 'imagemap_admin_controller',                 'roles' => array('admin')),
             ),
         ),
     ),
