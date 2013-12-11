@@ -23,6 +23,7 @@ return array(
         'PlaygroundFacebook',
     	'PlaygroundFlow',
     	'PlaygroundStats',
+        'PlaygroundTranslate',
    		'Application',
         'PlaygroundWeather',
         'PlaygroundEmailCampaign',

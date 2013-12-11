@@ -33,6 +33,7 @@ return array(
                 'flow'          => array(),
                 'stats'         => array(),
                 'design'        => array(),
+                'translate'     => array(),
             ),
         ),
 
@@ -52,6 +53,7 @@ return array(
                     array(array('admin'), 'flow',           array('list','add','edit','delete')),
                     array(array('admin'), 'stats',          array('list')),
                     array(array('admin'), 'design',         array('system')),
+                    array(array('admin'), 'translate',      array('list')),
                 ),
             ),
         ),
@@ -122,6 +124,7 @@ return array(
                 array('controller' => 'adminstats',                                'roles' => array('admin')),
                 array('controller' => 'PlaygroundDesign\Controller\CompanyAdmin',  'roles' => array('admin')),
                 array('controller' => 'PlaygroundDesign\Controller\ThemeAdmin',    'roles' => array('admin')),
+                array('controller' => 'PlaygroundTranslate\Controller\Admin\TranslateAdmin', 'roles' => array('admin')),
                 array('controller' => 'admin_controller',                          'roles' => array('admin')),
                 array('controller' => 'code_admin_controller',                     'roles' => array('admin')),
                 array('controller' => 'location_admin_controller',                 'roles' => array('admin')),

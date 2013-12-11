@@ -25,47 +25,41 @@ $fbRequestMsg = $this->translate('Come play games Playground');
 		<!-- SPONSOR (parrainer) -->
         <?php echo $this->partial('playground-game/partial/result-share'); ?>
 		<!-- //END SPONSOR (parrainer) -->
-		<?php if(count($this->events)>0):?>
-		<div class="row">
-			<h1>
-			    <?php echo $this->translate('Friends sponsored'); ?>
-			</h1>
-			<?php
-			foreach($this->events as $event):
-                if(in_array($event->getActionId(), array(20))):
-                $now = new \DateTime('now');
-                $interval = $now->diff($event->getCreatedAt());
-    		    $duration = 0;
-    	        if($interval->days < 1) $duration = $this->translate('less than 1 day');
-    	        elseif($interval->days < 2) $duration = $this->translate('1 day');
-    	        elseif($interval->days < 31) $duration = $interval->days . ' '.$this->translate('days');
-    	        elseif($interval->days < 365) $duration = $interval->m . ' '.$this->translate('month');
-    	        elseif($interval->days < 730) $duration = $interval->y . ' '.$this->translate('year');
-    	        else $duration = $interval->y . ' '.$this->translate('years');
-    	        ?>
-    			<div class="row orange-dot-top">
-    				<div class="col-md-8">
-    					<p>
-    						<?php echo $this->translate('You sponsored'); ?>
-    						<a class="green-underline" href="">
-    						    <?php echo $this->translate($event->getLabel()); ?>
-    						</a>
-    						<br/>
-    						<span class="small">
-    						    <?php echo $this->translate('Since'); ?> <?php echo $duration;?>
-    						</span>
-    					</p>
-    				</div>
-    				<div class="col-md-4">
-    					<p>
-    					    + <?php echo $event->getPoints()?> points
-    					</p>
-    				</div>
-    			</div>
-    			<?php endif;?>
-			<?php endforeach;?>
+	</div>
+	<div id="activity-story">
+		<?php $i=0; foreach($this->activities as $story): ?>
+		<div id="list-activity" class="row-fluid orange-dot-top">
+			<div class="span10">
+				<!-- @todo : avoir des templates par type de telling -->
+				<?php //echo $story['openGraphMapping']; ?>
+				A <?php echo $story['created_at']->format('d-m-Y H:i:s') ?>, <?php echo $this->translate($story['label']); ?>
+					<?php
+					foreach ($story['object'] as $type => $values) :
+						echo $type."<br />";
+						if(is_array($values)) {
+						foreach ($values as $key => $value) :
+							if(is_array($value)) {
+								foreach ($value as $k => $v) {
+									echo $k.":".$v."<br />";
+								}
+							} else {
+								echo $key.":".$value."<br />";
+							}
+
+						endforeach;
+						} else {
+							echo $value;
+						}
+
+						echo "<br/>";
+					endforeach;
+					?>
+
+				<?php echo $story['points']?> points
+
+			</div>
 		</div>
-		<?php endif;?>
+		<?php  $i++; endforeach;?>
 	</div>
 </div>
 <!-- END SPONSOR (parrainer amis) (user page) -->

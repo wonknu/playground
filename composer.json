@@ -31,6 +31,7 @@
 		"playground/stats" : "dev-develop",
 		"playground/reward" : "dev-develop",
 		"playground/user" : "dev-develop",
+		"playground/translate" : "dev-develop",
 		"playground/hybridauth" : "dev-master",
 		"playground/zdt-templatehint" : "dev-master",
 		"doctrine/doctrine-orm-module" : "0.8.*@dev",

@@ -53,6 +53,11 @@ class IndexController extends AbstractActionController
      */
     protected $missionService;
 
+    /**
+     * @var storyTellingService
+     */
+    protected $storyTellingService;
+
     public function indexAction()
     {
 
@@ -128,8 +133,7 @@ class IndexController extends AbstractActionController
         $topic 		 = "Parrainage depuis l'espace client";
         $statusMail  = null;
         $sg 		 = $this->getGameService();
-        $events 	 = $this->getRewardService()->getEventMapper()->findActivity($this->zfcUserAuthentication()->getIdentity()->getId(),'sponsor');
-
+        
         $form = $this->getServiceLocator()->get('playgroundgame_sharemail_form');
         $form->setAttribute('method', 'post');
 
@@ -160,13 +164,38 @@ class IndexController extends AbstractActionController
         $this->getViewHelper('HeadMeta')->setProperty('bt:user', $bitlyuser);
         $this->getViewHelper('HeadMeta')->setProperty('bt:key', $bitlykey);
         $this->getViewHelper('HeadMeta')->setProperty('og:image', $fbShareImage);
+        
+        $stories = $this->getStoryTellingService()->getStoryTellingMapper()->findWithStoryMappingByUser($user);
+
+        $activities = array();
+
+        foreach ($stories as $story) {
+            $matchToFilter = false;
+            foreach ($story->getOpenGraphStoryMapping()->getStory()->getObjects() as $object) {
+                if ("sponsorize_a_friend" == strtolower($object->getCode())) {
+                    $matchToFilter = true;
+                }
+            }
+            if($matchToFilter) {
+                $activities[] = array("object" => json_decode($story->getObject(), true),
+                                      "openGraphMapping" => $story->getOpenGraphStoryMapping()->getId(),
+                                      "hint"   => $story->getOpenGraphStoryMapping()->getHint(),
+                                      "picto" => $story->getOpenGraphStoryMapping()->getPicto(),
+                                      "points" => $story->getPoints(),
+                                      'created_at' => $story->getCreatedAt(),
+                                      'definition' => $story->getOpenGraphStoryMapping()->getStory()->getDefinition(),
+                                      'label' => $story->getOpenGraphStoryMapping()->getStory()->getLabel());
+            }
+        }
+
+
 
         $viewModel = new ViewModel(array(
-            'events'     => $events,
-            'statusMail' => $statusMail,
-            'form'       => $form,
-            'socialLinkUrl'    => $socialLinkUrl,
-            'secretKey'		   => $secretKey
+            'activities'    => $activities,
+            'statusMail'    => $statusMail,
+            'form'          => $form,
+            'socialLinkUrl' => $socialLinkUrl,
+            'secretKey'		=> $secretKey
         ));
 
         return $viewModel;
@@ -286,22 +315,6 @@ class IndexController extends AbstractActionController
         return $this;
     }
 
-    public function getRewardService()
-    {
-        if (!$this->rewardService) {
-            $this->rewardService = $this->getServiceLocator()->get('playgroundreward_event_service');
-        }
-
-        return $this->rewardService;
-    }
-
-    public function setRewardService(GameService $rewardService)
-    {
-        $this->rewardService = $rewardService;
-
-        return $this;
-    }
-
     public function getGameService()
     {
         if (!$this->gameService) {
@@ -401,5 +414,19 @@ class IndexController extends AbstractActionController
     protected function getViewHelper($helperName)
     {
         return $this->getServiceLocator()->get('viewhelpermanager')->get($helperName);
+    }
+
+     /**
+      * retrieve storyTelling service
+      *
+      * @return Service/storyTelling $storyTellingService
+      */
+    public function getStoryTellingService()
+    {
+        if (!$this->storyTellingService) {
+            $this->storyTellingService = $this->getServiceLocator()->get('playgroundflow_storytelling_service');
+        }
+
+        return $this->storyTellingService;
     }
 }
