@@ -150,6 +150,12 @@ $(function ()
 	}
 	$('#next').click(function()
 	{
+		if($('.game-quiz .page.active audio').size() > 0) {
+            var questionAudio = $('.game-quiz .page.active audio').get(0);
+            questionAudio.pause();
+            questionAudio.currentTime = 0;
+        }
+		
 	    var ele = $('.game-quiz .page.active');
         $('.game-quiz .page').removeClass('active');
 	    
@@ -157,11 +163,6 @@ $(function ()
             ele.next('.page').addClass('active');
         }
         
-        if($('.game-quiz .page.active audio').size() > 0) {
-            var questionAudio = $('.game-quiz .page.active audio').get(0);
-            questionAudio.pause();
-            questionAudio.currentTime = 0;
-        }
         if($('.page').last().hasClass('active')) {
             $('.next').hide();
             $('.end').show();
@@ -170,6 +171,12 @@ $(function ()
 	});
 	$('#previous').click(function()
 	{
+		if($('.game-quiz .page.active audio').size() > 0) {
+            var questionAudio = $('.game-quiz .page.active audio').get(0);
+            questionAudio.pause();
+            questionAudio.currentTime = 0;
+        }
+		
         var ele = $('.game-quiz .page.active');
         $('.game-quiz .page').removeClass('active');
         
@@ -179,12 +186,7 @@ $(function ()
                 $('.previous').hide();
              }
         }
-        
-        if($('.game-quiz .page.active audio').size() > 0) {
-            var questionAudio = $('.game-quiz .page.active audio').get(0);
-            questionAudio.pause();
-            questionAudio.currentTime = 0;
-        }
+
         $('.next').show();
         $('.end').hide();
         return;
