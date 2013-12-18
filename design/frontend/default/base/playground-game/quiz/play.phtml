@@ -13,8 +13,6 @@ $form->setAttribute('action', $this->url('frontend/quiz/play', array('id' => $th
 	    <?php echo $this->game->getTitle(); ?>
 	</h1>
 	
-    <?php echo $this->partial('playground-game/partial/game-header', array('game'=>$this->game, 'channel' => $this->channel));?>
-	
 	<!-- Content -->
 	<div id="content-article" class="content-game clearfix">
 	    <div class="col-md-1"></div>
@@ -108,8 +106,8 @@ $form->setAttribute('action', $this->url('frontend/quiz/play', array('id' => $th
 	                    <?php endif;?>
     				</div>
                     <?php if($question->getVideo()):?>
-                        <div class="video">
-        					<iframe width="100%" height="275" src="<?php echo $question->getVideo(); ?>" frameborder="0" allowfullscreen></iframe>
+                        <div class="video" data-src="<?php echo $question->getVideo(); ?>">
+        					
         				</div>
                     <?php endif;?>
                     <?php if($question->getAudio() != 0):?>

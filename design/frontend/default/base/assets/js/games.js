@@ -140,6 +140,12 @@ $(function ()
 			firstQuestionAudio.play();
 		}
 	}
+	
+	if($('.game-quiz .page.active .video').size() > 0) {
+		var questionVideo = $('.game-quiz .page.active .video');
+		questionVideo.append('<iframe width="100%" height="275" src="'+questionVideo.attr('data-src')+'" frameborder="0" allowfullscreen></iframe>');
+	}
+	
 	$('.end').hide();
 	if($('.page:first').hasClass('active')){
 		$('.previous').hide();
@@ -148,6 +154,7 @@ $(function ()
 		$('.next').hide();
 		$('.end').show();
 	}
+	
 	$('#next').click(function()
 	{
 		if($('.game-quiz .page.active audio').size() > 0) {
@@ -155,6 +162,11 @@ $(function ()
             questionAudio.pause();
             questionAudio.currentTime = 0;
         }
+		
+		if($('.game-quiz .page.active .video').size() > 0) {
+			var questionVideo = $('.game-quiz .page.active .video');
+			questionVideo.empty();
+		}
 		
 	    var ele = $('.game-quiz .page.active');
         $('.game-quiz .page').removeClass('active');
@@ -168,6 +180,11 @@ $(function ()
             $('.end').show();
         }
         $('.previous').show();
+        
+        if($('.game-quiz .page.active .video').size() > 0) {
+    		var questionVideo = $('.game-quiz .page.active .video');
+    		questionVideo.append('<iframe width="100%" height="275" src="'+questionVideo.attr('data-src')+'" frameborder="0" allowfullscreen></iframe>');
+    	}
 	});
 	$('#previous').click(function()
 	{
@@ -176,6 +193,11 @@ $(function ()
             questionAudio.pause();
             questionAudio.currentTime = 0;
         }
+		
+		if($('.game-quiz .page.active .video').size() > 0) {
+			var questionVideo = $('.game-quiz .page.active .video');
+			questionVideo.empty();
+		}
 		
         var ele = $('.game-quiz .page.active');
         $('.game-quiz .page').removeClass('active');
@@ -186,6 +208,11 @@ $(function ()
                 $('.previous').hide();
              }
         }
+        
+        if($('.game-quiz .page.active .video').size() > 0) {
+    		var questionVideo = $('.game-quiz .page.active .video');
+    		questionVideo.append('<iframe width="100%" height="275" src="'+questionVideo.attr('data-src')+'" frameborder="0" allowfullscreen></iframe>');
+    	}
 
         $('.next').show();
         $('.end').hide();
