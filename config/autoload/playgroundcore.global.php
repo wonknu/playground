@@ -87,7 +87,7 @@ $settings = array(
         'QuElFinder'=>array(
             'QuRoots'=>array(
                 'driver'        => 'LocalFileSystem',
-                'path'          =>  'C:\programmation\git\playground\public\media',
+                'path'          =>  dirname(dirname(__DIR__)).'/public/media',
                 'URL'           =>  '/media/',
                 'accessControl' => 'access'
             ),
