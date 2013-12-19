@@ -113,6 +113,8 @@ $playgrounduser = array(
             'route_login_fail' => 'admin'
         ),
         */
+
+        'anonymous_tracking' => false,
 );
 
 /**
