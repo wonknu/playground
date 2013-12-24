@@ -42,8 +42,7 @@
 		"ocramius/ocra-cached-view-resolver" : "1.0.*",
 		"hounddog/doctrine-data-fixture-module" : "0.*",
 		"jhuet/zdt-logger-module" : "0.*",
-        "playground/weather" : "dev-develop",
-        "playground/email-campaign": "dev-develop"
+        "playground/weather" : "dev-develop"
 	},
 	"require-dev" : {
 		"phpunit/phpunit" : "3.7.*",
